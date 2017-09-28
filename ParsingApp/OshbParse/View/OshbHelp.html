@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>OSHB Parsing Help</title>
+        <link rel="stylesheet" href="../Style/OshbStyle.css" />
+        <link rel="shortcut icon" href="../Image/OSHB.ico" />
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <header id="help">
+            <h1>OSHB Parsing Help</h1>
+        </header>
+        <nav class="topics">
+            <a href="#login">Login/Registration</a>
+            <a href="#text">Hebrew Text</a>
+            <a href="#parse">Parsing</a>
+            <a href="#explain">Explanation</a>
+        </nav>
+        <section id="login" class="helpSection">
+            <h2>Login/Registration</h2>
+            <nav class="topics">
+                <a href="#login.login">Login</a>
+                <a href="#login.reg">Registration</a>
+            </nav>
+            <article id="login.login" class="topic">
+                <h3>Login</h3>
+                <p>Logging in to the site is required, to facilitate
+                tracking contributions by members. Your username can be the same as your email address.  We do not yet
+                have a facility to help you with forgotten passwords,
+                so please be careful to remember them.</p>
+            </article>
+            <article id="login.reg" class="topic">
+                <h3>Registration</h3>
+                <p>Registration requires a valid email address. This will be used
+                for confirmation of your registration to the site. Your
+                choice of Username must be unique, for login purposes.
+                The password requirements are listed on the form, and your
+                password confirmation must match the original.</p>
+                <p>To maintain the integrity of our site, we are
+                unfortunately required to use the Enter What You See
+                mechanism. If you are unable to decipher it, there is a
+                Change Image option underneath.</p>
+            </article>
+            <p class="top"><a href="#">Return to Top</a></p>
+        </section>
+        <section id="text" class="helpSection">
+            <h2>Hebrew Text</h2>
+            <nav class="topics">
+                <a href="#text.select">Chapter Selection</a>
+                <a href="#text.appear">Text Appearance</a>
+            </nav>
+            <article id="text.select" class="topic">
+                <h3>Chapter Selection</h3>
+                <p>Once you are logged in, you will need to select a
+                chapter to parse. Any change to the Chapter dropdown
+                will select that chapter. Otherwise, you can use the
+                Select button to choose the current one.</p>
+            </article>
+            <article id="text.appear" class="topic">
+                <h3>Text Appearance</h3>
+                <p>The currently selected word is highlighted in green.
+                When a word has a parsing value, it will have a brown
+                background. This will make it more clear what needs to
+                be done. Hovering over a word will show you its augmented
+                Strong number, and if it has a parsing, that will appear
+                too.</p>
+            </article>
+            <p class="top"><a href="#">Return to Top</a></p>
+        </section>
+        <section id="parse" class="helpSection">
+            <h2>Parsing</h2>
+            <nav class="topics">
+                <a href="#parse.codes">Morph Codes</a>
+                <a href="#parse.lang">Language</a>
+                <a href="#parse.seg">Segments</a>
+                <a href="#parse.hint">Morph Hint</a>
+                <a href="#parse.nav">Navigation</a>
+                <a href="#parse.err">Errors</a>
+            </nav>
+            <article id="parse.codes" class="topic">
+                <h3>Morph Codes</h3>
+                <p>We have a web page describing the 
+                <a href="http://openscriptures.github.io/morphhb/parsing/HebrewMorphologyCodes.html"
+                    target="_blank">Hebrew Morphology Codes</a>
+                we are using for parsing.</p>
+            </article>
+            <article id="parse.lang" class="topic">
+                <h3>Language</h3>
+                <p>The language, Hebrew or Aramaic, for a given word is
+                already filled in when the word is selected. If you are
+                working in a passage of scripture where the language is
+                incorrect, you can change the Language choice beneath the
+                word box, and future selections will use that language.
+                To change the current word, simply backspace over the
+                language code, and type or click the correct one.</p>
+            </article>
+            <article id="parse.seg" class="topic">
+                <h3>Segments</h3>
+                <p>In the word box, the selected word is segmented to distinguish between prefixes,
+                   the main word and suffixes. Each segment is highlighted in green as you parse it.</p>
+            </article>
+            <article id="parse.hint" class="topic">
+                <h3>Morph Hint</h3>
+                <p>The hint dropdown, beneath the word box, is meant to
+                be an aid to parsing. The letter or key at the left can
+                be entered from the keyboard, or the line in the dropdown
+                can be clicked, to choose it.</p>
+                <p>If necessary, you can use an ‘x’ in a parsing field,
+                if there are other values to follow in that segment. To
+                skip to the next segment, enter a slash (/). If you are
+                in the final segment, you can apply the parsing.</p>
+            </article>
+            <article id="parse.nav" class="topic">
+                <h3>Navigation</h3>
+                <p>You can apply a parsing to the selected word by hitting
+                Enter or clicking Apply, at the end of the parsing.</p>
+                <p>When you apply a parsing, you will be automatically
+                advanced to the next word. You can also click any word in
+                the chapter, to select it for parsing. You can also use
+                the next (&lt;) and previous (&gt;) word buttons beside
+                the word box.</p>
+            </article>
+            <article id="parse.err" class="topic">
+                <h3>Errors</h3>
+                <p>If you should enter an incorrect parsing value, the
+                error will be indicated by a change of color in the
+                Morphology box, and a red X at the right. A description
+                of the error will appear in the Explanation box. You can
+                simply backspace in the Morphology box to remove the
+                error, and type a correct value, as indicated in the
+                hint dropdown.</p>
+                <p>If you find that an existing parsing is incorrect,
+                you can make the appropriate corrections, and apply
+                the parsing normally. Your correction will be recorded,
+                and an editor will be able to resolve the issue.</p>
+            </article>
+            <p class="top"><a href="#">Return to Top</a></p>
+        </section>
+        <section id="explain" class="helpSection">
+            <h2>Explanation</h2>
+            <article class="topic">
+                <h3>Explanation</h3>
+                <p>The Explanation box will give a verbal interpretation
+                of the parsing code, as you enter it. This will allow
+                you to understand the full meaning of your parsing, or
+                to identify any errors you might make.</p>
+            </article>
+            <p class="top"><a href="#">Return to Top</a></p>
+        </section>
+    </body>
+</html>

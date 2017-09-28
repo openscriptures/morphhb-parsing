@@ -1,41 +1,29 @@
 <?php
 require_once 'ChapterMarkup.php';
-/**
- * EditorMarkup marks up a chapter for the Editor interface.
- *
- * @author troidl
- */
+#****************************************************************************************************************************
+# EditorMarkup class -- construct Editor version of HTML markup form a chapter.
+#****************************************************************************************************************************
 class EditorMarkup extends ChapterMarkup
 {
-    /**
-     * Marks up the word.
-     * @param array $data
-     * @param string $pre
-     * @return string
-     */
-    protected function MarkupWord($data, $pre)
-    {
-        $markup = '<span class="word">';
-        $markup .= $pre . '<span id="' . $this->ref . '.' . $data['verse'] . '.' . $data['number'] . '"';
-        $markup .= ' class="Hebrew" title="' . $data['lemma'];
-        if ($data['morph']) {
-            $markup .= "&#10;" . $data['morph'];
-        }
-        $markup .= '">';
-        $markup .= $data['word'];
-        $markup .= '</span>';
-        // Check word type.
-        if ($data['type'] != 'word') {
-            $markup = '<span class="' . $data['type'] . '">' . $markup . '</span>';
-        }
-        // Mark up append.
-        $markup .= '<span class="punctuation">' . $data['append'] . '</span>';
-        // Container markup for the editor.
-        $markup .= '<br /><span class="morph">';
-        $markup .= $data['morph'] ? $data['morph'] : "&nbsp;";
-        $markup .= '</span></span>';
-        return $markup;
-    }
+
+# Markup one word for Editors from a verse given an array ($word) containing the data about it.
+
+protected function MarkupWord($word, $pre)  
+{ $out   = $this->HebrewSpan($word, $pre);                      # Markup the word as a Hebrew span (span class "Hebrew").
+  $out  .= span(null,'punctuation', null, $word['append']);     # Punctuation span: append data.
+  $out  .= '<br />';                                            
+  $out  .= span(null,'morph',       null, $word['morph'] ? $word['morph'] : "&nbsp;");  # Morph span:  editor markup.
+
+# DHS 6/13 added attribute title with word['status'] HERE HOWDY
+
+  $out   = span(null,'word', $word['status'], $out);    # Wrap these spans in a "word" span with word "status" as title.
+
+  if (($wt = $word['wordtype']) != 'word')              # IF    the word's "type" is other than 'word'
+  { $out = span(null, $wt, null, $out); }               # THEN  wrap the word span in a span class of the wordtype
+                                                        #       so that it can be styled according to its wordtype.
+  return $out; 
 }
+
+} # END class EditorMarkup
 
 ?>

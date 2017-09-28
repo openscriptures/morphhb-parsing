@@ -31,6 +31,7 @@ h1 span.logo
     left: 1.75em;
     line-height: 0.8em;
 }
+
 /* Navigation styles. */
 nav
 {
@@ -40,9 +41,11 @@ nav
     color: #77250f;
 }
 nav select, nav button
-{
-    font-family: "Palatino Linotype", Palatino, serif;
+{   font-family: "Palatino Linotype", Palatino, serif;
 }
+nav select#book    { width: 10em; }             /* DHS added */
+nav select#chapter { width: 5em;  }              /* DHS added */
+
 /* Interface styles. */
 section#parser
 {
@@ -123,7 +126,7 @@ section button#apply
     color: #77250f;
     height: 2em;
 }
-div#explain
+div#explain, div#colorkey
 {
     margin-top: 1em;
     padding: 0.5em 1em;
@@ -132,7 +135,7 @@ div#explain
     border: 3px double #77250f;
     max-width: 20em;
 }
-div#explain h2
+div#explain h2, div#colorkey h2
 {
     font: 1.2em "Palatino Linotype", Palatino, serif;
     color: #77250f;
@@ -217,14 +220,14 @@ span.qere
     font-size: smaller;
     color: blue;
 }
-span.current
-{
-    background-color: #9f9;
-}
-span.done
-{
-    background-color: rgb(221, 188, 144);
-}
+span.current    { background-color: #9f9; }
+span.done       { background-color: rgb(221, 188, 144); }
+span.single     { background-color: rgb(221, 188, 144); }
+span.confirmed  { background-color: rgb(189, 119,  68); }
+span.conflict   { background-color: rgb(254, 192, 204); }
+span.error                   { background-color: red; }
+span.verified   { background-color: rgb(172, 199, 236); }
+
 /* Login & Registration Forms */
 section form
 {
@@ -243,20 +246,31 @@ section form p
     color: #77250f;
     line-height: 1.2em;
 }
+section form span
+{
+    font-size: 70%; 
+    color: #77250f;
+    margin-left: 2em;
+/*    line-height: 1.2em;*/
+}
 section form label
 {
     display: block;
     font-size: 80%;
 }
-section form input
-{
-    font: 1em "Palatino Linotype", Palatino, serif;
+section form input  { font: 1em "Palatino Linotype", Palatino, serif; }
+section form img    { margin-bottom: .5em; }
+
+section form a {
+    color: #77250f;
 }
 section form button
 {
     font: 1em "Palatino Linotype", Palatino, serif;
     color: #77250f;
     margin-left: 4em;
+    margin-top:  1em;
+    margin-bottom:  1em;
 }
 /* Editor Styles */
 span.word
@@ -318,3 +332,17 @@ p.top
 {
     text-align: center;
 }
+
+/* Admin Styles DHS */
+section.admin
+{
+    margin: 1em;
+    padding: 0.5em;
+    background-color: rgba(255, 238, 187, 0.75);
+    border-radius: 1em;
+    border: 3px double #77250f;
+/*    width: 20em; */
+    box-shadow: 4px 4px 2px rgba(64, 64, 64, 0.5); 
+}
+/* Editor Styles DHS */
+select#editormorph    { width: 16em; }             /* DHS added */

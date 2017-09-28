@@ -23,6 +23,9 @@ public function __construct($host="", $username="", $passwd="", $dbname=""/*, $n
 
   parent::__construct($this->host, $this->username, $this->passwd, $this->dbname);
   if ($this->connect_errno) die('Connect Error ('. $this->connect_errno . ') ' . $this->connect_error);
+  if (!$this->set_charset("utf8")) die('Error loading character set utf8: '.$this->error."\n");
+# printf("Current character set: %s\n", $mysqli->character_set_name());
+
 }
 
 function dbquery($sql)              # returns an instance of DBResult to fetch rows with

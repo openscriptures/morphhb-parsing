@@ -7,6 +7,7 @@
  */
 class Books
 {
+
     static $ot = array("Gen" => "Genesis", "Exod" => "Exodus",
         "Lev" => "Leviticus", "Num" => "Numbers", "Deut" => "Deuteronomy",
         "Josh" => "Joshua", "Judg" => "Judges", "1Sam" => "1 Samuel",
@@ -43,5 +44,6 @@ class Books
         "Job" => "42", "Song" => "8", "Ruth" => "4", "Lam" => "5",
         "Eccl" => "12", "Esth" => "10", "Dan" => "12", "Ezra" => "10",
         "Neh" => "13", "1Chr" => "29", "2Chr" => "36");
-}
+
+} # END class Books
 ?>
