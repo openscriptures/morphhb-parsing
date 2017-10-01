@@ -1,6 +1,6 @@
 module.exports = (connection, done) => {
 
-  console.log(`Running fix script...`)
+  console.log(`\nRunning fix script...`)
 
 
   console.log(`Done with fix script.`)

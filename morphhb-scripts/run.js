@@ -28,10 +28,10 @@ const connection = mysql.createConnection({
 connection.connect(function(err) {
   if(err) throw err
 
-  console.log(`STARTING`)
+  console.log(`\nSTARTING`)
 
   // create _enhanced tables as copies
-  console.log(`Creating _enhanced tables...`)
+  console.log(`\nCreating _enhanced tables...`)
 
   let createTableStatements = ``
 
@@ -60,7 +60,7 @@ connection.connect(function(err) {
       check,
       validate,
       () => {
-        console.log(`COMPLETED`)
+        console.log(`\nCOMPLETED\n`)
         process.exit()
       }
     ], connection)
