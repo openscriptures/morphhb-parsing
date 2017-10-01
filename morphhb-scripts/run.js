@@ -33,44 +33,56 @@ connection.connect(function(err) {
 
   console.log(`\nCreating _enhanced tables...`)
 
-  let createTableStatements = ``
+  utils.createEnhancedTables(connection, {
+    tables: [
+      'notes',
+      'wordnote',
+      'words'
+    ],
+  }, () => {
 
-  // create _enhanced tables as copies
-  ;[
-    'notes',
-    'wordnote',
-    'words'
-  ].forEach(table => {
-    createTableStatements += `
-      DROP TABLE IF EXISTS ${table}_enhanced; 
-      CREATE TABLE ${table}_enhanced LIKE ${table}; 
-      INSERT ${table}_enhanced SELECT * FROM ${table};
-    `
-  })
+    utils.changeCollation(connection, {
+      table: 'words',
+      col: 'word',
+      colDef: 'VARCHAR(20)',
+      charset: 'utf8',
+      collation: 'utf8_bin',
+    }, () => {
 
-  connection.query(createTableStatements, (err, result) => {
-    if(err) throw err
+      utils.createIndexes(connection, {
+        indexes: [
+          {
+            table: 'words',
+            col: 'morph',
+          },
+          {
+            table: 'words',
+            col: 'word',
+          },
+        ],
+      }, () => {
 
-    utils.createIndexes(connection, () => {
+        utils.createAccentlessWordCol(connection, () => {
 
-      console.log(`Done creating _enhanced tables.`)
-  
-      runInSeries([
-        fix,
-        weedOut,
-        flag,
-        compare,
-        autoParse,
-        check,
-        validate,
-        () => {
-          console.log(`\nCOMPLETED\n`)
-          process.exit()
-        }
-      ], connection)
+          console.log(`Done creating _enhanced tables.`)
       
+          runInSeries([
+            fix,
+            weedOut,
+            flag,
+            compare,
+            autoParse,
+            check,
+            validate,
+            () => {
+              console.log(`\nCOMPLETED\n`)
+              process.exit()
+            }
+          ], connection)
+        
+        })
+      })
     })
-
   })
 
 });
