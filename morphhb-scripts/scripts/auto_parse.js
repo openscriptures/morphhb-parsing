@@ -1,3 +1,5 @@
+const utils = require('../utils')
+
 module.exports = (connection, done) => {
   
   console.log(`\nRunning auto-parse script...`)
@@ -12,28 +14,86 @@ module.exports = (connection, done) => {
     if(err) throw err
     
     let lastWord = ``
-    let count = 0
+    let uniqueWordsCount = 0
+    let totalWordsCount = 0
+    let updateWordQueries = ``
 
-    result.forEach(row => {
+    const rowsToUse = result.filter(row => {
       if(lastWord == row.word) {
         // unsafe to try to auto-parse a word with multiple lemmas
         console.log(`  Skipping ${row.word} since this form is a representation of multiple lemmas and thus unsafe to auto-parse.`)
+        return false
       }
-      count++
+
       lastWord = row.word
+
+      return true
     })
 
-    console.log(`unique words without morph: ${count}`)
+    const tryNextWord = () => {
 
-    console.log(`Done with auto-parse script.`)
-    done()
+      if(rowsToUse.length > 0) {
+
+        const rowWithoutMorph = rowsToUse.shift()
+  
+        // Only uses forms which have been parsed 2+ times by humans, are not flagged as questionable, and in every
+        // instance they have been parsed the same
+        let selectWord = `SELECT morph, COUNT(morph) as cnt FROM words_enhanced
+                            WHERE word="${rowWithoutMorph.word}" AND morph IS NOT NULL AND status IN ('single', 'confirmed', 'verified')
+                            GROUP BY morph`
+        connection.query(selectWord, (err, result) => {
+          if(err) throw err
+  
+          if(result.length == 1 && result[0].cnt >= 2) {
+            uniqueWordsCount++
+            updateWordQueries += `UPDATE words_enhanced SET morph='${result[0].morph}'
+                                    WHERE word="${rowWithoutMorph.word}" AND morph IS NULL;`
+            // updateWordQueries += `SELECT COUNT(*) as cnt FROM words_enhanced
+            //                         WHERE word="${rowWithoutMorph.word}" AND morph IS NULL;`
+
+          }
+
+
+          // Flag for manual check if there is only one outlier for a form that appears a lot, as I would hate for this
+          // to ruin the auto-parsing
+          if(result.length == 2 && (
+            (result[0].cnt == 1 && result[1].cnt > 10)
+            || (result[1].cnt == 1 && result[0].cnt > 10)
+          )) {
+            console.log(`  >> MANUAL CHECK: See if the outlier for the form ${rowWithoutMorph.word} is invalid, and if so flag it as questionable so that this form can be auto-parsed.`)
+          }
+
+          tryNextWord()
+  
+        })
+
+      } else {  // done composing updates
+
+        // run updates
+        connection.query(updateWordQueries, (err, result) => {
+          if(err) throw err
+          
+          result.forEach(updateResult => {
+            totalWordsCount += updateResult.affectedRows
+            // totalWordsCount += updateResult[0].cnt
+          })
+
+          console.log(`  ${totalWordsCount} words auto-parsed from ${uniqueWordsCount} unique forms.`)
+
+          console.log(`Done with auto-parse script.`)
+          done()
+
+        })
+      }
+    }
+
+    tryNextWord()
+
   })      
 
-  // Only uses forms which have been parsed 2+ times by humans, are not flagged as questionable, and in every
-  // instance they have been parsed the same
-  
-  // Flag for manual check if there is only one outlier for a form that appears a lot, as I would hate for this
-  // to ruin the auto-parsing
 
 
-}  
+}
+
+
+// same lemma!

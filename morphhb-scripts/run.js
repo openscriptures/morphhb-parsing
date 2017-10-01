@@ -9,6 +9,7 @@ const compare = require('./scripts/compare')
 const autoParse = require('./scripts/auto_parse')
 const check = require('./scripts/check')
 const validate = require('./scripts/validate')
+const utils = require('./utils')
 
 const runInSeries = (funcs, connection) => {
   const runNext = () => {
@@ -30,11 +31,11 @@ connection.connect(function(err) {
 
   console.log(`\nSTARTING`)
 
-  // create _enhanced tables as copies
   console.log(`\nCreating _enhanced tables...`)
 
   let createTableStatements = ``
 
+  // create _enhanced tables as copies
   ;[
     'notes',
     'wordnote',
@@ -49,21 +50,26 @@ connection.connect(function(err) {
 
   connection.query(createTableStatements, (err, result) => {
     if(err) throw err
-    console.log(`Done creating _enhanced tables.`)
 
-    runInSeries([
-      fix,
-      weedOut,
-      flag,
-      compare,
-      autoParse,
-      check,
-      validate,
-      () => {
-        console.log(`\nCOMPLETED\n`)
-        process.exit()
-      }
-    ], connection)
+    utils.createIndexes(connection, () => {
+
+      console.log(`Done creating _enhanced tables.`)
+  
+      runInSeries([
+        fix,
+        weedOut,
+        flag,
+        compare,
+        autoParse,
+        check,
+        validate,
+        () => {
+          console.log(`\nCOMPLETED\n`)
+          process.exit()
+        }
+      ], connection)
+      
+    })
 
   })
 
