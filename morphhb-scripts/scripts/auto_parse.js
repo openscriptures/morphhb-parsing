@@ -28,13 +28,14 @@ module.exports = (connection, done) => {
 
         // Only uses forms which have been parsed 2+ times by humans, are not flagged as questionable, and in every
         // instance they have been parsed the same
-        let selectWord = `SELECT morph, COUNT(morph) as cnt FROM words_enhanced
+        const selectWord = `SELECT morph, COUNT(morph) as cnt FROM words_enhanced
                             WHERE
                               accentlessword="${rowWithoutMorph.accentlessword}"
                               AND lemma="${rowWithoutMorph.lemma}"
                               AND morph IS NOT NULL
                               AND status IN ('single', 'confirmed', 'verified')
-                            GROUP BY morph`
+                            GROUP BY morph
+                          `
         connection.query(selectWord, (err, result) => {
           if(err) throw err
   
@@ -55,7 +56,24 @@ module.exports = (connection, done) => {
             (result[0].cnt == 1 && result[1].cnt > 10)
             || (result[1].cnt == 1 && result[0].cnt > 10)
           )) {
-            console.log(`  >> MANUAL CHECK: See if the outlier for the accentless form ${rowWithoutMorph.accentlessword} is invalid, and if so flag it as questionable so that this form can be auto-parsed.`)
+            const outlier = result[1].cnt == 1 ? result[1] : result[0]
+            const selectWordWithLocInfo = `SELECT bookId, chapter, verse FROM words_enhanced
+                                            WHERE
+                                              accentlessword="${rowWithoutMorph.accentlessword}"
+                                              AND lemma="${rowWithoutMorph.lemma}"
+                                              AND morph="${outlier.morph}"
+                                              AND status IN ('single', 'confirmed', 'verified')
+                                            LIMIT 1
+                                          `
+            connection.query(selectWordWithLocInfo, (err, result) => {
+              if(err) throw err
+            
+              console.log(`  >> MANUAL CHECK: See if the outlier (${utils.getBibleBookName(result[0].bookId)} ${result[0].chapter}:${result[0].verse}) for the accentless form ${rowWithoutMorph.accentlessword} is invalid, and if so flag it as questionable so that this form can be auto-parsed.`)
+
+              tryNextWord()
+            })
+
+            return
           }
 
           tryNextWord()

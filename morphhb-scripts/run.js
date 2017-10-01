@@ -59,6 +59,14 @@ connection.connect(function(err) {
             table: 'words',
             col: 'word',
           },
+          {
+            table: 'words',
+            col: 'lemma',
+          },
+          {
+            table: 'words',
+            col: 'status',
+          },
         ],
       }, () => {
 
