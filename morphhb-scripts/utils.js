@@ -1,5 +1,12 @@
 const utils = {
-
+  
+  runInSeries: (funcs, connection) => {
+    const runNext = () => {
+      funcs.shift()(connection, runNext)
+    }
+    runNext()
+  },
+  
   changeCollation: (connection, { table, col, colDef, charset, collation }, done) => {
 
     const changeCollationStatement = `

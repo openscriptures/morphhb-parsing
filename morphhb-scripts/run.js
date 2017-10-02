@@ -11,13 +11,6 @@ const check = require('./scripts/check')
 const validate = require('./scripts/validate')
 const utils = require('./utils')
 
-const runInSeries = (funcs, connection) => {
-  const runNext = () => {
-    funcs.shift()(connection, runNext)
-  }
-  runNext()
-}
-
 const connection = mysql.createConnection({
   host: process.env.DB_NAME || "localhost",
   database: process.env.HOSTNAME || 'oshb-parsing',
@@ -74,7 +67,7 @@ connection.connect(function(err) {
 
           console.log(`Done creating _enhanced tables.`)
       
-          runInSeries([
+          utils.runInSeries([
             fix,
             weedOut,
             flag,
