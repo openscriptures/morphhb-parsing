@@ -79,6 +79,7 @@ const utils = {
   },
 
   doUpdatesInChunks: (connection, { updates }, done) => {
+    updates = [...updates]
     let totalRowsUpdated = 0
 
     const doNextChunkOfUpdates = () => {
@@ -148,6 +149,35 @@ const utils = {
           })
         })
       })
+    })
+
+  },
+
+  runReplaceOnMorph: ({ connection, table, regex, replace, doVerified=false, next }) => {
+
+    let select = `SELECT * FROM ${table}_enhanced WHERE morph REGEXP '${regex.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'`
+
+    if(!doVerified) {
+      if(table == 'notes') {
+        select += ` AND verification=0`
+      } else if(table == 'words') {
+        select += ` AND status!='verified'`
+      }
+    }
+
+    connection.query(select, (err, result) => {
+      if(err) throw err
+
+      const updates = result.map(row => `
+        UPDATE ${table}_enhanced SET morph='${row.morph.replace(regex, replace)}' WHERE id=${row.id}
+      `)
+
+      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+        if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+        console.log(`    - ${numRowsUpdated} words updated.`)
+        next()
+      })
+
     })
 
   },
