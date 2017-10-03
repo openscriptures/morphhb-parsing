@@ -1,5 +1,5 @@
 const utils = {
-  
+
   runInSeries: (funcs, connection) => {
     const runNext = () => {
       funcs.shift()(connection, runNext)
@@ -7,20 +7,6 @@ const utils = {
     runNext()
   },
   
-  changeCollation: (connection, { table, col, colDef, charset, collation }, done) => {
-
-    const changeCollationStatement = `
-      ALTER TABLE ${table}_enhanced MODIFY ${col} ${colDef} CHARACTER SET ${charset} COLLATE ${collation};
-    `
-
-    connection.query(changeCollationStatement, (err, result) => {
-      if(err) throw err
-      
-      done()
-    })
-
-  },
-
   createEnhancedTables: (connection, { tables }, done) => {
 
     let createTableStatements = ``
@@ -30,6 +16,7 @@ const utils = {
       createTableStatements += `
         DROP TABLE IF EXISTS ${table}_enhanced; 
         CREATE TABLE ${table}_enhanced LIKE ${table}; 
+        ALTER TABLE ${table}_enhanced CONVERT TO CHARACTER SET utf8 COLLATE utf8_bin;
         INSERT ${table}_enhanced SELECT * FROM ${table};
       `
     })

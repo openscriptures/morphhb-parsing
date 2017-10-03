@@ -34,54 +34,45 @@ connection.connect(function(err) {
     ],
   }, () => {
 
-    utils.changeCollation(connection, {
-      table: 'words',
-      col: 'word',
-      colDef: 'VARCHAR(20)',
-      charset: 'utf8',
-      collation: 'utf8_bin',
+    utils.createIndexes(connection, {
+      indexes: [
+        {
+          table: 'words',
+          col: 'morph',
+        },
+        {
+          table: 'words',
+          col: 'word',
+        },
+        {
+          table: 'words',
+          col: 'lemma',
+        },
+        {
+          table: 'words',
+          col: 'status',
+        },
+      ],
     }, () => {
 
-      utils.createIndexes(connection, {
-        indexes: [
-          {
-            table: 'words',
-            col: 'morph',
-          },
-          {
-            table: 'words',
-            col: 'word',
-          },
-          {
-            table: 'words',
-            col: 'lemma',
-          },
-          {
-            table: 'words',
-            col: 'status',
-          },
-        ],
-      }, () => {
+      utils.createAccentlessWordCol(connection, () => {
 
-        utils.createAccentlessWordCol(connection, () => {
-
-          console.log(`Done creating _enhanced tables.`)
+        console.log(`Done creating _enhanced tables.`)
+    
+        utils.runInSeries([
+          fix,
+          weedOut,
+          flag,
+          compare,
+          autoParse,
+          check,
+          validate,
+          () => {
+            console.log(`\nCOMPLETED\n`)
+            process.exit()
+          }
+        ], connection)
       
-          utils.runInSeries([
-            fix,
-            weedOut,
-            flag,
-            compare,
-            autoParse,
-            check,
-            validate,
-            () => {
-              console.log(`\nCOMPLETED\n`)
-              process.exit()
-            }
-          ], connection)
-        
-        })
       })
     })
   })
