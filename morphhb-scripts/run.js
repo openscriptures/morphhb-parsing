@@ -37,6 +37,22 @@ connection.connect(function(err) {
     utils.createIndexes(connection, {
       indexes: [
         {
+          table: 'notes',
+          col: 'morph',
+        },
+        {
+          table: 'notes',
+          col: 'noteDate',
+        },
+        {
+          table: 'wordnote',
+          col: 'wordId',
+        },
+        {
+          table: 'wordnote',
+          col: 'noteId',
+        },
+        {
           table: 'words',
           col: 'morph',
         },
