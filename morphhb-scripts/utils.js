@@ -182,6 +182,35 @@ const utils = {
 
   },
 
+  removeNoteOnMatch: ({ connection, regex, next }) => {
+
+    let select = `
+      SELECT notes_enhanced.*, words_enhanced.word, words_enhanced.bookId, words_enhanced.chapter, words_enhanced.verse
+      FROM notes_enhanced
+        LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
+        LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+      WHERE notes_enhanced.morph REGEXP '${regex.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'
+    `
+
+    connection.query(select, (err, result) => {
+      if(err) throw err
+
+      const updates = result.map(row => {
+        const verified = row.verification ? '| WAS VERIFIED ' : ''
+        console.log(`    ${row.word} | ${row.morph} ${verified}| ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}`)
+        return `DELETE FROM notes_enhanced WHERE id=${row.id}`
+      })
+
+      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+        if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+        console.log(`    - ${numRowsUpdated} words updated.`)
+        next()
+      })
+
+    })
+
+  },
+
   getBibleBookName: (bookid) => {
 
     return [
