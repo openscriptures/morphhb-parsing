@@ -428,10 +428,32 @@ module.exports = (connection, done) => {
       })
 
     },
+
+    (x, next) => {
+
+      console.log(`  Get rid of x's at the end of a parsing...`)
+    
+      // Ag???
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*)x+(\/|$)/,
+        replace: '$1$2',
+        doVerified: true,
+        next,
+      })
+
+    },
     
     () => {
       console.log(`Done with fix script.`)
       done()
     }
   ])
+
+  // Guess at gender, number, and state of gentilic nouns when they are not indicated (eg. פְּלִשְׁתִּ֖ים with ים ending = mpa)
+
 }  
+
+adj with type of x changed to a
