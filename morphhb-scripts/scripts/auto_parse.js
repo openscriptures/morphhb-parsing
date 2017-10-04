@@ -38,15 +38,16 @@ module.exports = (connection, done) => {
                           `
         connection.query(selectWord, (err, result) => {
           if(err) throw err
+
+          const autoParseWhere = `WHERE
+            accentlessword="${rowWithoutMorph.accentlessword}"
+            AND lemma="${rowWithoutMorph.lemma}"
+            AND status IN ('none', 'conflict')
+          `
   
           if(result.length == 1 && result[0].cnt >= 2) {
             uniqueWordsCount++
-            updateWordQueries.push(`UPDATE words_enhanced SET morph='${result[0].morph}'
-                                    WHERE
-                                      accentlessword="${rowWithoutMorph.accentlessword}"
-                                      AND lemma="${rowWithoutMorph.lemma}"
-                                      AND morph IS NULL
-                                  `)
+            updateWordQueries.push(`UPDATE words_enhanced SET morph='${result[0].morph}', status='single' ${autoParseWhere}`)
           }
 
 
@@ -65,12 +66,19 @@ module.exports = (connection, done) => {
                                               AND status IN ('single', 'confirmed', 'verified')
                                             LIMIT 1
                                           `
-            connection.query(selectWordWithLocInfo, (err, result) => {
+            connection.query(selectWordWithLocInfo, (err, result1) => {
               if(err) throw err
             
-              console.log(`  >> MANUAL CHECK: See if the outlier (${utils.getBibleBookName(result[0].bookId)} ${result[0].chapter}:${result[0].verse}) for the accentless form ${rowWithoutMorph.accentlessword} is invalid, and if so flag it as questionable so that this form can be auto-parsed.`)
+              const countPotentialAutoParsed = `SELECT COUNT(*) as cnt FROM words_enhanced ${autoParseWhere}`
+              connection.query(countPotentialAutoParsed, (err, result2) => {
+                if(err) throw err
 
-              tryNextWord()
+                if(result2[0].cnt > 5) {
+                  console.log(`  >> MANUAL CHECK: Check the outlier (${utils.getBibleBookName(result1[0].bookId)} ${result1[0].chapter}:${result1[0].verse}) for the accentless form ${rowWithoutMorph.accentlessword}. If it can be corrected, then ${result2[0].cnt} more words can be auto-parsed.`)
+                }
+
+                tryNextWord()
+              })
             })
 
             return
