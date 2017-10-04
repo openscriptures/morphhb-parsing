@@ -411,6 +411,23 @@ module.exports = (connection, done) => {
       })
 
     },
+
+    (x, next) => {
+
+      console.log(`  Every gentilic adjective will be corrected to be a gentilic noun...`)
+    
+      // Ag???
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*)A(g[^\/][^\/][^\/])/,
+        replace: '$1N$2',
+        doVerified: true,
+        next,
+      })
+
+    },
     
     () => {
       console.log(`Done with fix script.`)
