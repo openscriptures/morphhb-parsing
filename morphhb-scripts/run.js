@@ -6,6 +6,7 @@ const fix = require('./scripts/fix')
 const weedOut = require('./scripts/weed_out')
 const flag = require('./scripts/flag')
 const compare = require('./scripts/compare')
+const guessParse = require('./scripts/guess_parse')
 const autoParse = require('./scripts/auto_parse')
 const check = require('./scripts/check')
 const validate = require('./scripts/validate')
@@ -80,6 +81,7 @@ connection.connect(function(err) {
           weedOut,
           flag,
           compare,
+          guessParse,
           autoParse,
           check,
           validate,
