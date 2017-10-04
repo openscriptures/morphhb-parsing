@@ -210,6 +210,12 @@ module.exports = (connection, done) => {
 
     },
 
+    // (x, next) => {
+      
+    //   console.log(`  Parsings should not contain an x in the middle, except for demonstrative pronouns...`)
+
+    // },
+
     () => {
       console.log(`Done with weed-out script.`)
       done()
