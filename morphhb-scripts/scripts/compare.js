@@ -38,6 +38,7 @@ module.exports = (connection, done) => {
           lastRowWithUniqueWord.notes = [ noteObj ]
         } else if(lastRowWithUniqueWord.notes.every(note => (note.memberId != row.memberId))) {
           // if there is not already a note by this member, add it to the list
+          // (only takes into account the latest parsing of a word made by a single user)
           lastRowWithUniqueWord.notes.push(noteObj)          
         }
         return false
