@@ -161,11 +161,11 @@ module.exports = (connection, done) => {
     
     (x, next) => {
       
-      console.log(`  Adjectives must have a gender of masculine or feminine...`)
+      console.log(`  Adjectives (except for cardinal numbers) must have a gender of masculine or feminine...`)
 
       utils.removeNoteOnMatch({
         connection,
-        regex: /^H([^\/]*\/)*A[^\/][^fm]/,
+        regex: /^H([^\/]*\/)*A[ago][^fm]/,
         next,
       })
 
