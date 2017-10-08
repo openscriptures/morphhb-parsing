@@ -256,11 +256,18 @@ module.exports = (connection, done) => {
 
     },
 
-    // (x, next) => {
+    (x, next) => {
       
-    //   console.log(`  Sequential perfects and imperfects must be have a conjunction prefix...`)
+      console.log(`  Sequential perfects and imperfects must be have a conjunction prefix...`)
 
-    // },
+      utils.removeNoteOnMatch({
+        connection,
+        regex: /^H([^\/]*\/)*V[^\/][qw]/,
+        except: /^HC\/V[^\/][qw]/,
+        next,
+      })
+
+    },
 
     (x, next) => {
       
