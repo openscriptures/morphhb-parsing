@@ -81,8 +81,8 @@ connection.connect(function(err) {
           weedOut,
           flag,
           compare,
-          guessParse,
           autoParse,
+          guessParse,
           check,
           validate,
           () => {
@@ -107,7 +107,7 @@ connection.connect(function(err) {
                   totalWithAtLeastSinglePass += result[0].cnt
                 }
               })
-              console.log(`  single/confirmed/verified: totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
+              console.log(`  single/confirmed/verified: ${totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
               
               console.log(`\nCOMPLETED\n`)
               process.exit()
