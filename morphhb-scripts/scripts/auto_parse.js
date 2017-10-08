@@ -46,7 +46,20 @@ module.exports = (connection, done) => {
 
     // Fixes to common mis-parsed words
     "אֲדֹנָי/ו": "HNcmpc/Sp3ms",
+    "אַחֲרֵי": "HR",
+    // אֵ֥לֶּה
+    // הָ/אֵ֑לֶּה
     
+    // Auto parse of most common forms that are not getting guess-parsed
+    "כָּל": "HNcmsc",
+    "וְ/כָל": "HC/Ncmsc",
+    "לִ/פְנֵי": "HR/Ncbpc",
+    "וַ/יֹּאמְרוּ": "HC/Vqw3mp",
+    "בְּ/כָל": "HR/Ncmsc",
+    "כָל": "HNcmsc",
+    "וְ/עַד": "HC/R",
+    "לְ/כָל": "HR/Ncmsc",
+
   }
 
   const updates = []
