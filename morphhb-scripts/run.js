@@ -86,8 +86,33 @@ connection.connect(function(err) {
           check,
           validate,
           () => {
-            console.log(`\nCOMPLETED\n`)
-            process.exit()
+
+            const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
+
+            const countStatuses = statuses.map(status => `
+              SELECT COUNT(*) as cnt FROM words_enhanced WHERE status='${status}'
+            `).join(';')
+
+            connection.query(countStatuses, (err, results) => {
+              if(err) throw err
+
+              let total = 0
+              results.forEach(result => total += result[0].cnt)
+
+              console.log(`\nEND RESULT:`)
+              let totalWithAtLeastSinglePass = 0
+              results.forEach((result, index) => {
+                console.log(`  ${statuses[index]}: ${result[0].cnt} (${parseInt((result[0].cnt/total)*100)}%)`)
+                if([ 'single', 'confirmed', 'verified' ].includes(statuses[index])) {
+                  totalWithAtLeastSinglePass += result[0].cnt
+                }
+              })
+              console.log(`  single/confirmed/verified: totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
+              
+              console.log(`\nCOMPLETED\n`)
+              process.exit()
+
+            })
           }
         ], connection)
       
