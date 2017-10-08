@@ -182,7 +182,7 @@ const utils = {
 
   },
 
-  removeNoteOnMatch: ({ connection, regex, next }) => {
+  removeNoteOnMatch: ({ connection, regex, except, next }) => {
 
     let select = `
       SELECT notes_enhanced.*, words_enhanced.word, words_enhanced.bookId, words_enhanced.chapter, words_enhanced.verse
@@ -191,6 +191,12 @@ const utils = {
         LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
       WHERE notes_enhanced.morph REGEXP '${regex.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'
     `
+
+    if(except) {
+      select += `
+        AND notes_enhanced.morph NOT REGEXP '${except.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'
+      `
+    }
 
     connection.query(select, (err, result) => {
       if(err) throw err

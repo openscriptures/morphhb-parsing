@@ -1,4 +1,5 @@
 const utils = require('../utils')
+const codeValidator = require('../code_validator')
 
 module.exports = (connection, done) => {
   
@@ -6,17 +7,73 @@ module.exports = (connection, done) => {
 
   utils.runInSeries([
 
-    // (x, next) => {
+    (x, next) => {
       
-    //   console.log(`  Number of morph parts must match the number of word parts...`)
+      console.log(`  Number of morph parts must match the number of word parts...`)
 
-    // },
+      const deleteStatement = `
+        DELETE FROM notes_enhanced WHERE id IN (
+          SELECT tbl.id FROM (
+            SELECT 
+              notes_enhanced.id,
+              notes_enhanced.morph,    
+              words_enhanced.word,    
+              (LENGTH(notes_enhanced.morph) - LENGTH( REPLACE ( notes_enhanced.morph, "/", "") ) ) as morphSeparators,
+              (LENGTH(words_enhanced.word) - LENGTH( REPLACE ( words_enhanced.word, "/", "") ) ) as wordSeparators
+            FROM notes_enhanced
+              LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
+              LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+          ) as tbl WHERE tbl.morphSeparators != tbl.wordSeparators      
+        )
+      `
 
-    // (x, next) => {
+      connection.query(deleteStatement, (err, result) => {
+        if(err) throw err
+
+        console.log(`    ${result.affectedRows} parsings deleted because they had a different number of parts than the word`)
+        
+        next()
+      })
+  
+    },
+
+    (x, next) => {
       
-    //   console.log(`  Must contain valid parsing letter combo (test with existing parser validator)...`)
+      console.log(`  Must contain valid parsing letter combo (test with existing parser validator)...`)
 
-    // },
+      const select = `SELECT id, morph FROM notes_enhanced`
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = []
+
+        result.forEach(row => {
+          if(!codeValidator.parsingCodeIsValid(row.morph)) {
+
+            if(row.morph == 'HPdcp') {
+              updates.push(`UPDATE notes_enhanced SET morph='HPdxcp' WHERE id='${row.id}'`)
+            } else if(row.morph == 'HC/Pdcp') {
+              updates.push(`UPDATE notes_enhanced SET morph='HC/Pdxcp' WHERE id='${row.id}'`)
+            } else if(row.morph == 'HR/S3mp') {
+              updates.push(`UPDATE notes_enhanced SET morph='HR/Sp3mp' WHERE id='${row.id}'`)
+            } else if(codeValidator.parsingCodeIsValid('H' + row.morph)) {
+              updates.push(`UPDATE notes_enhanced SET morph='${'H' + row.morph}' WHERE id='${row.id}'`)
+            } else {
+              updates.push(`DELETE FROM notes_enhanced WHERE id='${row.id}'`)
+              console.log(`    ${row.morph} is not a valid parsing code and so deleting this entry`)
+            }
+          }
+        })
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+          next()
+        })
+
+      })
+      
+    },
 
     (x, next) => {
       
@@ -130,6 +187,25 @@ module.exports = (connection, done) => {
       
     //   console.log(`  Directional/paragogic ה and paragogic ן must consist of ה or ן...`)
 
+    //   const updates = `
+    //     DELETE FROM notes_enhanced WHERE id IN (
+    //       SELECT 
+    //         notes_enhanced.id,
+    //       FROM notes_enhanced
+    //         LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
+    //         LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+    //       WHERE 
+    //         notes_enhanced.morph REGEXP '^H([^\/]*\/)*S[dh]$'
+    //         AND words_enhanced.word NOT REGEXP 'ה$'
+    //     )
+    //   `
+
+    //   utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+    //     if(err) throw err
+        
+    //     next()
+    //   })
+
     // },
     
     // (x, next) => {
@@ -210,11 +286,18 @@ module.exports = (connection, done) => {
 
     },
 
-    // (x, next) => {
+    (x, next) => {
       
-    //   console.log(`  Parsings should not contain an x in the middle, except for demonstrative pronouns...`)
+      console.log(`  Parsings should not contain an x in the middle, except for demonstrative pronouns...`)
 
-    // },
+      utils.removeNoteOnMatch({
+        connection,
+        regex: /^H.*x[^\/]/,
+        except: /^H([^\/]*\/)*Pd/,
+        next,
+      })
+
+    },
 
     () => {
       console.log(`Done with weed-out script.`)

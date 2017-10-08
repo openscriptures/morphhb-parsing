@@ -446,14 +446,27 @@ module.exports = (connection, done) => {
 
     },
     
+    (x, next) => {
+
+      console.log(`  Adjectives with type of x will be changed to a...`)
+    
+      // Ag???
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*A)x/,
+        replace: '$1a',
+        doVerified: true,
+        next,
+      })
+
+    },
+    
     () => {
       console.log(`Done with fix script.`)
       done()
     }
   ])
 
-  // Guess at gender, number, and state of gentilic nouns when they are not indicated (eg. פְּלִשְׁתִּ֖ים with ים ending = mpa)
-
 }  
-
-adj with type of x changed to a
