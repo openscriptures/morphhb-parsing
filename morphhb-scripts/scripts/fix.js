@@ -433,12 +433,10 @@ module.exports = (connection, done) => {
 
       console.log(`  Get rid of x's at the end of a parsing...`)
     
-      // Ag???
-
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*)x+(\/|$)/,
+        regex: /^(H(?:[^\/]*\/)*[^\/]*)x+(\/|$)/,
         replace: '$1$2',
         doVerified: true,
         next,
@@ -450,8 +448,6 @@ module.exports = (connection, done) => {
 
       console.log(`  Adjectives with type of x will be changed to a...`)
     
-      // Ag???
-
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
@@ -477,7 +473,7 @@ module.exports = (connection, done) => {
       })
 
     },
-    
+
     () => {
       console.log(`Done with fix script.`)
       done()
