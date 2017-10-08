@@ -462,6 +462,21 @@ module.exports = (connection, done) => {
       })
 
     },
+
+    (x, next) => {
+
+      console.log(`  Parsing that include R/Rd/ should really be simply Rd/...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*)R\/(Rd\/)/,
+        replace: '$1$2',
+        doVerified: true,
+        next,
+      })
+
+    },
     
     () => {
       console.log(`Done with fix script.`)
