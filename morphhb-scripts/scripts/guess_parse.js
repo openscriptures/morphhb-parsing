@@ -1,3 +1,5 @@
+const MINIMUM_PERCENTAGE_OF_UNIFORMITY_FOR_GUESS = 90
+
 const utils = require('../utils')
 
 module.exports = (connection, done) => {
@@ -40,48 +42,60 @@ module.exports = (connection, done) => {
             AND lemma="${rowWithoutMorph.lemma}"
             AND status IN ('none', 'conflict')
           `
+
+          let totalWithThisForm = 0
+          result.forEach(row => totalWithThisForm += row.cnt)
+
+          let mainMorph
+          let mainMorphPercentage
+          const outliers = []
+
+          result.forEach(row => {
+            if(row.cnt / totalWithThisForm >= MINIMUM_PERCENTAGE_OF_UNIFORMITY_FOR_GUESS/100) {
+              mainMorphPercentage = parseInt((row.cnt / totalWithThisForm) * 100)
+              mainMorph = row.morph
+            } else {
+              outliers.push(row)
+            }
+          })
   
-          if(result.length == 1 && result[0].cnt >= 2) {
+          if(mainMorph && totalWithThisForm >= 2) {
             uniqueWordsCount++
             updateWordQueries.push(`UPDATE words_enhanced SET morph='${result[0].morph}', status='single' ${autoParseWhere}`)
-          }
 
-
-          // Flag for manual check if there is only one outlier for a form that appears a lot, as I would hate for this
-          // to ruin the guess-parsing
-          if(result.length == 2 && (
-            (result[0].cnt == 1 && result[1].cnt > 10)
-            || (result[1].cnt == 1 && result[0].cnt > 10)
-          )) {
-            const outlier = result[1].cnt == 1 ? result[1] : result[0]
-            const selectWordWithLocInfo = `SELECT bookId, chapter, verse FROM words_enhanced
-                                            WHERE
-                                              accentlessword="${rowWithoutMorph.accentlessword}"
-                                              AND lemma="${rowWithoutMorph.lemma}"
-                                              AND morph="${outlier.morph}"
-                                              AND status IN ('single', 'confirmed', 'verified')
-                                            LIMIT 1
-                                          `
-            connection.query(selectWordWithLocInfo, (err, result1) => {
-              if(err) throw err
-            
-              const countPotentialAutoParsed = `SELECT COUNT(*) as cnt FROM words_enhanced ${autoParseWhere}`
-              connection.query(countPotentialAutoParsed, (err, result2) => {
+            if(outliers.length > 0) {
+              const selectWordWithLocInfo = outliers.map(outlier => `
+                SELECT bookId, chapter, verse FROM words_enhanced
+                  WHERE
+                    accentlessword="${rowWithoutMorph.accentlessword}"
+                    AND lemma="${rowWithoutMorph.lemma}"
+                    AND morph="${outlier.morph}"
+                    AND status IN ('single', 'confirmed', 'verified')
+                  LIMIT 1
+              `)
+              connection.query(selectWordWithLocInfo.join(';'), (err, results) => {
                 if(err) throw err
 
-                if(result2[0].cnt > 5) {
-                  console.log(`  >> MANUAL CHECK: Check the outlier (${utils.getBibleBookName(result1[0].bookId)} ${result1[0].chapter}:${result1[0].verse}) for the accentless form ${rowWithoutMorph.accentlessword}. If it can be corrected, then ${result2[0].cnt} more words can be guess-parsed.`)
+                if(selectWordWithLocInfo.length == 1) {
+                  results = [ results ]
                 }
+              
+                results.forEach((result, index) => {
+                  console.log(`  >> OUTLIER: ${rowWithoutMorph.accentlessword} is parsed ${mainMorph} ${mainMorphPercentage}% of the time, `
+                    + `but in ${utils.getBibleBookName(result[0].bookId)} ${result[0].chapter}:${result[0].verse} `
+                    + (outliers[index].cnt > 1 ? `(and ${outliers[index].cnt-1} other places) ` : ``)
+                    + `it is parsed ${outliers[index].morph}.`)
+                })
 
                 tryNextWord()
               })
-            })
-
-            return
+            } else {
+              tryNextWord()
+            }
+          } else {
+            tryNextWord()
           }
 
-          tryNextWord()
-  
         })
 
       } else {  // done composing updates
