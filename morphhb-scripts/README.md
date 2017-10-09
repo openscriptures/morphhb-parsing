@@ -44,3 +44,10 @@ Not yet implemented.
 #### validate
 
 Not yet implemented.
+
+## Applying to data
+
+`node updateMainTables.js`
+
+This command will create new notes and wordnote rows where the words_enhanced parsing is not represented there
+already. It then swaps in words_enhanced for words.
