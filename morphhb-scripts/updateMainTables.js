@@ -34,39 +34,39 @@ connection.connect(function(err) {
 
     utils.deleteRowsMadeByScript({ connection, enhancedTables: false }, () => {
 
-      console.log(`\nCreating 'bad' column in notes table...`)
+      // console.log(`\nCreating 'bad' column in notes table...`)
     
-      const addColStatement = `ALTER TABLE notes ADD COLUMN bad TINYINT(1) DEFAULT 0 AFTER verification`
+      // const addColStatement = `ALTER TABLE notes ADD COLUMN bad TINYINT(1) DEFAULT 0 AFTER verification`
     
-      connection.query(addColStatement, (err, result) => {
-        // it is okay if it throws an error, as this mean the column already exists
-        // if(err) throw err
-        console.log(`    - done.`)
+      // connection.query(addColStatement, (err, result) => {
+      //   // it is okay if it throws an error, as this mean the column already exists
+      //   // if(err) throw err
+      //   console.log(`    - done.`)
 
-        console.log(`\nMarking notes rows 'bad' where appropriate...`)
+      //   console.log(`\nMarking notes rows 'bad' where appropriate...`)
         
-        // mark bad:1 where a row's word in words_enhanced is status:none
-        const selectBadNoteIds = `
-          SELECT notes.id
-          FROM notes
-            LEFT JOIN wordnote ON (wordnote.noteId = notes.id)
-            LEFT JOIN words_enhanced ON (wordnote.wordId = words_enhanced.id)
-          WHERE 
-            words_enhanced.status NOT IN ('none', 'single', 'confirmed', 'verified')
-        `
+      //   // mark bad:1 where a row's word in words_enhanced is status:none
+      //   const selectBadNoteIds = `
+      //     SELECT notes.id
+      //     FROM notes
+      //       LEFT JOIN wordnote ON (wordnote.noteId = notes.id)
+      //       LEFT JOIN words_enhanced ON (wordnote.wordId = words_enhanced.id)
+      //     WHERE 
+      //       words_enhanced.status NOT IN ('none', 'single', 'confirmed', 'verified')
+      //   `
 
-        connection.query(selectBadNoteIds, (err, result) => {
-          if(err) throw err
+      //   connection.query(selectBadNoteIds, (err, result) => {
+      //     if(err) throw err
 
-          const updates = [
-            `UPDATE notes SET bad=0`,
-            ...result.map(row => `
-              UPDATE notes SET bad=1 WHERE id=${row.id}
-            `)
-          ]
+      //     const updates = [
+      //       `UPDATE notes SET bad=0`,
+      //       ...result.map(row => `
+      //         UPDATE notes SET bad=1 WHERE id=${row.id}
+      //       `)
+      //     ]
       
-          utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-            console.log(`    - ${result.length} notes rows marked bad.`)
+      //     utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+      //       console.log(`    - ${result.length} notes rows marked bad.`)
 
             // add in notes and word_note table rows for every word in words_enhanced where the morph
             // code is not represented for that word in a notes table row (give these inserted rows memberId=416)
@@ -167,9 +167,9 @@ connection.connect(function(err) {
               })            
 
             })            
-          })
-        })
-      })
+      //     })
+      //   })
+      // })
     })
   })
 });
