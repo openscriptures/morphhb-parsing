@@ -73,7 +73,7 @@ module.exports = (connection, done) => {
       }
   
       if(newMorph != word.morph || newStatus != word.status) {
-        updates.push(`UPDATE words_enhanced SET morph='${newMorph}', status='${newStatus}' WHERE id=${word.id}`)
+        updates.push(`UPDATE words_enhanced SET morph=${newMorph ? `'${newMorph}'` : `NULL`}, status='${newStatus}' WHERE id=${word.id}`)
       }
     })
 

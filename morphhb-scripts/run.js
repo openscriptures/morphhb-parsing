@@ -14,7 +14,7 @@ const utils = require('./utils')
 
 const connection = mysql.createConnection({
   host: process.env.DB_NAME || "localhost",
-  database: process.env.HOSTNAME || 'oshb-parsing',
+  database: process.env.HOSTNAME || 'oshb',
   user: process.env.USERNAME || "root",
   password: process.env.PASSWORD || "",
   multipleStatements: true,
@@ -73,49 +73,52 @@ connection.connect(function(err) {
     }, () => {
 
       utils.createAccentlessWordCol(connection, () => {
-
+        
         console.log(`Done creating _enhanced tables.`)
-    
-        utils.runInSeries([
-          fix,
-          weedOut,
-          flag,
-          compare,
-          autoParse,
-          guessParse,
-          check,
-          validate,
-          () => {
 
-            const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
-
-            const countStatuses = statuses.map(status => `
-              SELECT COUNT(*) as cnt FROM words_enhanced WHERE status='${status}'
-            `).join(';')
-
-            connection.query(countStatuses, (err, results) => {
-              if(err) throw err
-
-              let total = 0
-              results.forEach(result => total += result[0].cnt)
-
-              console.log(`\nEND RESULT:`)
-              let totalWithAtLeastSinglePass = 0
-              results.forEach((result, index) => {
-                console.log(`  ${statuses[index]}: ${result[0].cnt} (${parseInt((result[0].cnt/total)*100)}%)`)
-                if([ 'single', 'confirmed', 'verified' ].includes(statuses[index])) {
-                  totalWithAtLeastSinglePass += result[0].cnt
-                }
-              })
-              console.log(`  single/confirmed/verified: ${totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
-              
-              console.log(`\nCOMPLETED\n`)
-              process.exit()
-
-            })
-          }
-        ], connection)
+        utils.deleteRowsMadeByScript({ connection }, () => {
       
+          utils.runInSeries([
+            fix,
+            weedOut,
+            flag,
+            compare,
+            autoParse,
+            guessParse,
+            check,
+            validate,
+            () => {
+
+              const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
+
+              const countStatuses = statuses.map(status => `
+                SELECT COUNT(*) as cnt FROM words_enhanced WHERE status='${status}'
+              `).join(';')
+
+              connection.query(countStatuses, (err, results) => {
+                if(err) throw err
+
+                let total = 0
+                results.forEach(result => total += result[0].cnt)
+
+                console.log(`\nEND RESULT:`)
+                let totalWithAtLeastSinglePass = 0
+                results.forEach((result, index) => {
+                  console.log(`  ${statuses[index]}: ${result[0].cnt} (${parseInt((result[0].cnt/total)*100)}%)`)
+                  if([ 'single', 'confirmed', 'verified' ].includes(statuses[index])) {
+                    totalWithAtLeastSinglePass += result[0].cnt
+                  }
+                })
+                console.log(`  single/confirmed/verified: ${totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
+                
+                console.log(`\nCOMPLETED\n`)
+                process.exit()
+
+              })
+            }
+          ], connection)
+      
+        })
       })
     })
   })

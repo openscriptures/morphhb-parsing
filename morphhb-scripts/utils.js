@@ -78,9 +78,10 @@ const utils = {
 
   },
 
-  doUpdatesInChunks: (connection, { updates }, done) => {
+  doUpdatesInChunks: (connection, { updates, resultCallback }, done) => {
     updates = [...updates]
     let totalRowsUpdated = 0
+    let index = 0
 
     const doNextChunkOfUpdates = () => {
 
@@ -94,6 +95,7 @@ const utils = {
 
           result.forEach(updateResult => {
             totalRowsUpdated += updateResult.affectedRows
+            if(resultCallback) resultCallback(updateResult, index++)
           })
 
           doNextChunkOfUpdates()
@@ -213,6 +215,53 @@ const utils = {
         next()
       })
 
+    })
+
+  },
+
+  deleteRowsMadeByScript: ({ connection, enhancedTables=true }, done) => {
+
+    // does a round-about way of deleting the rows since deleting rows is so slow in innodb
+
+    const notesTable = enhancedTables ? 'notes_enhanced' : 'notes'
+    const wordnoteTable = enhancedTables ? 'wordnote_enhanced' : 'wordnote'
+
+    console.log(`\nDeleting rows from ${notesTable} and ${wordnoteTable} that were created by the script...`)
+    
+    // rename the notes table to notes_rowsBeingDeleted
+    // rename the wordnote table to wordnote_rowsBeingDeleted
+    // create new notes and wordnote tables
+    const statementSet1 = `
+      RENAME TABLE ${notesTable} TO ${notesTable}_rowsBeingDeleted;
+      RENAME TABLE ${wordnoteTable} TO ${wordnoteTable}_rowsBeingDeleted;
+      CREATE TABLE ${notesTable} LIKE ${notesTable}_rowsBeingDeleted; 
+      CREATE TABLE ${wordnoteTable} LIKE ${wordnoteTable}_rowsBeingDeleted; 
+    `
+
+    connection.query(statementSet1, (err, result) => {
+      if(err) throw err
+      
+      // copy all the records over, except those to be deleted
+      // drop old tables
+      const statementSet2 = `
+        INSERT ${notesTable}
+          SELECT * FROM ${notesTable}_rowsBeingDeleted WHERE memberId!=416;
+        INSERT ${wordnoteTable}
+          SELECT ${wordnoteTable}_rowsBeingDeleted.*
+            FROM ${wordnoteTable}_rowsBeingDeleted
+              LEFT JOIN ${notesTable}_rowsBeingDeleted ON (${notesTable}_rowsBeingDeleted.id = ${wordnoteTable}_rowsBeingDeleted.noteId)
+            WHERE ${notesTable}_rowsBeingDeleted.memberId!=416;
+        DROP TABLE IF EXISTS ${notesTable}_rowsBeingDeleted; 
+        DROP TABLE IF EXISTS ${wordnoteTable}_rowsBeingDeleted; 
+      `
+
+      connection.query(statementSet2, (err, result) => {
+        if(err) throw err
+
+        console.log(`    - rows deleted.`)
+        done()
+
+      })
     })
 
   },
