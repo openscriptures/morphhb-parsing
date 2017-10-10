@@ -149,5 +149,11 @@ module.exports = (connection, done) => {
 const blacklistedForms = [
   // don't guess parse these
   "מִמֶּ/נּוּ",
-
+  "מִי",
+  "מָה",
+  "פַּרְעֹה",
+  "עִמָּ/ךְ",
+  "אָחִי/ךָ",
+  "דַּבֵּר",
+  "הִוא",
 ] 
