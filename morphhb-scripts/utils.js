@@ -203,15 +203,29 @@ const utils = {
     connection.query(select, (err, result) => {
       if(err) throw err
 
+      const parsingsToDelete = {}
+
       const updates = result.map(row => {
-        const verified = row.verification ? '| WAS VERIFIED ' : ''
-        console.log(`    ${row.word} | ${row.morph} ${verified}| ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}`)
+        if(row.verification) {
+          console.log(`    >> WAS VERIFIED: ${row.word} | ${row.morph} | ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}`)
+        } if(!parsingsToDelete[`${row.word} | ${row.morph}`]) {
+          parsingsToDelete[`${row.word} | ${row.morph}`] = {
+            info: `${row.word} | ${row.morph} | ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}`,
+            addl: 0,
+          }
+        } else {
+          parsingsToDelete[`${row.word} | ${row.morph}`].addl++
+        }
         return `DELETE FROM notes_enhanced WHERE id=${row.id}`
       })
 
+      for(let i in parsingsToDelete) {
+        console.log(`    ${parsingsToDelete[i].info}` + (parsingsToDelete[i].addl ? ` (+${parsingsToDelete[i].addl} more)` : ``))
+      }
+
       utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-        if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
-        console.log(`    - ${numRowsUpdated} words updated.`)
+        if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got deleted. Just ${numRowsUpdated}/${updates.length}.`)
+        console.log(`    - ${numRowsUpdated} words deleted.`)
         next()
       })
 
