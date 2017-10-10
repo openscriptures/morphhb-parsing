@@ -1,4 +1,4 @@
-const MINIMUM_PERCENTAGE_OF_UNIFORMITY_FOR_GUESS = 90
+const MINIMUM_PERCENTAGE_OF_UNIFORMITY_FOR_GUESS = 70
 
 const utils = require('../utils')
 
@@ -14,9 +14,12 @@ module.exports = (connection, done) => {
   let selectWordsWithoutMorph = `SELECT DISTINCT accentlessword, lemma FROM words_enhanced WHERE morph IS NULL`
   connection.query(selectWordsWithoutMorph, (err, result) => {
     if(err) throw err
+
+    result = result.filter(row => !blacklistedForms.includes(row.accentlessword))
     
     let uniqueWordsCount = 0
     const updateWordQueries = []
+    const outlierOutput = []
 
     const tryNextWord = () => {
 
@@ -58,8 +61,26 @@ module.exports = (connection, done) => {
               outliers.push(row)
             }
           })
-  
-          if(mainMorph && totalWithThisForm >= 2) {
+
+          // Look for situations where simple auto-parsing is not possible
+          // - conj + perfect vs sequential perfect
+          // - 2nd/3rd jussive vs 2nd/3rd imperfect
+          // - absolute vs construct
+          // - both vs masc vs fem
+          // - imperfect 3fs vs 3ms  "HVqi3fs", (81%) -- but HVqi2ms
+          const noSimpleAutoParse = mainMorph && outliers.length > 0 && outliers.some(outlier => {
+            return [
+              [/^(HC\/V[^\/])[pq]([^\/][^\/][^\/])/, '$1-$2'],
+              [/^(H(?:[^\/]*\/)*V[^\/])[ij]([23][^\/][^\/])/, '$1-$2'],
+              [/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))[ac]/, '$1-'],
+              [/^(H(?:[^\ /]*\/)*(?:N[^\/]|A[^\/]))[bfm]/, '$1-'],
+              [/^(H(?:[^\ /]*\/)*V[^\/][iw])(?:3fs|2ms)/, '$1-'],
+            ].some(replaceCheck => (
+              mainMorph.replace(replaceCheck[0], replaceCheck[1]) == outlier.morph.replace(replaceCheck[0], replaceCheck[1])
+            ))
+          })
+                          
+          if(mainMorph && totalWithThisForm >= 2 && !noSimpleAutoParse) {
             uniqueWordsCount++
             updateWordQueries.push(`UPDATE words_enhanced SET morph='${result[0].morph}', status='single' ${autoParseWhere}`)
 
@@ -80,12 +101,14 @@ module.exports = (connection, done) => {
                   results = [ results ]
                 }
               
+                const outlierExamples = []
+                let totalOutliers = 0
                 results.forEach((result, index) => {
-                  console.log(`  >> OUTLIER: ${rowWithoutMorph.accentlessword} is parsed ${mainMorph} ${mainMorphPercentage}% of the time, `
-                    + `but in ${utils.getBibleBookName(result[0].bookId)} ${result[0].chapter}:${result[0].verse} `
-                    + (outliers[index].cnt > 1 ? `(and ${outliers[index].cnt-1} other places) ` : ``)
-                    + `it is parsed ${outliers[index].morph}.`)
+                  totalOutliers += outliers[index].cnt
+                  outlierExamples.push(`${outliers[index].morph} in ${utils.getBibleBookName(result[0].bookId)} ${result[0].chapter}:${result[0].verse} `
+                    + (outliers[index].cnt > 1 ? `(+${outliers[index].cnt-1} more)` : ``))
                 })
+                outlierOutput.push(`${('000' + totalOutliers).substr(-3)}  >> "${rowWithoutMorph.accentlessword}": "${mainMorph}", (${mainMorphPercentage}%) -- but ${outlierExamples.join(', ')}`)
 
                 tryNextWord()
               })
@@ -100,6 +123,11 @@ module.exports = (connection, done) => {
 
       } else {  // done composing updates
 
+        outlierOutput.sort()
+        outlierOutput.forEach(outlierLine => {
+          console.log(outlierLine.substr(3))
+        })
+        
         // run updates
         utils.doUpdatesInChunks(connection, { updates: updateWordQueries }, numRowsUpdated => {
 
@@ -117,3 +145,9 @@ module.exports = (connection, done) => {
   })
 
 }
+
+const blacklistedForms = [
+  // don't guess parse these
+  "מִמֶּ/נּוּ",
+
+] 
