@@ -306,6 +306,19 @@ module.exports = (connection, done) => {
 
     },
 
+    (x, next) => {
+      
+      console.log(`  Demonstrative pronouns must have gender and number indicated...`)
+      
+      utils.removeNoteOnMatch({
+        connection,
+        regex: /^H([^\/]*\/)*Pd/,
+        except: /^H([^\/]*\/)*Pdx[^\/][^\/]/,
+        next,
+      })
+
+    },
+
     () => {
       console.log(`Done with weed-out script.`)
       done()
