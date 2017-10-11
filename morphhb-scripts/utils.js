@@ -129,9 +129,7 @@ const utils = {
         let updatesWithAccentlessWord = []
 
         result.forEach(row => {
-          const accentlessWord = row.word
-            .replace(/[\u0591-\u05AF\u05A5\u05BD\u05BF\u05C5\u05C7]/g, '')  // remove accents
-            .replace(/\u200D/g, '')  // remove mystery character
+          const accentlessWord = utils.makeAccentless(row.word)
           updatesWithAccentlessWord.push(`UPDATE words_enhanced SET accentlessword="${accentlessWord}" WHERE word="${row.word}"`)
         })
 
@@ -154,6 +152,17 @@ const utils = {
     })
 
   },
+
+  makeAccentless: (word) => (
+    word
+      .replace(/[\u0591-\u05AF\u05A5\u05BD\u05BF\u05C5\u05C7]/g, '')  // remove accents
+      .replace(/\u200D/g, '')  // remove mystery character
+  ),
+
+  makeVowelless: (word) => (
+    word
+      .replace(/[\u05B0-\u05BC\u05C1\u05C2\u05C4]/g, '')  // remove vowels
+  ),
 
   runReplaceOnMorph: ({ connection, table, regex, replace, doVerified=false, next }) => {
 
