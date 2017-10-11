@@ -4,7 +4,7 @@ module.exports = (connection, done) => {
   
   console.log(`\nRunning auto-parse script...`)
 
-  // Updates the words_enhanced table [and eventually will also insert into the notes and wordnote table with memberid=0]
+  // Updates the words_enhanced table [and eventually will also insert into the notes and wordnote table with memberid=416]
   // according to pre-determined parsing for common forms
 
   const updates = []
