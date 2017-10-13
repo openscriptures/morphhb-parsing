@@ -21,6 +21,40 @@ connection.connect(function(err) {
     
     (x, next) => {
       
+      console.log(`  Deleting _enhanced tables since this will invalidate them...`)
+
+      const statement = `
+        DROP TABLE IF EXISTS words_enhanced; 
+        DROP TABLE IF EXISTS wordnote_enhanced; 
+        DROP TABLE IF EXISTS notes_enhanced; 
+      `
+
+      connection.query(statement, (err, result) => {
+        if(err) throw err
+
+        console.log(`    - done.`)
+        next()
+      })
+    
+    },
+
+    (x, next) => {
+      
+      console.log(`  Split words where they should be split but are not, and re-index everything...`)
+
+      const statement = `
+      `
+
+      connection.query(statement, (err, result) => {
+        if(err) throw err
+
+        console.log(`    - done.`)
+        next()
+      })
+    
+    },
+    (x, next) => {
+      
       console.log(`  Make a copy of the table with a schema that accords with words...`)
       
     },
@@ -70,8 +104,3 @@ connection.connect(function(err) {
     
   ])
 })
-
-
-
-
-
