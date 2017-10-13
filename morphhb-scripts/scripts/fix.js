@@ -8,6 +8,36 @@ module.exports = (connection, done) => {
 
     (x, next) => {
       
+      console.log(`  Parsings without language indicated will be marked Hebrew...`)
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^([^HA])/,
+        replace: 'H$1',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+      
+      console.log(`  Parsings with Hebrew marked more than once in the word will be corrected (eg. HC/HR/Np > HC/R/Np)...`)
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*)H/,
+        replace: '$1',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+      
       console.log(`  Nouns, adjectives and participles that end with a state of determined will be changed to absolute...`)
 
       // N???d
@@ -197,6 +227,21 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
+      console.log(`  Get rid of trailing slashes...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /\/+$/,
+        replace: '',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+
       console.log(`  Multi-part words with the last part marked a personal pronoun, and with an adjective, noun, preposition or verb in the second to last part, will be corrected to be a pronominal suffix...`)
     
       // /[ANRV]/Pp???
@@ -309,7 +354,7 @@ module.exports = (connection, done) => {
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*S[dhn])[^\/]*/,
+        regex: /^(H(?:[^\/]*\/)*S[dhn])[^\/]+/,
         replace: '$1',
         doVerified: true,
         next,
@@ -345,7 +390,7 @@ module.exports = (connection, done) => {
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*Np)[^\/]*/,
+        regex: /^(H(?:[^\/]*\/)*Np)[^\/]+/,
         replace: '$1',
         doVerified: true,
         next,
@@ -362,7 +407,7 @@ module.exports = (connection, done) => {
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*V[^\/][ca])[^\/]*/,
+        regex: /^(H(?:[^\/]*\/)*V[^\/][ca])[^\/]+/,
         replace: '$1',
         doVerified: true,
         next,
@@ -372,9 +417,9 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
-      console.log(`  Adjectives, pronouns, pronominal suffixes and verbs marked with a number of dual will be corrected to plural...`)
+      console.log(`  Adjectives (except for cardinal numbers), pronouns, pronominal suffixes and verbs marked with a number of dual will be corrected to plural...`)
     
-      // A??d
+      // A[ago]?d
       // P???d
       // Sp??d
       // V?[rs]?d
@@ -383,7 +428,7 @@ module.exports = (connection, done) => {
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*(?:A[^\/][^\/]|P[^\/][^\/][^\/]|Sp[^\/][^\/]|V[^\/][rs][^\/]|V[^\/][pqiwhjv][^\/][^\/]))d/,
+        regex: /^(H(?:[^\/]*\/)*(?:A[ago][^\/]|P[^\/][^\/][^\/]|Sp[^\/][^\/]|V[^\/][rs][^\/]|V[^\/][pqiwhjv][^\/][^\/]))d/,
         replace: '$1p',
         doVerified: true,
         next,
@@ -436,7 +481,7 @@ module.exports = (connection, done) => {
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*[^\/]*)x+(\/|$)/,
+        regex: /^(H(?:[^\/]*\/)*[^\/]*[^\/x])x+(\/|$)/,
         replace: '$1$2',
         doVerified: true,
         next,
@@ -483,6 +528,36 @@ module.exports = (connection, done) => {
         table: 'notes',
         regex: /^(H(?:[^\/]*\/)*)P(i)/,
         replace: '$1T$2',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+
+      console.log(`  Demonstrative pronouns with missing x for the person will be corrected...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*Pd)([mfc][sp])/,
+        replace: '$1x$2',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+
+      console.log(`  Pronominal suffixes with incorrect code (eg. S3mp should be Sp3mp) will be corrected...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*S)([123][mfc][sp])/,
+        replace: '$1p$2',
         doVerified: true,
         next,
       })
