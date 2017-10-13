@@ -38,6 +38,11 @@ connection.connect(function(err) {
     
     },
 
+    // make like words_enhanced schema
+    // get rid of the 5 etcbc qere spots
+    // split on space or dash, noting that there are more than one/verse sometimes
+    // add blank row where there is qere
+
     (x, next) => {
       
       console.log(`  Split words where they should be split but are not, and re-index everything...`)
