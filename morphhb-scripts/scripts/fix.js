@@ -292,7 +292,7 @@ module.exports = (connection, done) => {
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*P[fi])[^\/]*/,
+        regex: /^(H(?:[^\/]*\/)*P[fi])[^\/]+/,
         replace: '$1',
         doVerified: true,
         next,
