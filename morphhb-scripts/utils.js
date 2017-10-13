@@ -176,13 +176,20 @@ const utils = {
       }
     }
 
+    const updatesByMorph = {}
+
     connection.query(select, (err, result) => {
       if(err) throw err
 
-      const updates = result.map(row => `
-        UPDATE ${table}_enhanced SET morph='${row.morph.replace(regex, replace)}' WHERE id=${row.id}
-      `)
+      const updates = result.map(row => {
+        updatesByMorph[row.morph] = row.morph.replace(regex, replace)
+        return `UPDATE ${table}_enhanced SET morph='${row.morph.replace(regex, replace)}' WHERE id=${row.id}`
+      })
 
+      for(let i in updatesByMorph) {
+        console.log(`    ${i} > ${updatesByMorph[i]}`)
+      }
+      
       utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
         if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
         console.log(`    - ${numRowsUpdated} words updated.`)
