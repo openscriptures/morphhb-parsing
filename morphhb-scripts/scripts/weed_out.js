@@ -41,7 +41,7 @@ module.exports = (connection, done) => {
       
       console.log(`  Must contain valid parsing letter combo (test with existing parser validator)...`)
 
-      const select = `SELECT id, morph FROM notes_enhanced`
+      const select = `SELECT DISTINCT morph FROM notes_enhanced`
 
       connection.query(select, (err, result) => {
         if(err) throw err
@@ -49,25 +49,26 @@ module.exports = (connection, done) => {
         const updates = []
 
         result.forEach(row => {
-          if(!codeValidator.parsingCodeIsValid(row.morph)) {
+          const morphFirstLetter = row.morph.substr(0,1)
+          if(!codeValidator.parsingCodeIsValid(row.morph) || !row.morph.substr(1).split('/').every(morphPart => codeValidator.parsingCodeIsValid(morphFirstLetter + morphPart))) {
 
-            if(row.morph == 'HPdcp') {
-              updates.push(`UPDATE notes_enhanced SET morph='HPdxcp' WHERE id='${row.id}'`)
-            } else if(row.morph == 'HC/Pdcp') {
-              updates.push(`UPDATE notes_enhanced SET morph='HC/Pdxcp' WHERE id='${row.id}'`)
-            } else if(row.morph == 'HR/S3mp') {
-              updates.push(`UPDATE notes_enhanced SET morph='HR/Sp3mp' WHERE id='${row.id}'`)
-            } else if(codeValidator.parsingCodeIsValid('H' + row.morph)) {
-              updates.push(`UPDATE notes_enhanced SET morph='${'H' + row.morph}' WHERE id='${row.id}'`)
-            } else {
-              updates.push(`DELETE FROM notes_enhanced WHERE id='${row.id}'`)
-              console.log(`    ${row.morph} is not a valid parsing code and so deleting this entry`)
-            }
+            // if(row.morph == 'HPdcp') {
+            //   updates.push(`UPDATE notes_enhanced SET morph='HPdxcp' WHERE morph='${row.morph}'`)
+            // } else if(row.morph == 'HC/Pdcp') {
+            //   updates.push(`UPDATE notes_enhanced SET morph='HC/Pdxcp' WHERE morph='${row.morph}'`)
+            // } else if(row.morph == 'HR/S3mp') {
+            //   updates.push(`UPDATE notes_enhanced SET morph='HR/Sp3mp' WHERE morph='${row.morph}'`)
+            // } else if(codeValidator.parsingCodeIsValid('H' + row.morph) && row.morph.split('/').every(morphPart => codeValidator.parsingCodeIsValid('H' + morphPart))) {
+            //   updates.push(`UPDATE notes_enhanced SET morph='${'H' + row.morph}' WHERE morph='${row.morph}'`)
+            // } else {
+              updates.push(`DELETE FROM notes_enhanced WHERE morph='${row.morph}'`)
+              console.log(`    ${row.morph} is invalid`)
+            // }
           }
         })
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+          console.log(`    ${numRowsUpdated} parsings deleted`)
           next()
         })
 
@@ -173,11 +174,11 @@ module.exports = (connection, done) => {
     
     (x, next) => {
       
-      console.log(`  Adjectives, pronouns (personal and demonstrative) and pronominal suffixes must have a number of plural or singular...`)
+      console.log(`  Adjectives (except for cardinal numbers), pronouns (personal and demonstrative) and pronominal suffixes must have a number of plural or singular...`)
 
       utils.removeNoteOnMatch({
         connection,
-        regex: /^H([^\/]*\/)*(A[^\/][^\/]|P[pd][^\/][^\/]|Sp[^\/][^\/])[^ps]/,
+        regex: /^H([^\/]*\/)*(A[ago][^\/]|P[pd][^\/][^\/]|Sp[^\/][^\/])[^ps]/,
         next,
       })
 
