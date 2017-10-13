@@ -474,6 +474,21 @@ module.exports = (connection, done) => {
 
     },
 
+    (x, next) => {
+
+      console.log(`  Interrogative pronouns will be changed to interrogative particles (Pi > Ti)...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*)P(i)/,
+        replace: '$1T$2',
+        doVerified: true,
+        next,
+      })
+
+    },
+
     () => {
       console.log(`Done with fix script.`)
       done()
