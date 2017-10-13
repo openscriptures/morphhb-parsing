@@ -234,6 +234,7 @@ var MorphParse = function()
                     morph += ' ' + parseVerb(code);
                     break;
                 default:
+                    nextName = 'error';
                     morph += ' Unknown part of speech in ' + code;
             }
         } else {
