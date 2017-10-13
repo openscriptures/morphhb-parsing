@@ -1,0 +1,2834 @@
+STARTING
+
+Creating _enhanced tables...
+Done creating _enhanced tables.
+
+Deleting rows from notes_enhanced and wordnote_enhanced that were created by the script...
+    - rows deleted.
+
+Running fix script...
+  Parsings without language indicated will be marked Hebrew...
+    8799 > H8799
+    Vpp3ms > HVpp3ms
+    בְּכֽוֹר > Hבְּכֽוֹר
+    n > Hn
+    - 203 words updated.
+  Parsings with Hebrew marked more than once in the word will be corrected (eg. HC/HR/Np > HC/R/Np)...
+    HC/HAcfsc > HC/Acfsc
+    HC/HD/Sd > HC/D/Sd
+    HC/HR/Np > HC/R/Np
+    HC/HR/D > HC/R/D
+    HTd/HPd3cp > HTd/Pd3cp
+    HC/HVqv2mp > HC/Vqv2mp
+    HR/HNcmpc/Sp3ms > HR/Ncmpc/Sp3ms
+    - 7 words updated.
+  Nouns, adjectives and participles that end with a state of determined will be changed to absolute...
+    HNcmsd > HNcmsa
+    HNcmpd/Sp3ms > HNcmpa/Sp3ms
+    HR/Ncmpd/Sp3fs > HR/Ncmpa/Sp3fs
+    HR/Ncmsd > HR/Ncmsa
+    HNcmpd/Td > HNcmpa/Td
+    HNcmsd/Sp3ms > HNcmsa/Sp3ms
+    HR/Ncmpd > HR/Ncmpa
+    HR/Ncmpd/Pp1cp > HR/Ncmpa/Pp1cp
+    HC/R/Ncmpd/Pp1cp > HC/R/Ncmpa/Pp1cp
+    H/Npmsd > H/Npmsa
+    HTd/Ncmsd > HTd/Ncmsa
+    HC/R/Npxxd > HC/R/Npxxa
+    HTd/Npxxd > HTd/Npxxa
+    HR/Npxxd > HR/Npxxa
+    HNpxxd > HNpxxa
+    HC/Npxxd > HC/Npxxa
+    HNxxxd > HNxxxa
+    HRd/Npxxd > HRd/Npxxa
+    HNcfsd/Pp3m > HNcfsa/Pp3m
+    HNcfsd/Sp3ms > HNcfsa/Sp3ms
+    HNcfsd > HNcfsa
+    HNcmsd/Sd > HNcmsa/Sd
+    HR/Ncfsd > HR/Ncfsa
+    HTd/Ncfsd > HTd/Ncfsa
+    HRd/Ncmsd > HRd/Ncmsa
+    HC/Ncmsd > HC/Ncmsa
+    HTd/Ngmpd > HTd/Ngmpa
+    HTp/Ngmpd > HTp/Ngmpa
+    HNgmsd/ > HNgmsa/
+    HTd/Ncmpd > HTd/Ncmpa
+    HRd/Ncfsd > HRd/Ncfsa
+    HRd/Ncmpd > HRd/Ncmpa
+    HTd/Ncbpd > HTd/Ncbpa
+    HC/Rd/Ncmsd > HC/Rd/Ncmsa
+    HC/Td/Ncmsd > HC/Td/Ncmsa
+    HTd/Aamsd > HTd/Aamsa
+    HRd/Aamsd > HRd/Aamsa
+    HTd/Ncfpd > HTd/Ncfpa
+    HC/Rd/Ncfsd > HC/Rd/Ncfsa
+    HC/Td/Aamsd > HC/Td/Aamsa
+    HC/Rd/Ncmpd > HC/Rd/Ncmpa
+    - 106 words updated.
+  A Tp parsing (particle > definite article with inseparable preposition) will be change to Rd (preposition > definite article)...
+    HR/Tp/Ncfsa > HR/Rd/Ncfsa
+    HR/R/Tp/Aafsa > HR/R/Rd/Aafsa
+    HR/R/Tp/Ncfsa > HR/R/Rd/Ncfsa
+    HR/Tp/Ncmpa > HR/Rd/Ncmpa
+    HC/R/Tp/Ncfsa > HC/R/Rd/Ncfsa
+    HR/Tp/Ncmsa > HR/Rd/Ncmsa
+    HR/Tp/Ncfpa > HR/Rd/Ncfpa
+    HR/Tp/Aamsa > HR/Rd/Aamsa
+    HC/R/Tp/Ncmsa > HC/R/Rd/Ncmsa
+    HR/Tp/Vprmsa > HR/Rd/Vprmsa
+    HR/Tp/Aampa > HR/Rd/Aampa
+    HR/Tp/Ncbsa > HR/Rd/Ncbsa
+    HR/Tp/Vqrfs > HR/Rd/Vqrfs
+    HC/Tp/Vhw3ms/Sp3mp > HC/Rd/Vhw3ms/Sp3mp
+    HR/Tp/Vqrmsa > HR/Rd/Vqrmsa
+    HR/Tp/Vprms > HR/Rd/Vprms
+    HC/R/Tp/Aampa > HC/R/Rd/Aampa
+    HR/Tp/Ncfsc > HR/Rd/Ncfsc
+    HR/Tp/Ncmpc > HR/Rd/Ncmpc
+    HR/Tp/Vqrmpa > HR/Rd/Vqrmpa
+    HTi/R/Tp/Vqrmpa > HTi/R/Rd/Vqrmpa
+    HC/R/Tp/Ncmpa > HC/R/Rd/Ncmpa
+    HR/Tp/Np > HR/Rd/Np
+    HR/Tp/Ncbpa > HR/Rd/Ncbpa
+    HR/Tp/Aampc > HR/Rd/Aampc
+    HR/Tp/Ncfsc/Sh > HR/Rd/Ncfsc/Sh
+    HR/Tp/Aafsa > HR/Rd/Aafsa
+    HC/C/Tp/Ncfsa > HC/C/Rd/Ncfsa
+    HR/Tp/Ncmsc > HR/Rd/Ncmsc
+    HRd/Tp/Ncmsc > HRd/Rd/Ncmsc
+    HRd/Tp/Ncmsa > HRd/Rd/Ncmsa
+    HTp/Ncfsa > HRd/Ncfsa
+    HC/R/Tp/Ncfsc > HC/R/Rd/Ncfsc
+    HTp/Ncbsa > HRd/Ncbsa
+    HR/Tp/Vqc > HR/Rd/Vqc
+    HTp/Ncmsa > HRd/Ncmsa
+    HC/Tp/Ncmsc > HC/Rd/Ncmsc
+    HTp/Aafpa > HRd/Aafpa
+    HR/Tp/Vqrfsa > HR/Rd/Vqrfsa
+    HTp/Vqrmpa > HRd/Vqrmpa
+    HR/Tp/Ncbpc > HR/Rd/Ncbpc
+    HC/Tp/Ncfpa > HC/Rd/Ncfpa
+    HTp/VNrmpa > HRd/VNrmpa
+    HR/Tp/Ncbs > HR/Rd/Ncbs
+    HC/Tp/C > HC/Rd/C
+    HR/Tp/Ncbsc > HR/Rd/Ncbsc
+    HC/R/Tp/Aamsa > HC/R/Rd/Aamsa
+    HC/Tp/Aampa > HC/Rd/Aampa
+    HC/R/Tp/Ncfpa > HC/R/Rd/Ncfpa
+    HC/R/Tp/Nccsc > HC/R/Rd/Nccsc
+    HC/Tp/Ncmpa > HC/Rd/Ncmpa
+    HTp/Np > HRd/Np
+    HC/Tp/Np > HC/Rd/Np
+    HC/R/Tp/Np > HC/R/Rd/Np
+    HR/Tp/Ngbsa > HR/Rd/Ngbsa
+    HR/Tp/Ncxsa > HR/Rd/Ncxsa
+    HR/Tp/Ncmxa > HR/Rd/Ncmxa
+    HR/Tp/Ncms > HR/Rd/Ncms
+    HC/Tp/Ncbsa > HC/Rd/Ncbsa
+    HC/Tp/Ncmsa > HC/Rd/Ncmsa
+    HR/Tp/Vqsfsa > HR/Rd/Vqsfsa
+    HR/Tp/Ngmsa > HR/Rd/Ngmsa
+    HR/Tp/Ncmda > HR/Rd/Ncmda
+    HTd/Tp/Ncmsa > HTd/Rd/Ncmsa
+    HTp/Ncmpa > HRd/Ncmpa
+    HTp/Ncms > HRd/Ncms
+    HTp/Aomsa > HRd/Aomsa
+    HC/Tp/Ncfsa > HC/Rd/Ncfsa
+    HTp/Ncmsc > HRd/Ncmsc
+    HTp/Ncmda > HRd/Ncmda
+    HTp/Ncfsc > HRd/Ncfsc
+    HTp/Ncfpa > HRd/Ncfpa
+    HTp/Aamsa > HRd/Aamsa
+    HTp/Acmsa > HRd/Acmsa
+    HTp/Vqrmsa > HRd/Vqrmsa
+    HC/Tp/Ncmpc > HC/Rd/Ncmpc
+    HTp/D > HRd/D
+    HC/Tp/Ngmp > HC/Rd/Ngmp
+    HTp/Pdxms > HRd/Pdxms
+    HTp/Vprfpa > HRd/Vprfpa
+    HTp/Axmsa > HRd/Axmsa
+    HTp/Vqc > HRd/Vqc
+    HC/Tp/Ncfsc > HC/Rd/Ncfsc
+    HTp/Ncfda > HRd/Ncfda
+    HC/Tp/Ncfsc/Sp2ms > HC/Rd/Ncfsc/Sp2ms
+    HTp/Ngmp > HRd/Ngmp
+    HTp/Ngms > HRd/Ngms
+    HTp/Ngmpa > HRd/Ngmpa
+    HTp/Vqsmpa > HRd/Vqsmpa
+    HC/Tp/Axmsa > HC/Rd/Axmsa
+    - 1570 words updated.
+  Cohortatives will be marked common gender if otherwise...
+    HC/Vqh1fs > HC/Vqh1cs
+    HC/Vqh1mp > HC/Vqh1cp
+    HC/Vqh1bs > HC/Vqh1cs
+    HVqh2ms > HVqh2cs
+    - 4 words updated.
+  Cohortatives will be marked 1st person if person is not indicated...
+    - 0 words updated.
+  Imperatives will be marked 2rd person if person is not indicated...
+    HVqvxfp > HVqv2fp
+    HC/Vqvxfp > HC/Vqv2fp
+    HVqvxfs > HVqv2fs
+    HVqvxms > HVqv2ms
+    HC/VNvxms > HC/VNv2ms
+    HVqvxms/Sh > HVqv2ms/Sh
+    HVqvxmp > HVqv2mp
+    HVhvxms/Sh > HVhv2ms/Sh
+    HVqvxmp/Sp1cs > HVqv2mp/Sp1cs
+    HC/Vhvxmp/Sp1cs > HC/Vhv2mp/Sp1cs
+    HR/Vqvxms > HR/Vqv2ms
+    HVqvxms/Sp1cs > HVqv2ms/Sp1cs
+    HC/Vqvxmp > HC/Vqv2mp
+    HVhvxms > HVhv2ms
+    HC/Vhvxfs > HC/Vhv2fs
+    HVpvxms > HVpv2ms
+    HVhvxms/Sp1cs > HVhv2ms/Sp1cs
+    HC/Vqvxms > HC/Vqv2ms
+    HVhvxms/Sp3mp > HVhv2ms/Sp3mp
+    HC/Vhvxms/Sp3cp > HC/Vhv2ms/Sp3cp
+    HC/Vqvxms/Sp1cs > HC/Vqv2ms/Sp1cs
+    HVrvxfs > HVrv2fs
+    HVpvxmx > HVpv2mx
+    HVhvxmp > HVhv2mp
+    HVpvxmp > HVpv2mp
+    HC/Vhvxmp > HC/Vhv2mp
+    HVqvxms/Sd > HVqv2ms/Sd
+    HVqvxms/Sp3fs > HVqv2ms/Sp3fs
+    HC/Vhvxms/Sp1cs > HC/Vhv2ms/Sp1cs
+    HVpvxms/Sp1cs > HVpv2ms/Sp1cs
+    HVqvxms/Sp3ms > HVqv2ms/Sp3ms
+    HC/Vqvxmp/Sp3ms > HC/Vqv2mp/Sp3ms
+    HC/Vpvxmp > HC/Vpv2mp
+    HVqvxms/Sp1cp > HVqv2ms/Sp1cp
+    HC/Vhvxms/Sp1cp > HC/Vhv2ms/Sp1cp
+    HC/Vpvxms > HC/Vpv2ms
+    HC/Vhvxms > HC/Vhv2ms
+    HVovxms/Sh > HVov2ms/Sh
+    HC/Vqvxms/Sh > HC/Vqv2ms/Sh
+    HVhvxms/Sp1cp > HVhv2ms/Sp1cp
+    HVqvxms/Sp3mp > HVqv2ms/Sp3mp
+    HC/Vhvxms/Sh > HC/Vhv2ms/Sh
+    HVpvxms/Sp1cp > HVpv2ms/Sp1cp
+    HVovxms/Sp3ms > HVov2ms/Sp3ms
+    HVNvxms > HVNv2ms
+    HVvvxmp > HVvv2mp
+    HVovxmp > HVov2mp
+    HC/Vvvxmp > HC/Vvv2mp
+    HVpvxfs > HVpv2fs
+    HVtvxmp > HVtv2mp
+    HVpvxmp/Np > HVpv2mp/Np
+    HC/Vpvxms/Sp1cp > HC/Vpv2ms/Sp1cp
+    HVpvxms/Sh > HVpv2ms/Sh
+    HVpvxms/Sp3ms > HVpv2ms/Sp3ms
+    HVpvxms/Sp2ms > HVpv2ms/Sp2ms
+    HC/Vpvxms/Sp1cs > HC/Vpv2ms/Sp1cs
+    HVNvxms/Sh > HVNv2ms/Sh
+    HVqvxms/Sx1cs > HVqv2ms/Sx1cs
+    HVpvxmp/Sp3ms > HVpv2mp/Sp3ms
+    HVtvxms > HVtv2ms
+    HC/Vhvxms/Sp3fs > HC/Vhv2ms/Sp3fs
+    HVhvxfs > HVhv2fs
+    HVhvxmp/Sp1cp > HVhv2mp/Sp1cp
+    HVqvxfs/Sh > HVqv2fs/Sh
+    HVpvxmp/Sp1cs > HVpv2mp/Sp1cs
+    HVNvxmp > HVNv2mp
+    HC/VNvxmp > HC/VNv2mp
+    HC/Vqvxfs > HC/Vqv2fs
+    HVhvxmp/Sp3fs > HVhv2mp/Sp3fs
+    HVtvxfs > HVtv2fs
+    HC/Vtvxms > HC/Vtv2ms
+    HC/Vpvxms/Sp3ms > HC/Vpv2ms/Sp3ms
+    HC/Vpvxmp/Sp1cs > HC/Vpv2mp/Sp1cs
+    HVhvxmp/Sp1cs > HVhv2mp/Sp1cs
+    HC/Vovxms > HC/Vov2ms
+    HVhvxms/Sp3ms > HVhv2ms/Sp3ms
+    HVqvxxp > HVqv2xp
+    HVhvxfs/Sp1cs > HVhv2fs/Sp1cs
+    HC/Vtvxmp > HC/Vtv2mp
+    HC/Vqvxmp/Sp3fs > HC/Vqv2mp/Sp3fs
+    HC/Vhvxfs/Sp3ms > HC/Vhv2fs/Sp3ms
+    HVqvxmp/Sp3ms > HVqv2mp/Sp3ms
+    HVNvxfs > HVNv2fs
+    HC/Vkvxmp > HC/Vkv2mp
+    HVpvxmp/Sp1cp > HVpv2mp/Sp1cp
+    - 1027 words updated.
+  Jussive will be marked 3rd person if person is not indicated...
+    - 0 words updated.
+  Nouns, adjectives and participles will be marked construct if their state is not indicated and they have a pronominal suffix...
+    HNcms/Sp1cs > HNcmsc/Sp1cs
+    HNcbs/Sp3ms > HNcbsc/Sp3ms
+    HNcms/Sp3mp > HNcmsc/Sp3mp
+    HNcms/Sp2ms > HNcmsc/Sp2ms
+    HR/Ncbs/Sp3ms > HR/Ncbsc/Sp3ms
+    HR/Ncfs/Sp2ms > HR/Ncfsc/Sp2ms
+    HNcfd/Sp3ms > HNcfdc/Sp3ms
+    HNcmp/Sp2ms > HNcmpc/Sp2ms
+    HR/Ncms/Sp1cs > HR/Ncmsc/Sp1cs
+    HNcfp/Sp3mp > HNcfpc/Sp3mp
+    HNcms/Sp1ms > HNcmsc/Sp1ms
+    HNcfs/Sp3ms > HNcfsc/Sp3ms
+    HR/Ncbd/Sp3ms > HR/Ncbdc/Sp3ms
+    HNcfd/Sp3cp > HNcfdc/Sp3cp
+    HVprmp/Sp2ms > HVprmpc/Sp2ms
+    HC/Vprms/Sp2ms > HC/Vprmsc/Sp2ms
+    HR/Vqrmp/Sp1cs > HR/Vqrmpc/Sp1cs
+    HR/Aamp/Sp2ms > HR/Aampc/Sp2ms
+    HC/Ncmp/Sp2ms > HC/Ncmpc/Sp2ms
+    HVPrms/Sp1cs > HVPrmsc/Sp1cs
+    HVprms/Sp2ms > HVprmsc/Sp2ms
+    HNcfs/Sp2ms > HNcfsc/Sp2ms
+    HR/Ncfp/Sp1cs > HR/Ncfpc/Sp1cs
+    HVqrmp/Sp3fs > HVqrmpc/Sp3fs
+    HR/Ncms/Sp3ms > HR/Ncmsc/Sp3ms
+    HVqrms/Sp1ms > HVqrmsc/Sp1ms
+    HVqrms/Sp3ms > HVqrmsc/Sp3ms
+    HNcfp/Sp3ms > HNcfpc/Sp3ms
+    HC/R/Ncms/Sp3fp > HC/R/Ncmsc/Sp3fp
+    HNcms/Sp3ms > HNcmsc/Sp3ms
+    HNcms/Sp3fs > HNcmsc/Sp3fs
+    HC/R/Ncms/Sp2ms > HC/R/Ncmsc/Sp2ms
+    HNcfs/Sp1ms > HNcfsc/Sp1ms
+    HR/Ncms/Sp1cp > HR/Ncmsc/Sp1cp
+    HC/Ncfs/Sp3ms > HC/Ncfsc/Sp3ms
+    HR/Ncms/Sp3fp > HR/Ncmsc/Sp3fp
+    HNcfs/Sp3fs > HNcfsc/Sp3fs
+    HR/Ncms/Sp3fs > HR/Ncmsc/Sp3fs
+    HC/Ncfs/Sp2ms > HC/Ncfsc/Sp2ms
+    HVqrms/Sp1cs > HVqrmsc/Sp1cs
+    HVqrms/Sp2ms > HVqrmsc/Sp2ms
+    HR/Ncfd/Sp2mp > HR/Ncfdc/Sp2mp
+    HR/Ncfs/Sp3ms > HR/Ncfsc/Sp3ms
+    HVqrmp/Sp3ms > HVqrmpc/Sp3ms
+    HNcms/Sp3m > HNcmsc/Sp3m
+    HC/Ncms/Sp2mp > HC/Ncmsc/Sp2mp
+    HVqrmp/Sp2ms > HVqrmpc/Sp2ms
+    HR/Vqrms/Sp1ms > HR/Vqrmsc/Sp1ms
+    HR/Ncbc/Sp3mp > HR/Ncbcc/Sp3mp
+    HNbsc/Sp3ms > HNbscc/Sp3ms
+    HNcsc/Sp1cs > HNcscc/Sp1cs
+    HNcsc/Sp3ms > HNcscc/Sp3ms
+    HNmpc/Sp3ms > HNmpcc/Sp3ms
+    HVprmp/Sp1cs > HVprmpc/Sp1cs
+    HR/Ncmp/Sp2ms > HR/Ncmpc/Sp2ms
+    HVqsmp/Sp2mp > HVqsmpc/Sp2mp
+    HR/Ncms/Sp2mp > HR/Ncmsc/Sp2mp
+    HNcfs/Sp1cs > HNcfsc/Sp1cs
+    HC/Ncfs/Sp1cs > HC/Ncfsc/Sp1cs
+    HNcmp/Sp3fs > HNcmpc/Sp3fs
+    HNcfc/Sp3ms > HNcfcc/Sp3ms
+    HC/Ncbc/Sp3fp > HC/Ncbcc/Sp3fp
+    HVqrmp/Sp2mp > HVqrmpc/Sp2mp
+    - 325 words updated.
+  Nouns, adjectives and participles will be marked absolute if their state is not indicated and they do not have a pronominal suffix...
+    HNcmd > HNcmda
+    HR/Ncms > HR/Ncmsa
+    HTd/Ncms > HTd/Ncmsa
+    HAcmp > HAcmpa
+    HVqrms > HVqrmsa
+    HNcms > HNcmsa
+    HTd/Ncfs > HTd/Ncfsa
+    HTd/Aafs > HTd/Aafsa
+    HTd/Aams > HTd/Aamsa
+    HVprmp > HVprmpa
+    HNcms/Pp2ms > HNcmsa/Pp2ms
+    HC/R/Ncfp > HC/R/Ncfpa
+    HR/Ncfs > HR/Ncfsa
+    HTd/Ncmp > HTd/Ncmpa
+    HR/Aams > HR/Aamsa
+    HAams > HAamsa
+    HNcmp > HNcmpa
+    HC/Vqrms > HC/Vqrmsa
+    HVNrms > HVNrmsa
+    HR/Rd/Vqrfs > HR/Rd/Vqrfsa
+    HC/R/Ncms > HC/R/Ncmsa
+    HVPrms > HVPrmsa
+    HNcfp > HNcfpa
+    HR/Ncfp > HR/Ncfpa
+    HC/Vqsms > HC/Vqsmsa
+    HR/Rd/Vprms > HR/Rd/Vprmsa
+    HC/Ncms > HC/Ncmsa
+    HTd/Vprms > HTd/Vprmsa
+    HTd/Ngms > HTd/Ngmsa
+    HNcfd > HNcfda
+    HR/Vqrms > HR/Vqrmsa
+    HVmrfs > HVmrfsa
+    HR/Rd/Ncbs > HR/Rd/Ncbsa
+    HVhrms > HVhrmsa
+    HTd/VNrms > HTd/VNrmsa
+    HTd/Vhrmp > HTd/Vhrmpa
+    HC/Aafp > HC/Aafpa
+    HR/Rd/Ncms > HR/Rd/Ncmsa
+    HAafs > HAafsa
+    HC/Td/Ncfs > HC/Td/Ncfsa
+    HNcfs > HNcfsa
+    HNpms > HNpmsa
+    HNpfs > HNpfsa
+    HTd/Vqrmp > HTd/Vqrmpa
+    HC/Td/Ncms > HC/Td/Ncmsa
+    HNxfs > HNxfsa
+    HVqrms/Pp3ms > HVqrmsa/Pp3ms
+    H/Npms > H/Npmsa
+    HNpbs > HNpbsa
+    HNpbs/Acbs/ > HNpbs/Acbsa/
+    HAcfx/ > HAcfxa/
+    HTd/Vqrms > HTd/Vqrmsa
+    HVqrmp > HVqrmpa
+    HC/Ncfs > HC/Ncfsa
+    HVqsms > HVqsmsa
+    HRd/Ncms > HRd/Ncmsa
+    HRd/Ncfp > HRd/Ncfpa
+    HRd/Ncfs > HRd/Ncfsa
+    HAacs > HAacsa
+    HNcmx > HNcmxa
+    HC/Acms > HC/Acmsa
+    HC/Acmp > HC/Acmpa
+    HAcfs > HAcfsa
+    HC/Acfs > HC/Acfsa
+    HC/Ncfp > HC/Ncfpa
+    HAcfd > HAcfda
+    HAcbp > HAcbpa
+    HAcfp > HAcfpa
+    HR/Td/Ncms > HR/Td/Ncmsa
+    HAcmd > HAcmda
+    HAcms > HAcmsa
+    HR/Ncmp > HR/Ncmpa
+    HC/Acbp > HC/Acbpa
+    HTd/Aoms > HTd/Aomsa
+    HRd/Aoms > HRd/Aomsa
+    HRd/Aams > HRd/Aamsa
+    HNcbs > HNcbsa
+    HAabs > HAabsa
+    HC/Td/Vqrmp > HC/Td/Vqrmpa
+    HC/Td/Ncmp > HC/Td/Ncmpa
+    HC/R/Ncfs > HC/R/Ncfsa
+    HTm/Vqrms > HTm/Vqrmsa
+    HAamp > HAampa
+    HAomp > HAompa
+    HC/Aomp > HC/Aompa
+    HRd/Ncbs > HRd/Ncbsa
+    HR/Acfs > HR/Acfsa
+    HTd/Acms > HTd/Acmsa
+    HC/R/Aacp > HC/R/Aacpa
+    HNpxx > HNpxxa
+    HNcbs/Sd > HNcbsa/Sd
+    HTd/Ncms/Sd > HTd/Ncmsa/Sd
+    HC/Ncmp > HC/Ncmpa
+    HRd/Aofs > HRd/Aofsa
+    HC/Aamp > HC/Aampa
+    HNcfs/Sd > HNcfsa/Sd
+    HC/Ncms/Sd > HC/Ncmsa/Sd
+    HTd/Ncmp/Sd > HTd/Ncmpa/Sd
+    HTd/Ncbs > HTd/Ncbsa
+    HVqrfs > HVqrfsa
+    HR/Ncbs > HR/Ncbsa
+    HAoms > HAomsa
+    HTd/Aacp > HTd/Aacpa
+    HAamd > HAamda
+    HTm/Aabp > HTm/Aabpa
+    HTm/Aams > HTm/Aamsa
+    HVhrmp > HVhrmpa
+    HR/Vprms > HR/Vprmsa
+    HTd/VNrfp > HTd/VNrfpa
+    HC/Ncbs > HC/Ncbsa
+    HTd/Ncfp > HTd/Ncfpa
+    HTm/Aafp > HTm/Aafpa
+    HNgmp > HNgmpa
+    HC/Td/Aafs > HC/Td/Aafsa
+    HTd/Vqrfp > HTd/Vqrfpa
+    HVqrfp > HVqrfpa
+    HTd/Ncfs/Sd > HTd/Ncfsa/Sd
+    HVtrms > HVtrmsa
+    HTm/Aacp > HTm/Aacpa
+    HRd/Ncmp > HRd/Ncmpa
+    HTd/Vqrfs > HTd/Vqrfsa
+    HVprms > HVprmsa
+    HTi/Aams > HTi/Aamsa
+    HTm/Ncfs > HTm/Ncfsa
+    HC/Aams > HC/Aamsa
+    HTd/Aamp > HTd/Aampa
+    HC/Td/Vqsmp > HC/Td/Vqsmpa
+    HTd/Aafp > HTd/Aafpa
+    HC/Td/Vqsfp > HC/Td/Vqsfpa
+    HTm/VNrfp > HTm/VNrfpa
+    HAafp > HAafpa
+    HC/Vqsmp > HC/Vqsmpa
+    HTd/VPrfp > HTd/VPrfpa
+    HTd/Vqsmp > HTd/Vqsmpa
+    HAxms > HAxmsa
+    HC/Td/Ncbs > HC/Td/Ncbsa
+    HVNrmp > HVNrmpa
+    HVvrmp > HVvrmpa
+    HRd/Vqrms > HRd/Vqrmsa
+    HTi/R/Vqrfs > HTi/R/Vqrfsa
+    HR/Vqrfs > HR/Vqrfsa
+    HVPrfs > HVPrfsa
+    HAofs > HAofsa
+    HR/Vhrms > HR/Vhrmsa
+    HNcms/Pp3ms > HNcmsa/Pp3ms
+    HVKsmp > HVKsmpa
+    HC/Rd/Ngmp > HC/Rd/Ngmpa
+    HTd/Ngmp > HTd/Ngmpa
+    HR/Ngmp > HR/Ngmpa
+    HNcms/Sd > HNcmsa/Sd
+    HR/Ngms > HR/Ngmsa
+    HTm/Vqrmp > HTm/Vqrmpa
+    HTd/Vhrms > HTd/Vhrmsa
+    HC/Td/Acms > HC/Td/Acmsa
+    HRd/Ncmd > HRd/Ncmda
+    HR/Vprmp > HR/Vprmpa
+    HC/Td/Aams > HC/Td/Aamsa
+    HC/Aacs > HC/Aacsa
+    HTd/Ncbp > HTd/Ncbpa
+    HNgms > HNgmsa
+    HNccs > HNccsa
+    HTd/Vprmp > HTd/Vprmpa
+    HVPrmp > HVPrmpa
+    HC/Aacp > HC/Aacpa
+    HVqsfs > HVqsfsa
+    HC/R/Ncmp > HC/R/Ncmpa
+    HTi/R/Ncms > HTi/R/Ncmsa
+    HAccp > HAccpa
+    HC/Rd/Ncbs > HC/Rd/Ncbsa
+    HC/Acmd > HC/Acmda
+    HC/Td/Ngms > HC/Td/Ngmsa
+    HVrrms > HVrrmsa
+    HVtrfs > HVtrfsa
+    HRd/Acms > HRd/Acmsa
+    HC/Rd/Ncms > HC/Rd/Ncmsa
+    HC/Td/Vhrms > HC/Td/Vhrmsa
+    HR/Acms > HR/Acmsa
+    HAcmx > HAcmxa
+    HVNrfs > HVNrfsa
+    HC/Td/Aofs > HC/Td/Aofsa
+    HTd/Aofd > HTd/Aofda
+    HTd/Aofs > HTd/Aofsa
+    HC/Td/Npms > HC/Td/Npmsa
+    HVprfs > HVprfsa
+    HC/Aafs > HC/Aafsa
+    HRd/Aamp > HRd/Aampa
+    HR/Aamp > HR/Aampa
+    HR/Npms > HR/Npmsa
+    HVNrfp > HVNrfpa
+    HC/Npms > HC/Npmsa
+    HR/Aoms > HR/Aomsa
+    HTd/Ncmx > HTd/Ncmxa
+    HC/Td/Vqrfs > HC/Td/Vqrfsa
+    HRd/Ngmp > HRd/Ngmpa
+    HC/Td/Ngmp > HC/Td/Ngmpa
+    HRd/Aafs > HRd/Aafsa
+    HC/Rd/Ncfs > HC/Rd/Ncfsa
+    HRd/Ngms > HRd/Ngmsa
+    HR/Aabp > HR/Aabpa
+    HR/Npxx > HR/Npxxa
+    HR/Ncbc/Sx3mp > HR/Ncbca/Sx3mp
+    HNbsc/Sx3ms > HNbsca/Sx3ms
+    HTd/Vvrms > HTd/Vvrmsa
+    HR/R/Ncms > HR/R/Ncmsa
+    HVhrfs > HVhrfsa
+    HC/Td/Npmp > HC/Td/Npmpa
+    HC/Td/Ngxs > HC/Td/Ngxsa
+    HNcma > HNcmaa
+    HTd/Ncma > HTd/Ncmaa
+    HNpNp > HNpNpa
+    HC/Ngmp > HC/Ngmpa
+    HTd/Npfs > HTd/Npfsa
+    HNmsc > HNmsca
+    HTd/Agmp > HTd/Agmpa
+    HAabp > HAabpa
+    HTd/VNrmp > HTd/VNrmpa
+    HNpNp/Sd > HNpNpa/Sd
+    - 4073 words updated.
+  Verbs marked perfect (including sequentials) 3rd person plural masculine will be corrected to common gender...
+    HVqp3mp > HVqp3cp
+    HVqp3mp/Sp1cs > HVqp3cp/Sp1cs
+    HC/Vqq3mp > HC/Vqq3cp
+    HC/Vpq3mp > HC/Vpq3cp
+    HVhp3mp > HVhp3cp
+    HVpp3mp > HVpp3cp
+    HC/Vhq3mp > HC/Vhq3cp
+    HVNp3mp > HVNp3cp
+    HC/VNq3mp > HC/VNq3cp
+    HC/Vhq3mp/Sp3mp > HC/Vhq3cp/Sp3mp
+    HC/Vqq3mp/Sp3mp > HC/Vqq3cp/Sp3mp
+    HC/Vtq3mp/Sp3mp > HC/Vtq3cp/Sp3mp
+    HC/Vqp3mp > HC/Vqp3cp
+    HVqp3mp/Sp2ms > HVqp3cp/Sp2ms
+    HVqp3mp/Sn > HVqp3cp/Sn
+    HVop3mp > HVop3cp
+    HC/Vtq3mp > HC/Vtq3cp
+    HVOp3mp > HVOp3cp
+    HVPp3mp > HVPp3cp
+    HVrp3mp > HVrp3cp
+    HVqp3mp/Sp1cp > HVqp3cp/Sp1cp
+    HVqq3mp > HVqq3cp
+    HC/Vqq3mp/Sp3ms > HC/Vqq3cp/Sp3ms
+    HC/Vmq3mp > HC/Vmq3cp
+    HC/Vqq3mp/ > HC/Vqq3cp/
+    HC/Vhq3mp/Sp3ms > HC/Vhq3cp/Sp3ms
+    HTd/Vmp3mp > HTd/Vmp3cp
+    HTd/VOp3mp > HTd/VOp3cp
+    HVmp3mp > HVmp3cp
+    HC/Vvq3mp > HC/Vvq3cp
+    HVhq3mp > HVhq3cp
+    HTd/VNp3mp > HTd/VNp3cp
+    - 309 words updated.
+  Verbs marked imperfect (including sequentials) 3rd person plural common will be corrected to masculine gender...
+    HVqi3cp > HVqi3mp
+    HC/Vvw3cp > HC/Vvw3mp
+    HVNi3cp > HVNi3mp
+    HVNi3cp/Sn > HVNi3mp/Sn
+    HVhi3cp/Sp3ms > HVhi3mp/Sp3ms
+    HVqi3cp/Sp1cs > HVqi3mp/Sp1cs
+    HVqi3cp/Sp2fs > HVqi3mp/Sp2fs
+    HVqi3cp/Sp3mp > HVqi3mp/Sp3mp
+    HC/Vqw3cp > HC/Vqw3mp
+    HC/Vpw3cp > HC/Vpw3mp
+    HVpi3cp > HVpi3mp
+    HVqw3cp/ > HVqw3mp/
+    HC/VNw3cp > HC/VNw3mp
+    HT/Vqw3cp > HT/Vqw3mp
+    HC/Vhw3cp > HC/Vhw3mp
+    HVqi3cp/C > HVqi3mp/C
+    HC/Vqi3cp > HC/Vqi3mp
+    - 35 words updated.
+  Verbs marked sequential (perfect or imperfect) which are missing the indication of the conjunction will be corrected to include the conjunction. Eg. HVqw3fs -> HC/Vqw3fs...
+    HVqw3ms > HC/Vqw3ms
+    HVow > HC/Vow
+    HVpw3ms > HC/Vpw3ms
+    HVqq2mp > HC/Vqq2mp
+    HVqw3mp > HC/Vqw3mp
+    HVhw1cp > HC/Vhw1cp
+    HVmw3mp > HC/Vmw3mp
+    HVpq3ms > HC/Vpq3ms
+    HVNw3mp > HC/VNw3mp
+    HVtq3ms > HC/Vtq3ms
+    HVtq2ms > HC/Vtq2ms
+    HVhq3ms/Sp3ms > HC/Vhq3ms/Sp3ms
+    HVqq2ms > HC/Vqq2ms
+    HVpq3cp > HC/Vpq3cp
+    HVqq3cp > HC/Vqq3cp
+    HVqw1cs > HC/Vqw1cs
+    HVqw3ms/D > HC/Vqw3ms/D
+    HVqw3mp/ > HC/Vqw3mp/
+    HVqw2ms > HC/Vqw2ms
+    HVqw3fp > HC/Vqw3fp
+    HVNw3ms > HC/VNw3ms
+    HVhw3ms > HC/Vhw3ms
+    HVKw3mp/Sn > HC/VKw3mp/Sn
+    HVNq3ms > HC/VNq3ms
+    HVqq3ms > HC/Vqq3ms
+    HVqw3fs > HC/Vqw3fs
+    HVPw3ms > HC/VPw3ms
+    HVqq3ms/Sp1cp > HC/Vqq3ms/Sp1cp
+    HVqw3fs/ > HC/Vqw3fs/
+    HVqq1cs/ > HC/Vqq1cs/
+    HVqw1cs/ > HC/Vqw1cs/
+    HVhw3ms/Sp2ms > HC/Vhw3ms/Sp2ms
+    HVhw2mp > HC/Vhw2mp
+    HVqw2mp > HC/Vqw2mp
+    HVqq3ms/Sp3ms > HC/Vqq3ms/Sp3ms
+    HVpq2ms/ > HC/Vpq2ms/
+    HVqq3fs > HC/Vqq3fs
+    HVpw3mp > HC/Vpw3mp
+    HVqw1ms > HC/Vqw1ms
+    HVhq3cp > HC/Vhq3cp
+    HVqw3ms/Sp3mp > HC/Vqw3ms/Sp3mp
+    - 2078 words updated.
+  Get rid of trailing slashes...
+    HD/ > HD
+    HA/ > HA
+    HS/ > HS
+    H/ > H
+    HVz/ > HVz
+    HP/ > HP
+    HC/ > HC
+    HNcmsa/ > HNcmsa
+    HNcmsc/ > HNcmsc
+    HVqi3mp/ > HVqi3mp
+    HAamsa/ > HAamsa
+    HC/Vqw3mp/ > HC/Vqw3mp
+    HNpbs/Acbsa/ > HNpbs/Acbsa
+    HAcfxa/ > HAcfxa
+    HTi/ > HTi
+    HVqv2ms/Sh/ > HVqv2ms/Sh
+    HC/Vqq1cs/ > HC/Vqq1cs
+    HNcfsa/ > HNcfsa
+    HVqc/ > HVqc
+    HC/Vqq3cp/ > HC/Vqq3cp
+    HR/ > HR
+    HNcmpa/ > HNcmpa
+    HC/Vqw3fs/ > HC/Vqw3fs
+    HC/Vqw1cs/ > HC/Vqw1cs
+    HVqi2ms/ > HVqi2ms
+    HC/Vpq2ms/ > HC/Vpq2ms
+    HR/Ncfsc/ > HR/Ncfsc
+    HVqsmpc/Sp3mp/ > HVqsmpc/Sp3mp
+    HTd/ > HTd
+    HNgmsa/ > HNgmsa
+    HAcbsa/ > HAcbsa
+    HTe/ > HTe
+    HC/Td/ > HC/Td
+    - 66 words updated.
+  Multi-part words with the last part marked a personal pronoun, and with an adjective, noun, preposition or verb in the second to last part, will be corrected to be a pronominal suffix...
+    HR/Pp2ms > HR/Sp2ms
+    HR/Pp3mp > HR/Sp3mp
+    HVpp2ms/Pp3ms > HVpp2ms/Sp3ms
+    HC/Ncfpc/Pp3mp > HC/Ncfpc/Sp3mp
+    HNcmsc/Pp1cs > HNcmsc/Sp1cs
+    HNcfsc/Pp2ms > HNcfsc/Sp2ms
+    HR/Ncmsc/Pp2ms > HR/Ncmsc/Sp2ms
+    HR/Ncfpc/Pp2ms > HR/Ncfpc/Sp2ms
+    HVpi3mp/Pp2ms > HVpi3mp/Sp2ms
+    HVqh1cp/Pp3mp > HVqh1cp/Sp3mp
+    HNcmpc/Pp1cs > HNcmpc/Sp1cs
+    HC/Ncfpc/Pp1cs > HC/Ncfpc/Sp1cs
+    HNcfdc/Pp2ms > HNcfdc/Sp2ms
+    HNcmsc/Pp2ms > HNcmsc/Sp2ms
+    HNcmsa/Pp2ms > HNcmsa/Sp2ms
+    HNcmsa/Pp3ms > HNcmsa/Sp3ms
+    HR/Ncmpa/Pp1cp > HR/Ncmpa/Sp1cp
+    HC/R/Ncmpa/Pp1cp > HC/R/Ncmpa/Sp1cp
+    HR/Pp3fp > HR/Sp3fp
+    HRd/Pp3mp > HRd/Sp3mp
+    HVqrmsa/Pp3ms > HVqrmsa/Sp3ms
+    HC/Ncfsc/Pp3ms > HC/Ncfsc/Sp3ms
+    HNcfsa/Pp3ms > HNcfsa/Sp3ms
+    HVhi3ms/Pp3fs > HVhi3ms/Sp3fs
+    HC/Vhp3ms/Pp3mp > HC/Vhp3ms/Sp3mp
+    HNcxsa/Pp3xs > HNcxsa/Sp3xs
+    HC/Ncxsa/Pp3ms > HC/Ncxsa/Sp3ms
+    HVpp1cs/Pp2ms > HVpp1cs/Sp2ms
+    HC/R/Pp3mp > HC/R/Sp3mp
+    HR/Ncmdc/Pp2ms > HR/Ncmdc/Sp2ms
+    HC/Ncmsc/Pp2fp > HC/Ncmsc/Sp2fp
+    HR/Pp1cs > HR/Sp1cs
+    HC/Ncmpc/Pp3mp > HC/Ncmpc/Sp3mp
+    HC/Vhj3mp/Pp3mp > HC/Vhj3mp/Sp3mp
+    HC/Vhj2ms/Pp3mp > HC/Vhj2ms/Sp3mp
+    HR/Pp2mp > HR/Sp2mp
+    HR/R/Pp3mp > HR/R/Sp3mp
+    HR/Pp3xp > HR/Sp3xp
+    HNcfsc/Pp3ms > HNcfsc/Sp3ms
+    HC/Vpw3ms/Pp3ms > HC/Vpw3ms/Sp3ms
+    - 678 words updated.
+  Words with definite article and marked construct will be corrected to be marked absolute...
+    HC/Td/Ncmsc > HC/Td/Ncmsa
+    HTd/Vhrmsc > HTd/Vhrmsa
+    HTd/Ncmsc > HTd/Ncmsa
+    HTd/Vhrmsc/Sp3ms > HTd/Vhrmsa/Sp3ms
+    HTd/Ncmsc/Sd > HTd/Ncmsa/Sd
+    HTd/Vprmsc/Sp1cs > HTd/Vprmsa/Sp1cs
+    HTd/Vhrmsc/Sp2ms > HTd/Vhrmsa/Sp2ms
+    HR/Rd/Ncfsc > HR/Rd/Ncfsa
+    HR/Rd/Ncmpc > HR/Rd/Ncmpa
+    HTd/Vprmsc/Sp2fs > HTd/Vprmsa/Sp2fs
+    HTd/Ncmsc/Sh > HTd/Ncmsa/Sh
+    HR/Rd/Aampc > HR/Rd/Aampa
+    HR/Rd/Ncfsc/Sh > HR/Rd/Ncfsa/Sh
+    HTd/Ncmpc > HTd/Ncmpa
+    HR/Rd/Ncmsc > HR/Rd/Ncmsa
+    HRd/Rd/Ncmsc > HRd/Rd/Ncmsa
+    HTd/Ncfsc > HTd/Ncfsa
+    HC/R/Rd/Ncfsc > HC/R/Rd/Ncfsa
+    HR/Td/Ncmsc > HR/Td/Ncmsa
+    HC/Rd/Ncmsc > HC/Rd/Ncmsa
+    HR/Rd/Ncbpc > HR/Rd/Ncbpa
+    HR/Rd/Ncbsc > HR/Rd/Ncbsa
+    HTd/Aamsc > HTd/Aamsa
+    HC/R/Rd/Nccsc > HC/R/Rd/Nccsa
+    HTd/Vhrmsc/Sp3mp > HTd/Vhrmsa/Sp3mp
+    HC/Td/Ncfsc > HC/Td/Ncfsa
+    HTd/Ncmpc/Sd > HTd/Ncmpa/Sd
+    HC/Td/Vqrmsc/Sp2ms > HC/Td/Vqrmsa/Sp2ms
+    HTd/Vqrmsc > HTd/Vqrmsa
+    HTd/Ncbsc > HTd/Ncbsa
+    HTd/Vqrmsc/Sp2ms > HTd/Vqrmsa/Sp2ms
+    HTd/Acfsc > HTd/Acfsa
+    HC/Td/Acfsc > HC/Td/Acfsa
+    HRd/Ncmsc > HRd/Ncmsa
+    HRd/Acmsc > HRd/Acmsa
+    HRd/Ncfsc > HRd/Ncfsa
+    HRd/Ncmpc > HRd/Ncmpa
+    HRd/Ncbsc > HRd/Ncbsa
+    HRd/Ncfpc > HRd/Ncfpa
+    HC/Rd/Ncfsc > HC/Rd/Ncfsa
+    HRd/Ncmsc/Sp1cs > HRd/Ncmsa/Sp1cs
+    HC/Rd/Ncbsc > HC/Rd/Ncbsa
+    HC/Rd/Ncmpc > HC/Rd/Ncmpa
+    HRd/Ncmsc/Sp2mp > HRd/Ncmsa/Sp2mp
+    HC/Rd/Ncfdc > HC/Rd/Ncfda
+    HC/Td/Ncbpc > HC/Td/Ncbpa
+    HRd/Ncmpc/Sp2ms > HRd/Ncmpa/Sp2ms
+    HTd/Ncfsc/Sd > HTd/Ncfsa/Sd
+    HRd/Ncmsc/Sp1ms > HRd/Ncmsa/Sp1ms
+    HRd/Ncmdc > HRd/Ncmda
+    HC/Rd/Ncmdc > HC/Rd/Ncmda
+    HRd/Ncmpc/Sp2cp > HRd/Ncmpa/Sp2cp
+    HTd/Ncfpc > HTd/Ncfpa
+    HRd/Ncmsc/Sp2ms > HRd/Ncmsa/Sp2ms
+    HTd/Aampc > HTd/Aampa
+    HC/Td/Aampc > HC/Td/Aampa
+    HRd/Nxfsc > HRd/Nxfsa
+    HTd/Ncmsc/Sp3ms > HTd/Ncmsa/Sp3ms
+    HTd/Ncmsc/Sn > HTd/Ncmsa/Sn
+    HRd/Nxmsc > HRd/Nxmsa
+    HTd/Acmdc > HTd/Acmda
+    HC/Rd/Ncfsc/Sp2ms > HC/Rd/Ncfsa/Sp2ms
+    HRd/Ncfsc/Sp3ms > HRd/Ncfsa/Sp3ms
+    HRd/Ncmsc/Sp3mp > HRd/Ncmsa/Sp3mp
+    HRd/Ncfsc/Sp3fs > HRd/Ncfsa/Sp3fs
+    HTd/Ncmsc/Sp2ms > HTd/Ncmsa/Sp2ms
+    HTd/VNrmpc > HTd/VNrmpa
+    HRd/Ncfdc > HRd/Ncfda
+    HRd/Ncmpc/Sp2mp > HRd/Ncmpa/Sp2mp
+    HC/Rd/Ncmpc/Sp3mp > HC/Rd/Ncmpa/Sp3mp
+    HRd/Ncmsc/Sp3ms > HRd/Ncmsa/Sp3ms
+    HTd/Ncmsc/Sp1cs > HTd/Ncmsa/Sp1cs
+    HC/Td/Ncmsc/Sp3ms > HC/Td/Ncmsa/Sp3ms
+    HC/Rd/Ncmsc/Sp3ms > HC/Rd/Ncmsa/Sp3ms
+    HTd/Ncmsc/Sp3fs > HTd/Ncmsa/Sp3fs
+    - 275 words updated.
+  Nouns with a common gender will be corrected to both...
+    HNccsc > HNcbsc
+    HNccsa > HNcbsa
+    HR/Nccpc > HR/Ncbpc
+    HNccsc/Sp1cs > HNcbsc/Sp1cs
+    HR/Nccsc/Sp2ms > HR/Ncbsc/Sp2ms
+    HC/R/Nccsc > HC/R/Ncbsc
+    HNpc > HNpb
+    HNccpa > HNcbpa
+    HR/Nccsa > HR/Ncbsa
+    HC/R/Rd/Nccsa > HC/R/Rd/Ncbsa
+    HR/Nccpc/Sp3ms > HR/Ncbpc/Sp3ms
+    HNccsc/Sp2ms > HNcbsc/Sp2ms
+    HNgcpa > HNgbpa
+    HR/Nccsc > HR/Ncbsc
+    HR/Ncc/Sp3mp > HR/Ncb/Sp3mp
+    HNccsc/Sp3mp > HNcbsc/Sp3mp
+    HC/Nccpc/Sp3fs > HC/Ncbpc/Sp3fs
+    HNccpc/Sp1cs > HNcbpc/Sp1cs
+    - 27 words updated.
+  Demonstrative, relative and personal pronouns, pronominal suffixes and verbs with a both gender will be corrected to common...
+    HPdxbp > HPdxcp
+    HC/Pdxbp > HC/Pdxcp
+    HC/R/Pdxbp > HC/R/Pdxcp
+    HVqi3bp > HVqi3cp
+    HC/Vqw1bs > HC/Vqw1cs
+    HVqp1b > HVqp1c
+    HTd/Pdxbp > HTd/Pdxcp
+    HR/Pdxbp > HR/Pdxcp
+    HVqp1bp > HVqp1cp
+    HR/Pdxbpa > HR/Pdxcpa
+    HC/Vhv2bp > HC/Vhv2cp
+    - 195 words updated.
+  Demonstrative and relative pronouns will have person removed (marked ‘x’) if it is indicated...
+    HC/Pd1cp > HC/Pdxcp
+    HPd2ms > HPdxms
+    HPd3fs > HPdxfs
+    HR/Pd3fs > HR/Pdxfs
+    HPr3xx > HPrxxx
+    HTd/Pd3fs > HTd/Pdxfs
+    HTd/Pd3ms > HTd/Pdxms
+    HTm/Pd3fs > HTm/Pdxfs
+    HR/Pd3ms > HR/Pdxms
+    HNcmsc/Pr3m > HNcmsc/Prxm
+    HRd/Pr3c > HRd/Prxc
+    HTd/Pd3mp > HTd/Pdxmp
+    HPd3f > HPdxf
+    HPd3mp > HPdxmp
+    HC/Pd3ms > HC/Pdxms
+    HPd3ms > HPdxms
+    HPd3cp > HPdxcp
+    HTd/Pd3cp > HTd/Pdxcp
+    HR/Pr3ms > HR/Prxms
+    HC/Pd3fs > HC/Pdxfs
+    HPd3fp > HPdxfp
+    HC/Pd3mp > HC/Pdxmp
+    HC/R/Pd3ms > HC/R/Pdxms
+    HC/R/Pd3mp > HC/R/Pdxmp
+    HR/Pd3mp > HR/Pdxmp
+    HR/Pd3cp > HR/Pdxcp
+    HC/Pr3mp/Sh > HC/Prxmp/Sh
+    - 160 words updated.
+  Indefinite and interrogative pronouns will have unneeded parsing info removed and be reduced to Pf and Pi...
+    HPf3bs > HPf
+    HC/R/Pixxx > HC/R/Pi
+    - 2 words updated.
+  Directional/paragogic ה and ן will have unneeded parsing info removed and be reduced to Sd, Sh or Sn...
+    HVhv2ms/Sh2ms > HVhv2ms/Sh
+    HVqi1cs/Snx/Sp3ms > HVqi1cs/Sn/Sp3ms
+    HVqi2mp/Sn3 > HVqi2mp/Sn
+    HD/Sd3ms > HD/Sd
+    - 5 words updated.
+  Perfect and imperfect verbs (including sequentials), pronouns and pronominal suffixes in 1st person will be marked common gender...
+    HC/Vqq1mp > HC/Vqq1cp
+    HVhp1ms > HVhp1cs
+    HNcfsc/Sp1fs > HNcfsc/Sp1cs
+    HVqp1ms > HVqp1cs
+    HVqi1ms > HVqi1cs
+    HVpi2ms/Sp1ms > HVpi2ms/Sp1cs
+    HVhi1ms/Sp2ms > HVhi1cs/Sp2ms
+    HVhi1ms > HVhi1cs
+    HNcmsc/Sp1ms > HNcmsc/Sp1cs
+    HVqi2ms/Sp1mp > HVqi2ms/Sp1cp
+    HVqrmsc/Sp1ms > HVqrmsc/Sp1cs
+    HNcfsc/Sp1ms > HNcfsc/Sp1cs
+    HR/Ncmpc/Sp1ms > HR/Ncmpc/Sp1cs
+    HD/Sp1ms > HD/Sp1cs
+    HVqi1mp > HVqi1cp
+    HRd/Ncmsa/Sp1ms > HRd/Ncmsa/Sp1cs
+    HTj/Sp1ms > HTj/Sp1cs
+    HR/Sp1ms > HR/Sp1cs
+    HVqp1mp > HVqp1cp
+    HNcmsa/Sp1ms > HNcmsa/Sp1cs
+    HNcmsc/Sp1mp > HNcmsc/Sp1cp
+    HR/Sp1mp > HR/Sp1cp
+    HC/Vqw1mp > HC/Vqw1cp
+    HC/Ncmsc/Sp1mp > HC/Ncmsc/Sp1cp
+    HR/R/Sp1ms > HR/R/Sp1cs
+    HVqp1ms/Sp3ms > HVqp1cs/Sp3ms
+    HR/Vmj1ms/Sp1ms > HR/Vmj1ms/Sp1cs
+    HVqi1ms/Sp3ms > HVqi1cs/Sp3ms
+    HC/Vqw1ms > HC/Vqw1cs
+    HR/Ncmsc/Sp1ms > HR/Ncmsc/Sp1cs
+    HC/Vqq3ms/Sp1ms > HC/Vqq3ms/Sp1cs
+    HC/Vqq3ms/Sp1m > HC/Vqq3ms/Sp1c
+    HC/Vlw1ms > HC/Vlw1cs
+    HC/Vqi1ms/Sp3ms > HC/Vqi1cs/Sp3ms
+    HTj/Sp1mp > HTj/Sp1cp
+    HNcmpc/Sp1ms > HNcmpc/Sp1cs
+    HC/VQi1ms > HC/VQi1cs
+    HNxfpc/Sp1ms > HNxfpc/Sp1cs
+    HC/Vqi1ms > HC/Vqi1cs
+    HC/Ncmpc/Sp1ms > HC/Ncmpc/Sp1cs
+    HVmp1ms > HVmp1cs
+    HVqp3ms/Sp1ms > HVqp3ms/Sp1cs
+    HC/Vqq1ms > HC/Vqq1cs
+    HC/Vqw3ms/Sp1ms > HC/Vqw3ms/Sp1cs
+    HC/Vqw3ms/Sp1m > HC/Vqw3ms/Sp1c
+    HC/Vlq1ms > HC/Vlq1cs
+    HVmp1fs > HVmp1cs
+    HR/Vqa/Sp1ms > HR/Vqa/Sp1cs
+    HC/Pp1mp > HC/Pp1cp
+    HC/VHw1ms > HC/VHw1cs
+    HVHp1ms > HVHp1cs
+    HR/Vqrmsc/Sp1ms > HR/Vqrmsc/Sp1cs
+    HC/Vhq1ms > HC/Vhq1cs
+    HVop1ms > HVop1cs
+    HVhi1mp > HVhi1cp
+    HR/Ncfdc/Sp1mp > HR/Ncfdc/Sp1cp
+    - 148 words updated.
+  Proper nouns (Np) will have unneeded parsing info (anything after the p) removed...
+    HNpm > HNp
+    HNpmsa > HNp
+    HNpmsc/Sp3ms > HNp/Sp3ms
+    HR/Npmsa > HR/Np
+    HC/Td/Npfpa > HC/Td/Np
+    HNpfpa > HNp
+    HNpx > HNp
+    HNpb > HNp
+    HC/Npmsa > HC/Np
+    HTd/Npmsa > HTd/Np
+    HC/Td/Npfsa > HC/Td/Np
+    HNpmpa > HNp
+    HTd/Npfsa > HTd/Np
+    HP/Npmsa > HP/Np
+    HR/Npx > HR/Np
+    HNpfsa > HNp
+    HNpxsc > HNp
+    HNpxxa > HNp
+    H/Npmsa > H/Np
+    HR/Npfda > HR/Np
+    HNpbsa > HNp
+    HNpbs/Acbsa > HNp/Acbsa
+    HC/R/Npxxa > HC/R/Np
+    HTd/Npxxa > HTd/Np
+    HR/Npxxa > HR/Np
+    HC/Npxxa > HC/Np
+    HRd/Npxxa > HRd/Np
+    HNpfsc > HNp
+    HC/Td/Npmsa > HC/Td/Np
+    HC/Npxsa > HC/Np
+    HNpVqrmpc/Sp2ms > HNp/Sp2ms
+    HC/Td/Npmpa > HC/Td/Np
+    HNpNpa > HNp
+    HC/Npmpa > HC/Np
+    HTd/Npmpa > HTd/Np
+    HNpNpa/Sd > HNp/Sd
+    - 117 words updated.
+  Infinitive constructs (V?c) and absolutes (V?a) will have unneeded parsing info (anything after the c or a) removed...
+    HR/VqcR/Vqc > HR/Vqc/Vqc
+    - 2 words updated.
+  Adjectives (except for cardinal numbers), pronouns, pronominal suffixes and verbs marked with a number of dual will be corrected to plural...
+    HAabda > HAabpa
+    HVvi3md > HVvi3mp
+    HR/Aamdc > HR/Aampc
+    HAamdc > HAampc
+    HNcmsc/Sp2md > HNcmsc/Sp2mp
+    HVqp1cs/Sp3md > HVqp1cs/Sp3mp
+    HAamda > HAampa
+    HC/Sp3md > HC/Sp3mp
+    HR/Aafdc > HR/Aafpc
+    HAafda > HAafpa
+    HTd/Aofda > HTd/Aofpa
+    HAomdc > HAompc
+    HAofda > HAofpa
+    HTd/Aafda > HTd/Aafpa
+    HTd/Aomda > HTd/Aompa
+    HTd/Aamda > HTd/Aampa
+    HAamdc/Sp3mp > HAampc/Sp3mp
+    HC/Aomdc > HC/Aompc
+    HAafdc > HAafpc
+    - 30 words updated.
+  Every double / will be changed to a single /. Eg. HR//Ncfpc -> HR/Ncfpc...
+    HR//Ncfpc > HR/Ncfpc
+    HR//Np > HR/Np
+    HC//Vqi3mp > HC/Vqi3mp
+    HR/R//Sp1cs > HR/R/Sp1cs
+    HRd//Ncmpa > HRd/Ncmpa
+    HR/Ncbdc//Sp2ms > HR/Ncbdc/Sp2ms
+    - 6 words updated.
+  Every gentilic adjective will be corrected to be a gentilic noun...
+    HAgfsa > HNgfsa
+    HTd/Agfsa > HTd/Ngfsa
+    HAgmpa > HNgmpa
+    HAgfpa > HNgfpa
+    HAgmsa > HNgmsa
+    HT/Agmsa > HT/Ngmsa
+    HTd/Agmsa > HTd/Ngmsa
+    HC/Td/Agmsa > HC/Td/Ngmsa
+    HTd/Agmpa > HTd/Ngmpa
+    HRd/Agmsa > HRd/Ngmsa
+    HC/Rd/Agmsa > HC/Rd/Ngmsa
+    HC/Td/Agmpa > HC/Td/Ngmpa
+    HRd/Agmpa > HRd/Ngmpa
+    HC/Rd/Agmpa > HC/Rd/Ngmpa
+    HR/Agmpa > HR/Ngmpa
+    - 114 words updated.
+  Get rid of x's at the end of a parsing...
+    HVqi1cx > HVqi1c
+    HVpv2mx > HVpv2m
+    HNcmsc/Sp3mx > HNcmsc/Sp3m
+    HNcfpc/Sp3mx > HNcfpc/Sp3m
+    HR/Ncmsc/Sp2mx > HR/Ncmsc/Sp2m
+    HC/Vpq3ms/Sp2mx > HC/Vpq3ms/Sp2m
+    HC/Vqq2mx > HC/Vqq2m
+    HVqi2mx > HVqi2m
+    HNx > HN
+    HAccpc/Vqq3x > HAccpc/Vqq3
+    HPrxxx > HPr
+    HC/Vqw3mx > HC/Vqw3m
+    HC/Viv3mx > HC/Viv3m
+    HC/Vmp3mx > HC/Vmp3m
+    HR/R/Sp2mx > HR/R/Sp2m
+    HC/Vqq3mx > HC/Vqq3m
+    HNcmpc/Sx > HNcmpc/S
+    - 19 words updated.
+  Adjectives with type of x will be changed to a...
+    HAxmpa > HAampa
+    HAxmsa > HAamsa
+    HAxmsc/Sp2ms > HAamsc/Sp2ms
+    HR/Axmsa > HR/Aamsa
+    HAxfsa > HAafsa
+    HC/Axmsa > HC/Aamsa
+    HTd/Axmsa > HTd/Aamsa
+    HAxfsc > HAafsc
+    HAxfpa > HAafpa
+    HC/Axfsa > HC/Aafsa
+    HTd/Axfsa > HTd/Aafsa
+    HC/Axfsc > HC/Aafsc
+    HC/Axmpa > HC/Aampa
+    HRd/Axmsa > HRd/Aamsa
+    HC/Axmsc > HC/Aamsc
+    HAxmsc > HAamsc
+    HAxfpc > HAafpc
+    HC/Axfpc > HC/Aafpc
+    HC/Td/Axfpa > HC/Td/Aafpa
+    HC/Axfpa > HC/Aafpa
+    HTd/Axfpa > HTd/Aafpa
+    HAxmpc/Sp3fs > HAampc/Sp3fs
+    HC/Td/Axmsa > HC/Td/Aamsa
+    HTd/Axmpa > HTd/Aampa
+    HAxmpc > HAampc
+    HC/Axmpc > HC/Aampc
+    HR/Axmpa > HR/Aampa
+    HC/R/Axmpc/Sp1cp > HC/R/Aampc/Sp1cp
+    HR/Axmsc/Sp3ms > HR/Aamsc/Sp3ms
+    HR/Axmpc > HR/Aampc
+    HAxmsc/Sp3ms > HAamsc/Sp3ms
+    HC/R/Axmpc > HC/R/Aampc
+    HC/Td/Axfsa > HC/Td/Aafsa
+    HTi/Axmsa > HTi/Aamsa
+    HTi/Axfsa > HTi/Aafsa
+    HR/Axmda > HR/Aamda
+    HC/Rd/Axmsa > HC/Rd/Aamsa
+    HTd/Axbpa > HTd/Aabpa
+    HC/R/Axmsc/Sp3ms > HC/R/Aamsc/Sp3ms
+    HRd/Axfsa > HRd/Aafsa
+    HC/Axmpc/Sp3ms > HC/Aampc/Sp3ms
+    HAxmpc/Sp1cp > HAampc/Sp1cp
+    HAxmpc/Sp3mp > HAampc/Sp3mp
+    HR/Axmpc/Sp3ms > HR/Aampc/Sp3ms
+    - 620 words updated.
+  Parsing that include R/Rd/ should really be simply Rd/...
+    HR/Rd/Ncfsa > HRd/Ncfsa
+    HR/R/Rd/Aafsa > HR/Rd/Aafsa
+    HR/R/Rd/Ncfsa > HR/Rd/Ncfsa
+    HR/Rd/Ncmpa > HRd/Ncmpa
+    HC/R/Rd/Ncfsa > HC/Rd/Ncfsa
+    HR/Rd/Ncmsa > HRd/Ncmsa
+    HR/Rd/Ncfpa > HRd/Ncfpa
+    HR/Rd/Aamsa > HRd/Aamsa
+    HC/R/Rd/Ncmsa > HC/Rd/Ncmsa
+    HR/Rd/Vprmsa > HRd/Vprmsa
+    HR/Rd/Aampa > HRd/Aampa
+    HR/Rd/Ncbsa > HRd/Ncbsa
+    HR/Rd/Vqrfsa > HRd/Vqrfsa
+    HR/Rd/Vqrmsa > HRd/Vqrmsa
+    HC/R/Rd/Aampa > HC/Rd/Aampa
+    HR/Rd/Vqrmpa > HRd/Vqrmpa
+    HTi/R/Rd/Vqrmpa > HTi/Rd/Vqrmpa
+    HC/R/Rd/Ncmpa > HC/Rd/Ncmpa
+    HR/Rd/Np > HRd/Np
+    HR/Rd/Ncbpa > HRd/Ncbpa
+    HR/Rd/Ncfsa/Sh > HRd/Ncfsa/Sh
+    HR/Rd/Aafsa > HRd/Aafsa
+    HR/Rd/Vqc > HRd/Vqc
+    HC/R/Rd/Aamsa > HC/Rd/Aamsa
+    HC/R/Rd/Ncfpa > HC/Rd/Ncfpa
+    HC/R/Rd/Ncbsa > HC/Rd/Ncbsa
+    HC/R/Rd/Np > HC/Rd/Np
+    HR/Rd/Ngbsa > HRd/Ngbsa
+    HR/Rd/Ncxsa > HRd/Ncxsa
+    HR/Rd/Ncmxa > HRd/Ncmxa
+    HR/Rd/Vqsfsa > HRd/Vqsfsa
+    HR/Rd/Ngmsa > HRd/Ngmsa
+    HR/Rd/Ncmda > HRd/Ncmda
+    - 860 words updated.
+  Interrogative pronouns will be changed to interrogative particles (Pi > Ti)...
+    HPi > HTi
+    HR/Pi > HR/Ti
+    HC/R/Pi > HC/R/Ti
+    HC/Pi > HC/Ti
+    HR/Tr/R/Pi > HR/Tr/R/Ti
+    HC/Pi/Sp3ms > HC/Ti/Sp3ms
+    HPi/Sp3ms > HTi/Sp3ms
+    - 819 words updated.
+  Demonstrative pronouns with missing x for the person will be corrected...
+    HPdcp > HPdxcp
+    HC/Pdcp > HC/Pdxcp
+    - 406 words updated.
+  Pronominal suffixes with incorrect code (eg. S3mp should be Sp3mp) will be corrected...
+    HR/S3mp > HR/Sp3mp
+    - 30 words updated.
+Done with fix script.
+
+Running weed-out script...
+  Number of morph parts must match the number of word parts...
+    3014 parsings deleted because they had a different number of parts than the word
+  Must contain valid parsing letter combo (test with existing parser validator)...
+    AC/R/Nafsc is invalid
+    AC/Tc is invalid
+    ATc is invalid
+    AVqr2ms is invalid
+    AVqr3ms is invalid
+    H8799 is invalid
+    HC/Ncbcc/Sp3fp is invalid
+    HC/TnCTn is invalid
+    HC/VNqq3ms is invalid
+    HC/Vqqms is invalid
+    HCv/Vqw3fs is invalid
+    HDD is invalid
+    HNbsca/Sx3ms is invalid
+    HNbscc/Sp3ms is invalid
+    HNcfcc/Sp3ms is invalid
+    HNcmaa is invalid
+    HNcmpcNcmpc is invalid
+    HNcmps/Sp3mp is invalid
+    HNcpfa is invalid
+    HNcscc/Sp1cs is invalid
+    HNcscc/Sp3ms is invalid
+    HNmpcc/Sp3ms is invalid
+    HNmsca is invalid
+    HR/NP is invalid
+    HR/Ncbca/Sx3mp is invalid
+    HR/Ncbcc/Sp3mp is invalid
+    HR/Sp2msR is invalid
+    HRa/Ncmsa is invalid
+    HTc is invalid
+    HTc/Ncfsa is invalid
+    HTd/Ncmaa is invalid
+    HVcmpc is invalid
+    HVhc/Sp3m[ is invalid
+    HVhi2s is invalid
+    HVp2mp/Sp1cp is invalid
+    HVqi32mp is invalid
+    HVqvms/Sh is invalid
+    HVqvms/Sp1cs is invalid
+    Hd/Ncfsa is invalid
+    Hd/Ncmsa is invalid
+    Hd/Vqrmsa is invalid
+    Hebrew is invalid
+    Hבְּכֽוֹר is invalid
+    48 parsings deleted
+  Must have a POS indicated...
+    כָּל | H | Deuteronomy 8:1
+    - 1 words deleted.
+  Adjectives and nouns must have type, gender, number and state indicated, except for proper nouns...
+    טֽוֹב | HA | Genesis 1:21
+    לוּדִ֧ים | HNg | Genesis 10:13 (+1 more)
+    פַּתְרֻסִ֞ים | HNg | Genesis 10:14 (+1 more)
+    פְּלִשְׁתִּ֖ים | HNg | Genesis 10:14 (+15 more)
+    כַּפְתֹּרִֽים | HNg | Genesis 10:14 (+1 more)
+    מִצְרִ֖ית | HNg | Genesis 16:1
+    פְּלִשְׁתִּֽים | HNg | Genesis 21:32 (+16 more)
+    פְּלִשְׁתִּ֔ים | HNg | Genesis 26:8 (+37 more)
+    יִשְׁמְעֵאלִ֔ים | HNg | Genesis 37:25
+    מִדְיָנִ֜ים | HNg | Genesis 37:28
+    עֲדֻלָּמִ֖י | HNg | Genesis 38:1
+    מִצְרִ֔י | HNg | Genesis 39:1 (+5 more)
+    מֻפִּ֥ים | HNg | Genesis 46:21
+    מִצְרָ֑יִם | HNg | Exodus 3:21 (+3 more)
+    מִצְרָֽיִם | HNg | Exodus 3:22 (+3 more)
+    שֶׁ֔מֶן | HNc | Leviticus 2:1
+    יִשְׂרְאֵלִ֔ית | HNg | Leviticus 24:10
+    לֵוִי֙ | HNg | Numbers 1:49
+    לֵוִ֔י | HNg | Numbers 3:6 (+1 more)
+    לֵוִ֖י | HNg | Numbers 3:17 (+1 more)
+    לֵוִ֑י | HNg | Numbers 4:2 (+1 more)
+    כֻשִׁ֖ית | HNg | Numbers 12:1
+    לֵוִ֗י | HNg | Numbers 26:58 (+1 more)
+    עֲנָקִ֖ים | HNg | Deuteronomy 1:28
+    אֵמִֽים | HNg | Deuteronomy 2:11 (+1 more)
+    כַּפְתֹּרִים֙ | HNg | Deuteronomy 2:23 (+1 more)
+    צִידֹנִ֛ים | HNg | Deuteronomy 3:9 (+1 more)
+    עֲנָקִ֑ים | HNg | Deuteronomy 9:2
+    עַמּוֹנִ֛י | HNg | Deuteronomy 23:4
+    אֲדֹמִ֔י | HNg | Deuteronomy 23:8
+    אֲרַמִּי֙ | HNg | Deuteronomy 26:5
+    עֲנָקִ֔ים | HNg | Joshua 11:22
+    פְלִשְׁתִּ֗ים | HNg | Joshua 13:3 (+16 more)
+    צִ֣ידֹנִ֔ים | HNg | Joshua 13:6
+    עֲנָקִ֣ים | HNg | Joshua 14:12
+    קֵינִי֩ | HNg | Judges 1:16
+    פְּלִשְׁתִּים֙ | HNg | Judges 3:31 (+3 more)
+    הָֽעֶזְרִ֑י | HNg | Judges 6:11
+    הָעֶזְרִֽי | HNg | Judges 6:24
+    יִשְׁמְעֵאלִ֖ים | HNg | Judges 8:24
+    הָֽעֶזְרִֽי | HNg | Judges 8:32
+    פְלִשְׁתִּ֑ים | HNg | Judges 10:6 (+8 more)
+    פְּלִשְׁתִּ֑ים | HNg | Judges 14:2 (+22 more)
+    פְלִשְׁתִּים֮ | HNg | Judges 15:6
+    פְלִשְׁתִּ֔ים | HNg | Judges 15:6 (+21 more)
+    פְלִשְׁתִּ֖ים | HNg | Judges 15:20 (+7 more)
+    פְּלִשְׁתִּ֥ים | HNg | Judges 16:9 (+2 more)
+    פְּלִשְׁתִּ֤ים | HNg | Judges 16:12
+    פְלִשְׁתִּ֤ים | HNg | Judges 16:18 (+3 more)
+    פְּלִשְׁתִּים֒ | HNg | Judges 16:30
+    לֵוִ֣י | HNg | Judges 17:9
+    צִדֹנִ֜ים | HNg | Judges 18:7
+    יְמִינִֽי | HNg | Judges 19:16 (+2 more)
+    אֶפְרָתִֽי | HNg | 1 Samuel 1:1
+    פְּלִשְׁתִּ֜ים | HNg | 1 Samuel 4:1 (+1 more)
+    פְלִשְׁתִּ֜ים | HNg | 1 Samuel 4:2 (+4 more)
+    פְלִשְׁתִּים֙ | HNg | 1 Samuel 4:6 (+10 more)
+    אַשְׁדּוֹדִים֙ | HNg | 1 Samuel 5:3
+    הַשִּׁמְשִׁי֙ | HNg | 1 Samuel 6:14
+    פְלִשְׁתִּ֛ים | HNg | 1 Samuel 6:17 (+1 more)
+    הַשִּׁמְשִֽׁי | HNg | 1 Samuel 6:18
+    פְלִשְׁתִּֽים | HNg | 1 Samuel 7:7 (+6 more)
+    פְלִשְׁתִּים֩ | HNg | 1 Samuel 7:14
+    יְמִינִ֤י | HNg | 1 Samuel 9:21
+    פְּלִשְׁתִּ֗ים | HNg | 1 Samuel 12:9 (+2 more)
+    פְלִשְׁתִּ֨ים | HNg | 1 Samuel 14:36
+    עֲמָלֵקִ֗י | HNg | 1 Samuel 15:6
+    קֵינִ֖י | HNg | 1 Samuel 15:6
+    הַלַּחְמִ֔י | HNg | 1 Samuel 16:1
+    הַלַּחְמִי֒ | HNg | 1 Samuel 16:18
+    אֶפְרָתִ֜י | HNg | 1 Samuel 17:12 (+1 more)
+    הַלַּחְמִֽי | HNg | 1 Samuel 17:58
+    כָלִבִּֽי | HNg | 1 Samuel 25:3
+    מִצְרִי֙ | HNg | 1 Samuel 30:11
+    מִצְרִ֣י | HNg | 1 Samuel 30:13
+    עֲמָֽלֵקִ֔י | HNg | 1 Samuel 30:13
+    עֲמָלֵקִ֖י | HNg | 2 Samuel 1:8 (+1 more)
+    כוּשִׁ֛י | HNg | 2 Samuel 18:21
+    יְמִינִ֑י | HNg | 2 Samuel 20:1
+    פְּלִשְׁתִּ֛ים | HNg | 2 Samuel 21:12 (+1 more)
+    הַלַּחְמִ֗י | HNg | 2 Samuel 21:19
+    אֲחֹחִ֑י | HNg | 2 Samuel 23:9
+    הָרָרִ֑י | HNg | 2 Samuel 23:11
+    מִצְרִ֜י | HNg | 2 Samuel 23:21
+    פִּרְעָ֣תֹנִ֔י | HNg | 2 Samuel 23:30
+    הָארָרִֽי | HNg | 2 Samuel 23:33
+    צֹרִי֮ | HNg | 1 Kings 7:14
+    מוֹאֲבִיּ֤וֹת | HNg | 1 Kings 11:1
+    עַמֳּנִיּוֹת֙ | HNg | 1 Kings 11:1
+    אֲדֹ֣מִיֹּ֔ת | HNg | 1 Kings 11:1
+    צֵדְנִיֹּ֖ת | HNg | 1 Kings 11:1
+    צִדֹנִ֑ים | HNg | 1 Kings 11:5
+    עַמֹּנִֽים | HNg | 1 Kings 11:5
+    אֲדֹמִיִּ֜ים | HNg | 1 Kings 11:17
+    צִֽדֹנִין֒ | HNg | 1 Kings 11:33
+    צִידֹנִ֔ים | HNg | 1 Kings 16:31
+    הָאֱלִ֖י | HNg | 1 Kings 16:34
+    אֲרַמִּ֖ים | HNg | 2 Kings 8:28
+    אֲרַמִּים֙ | HNg | 2 Kings 8:29
+    אֲרַמִּ֔ים | HNg | 2 Kings 9:15
+    גִלְעָדִ֑ים | HNg | 2 Kings 15:25
+    צִידֹנִ֗ים | HNg | 2 Kings 23:13
+    דְּדָנִֽים | HNg | Isaiah 21:13
+    כּוּשִׁי֙ | HNg | Jeremiah 13:23
+    מְרָתַ֙יִם֙ | HNg | Jeremiah 50:21
+    כְּרֵתִ֑ים | HNg | Ezekiel 25:16 (+1 more)
+    צִֽדֹנִ֑י | HNg | Ezekiel 32:30
+    פְּלִשְׁתּ֗ים | HNg | Amos 6:2
+    כֻשִׁיִּ֨ים | HNg | Amos 9:7
+    כּוּשִׁ֣י | HNg | Zephaniah 1:1
+    כּוּשִׁ֔ים | HNg | Zephaniah 2:12
+    פְלִשְׁתִּ֣ים | HNg | Psalms 56:1
+    אֶפְרָתִ֔ים | HNg | Ruth 1:2
+    מעינים | HNg | Ezra 2:50
+    מְעוּנִ֖ים | HNg | Ezra 2:50 (+1 more)
+    נפיסים | HNg | Ezra 2:50
+    נְפוּסִֽים | HNg | Ezra 2:50
+    דִּ֠ינָיֵא | HNg | Ezra 4:9
+    ארכוי | HNg | Ezra 4:9
+    נְפִֽישְׁסִֽים | HNg | Nehemiah 7:52
+    נְטֹפָתִֽי | HNg | Nehemiah 12:28
+    עַמֹּנִ֧י | HNg | Nehemiah 13:1
+    אשדודיות | HNg | Nehemiah 13:23
+    אַשְׁדֳּדִיּ֔וֹת | HNg | Nehemiah 13:23
+    עמוניות | HNg | Nehemiah 13:23
+    עַמֳּנִיּ֖וֹת | HNg | Nehemiah 13:23
+    מוֹאֲבִיּֽוֹת | HNg | Nehemiah 13:23
+    לודיים | HNg | 1 Chronicles 1:11
+    מִצְרִ֖י | HNg | 1 Chronicles 2:34
+    תִּרְעָתִ֥ים | HNg | 1 Chronicles 2:55
+    שִׁמְעָתִ֖ים | HNg | 1 Chronicles 2:55
+    שׂוּכָתִ֑ים | HNg | 1 Chronicles 2:55
+    נְטוֹפָתִֽי | HNg | 1 Chronicles 9:16
+    פְּלִשְׁתִּ֧ים | HNg | 1 Chronicles 12:20 (+1 more)
+    פלשתיים | HNg | 1 Chronicles 14:10
+    צֹרִ֡י | HNg | 2 Chronicles 2:13
+    סֻכִּיִּ֖ים | HNg | 2 Chronicles 12:3
+    כּוּשִֽׁים | HNg | 2 Chronicles 21:16
+    אֲדוֹמִ֔ים | HNg | 2 Chronicles 25:14
+    אֲדוֹמִ֖ים | HNg | 2 Chronicles 28:17
+    טָֽבְאַֽל | HN | Isaiah 7:6
+    בַּת | HN | Isaiah 10:30
+    בְּ/מִצְרַ֔יִם | HR/N | Isaiah 19:2
+    כְּנַ֔עַן | HN | Isaiah 19:18
+    אֵשׁ֮ | HNcm | Psalms 21:10
+    בְ/מִישׁ֑וֹר | HN/Ncmsa | Psalms 26:12
+    מַבְדִּ֔יל | HAg | Genesis 1:6
+    בַּ/יהוָֽה | HR/Ncm | Psalms 104:34
+    וְ/יִשְׂרָאֵ֖ל | HC/N | Isaiah 43:28
+    וְ/יִשְׂרָאֵ֖ל | HC/Ncm | Isaiah 63:16
+    הַ/דְּבָרִ֗ים | HA/Td | Deuteronomy 1:1
+    וּ/לְמַ֖עַן | HC/N | Deuteronomy 6:2
+    אָשִׁ֤ירָה | HNxf | Exodus 15:1
+    אָשִׁ֤ירָה | HN | Exodus 15:1
+    אָשִׁ֤ירָה | HNcf | Exodus 15:1
+    ס֥וּס | HN | Exodus 15:1
+    מוֹעֵ֖ד | HN | Leviticus 4:4
+    שֶׁ֤בַע | HAc | Leviticus 4:6
+    הַ/סַּמִּים֙ | HA/Td | Leviticus 4:7
+    שְׁתַּ֙יִם֙ | HAc | Haggai 1:1
+    וֶ/אֱלִישָׁע֙ | H/N | 2 Kings 9:1
+    הַ/חֹרִ֖י | HTd/Ng | Genesis 14:6
+    הָ/עֲמָלֵקִ֑י | HTd/Ng | Genesis 14:7
+    הָ֣/אֱמֹרִ֔י | HTd/Ng | Genesis 14:7 (+1 more)
+    הָ/עִבְרִ֑י | HTd/Ng | Genesis 14:13
+    הָ/אֱמֹרִ֗י | HTd/Ng | Genesis 14:13 (+1 more)
+    הַ/מִּצְרִית֙ | HTd/Ng | Genesis 16:3
+    הַ/חִתִּ֤י | HTd/Ngm | Genesis 23:10
+    הַֽ/חִתִּ֔י | HTd/Ngm | Genesis 25:9
+    בֵּ֔ן | HNcm | Genesis 38:5
+    א֑וֹר | HAac | Genesis 44:3
+    כְּ/פַרְעֹֽה | HT/Ng | Genesis 44:18
+    זְקֻנִ֖ים | HAac | Genesis 44:20
+    כָּל | HAa | Genesis 45:13 (+2 more)
+    לְ/כָל | HR/Aa | Genesis 45:15
+    לְ/כֻלָּ֥/ם | HR/Ncb/Sp3mp | Genesis 45:22
+    בְּ/כָל | HR/Aac | Genesis 45:26 (+1 more)
+    כָּל | HAac | Genesis 45:27 (+11 more)
+    פַּרְעֹה֙ | HNg | Genesis 45:16 (+2 more)
+    פַרְעֹ֔ה | HNg | Genesis 45:16
+    פַרְעֹ֑ה | HNg | Genesis 45:21 (+2 more)
+    פַרְעֹה֙ | HNg | Genesis 50:7
+    וְ/כָל | HC/Aac | Genesis 50:14 (+3 more)
+    וָ/עֶ֖שֶׂר | HC/Acf | Genesis 50:22
+    כֹּ֗ל | HAac | Zechariah 12:14
+    אָ֔רֶץ | HNg | Zechariah 12:1
+    עֶשְׂרִ֨ים | HAcm | Zechariah 1:7
+    וְ/אַרְבָּעָ֜ה | HC/Acm | Zechariah 1:7
+    לְ/עַשְׁתֵּֽי | HR/Acm | Zechariah 1:7
+    עָשָׂ֥ר | HAcm | Zechariah 1:7
+    שְׁבָ֔ט | HNg | Zechariah 1:7
+    כָל | HAac | Zechariah 1:11 (+4 more)
+    אַרְבַּ֥ע | HAcf | Zechariah 2:1
+    אַרְבָּעָ֖ה | HAcm | Zechariah 2:3
+    רָחְבָּ֖/הּ | HAac/Sp3fs | Zechariah 2:6
+    אָרְכָּֽ/הּ | HAac/Sp3fs | Zechariah 2:6
+    כְּ/אַרְבַּ֞ע | HR/Acf | Zechariah 2:10
+    מוֹפֵ֖ת | HAam | Zechariah 3:8
+    שִׁבְעָ֣ה | HAcm | Zechariah 3:9
+    כֻּלָּ֜/הּ | HAac/Sp3fs | Zechariah 4:2
+    וְ/שִׁבְעָ֤ה | HC/Acm | Zechariah 4:2
+    שִׁבְעָ֤ה | HAcm | Zechariah 4:2
+    וְ/שִׁבְעָה֙ | HC/Acm | Zechariah 4:2
+    שִׁבְעָה | HAcm | Zechariah 4:10
+    בְּ/כָל | HR/Aam | Zechariah 4:10
+    עֶשְׂרִ֣ים | HAcc | Zechariah 5:2
+    עֶ֥שֶׂר | HAcf | Zechariah 5:2 (+1 more)
+    בְּ/כָל | HR/Aa | Zechariah 5:6
+    אַרְבַּ֤ע | HAcf | Zechariah 6:1
+    אַרְבַּע֙ | HAcf | Zechariah 6:5
+    פַרְעֹ֖ה | HNg | Exodus 11:3
+    וְ/כֹ֖ל | HC/Aac | Exodus 11:5
+    וּ/לְ/כֹ֣ל | HC/R/Aac | Exodus 11:7
+    פַּרְעֹ֖ה | HNg | Exodus 11:8
+    פַּרְעֹ֑ה | HNg | Exodus 11:9
+    בֶּ/עָשֹׂ֖ר | HRd/Aom | Exodus 12:3
+    אַרְבָּעָ֥ה | HAcf | Exodus 12:6
+    עָשָׂ֛ר | HAcm | Exodus 12:6
+    כֹּ֛ל | HAac | Exodus 12:6
+    וּ/בְ/כָל | HC/R/Aac | Exodus 12:12
+    הַ/שְּׁבִעִֽי | HTd/Aom | Exodus 12:15
+    הַ/שְּׁבִיעִ֔י | HTd/Aom | Exodus 12:16
+    לְ/כָל | HR/Aac | Exodus 12:16 (+1 more)
+    בְּ/אַרְבָּעָה֩ | HR/Acm | Exodus 12:18
+    עָשָׂ֨ר | HAcm | Exodus 12:18
+    הָ/אֶחָ֧ד | HTd/Acm | Exodus 12:18
+    וְ/עֶשְׂרִ֛ים | HC/Acm | Exodus 12:18
+    בְּ/כֹל֙ | HR/Aac | Exodus 12:20
+    פַּרְעֹ֜ה | HNg | Exodus 12:30
+    בְ/יָד֖/וֹ | HR/N/Sp3ms | Exodus 21:16
+    וְ/אַרְבַּע | HC/Acf | Exodus 21:37
+    הַ/שְּׁמִינִ֖י | HTd/Aom | Exodus 22:29
+    עֶ֣שֶׂר | HAcf | Exodus 26:1
+    אַרְבַּ֣ע | HAcf | Exodus 26:2 (+1 more)
+    חֲמֵ֣שׁ | HAcf | Exodus 26:3
+    וְ/חָמֵ֤שׁ | HC/Acf | Exodus 26:3
+    עַשְׁתֵּי | HAcm | Exodus 26:7
+    עֶשְׂרֵ֥ה | HAcc | Exodus 26:7
+    לְ/עַשְׁתֵּ֥י | HR/Acm | Exodus 26:8
+    עֶשְׂרֵ֖ה | HAcc | Exodus 26:8
+    חֲמֵ֤שׁ | HAcf | Exodus 26:9
+    שֵׁ֥שׁ | HAcm | Exodus 26:9
+    חֲצִ֤י | HAac | Exodus 26:12
+    וַ/חֲצִ֣י | HC/Aac | Exodus 26:16
+    שִׁשָּׁ֥ה | HAcm | Exodus 26:22 (+1 more)
+    שְׁמֹנָ֣ה | HAcm | Exodus 26:25
+    שִׁשָּׁ֥ה | HAc | Exodus 26:25
+    עָשָׂ֖ר | HAcm | Exodus 26:25
+    חֲצִ֥י | HAac | Exodus 27:5
+    בְנֵֽי | HN | Leviticus 10:1
+    אַרְבַּ֣ע | HAcm | Exodus 38:2
+    פֶּ֖תַח | HN | Exodus 29:11
+    אֱלֹֽהֵי/הֶ֔ם | HNcm/Sp3mp | Haggai 1:12
+    אֱלֹהֵי/הֶ֑ם | HNcm/Sp3mp | Haggai 1:12
+    בְּ/עֶשְׂרִ֥ים | HR/N | Haggai 2:1
+    וְ/אֶחָ֖ד | HC/A | Haggai 2:1
+    וְ֠/הַֽ/חִתִּי | HC/Td/Ng | Numbers 13:29
+    הַ/יִּמְנָ֔ה | HTd/Ng | Numbers 26:44
+    הָֽ/אֱמֹרִ֔י | HTd/Ng | Numbers 32:33
+    הוֹבִ֨ישׁ | HAa | Joshua 2:10
+    הַֽ/חִתִּ֔ים | HTd/Ag | Joshua 1:4
+    וְ/הַ/פְּרִזִּ֥י | HC/Td/Ag | Joshua 11:3
+    הָ/אֱמֹרִ֖י | HTd/Ng | Joshua 10:6
+    לְ/לָכִֽישׁ | HR/N | Joshua 10:35
+    הַֽ/מִּכְמְתָת֙ | HTd/N | Joshua 16:6
+    בִּֽ/ירִיח֔וֹ | HR/N | Joshua 16:7
+    צִ֔נָ/ה | HN/Sd | Joshua 15:3
+    וְ/אִ֨ישׁ | HC/Ncm | Joshua 22:14
+    - 502 words deleted.
+  Pronouns and particles must have type indicated...
+    >> WAS VERIFIED: נָּא֙ | HT | Ruth 2:7
+    >> WAS VERIFIED: נָּ֤א | HT | Ruth 2:2
+    >> WAS VERIFIED: אִם | HT | Ruth 2:21
+    >> WAS VERIFIED: יֵ֥שׁ | HT | Ruth 3:12
+    >> WAS VERIFIED: כִּ֣י | HT | Jonah 4:2
+    >> WAS VERIFIED: כִּ֤י | HT | Jonah 4:2
+    >> WAS VERIFIED: אִם | HT | Ezekiel 2:5
+    >> WAS VERIFIED: וְ/אִם | HC/T | Ezekiel 2:5
+    >> WAS VERIFIED: וְ/אִם | HC/T | Ezekiel 2:7
+    >> WAS VERIFIED: כִּ֥י | HT | Ezekiel 2:7
+    >> WAS VERIFIED: אִם | HT | Ezekiel 3:6
+    כִּי | HT | Genesis 1:4 (+414 more)
+    כִּ֣י | HT | Genesis 2:3 (+802 more)
+    כִּי֩ | HT | Genesis 2:5 (+103 more)
+    כִּ֗י | HT | Genesis 2:17 (+38 more)
+    כִּ֥י | HT | Genesis 2:23 (+545 more)
+    אַ֚ף | HT | Genesis 3:1 (+5 more)
+    כִּֽי | HT | Genesis 3:1 (+1457 more)
+    פֶּן | HT | Genesis 3:3 (+98 more)
+    כִּ֚י | HT | Genesis 3:5 (+141 more)
+    כִּ֛י | HT | Genesis 3:20 (+172 more)
+    אִם | HT | Genesis 4:7 (+584 more)
+    וְ/אִם֙ | HC/T | Genesis 4:7 (+10 more)
+    כִּ֤י | HT | Genesis 4:12 (+407 more)
+    כִּ֠י | HT | Genesis 8:21 (+67 more)
+    נָ֣א | HT | Genesis 12:11 (+65 more)
+    נָ֖א | HT | Genesis 12:13 (+30 more)
+    לְמַ֙עַן֙ | HT | Genesis 12:13 (+25 more)
+    נָ֨א | HT | Genesis 13:8 (+18 more)
+    וְ/אִם | HC/T | Genesis 13:9 (+230 more)
+    נָ֤א | HT | Genesis 13:14 (+32 more)
+    כִּ֧י | HT | Genesis 13:15 (+48 more)
+    אִם֙ | HT | Genesis 15:4
+    נָ֞א | HT | Genesis 16:2 (+18 more)
+    נָא֙ | HT | Genesis 16:2 (+32 more)
+    וְ/אִ֨ם | HC/T | Genesis 17:17 (+10 more)
+    נָ֥א | HT | Genesis 18:3 (+47 more)
+    לְמַעַן֩ | HT | Genesis 18:19 (+11 more)
+    לְמַ֗עַן | HT | Genesis 18:19 (+14 more)
+    יֵ֛שׁ | HT | Genesis 18:24 (+2 more)
+    לְמַ֛עַן | HT | Genesis 18:24 (+9 more)
+    נָ֠א | HT | Genesis 19:2 (+9 more)
+    יֵ֣שׁ | HT | Genesis 23:8 (+20 more)
+    נָ֛א | HT | Genesis 24:17 (+10 more)
+    לְמַ֥עַן | HT | Genesis 27:25 (+26 more)
+    אֵפ֡וֹא | HT | Genesis 27:33
+    אֵפ֔וֹא | HT | Genesis 27:37 (+2 more)
+    כִּ֡י | HT | Genesis 30:30 (+22 more)
+    יֶשׁ | HT | Genesis 31:29 (+29 more)
+    אִ֚ם | HT | Genesis 34:15 (+8 more)
+    נָ֕א | HT | Genesis 37:6 (+3 more)
+    נָ֗א | HT | Genesis 37:32 (+7 more)
+    פֶּ֖ן | HT | Genesis 38:23
+    נָ֔א | HT | Genesis 38:25 (+11 more)
+    אַף | HT | Genesis 40:16 (+65 more)
+    כִּ֖י | HT | Genesis 43:10 (+83 more)
+    אֵפוֹא֮ | HT | Genesis 43:11
+    יֵשׁ֩ | HT | Genesis 44:26
+    פֶּ֚ן | HT | Genesis 44:34 (+5 more)
+    לְמַ֣עַן | HT | Exodus 4:5 (+60 more)
+    פֶּ֨ן | HT | Exodus 5:3 (+1 more)
+    כְּמוֹ | HT | Exodus 15:5 (+26 more)
+    כְמוֹ | HT | Exodus 15:8 (+8 more)
+    לְמַ֧עַן | HT | Exodus 16:4 (+5 more)
+    אִ֣ם | HT | Exodus 18:23 (+9 more)
+    וְ/אִ֡ם | HC/T | Exodus 21:29 (+3 more)
+    נָא֩ | HT | Exodus 33:13 (+6 more)
+    אֵפ֗וֹא | HT | Exodus 33:16 (+1 more)
+    כִּ֞י | HT | Exodus 34:27 (+10 more)
+    וְ/אִ֧ם | HC/T | Leviticus 1:14 (+1 more)
+    אִ֤ם | HT | Leviticus 3:1 (+3 more)
+    וְ/אִ֥ם | HC/T | Leviticus 3:12 (+3 more)
+    וְ/אִ֣ם | HC/T | Leviticus 7:18 (+11 more)
+    וְ/אִם֮ | HC/T | Leviticus 13:53 (+1 more)
+    וְ/אִ֛ם | HC/T | Leviticus 19:7
+    כִּ֨י | HT | Leviticus 22:13
+    לְמַעַן֮ | HT | Leviticus 23:43
+    וְ֠/אִם | HC/T | Leviticus 27:7 (+2 more)
+    אִ֥ם | HT | Numbers 13:19 (+8 more)
+    אַ֡ף | HT | Numbers 16:14
+    נָ֡א | HT | Numbers 16:26 (+2 more)
+    לְ֠מַעַן | HT | Numbers 17:5 (+3 more)
+    אִ֖ם | HT | Numbers 35:33 (+1 more)
+    לְמַ֨עַן | HT | Deuteronomy 5:29 (+20 more)
+    לְמַ֤עַן | HT | Deuteronomy 5:33 (+17 more)
+    פֶּ֥ן | HT | Deuteronomy 11:16 (+1 more)
+    לְמַ֖עַן | HT | Deuteronomy 17:16 (+25 more)
+    לְמַ֡עַן | HT | Deuteronomy 27:3 (+2 more)
+    וְ/אִם֩ | HC/T | Joshua 24:15
+    אִ֡ם | HT | Judges 6:37 (+1 more)
+    נָ֜א | HT | Judges 7:3 (+3 more)
+    אֵפ֥וֹא | HT | Judges 9:38
+    נָ֑א | HT | Judges 19:23 (+3 more)
+    וְ/אִ֤ם | HC/T | 1 Samuel 2:25 (+1 more)
+    יֵּ֖שׁ | HT | 1 Samuel 9:12
+    אַ֗ף | HT | 1 Samuel 14:30 (+1 more)
+    נָ֧א | HT | 1 Samuel 16:15 (+3 more)
+    יֵ֥שׁ | HT | 1 Samuel 17:46 (+10 more)
+    יֵּ֧שׁ | HT | 1 Samuel 21:4
+    יֵ֔שׁ | HT | 1 Samuel 21:5 (+1 more)
+    אַ֞ף | HT | 2 Samuel 4:11
+    יֶּשׁ | HT | 2 Samuel 19:29 (+1 more)
+    אִ֗ם | HT | 1 Kings 1:27
+    אַ֕ף | HT | 1 Kings 8:27 (+1 more)
+    לְמַ֜עַן | HT | 1 Kings 12:15 (+1 more)
+    יֵֽשׁ | HT | 2 Kings 2:16
+    נָא֮ | HT | 2 Kings 2:16 (+1 more)
+    אֵפ֣וֹא | HT | Isaiah 19:12 (+1 more)
+    אַ֣ף | HT | Isaiah 26:8 (+11 more)
+    כְּמ֤וֹ | HT | Isaiah 26:17 (+3 more)
+    כְּמ֖וֹ | HT | Isaiah 26:18 (+1 more)
+    נָא | HT | Isaiah 29:11 (+1 more)
+    כְּמ֣וֹ | HT | Isaiah 30:22 (+7 more)
+    אַ֛ף | HT | Isaiah 40:24
+    אַ֥ף | HT | Isaiah 41:26 (+2 more)
+    יֵ֑שׁ | HT | Isaiah 43:8 (+1 more)
+    אַ֖ף | HT | Isaiah 48:12
+    אִ֛ם | HT | Jeremiah 2:31
+    וְ/אִ֖ם | HC/T | Jeremiah 12:17 (+1 more)
+    אִ֨ם | HT | Jeremiah 22:28
+    יֵ֨שׁ | HT | Jeremiah 31:16
+    כִּ֩י | HT | Jeremiah 44:17
+    כְּמ֗וֹ | HT | Ezekiel 16:57
+    לְמַעַן | HT | Ezekiel 21:15
+    לְמַ֕עַן | HT | Micah 6:5
+    כְּמ֥וֹ | HT | Zechariah 10:8 (+2 more)
+    נָ֬א | HT | Psalms 7:10
+    כִּ֘י | HT | Psalms 18:20 (+4 more)
+    כִּ֭י | HT | Psalms 21:13 (+7 more)
+    לְמַֽעַן | HT | Psalms 25:11 (+2 more)
+    כִּ֝֗י | HT | Psalms 25:21 (+1 more)
+    לְ֝מַ֗עַן | HT | Psalms 27:11 (+7 more)
+    לְ֭מַעַן | HT | Psalms 51:6 (+4 more)
+    יֵשׁ | HT | Psalms 58:12 (+5 more)
+    כְמ֑וֹ | HT | Psalms 73:15
+    אַ֝֗ף | HT | Psalms 77:17 (+7 more)
+    כִּ֬י | HT | Psalms 96:13
+    נָ֝֗א | HT | Psalms 115:2
+    נָ֭א | HT | Psalms 118:4 (+8 more)
+    אַ֭ף | HT | Psalms 119:3 (+3 more)
+    נָ֝א | HT | Psalms 124:1 (+1 more)
+    כְּֽמוֹ | HT | Psalms 140:4
+    אֵפ֪וֹא | HT | Proverbs 6:3
+    יֵ֤שׁ | HT | Proverbs 14:12 (+4 more)
+    אַ֤ף | HT | Proverbs 19:7 (+1 more)
+    כִּ֪י | HT | Proverbs 23:31
+    פֶּ֣ן | HT | Proverbs 25:8
+    יֵ֪שׁ | HT | Job 16:4
+    אֵפ֣וֹ | HT | Job 17:15
+    אֵ֭פוֹ | HT | Job 19:6 (+2 more)
+    בִּלְעֲדֵ֣י | HT | Job 34:32
+    יֵ֚שׁ | HT | Ecclesiastes 5:12 (+1 more)
+    יֵ֖שׁ | HT | Ecclesiastes 8:6
+    נָּ֣א | HT | Genesis 18:21 (+19 more)
+    נָּא | HT | Genesis 19:2 (+1 more)
+    נָּ֤א | HT | Genesis 19:8 (+7 more)
+    נָּ֜א | HT | Genesis 19:20 (+1 more)
+    נָּא֙ | HT | Genesis 24:42 (+9 more)
+    נָֽא | HT | Genesis 24:45 (+1 more)
+    נָּ֥א | HT | Genesis 27:21 (+6 more)
+    נָּ֛א | HT | Genesis 50:5 (+4 more)
+    נָּ֞א | HT | Exodus 3:18
+    נָּ֗א | HT | Exodus 4:18 (+4 more)
+    נָּ֡א | HT | Exodus 5:3
+    נָּ֨א | HT | Numbers 22:6 (+1 more)
+    נָּ֖א | HT | 1 Samuel 20:29 (+4 more)
+    נָּ֔א | HT | 2 Samuel 18:19
+    נָּא֩ | HT | 1 Kings 20:31
+    נא | HT | 2 Kings 5:18
+    נָּ֝֗א | HT | Psalms 116:14 (+1 more)
+    נָּ֑א | HT | Psalms 118:25
+    נָּֽא | HT | Psalms 118:25
+    נָּ֭א | HT | Job 17:3
+    לְ/דָוִֽד | HP/R | Psalms 5:1
+    ו/לא | HT/Tn | Psalms 100:3
+    וְ/עַד | HC/T | Psalms 100:5
+    וּ/בְ/חַ֣ג | HC/T/Ncmsc | Deuteronomy 16:16
+    לְ/דָוִֽד | HP/Np | Psalms 5:1
+    אִֽם | HT | Ezekiel 2:7
+    בַ/נֹּקְדִ֖ים | HT/Ncmpa | Amos 1:1
+    ל֥וּ | HT | Genesis 17:18
+    ל֖וּ | HT | Genesis 23:13
+    הַ/שָּׂדֶ֔ה | HT/Ncmsa | Genesis 37:7
+    כָמ֖וֹ/ךָ | HT/Sp2ms | Genesis 44:18
+    הָ/אֲדָמָ֖ה | HT/Ncfsa | Exodus 8:17
+    וְ/כִֽי | HC/T | Exodus 21:28 (+1 more)
+    הַ/כַּפֹּ֔רֶת | HT/Ncfsa | Exodus 25:20
+    לְ/בָ֑ד | HP/D | Exodus 26:9
+    הָ/אַלְיָ֣ה | HT/Ncfsa | Leviticus 3:9
+    כָּמֹ֑/הוּ | HT/Sp3ms | Exodus 30:32
+    כָמ֖וֹ/הָ | HT/Sp3fs | Exodus 30:38
+    וְ/כִ֤י | HC/T | Leviticus 11:39 (+2 more)
+    בְּ/מַעֲלָ֖/ם | HP/Ncmsc/Sp3mp | Leviticus 26:40
+    וְ/הָי֤וּ | HT/Vqq3cp | Numbers 10:2
+    וְ/הָי֤וּ | HT/Vqw3mp | Numbers 10:2
+    בַּ/יּוֹם֙ | HT/Ncmsa | Numbers 7:60
+    הֲ/יֵֽשׁ | HTi/T | Numbers 13:20
+    הָ/עָֽם | HT/Ncmsa | Numbers 22:41
+    הַ/כֶּ֣בֶשׂ | HT/Ncmsa | Numbers 28:4
+    הַ/מַּלְק֑וֹחַ | HT/Ncmsa | Numbers 31:11
+    לִ/פְנֵ֥י | HT/Ncbpc | Joshua 4:11
+    הַ/שַּׁ֙עַר֙ | HT/Ncmsa | Joshua 7:5
+    הַ/יַּרְדֵּֽן | HT/Np | Joshua 7:7
+    הַֽ/כְּנַעֲנִ֗י | HT/Ngmsa | Joshua 7:9
+    הַ/לֵּוִ֔י | HT/Np | Joshua 13:33
+    הָ/אָדָ֧ם | HT/Ncmsa | Joshua 14:15
+    הַ/גָּד֛וֹל | HT/Acmsa | Joshua 14:15
+    וְ/כִ֥י | HC/T | Joshua 2:9
+    - 6335 words deleted.
+  Personal pronouns and pronominal suffixes must have person, gender and number indicated...
+    לְשׁוֹנָ֑/ם | HNcbpc/Sp | Psalms 64:9
+    גּוֹיֶ֑/ךָ | HNcmsc/Sp3m | Psalms 106:5
+    פִּ֑י/ךָ | HNcmsc/Sp2m | Psalms 119:72
+    ק֝וֹלִ֗/י | HNcmsc/Sp1c | Psalms 141:1
+    גְּבוּרֹתָ֑י/ו | HNcfpc/Sp3m | Psalms 145:12
+    לֵ/אלֹהֵ֣י/נוּ | HR/Ncmpc/Sp | Psalms 147:7
+    בְּ/אַפֶּ֗/ךָ | HR/Ncmsc/Sp2m | Isaiah 37:29
+    יָדִ֔/י | HNcfsc/Sp1c | Isaiah 49:22
+    רֹאשׁ֗/וֹ | HNcmsc/Sp3m | Isaiah 58:5
+    וּ/בֵֽרַכְ/ךָ֙ | HC/Vpq3ms/Sp2m | Deuteronomy 15:18
+    וּ֨/לְ/כַלֹּתָ֔/ם | HC/R/Vpc/Pp3 | Exodus 32:12
+    אַפּ֑/וֹ | HNcmsc/Sp3m | Job 9:13
+    וְ/אָנֹכִ֣י | HC/Pp | Job 13:22
+    חַיֶּֽי/ךָ | HNcmpc/Sp2 | Genesis 3:14
+    אַחֲרָ֔י/ו | HR/Sp3m | Genesis 31:23
+    צֹאנ/וֹ֙ | HNcfsc/Sp3m | Genesis 38:12
+    אַמְתַּחְתּֽ/וֹ | HNcfsa/Pp3m | Genesis 44:1
+    שִׁבְר֑/וֹ | HNcmsc/Pp3m | Genesis 44:2
+    בֵּית֔/וֹ | HNcmsc/Pp3m | Genesis 44:4
+    וַֽ/יַּשִּׂגֵ֑/ם | HC/Vqq3ms/Sp3 | Genesis 44:6
+    בֵּית/וֹ֮ | HNcmsc/Sp3m | Genesis 44:1
+    וְ/אָחִ֨י/ו | HC/Ncmsc/Sp3m | Genesis 44:20
+    וַ/יְשִׂימֵ֨/נִֽי | HC/Vqq3ms/Sp1c | Genesis 45:8
+    גֹזְזֶ֖י/הָ | HNcmpc/Sp3f | Isaiah 53:7
+    בָּנָ֑י/ו | HNxmpc/Sp3m | Genesis 49:1
+    יָֽדְ/ךָ֙ | HNcfsc/Sp2m | Exodus 4:6
+    אֵלָ֔/ו | HR/Sp3m | Zechariah 2:8
+    בְּ/תוֹכָֽ/הּ | HR/R/Sp3f | Zechariah 2:8
+    מֵ/עָלֶ֙י/ךָ֙ | HR/R/Sp2m | Zechariah 3:4
+    וַֽ/יַּשִּׂגֵ֑/ם | HC/Vqw3ms/Sp3 | Genesis 44:6
+    וַ/יְשִׂימֵ֨/נִֽי | HC/Vqw3ms/Sp1c | Genesis 45:8
+    לְשֹׁנ֔/וֹ | HNcfsc/Sp3m | Exodus 11:7
+    וּ/מְכָר֛/וֹ | HC/Vqq3ms/Sp3m | Exodus 21:16
+    וְ/גֵרַשְׁתָּ֖/מוֹ | HC/Vpq2ms/Sp3 | Exodus 23:31
+    לְ/מִשְׁפְּחוֹתָֽ/ם | HR/Ncfpc/Sp | Joshua 13:31
+    - 35 words deleted.
+  Cohortatives must be 1st person...
+    רְאֵ֨ה | HVqh2cs | Zechariah 3:4
+    - 1 words deleted.
+  Imperatives must be 2nd person...
+    הֵילִ֕ילוּ | HVhv3mp | Isaiah 13:6
+    עִבְר֖וּ | HVqv3cp | Isaiah 23:6
+    נְֽסָ/ה | HVqv3ms/Sh | Psalms 4:7
+    שָׁפְטֵ֥/נִי | HVqv/Sp1cs | Psalms 7:9
+    אָרִ֖יד | HVhv1cs | Psalms 55:3
+    רֹ֥אֵה | HVqvxf | Psalms 64:9
+    שׁ֚וּב | HVqv3ms | Exodus 32:12
+    מַלֵּ֞א | HVqv3ms | Genesis 44:1
+    וְ/שִׂ֥ים | HC/Viv3m | Genesis 44:1
+    ק֥וּם | HVqv3ms | Genesis 44:4
+    רְדֹ֖ף | HVqv3ms | Genesis 44:4
+    הוֹצִ֥יאוּ | HVhv3mp | Genesis 45:1
+    גְּשׁוּ | HVqv3mp | Genesis 45:4
+    מַהֲרוּ֮ | HVqv3mp | Genesis 45:9
+    וַ/עֲל֣וּ | HC/Vqv3mp | Genesis 45:9
+    עֲשׂ֑וּ | HVqv3mp | Genesis 45:17
+    הִתְהַלְּכ֣וּ | HVtv3mp | Zechariah 6:7
+    הֱיֵ֧ה | HVqv3ms | Exodus 18:19
+    לְ֠קַח | HVqv3ms | Exodus 29:1
+    חִלֵּ֣ץ | HVqv3ms | Leviticus 14:43
+    הוֹצֵ֣א | HVhv3ms | Leviticus 24:14
+    דַּבֵּר֙ | HVqv3ms | Numbers 15:2
+    הִכָּרֵ֧ת | HVhv3ms | Numbers 15:31
+    מ֥וֹת | HVqv3ms | Numbers 15:35
+    דַּבֵּ֞ר | HVqv3ms | Numbers 15:38
+    הִשָּֽׁבְעוּ | HVhv3mp | Joshua 2:12
+    אַשְׁלִ֨יךְ | HVhv1cs | Joshua 18:8
+    - 27 words deleted.
+  Jussives must be 2nd or 3rd person...
+    אַרְאֶֽ/ךָּ | HVhj1xs/Sp2ms | Genesis 12:1
+    וְ/אִבָּנֶ֥ה | HC/VNj1cs | Genesis 30:3
+    נִגְנֹב֙ | HVqj1mp | Genesis 44:8
+    כְּ/בֹאִ/י֙ | HR/Vmj1ms/Sp1cs | Genesis 44:30
+    וְ/נִשְׁתֶּ֑ה | HC/Vqj1cp | Exodus 17:2
+    אוֹסֵף֙ | HVhj1cs | Hosea 9:15
+    - 6 words deleted.
+  Adjectives (except for cardinal numbers) must have a gender of masculine or feminine...
+    >> WAS VERIFIED: טְמֵ֣א | HAacsc | Isaiah 6:5
+    יָפָ֤ה | HAabpa | Song of Songs 4:1
+    טְמֵ֣א | HAacsc | Isaiah 6:5 (+1 more)
+    אֵ֑לֶּה | HAabpa | Psalms 107:43 (+2 more)
+    אֵֽלֶּה | HAabpa | Psalms 126:2 (+1 more)
+    הָ/אֵ֑לֶּה | HTd/Aabpa | Isaiah 36:12 (+2 more)
+    הָ/אֵ֔לֶּה | HTd/Aabpa | Isaiah 36:20 (+11 more)
+    הָ/אֵ֗לֶּה | HTd/Aabpa | Isaiah 39:3 (+6 more)
+    אֵ֔לֶּה | HAabpa | Isaiah 40:26 (+1 more)
+    אֵ֣לֶּה | HAabpa | Isaiah 44:21
+    אֵ֙לֶּה֙ | HAabpa | Isaiah 47:7 (+1 more)
+    אֵ֥לֶּה | HAabpa | Isaiah 47:9 (+1 more)
+    אֵ֖לֶּה | HAabpa | Isaiah 57:6 (+1 more)
+    כָּ/אֵ֔לֶּה | HR/Aabpa | Isaiah 66:8
+    הָ/אֵ֖ל | HTd/Aabpa | Deuteronomy 4:42
+    הָ/אֵ֡לֶּה | HTd/Aabpa | Deuteronomy 5:22
+    הָ/אֵ֖לֶּה | HTd/Aabpa | Deuteronomy 7:17 (+9 more)
+    הָ/אֵ֙לֶּה֙ | HTd/Aabpa | Deuteronomy 12:30
+    הָ/אֵֽלֶּה | HTd/Aabpa | Deuteronomy 16:12 (+3 more)
+    הָ/אֵֽל | HTd/Aabpa | Deuteronomy 19:11
+    וְ/אֵ֖לֶּה | HC/Aabpa | Deuteronomy 22:17
+    הָ/אֵ֛לֶּה | HTd/Aabpa | Deuteronomy 31:3
+    כְ/אֵ֣לֶּה | HR/Aabpa | Job 16:2
+    בִּ/שְׁלֹשִׁ֣ים | HR/Aobpa | Ezekiel 1:1
+    הֵבִ֖יאוּ | HAabpa | Genesis 43:2
+    מִ/כֹּל֙ | HAacsc/R | Leviticus 4:2
+    שִׁבְעִ֣ים | HAabpa | Exodus 1:5
+    גָּד֥וֹל | HAacsa | Genesis 4:13
+    רַבָּ֔ה | HAabsa | Genesis 7:11
+    וּ/מֵ/אֵ֜לֶּה | HC/R/Aacpa | Genesis 10:32
+    הָ/אֵֽלֶּה | HTd/Aacpa | Genesis 15:17
+    הָ/אֵל֙ | HTm/Aabpa | Genesis 19:8
+    הָ/אֵֽלֶּה | HTm/Aacpa | Genesis 24:28
+    הַלָּזֶה֙ | HAacsa | Genesis 24:65
+    קָטָ֑ן | HAabsa | Genesis 44:20
+    כָּל | HAacsa | Genesis 45:13
+    וּ/לְבֶן | HC/Aacsa | Genesis 49:12
+    וְ/כֹ֖ל | HC/Aacpa | Genesis 50:7
+    וְ/כֹל֙ | HC/Aacpa | Genesis 50:8
+    הַֽ/כְּנַעֲנִ֜י | HTd/Aacsa | Genesis 50:11
+    כָּבֵ֥ד | HAacsa | Genesis 50:11
+    רָֽב | HAabsa | Genesis 50:20
+    תְּכֵ֧לֶת | HAacsa | Exodus 26:31
+    וְ/אַרְגָּמָ֛ן | HC/Aacsa | Exodus 26:31
+    נְב֥וּב | HAacsc | Exodus 27:8
+    טָה֥וֹר | HAacsc | Exodus 30:35
+    בַּ/חֲמִשִּׁ֖ים | HR/Aabpa | Leviticus 27:16
+    בְּ/עֶשְׂרִ֣ים | HR/Aabpa | Numbers 10:11
+    אַרְבָּעִ֖ים | HAobpa | Numbers 32:13
+    שֵׁנִֽית | HAocsa | Joshua 5:2
+    אַרְבָּעִ֣ים | HAabpa | Numbers 14:34
+    - 89 words deleted.
+  Adjectives (except for cardinal numbers), pronouns (personal and demonstrative) and pronominal suffixes must have a number of plural or singular...
+    >> WAS VERIFIED: שֵׁנִֽי | HAomxa | Genesis 1:8
+    קְד֥וֹשׁ | HAamxc | Isaiah 17:7
+    שֵׁנִֽי | HAomxa | Genesis 1:8 (+1 more)
+    הָ/רִאשֹׁ֖ן | HTd/Aomxa | Exodus 12:15
+    הָ/רִאשׁוֹן֙ | HTd/Aomxa | Exodus 12:16
+    בִּ/שְׁנָ֑יִם | HR/Aamda | Numbers 13:23
+    - 6 words deleted.
+  Verbs must have stem and aspect indicated...
+    הֱיוֹתִ/י֙ | HVc/Sp1cs | Jonah 4:2
+    לִ/בְרֹ֣חַ | HR/Vc | Jonah 4:2
+    הַ/מִּצְוָ֗ה | HVz/Td | Deuteronomy 8:1 (+1 more)
+    וַֽ/יְהִי | HC/V | Genesis 1:7
+    יֹסֵ֤ף | HVh | Exodus 8:25
+    הַ/חֹבֶ֖רֶת | HTd/V | Exodus 26:10
+    יָסֻ֥ר | HV | 2 Kings 4:8
+    יִהְיֶֽה | HVq | Exodus 30:34
+    בִּ/נְסֹ֥עַ | HR/Vq | Numbers 10:35
+    וְ/אֶשְׁמְעָ֔ה | HC/Vq | Numbers 9:8
+    הֲלֹ֥ךְ | HVc | Numbers 22:14
+    עֲב֑וֹר | HVc | Numbers 22:26
+    בְּ/שָׁלְחִ֥/י | HR/Vq/Sp1cs | Numbers 32:8
+    בִּקֵּ֑עַ | HV | Job 28:10
+    - 15 words deleted.
+  Infinitive absolutes cannot be a part of a multi-part word...
+    >> WAS VERIFIED: הַ/הֵיטֵ֖ב | HTi/Vha | Jonah 4:4
+    >> WAS VERIFIED: הַ/הֵיטֵ֥ב | HTi/Vha | Jonah 4:9
+    הַ/הֵיטֵ֖ב | HTi/Vha | Jonah 4:4 (+1 more)
+    הַ/הֵיטֵ֥ב | HTd/Vha | Jonah 4:9
+    וְ/טָפֹף֙ | HC/Vqa | Isaiah 3:16
+    וּ/בָח֥וֹר | HC/Vqa | Isaiah 7:15
+    וּ/בָחֹ֣ר | HR/Vqa | Isaiah 7:16
+    וְ/שָׁחֹ֣ט | HC/Vqa | Isaiah 22:13
+    וְ/שָׁת֣וֹת | HC/Vqa | Isaiah 22:13
+    וְ/שָׁת֔וֹ | HC/Vqa | Isaiah 22:13 (+1 more)
+    וְ/הִבּ֣וֹז | HC/VNa | Isaiah 24:3
+    הַ/הֵיטֵ֥ב | HTi/Vha | Jonah 4:9 (+1 more)
+    וּ/בָכֹה֮ | HC/Vqa | Psalms 126:6
+    וְ/נָתֹ֥ן | HC/Vqa | Isaiah 37:19
+    הֲ/קָצ֨וֹר | HTd/Vqa | Isaiah 50:2
+    וְ/שַׁלַּ֤ח | HC/Vpa | Isaiah 58:6
+    וְ/דַבֶּר | HC/Vpa | Isaiah 59:4
+    וְ/הוֹלֵ֥יד | HC/Vha | Isaiah 59:4
+    וְ/כַחֵשׁ֙ | HC/Vpa | Isaiah 59:13
+    וְ/נָס֖וֹג | HC/VNa | Isaiah 59:13
+    וְ/הֹג֛וֹ | HC/Vma | Isaiah 59:13
+    וְ/תַעֵ֥ב | HC/Vpa | Deuteronomy 7:26
+    וְ/הַעֲבֵט֙ | HC/Vha | Deuteronomy 15:8
+    וּ/מָכֹ֥ר | HC/Vqa | Deuteronomy 21:14
+    וְ/הוֹכֵ֖חַ | HC/Vha | Job 13:3
+    וְ/יָ֣לֹד | HC/Vqa | Job 15:35
+    וָ/שׁ֑וֹב | HC/Vqa | Ezekiel 1:14 (+1 more)
+    וְ/חָס֔וֹר | HC/Vqa | Genesis 8:5
+    וָ/שׁ֔וֹב | HC/Vqa | Genesis 8:7
+    וְ/נָס֖וֹעַ | HC/Vqa | Genesis 12:9
+    בְּ/מ֣וֹת | HR/Vqa | Genesis 21:16
+    וְ/הַרְבָּ֨ה | HC/Vha | Genesis 22:17
+    הֶֽ/הָשֵׁ֤ב | HTd/Vha | Genesis 24:5
+    הֲ/מָלֹ֤ךְ | HTi/Vqa | Genesis 37:8
+    הֲ/ב֣וֹא | HTi/Vqa | Genesis 37:10
+    וְ/נָת֣וֹן | HC/Vqa | Genesis 41:43
+    הֲ/יָד֣וֹעַ | HTi/Vqa | Genesis 43:7
+    לֵ/אמֹר֒ | HR/Vqa | Genesis 44:1
+    מֵ/עֲשׂ֖וֹת | HR/Vqa | Genesis 44:7 (+1 more)
+    לַ/עֲזֹ֣ב | HR/Vqa | Genesis 44:22
+    לִ/רְא֥וֹת | HR/Vqa | Genesis 44:23 (+2 more)
+    לָ/רֶ֑דֶת | HR/Vqa | Genesis 44:26
+    לִ/רְאוֹת֙ | HR/Vqa | Genesis 44:26
+    כִּ/רְאוֹת֛/וֹ | HR/Vqa/Sp3ms | Genesis 44:31
+    לְ/הִתְאַפֵּ֗ק | HR/Vta | Genesis 45:1
+    לַ/עֲנ֣וֹת | HR/Vqa | Genesis 45:3
+    לָ/שׂ֥וּם | HR/Vqa | Genesis 45:7
+    וּ/לְ/הַחֲי֣וֹת | HC/R/Vha | Genesis 45:7
+    לָ/שֵׂ֣את | HR/Vqa | Genesis 45:27
+    לִ/סְבֹּ֔ל | HR/Vqa | Genesis 49:15
+    לַ/חֲנֹ֖ט | HR/Vqa | Genesis 50:2
+    לְ/צַוֺּ֣ת | HR/Vqa | Genesis 49:33
+    לִ/קְבֹּ֣ר | HR/Vqa | Genesis 50:7 (+1 more)
+    וְ/הַצֵּ֥ל | HC/Vha | Exodus 5:23
+    וְ/הַכְבֵּד֙ | HC/Vha | Exodus 8:11
+    לַֽ/עֲשׂ֑וֹת | HR/Vqa | Zechariah 2:4
+    לְ/הַחֲרִ֣יד | HR/Vha | Zechariah 2:4
+    לְ/יַדּ֞וֹת | HR/Vqa | Zechariah 2:4
+    לְ/זָרוֹתָֽ/הּ | HR/Vqa/Sp3fs | Zechariah 2:4
+    לָ/מֹד֙ | HR/Vqa | Zechariah 2:6
+    לִ/קְרָאתֽ/וֹ | HR/Vqa/Sp3ms | Zechariah 2:7
+    לִ/בְנֽוֹת | HR/Vqa | Zechariah 5:11
+    מֵֽ/הִתְיַצֵּ֖ב | HR/Vta | Zechariah 6:5
+    לְ/הִתְהַלֵּ֣ך | HR/Vta | Zechariah 6:7
+    כְּ/שַׁ֨לְּח֔/וֹ | HR/Vqa/Sp3ms | Exodus 11:1
+    מִ/הְיֹ֣ת | HR/Vqa | Exodus 12:4
+    בְּ/הַכֹּתִ֖/י | HR/Vqa/Sp1cs | Exodus 12:13
+    לִ/נְגֹּ֣ף | HR/Vqa | Exodus 12:23
+    לָ/בֹ֥א | HR/Vqa | Exodus 12:23
+    לִ/נְגֹּֽף | HR/Vqa | Exodus 12:23
+    לְ/מַהֵ֖ר | HR/Vqa | Exodus 12:33
+    לְ/שַׁלְּחָ֣/ם | HR/Vqa/Sp3mp | Exodus 12:33
+    לְ/הִתְמַהְמֵ֔הַּ | HR/Vfa | Exodus 12:39
+    לַ/עֲשֹׂת֔/וֹ | HR/Vqa/Sp3ms | Exodus 12:48
+    כְּ/צֵ֥את | HR/Vqa | Exodus 21:7
+    לְ/מָכְרָ֖/הּ | HR/Vqa/Sp3fs | Exodus 21:8
+    לְ/הָרְג֣/וֹ | HR/Vqa/Sp3ms | Exodus 21:14
+    לָ/מֽוּת | HR/Vqa | Exodus 21:14
+    לִ/שְׁמֹ֔ר | HR/Vqa | Exodus 22:6
+    לִ/שְׁמֹ֑ר | HR/Vqa | Exodus 22:9
+    כְּ/נֹשֶׁ֑ה | HR/Vma | Exodus 22:24
+    לְ/כַסֹּתֽ/וֹ | HR/Vqa/Sp3ms | Exodus 26:13
+    בִּ/שְׂאֵ֥ת | HR/Vqa | Exodus 27:7
+    לְ/הַעֲלֹ֥ת | HR/Vha | Exodus 27:20 (+1 more)
+    לְ/קַדֵּ֥שׁ | HR/Vqa | Exodus 29:1
+    לְ/כַהֵ֣ן | HR/Vqa | Exodus 29:1
+    וְ/הוֹתֵֽר | HC/Vha | Exodus 36:7
+    וְ/שַׁבֵּ֥ר | HC/Vpa | Exodus 23:24
+    וְ/נַקֵּה֙ | HC/Vpa | Exodus 34:7 (+1 more)
+    וְ/אָכֹ֖ל | HC/Vqa | Leviticus 7:24
+    וּ/לְ/מַלֵּא | HC/R/Vqa | Exodus 29:29
+    לְ/שָׁרֵ֥ת | HR/Vqa | Exodus 29:30
+    לְ/מַלֵּ֥א | HR/Vqa | Exodus 29:33
+    לְ/קַדֵּ֣שׁ | HR/Vqa | Exodus 29:33
+    לְ/קַדְּשֽׁ/וֹ | HR/Vqa/Sp3ms | Exodus 29:36
+    לְ/דַבֵּ֥ר | HR/Vqa | Exodus 29:42
+    לְ/כַהֵ֥ן | HR/Vqa | Exodus 29:44 (+1 more)
+    לָ/שֵׂ֥את | HR/Vqa | Exodus 30:4
+    וּ/בְ/הַעֲלֹ֨ת | HC/R/Vqa | Exodus 30:8
+    לֵּ/אמֹֽר | HR/Vqa | Exodus 30:11 (+10 more)
+    בִּ/פְקֹ֣ד | HR/Vqa | Exodus 30:12
+    בִּ/פְקֹ֥ד | HR/Vqa | Exodus 30:12
+    לָ/תֵת֙ | HR/Vqa | Exodus 30:15
+    לְ/כַפֵּ֖ר | HR/Vqa | Exodus 30:15 (+1 more)
+    לְ/רָחְצָ֑ה | HR/Vqa | Exodus 30:18
+    לְ/שָׁרֵ֔ת | HR/Vqa | Exodus 30:20
+    לְ/הַקְטִ֥יר | HR/Vha | Exodus 30:20
+    לְ/הָרִ֣יחַ | HR/Vha | Exodus 30:38
+    לְ/הַבְדִּ֕יל | H/Vha | Leviticus 11:47
+    לִ/הְיֹ֥ת | HR/Vqa | Leviticus 11:45 (+1 more)
+    לְ/נַתֵּ֥ר | HR/Vqa | Leviticus 11:21
+    לְ/כַפֵּ֣ר | HR/Vqa | Leviticus 14:21
+    לְ/כַפֵּ֥ר | HR/Vqa | Leviticus 14:29
+    לִ/רְא֣וֹת | HR/Vqa | Leviticus 14:36
+    וְ/הָפְדֵּה֙ | HC/VHa | Leviticus 19:20
+    לְ/הוֹרֹ֕ת | HR/Vqa | Leviticus 14:57
+    לִ/פְרֹ֥שׁ | HR/Vqa | Leviticus 24:12
+    לְ/הִֽשְׁתַּחֲוֺ֖ת | HR/Vva | Leviticus 26:1
+    מִֽ/הְיֹ֥ת | HR/Vqa | Leviticus 26:13
+    לִ/שְׁמֹ֣עַֽ | HR/Vqa | Leviticus 26:21
+    לְ/יַסְּרָ֣ה | HR/Vqa | Leviticus 26:18
+    לְ/הָפֵ֥ר | HR/Vqa | Leviticus 26:44
+    לְ/פַלֵּא | HR/Vqa | Numbers 15:8
+    לְ/הַקְרִ֛יב | HR/Vha | Numbers 15:13
+    לִ/זְנ֖וֹת | HR/Vqa | Numbers 25:1
+    הַֽ/הַסְכֵּ֣ן | HTi/Vha | Numbers 22:30
+    הֲ/יָכ֥וֹל | HTi/Vqa | Numbers 22:38
+    וְ/הוֹרֵ֣שׁ | HC/Vha | Joshua 3:10
+    לַ/חְפֹּ֥ר | HR/Vqa | Joshua 2:2 (+1 more)
+    לִ/סְגּ֗וֹר | HR/Vqa | Joshua 2:5
+    וְ/תָק֥וֹעַ | HC/Vqa | Joshua 6:9 (+1 more)
+    וְ/הַחֲיֵ֣ה | HC/Vha | Joshua 9:20
+    לָ/מ֔וּת | HR/Vqa | Joshua 2:14
+    וְ/שָׂב֔וֹעַ | HC/Vqa | Joel 2:26
+    וְ/כַחֵ֔שׁ | HC/Vpa | Hosea 4:2
+    וְ/רָצֹ֥חַ | HC/Vqa | Hosea 4:2
+    וְ/גָנֹ֖ב | HC/Vqa | Hosea 4:2
+    וְ/נָאֹ֑ף | HC/Vqa | Hosea 4:2
+    לְ/הוֹרִ֖ישׁ | HR/Vqa | Joshua 17:12
+    לָ/שֶׁ֖בֶת | HR/Vqa | Joshua 17:12
+    וּ/בָכֹ֥ה | HC/Vqa | 1 Samuel 1:10
+    וְ/הוֹרֵ֖ישׁ | HC/Vha | Judges 1:28
+    - 165 words deleted.
+  Participles must have a masculine or feminine gender...
+    שׁוֹגִ֣ים | HVqrxpa | Psalms 119:118
+    מְסִבָּ֑/י | HVhrxsc/Sp1cs | Psalms 140:10
+    רָ֣ם | HVqrxsa | Isaiah 57:15
+    הַ/מּוֹצִ֤יא | HTd/Vhrxsa | Deuteronomy 8:15
+    בְּ/דַעְתּ֗/וֹ | HR/Vqr/Sp3ms | Isaiah 53:11 (+1 more)
+    בְּ/נָגְפּ֥/וֹ | HR/Vqr/Sp3ms | Exodus 12:27
+    בְּ/שִׁבְתְּ/כֶ֥ם | HR/Vqr/Sp2mp | Leviticus 26:35
+    בַּ/אֲכָלְ/כֶ֖ם | HRd/VPr/Sp2mp | Numbers 15:19
+    - 9 words deleted.
+  Sequential perfects and imperfects must be have a conjunction prefix...
+    >> WAS VERIFIED: וְ/נָתַ֣ן | HR/Vqq3ms | Ruth 4:7
+    וְ/נָתַ֣ן | HR/Vqw3ms | Ruth 4:7
+    וְ/נָתַ֣ן | HR/Vqq3ms | Ruth 4:7 (+1 more)
+    וַ/יֹּ֥אכַל | HR/Vqw3ms | Isaiah 9:19
+    וְ/כָרַ֤ת | HR/Vqq3ms | Isaiah 18:5
+    וּ/מָחָ֨ה | HR/Vqq3ms | Isaiah 25:8
+    וַ/יַּרְחִ֥יבוּ | HR/Vhw3mp | Psalms 35:21
+    וַ/יֹּאכְל֣וּ | HD/Vqw3mp | Psalms 78:29
+    וַֽ/יְנַשְּׂאֵ֖/ם | HC/C/Vpw3ms | Isaiah 63:9
+    וְ/שִׁלַּשְׁתָּ֙ | HR/Vpq2ms | Deuteronomy 19:3
+    וּ/בְנְיָמִֽן | HAccpc/Vqq3 | Exodus 1:3
+    וַ/עֲבָד֖/וֹ | HTd/Vqq3ms/Sp3ms | Exodus 21:6
+    וְ/זָרַ֨ק | HD/Vqq3ms | Leviticus 17:6
+    וְ/הֵקִים֙ | H/Vhq3ms | Numbers 30:15
+    וַ/יַּקְרֵ֥ב | H/Vhw3ms | Joshua 7:16
+    וַ/תַּ֙הַר֙ | HD/Vqw3fs | Genesis 4:1
+    - 16 words deleted.
+  Perfect verbs (including sequentials) that are 2nd person or 3rd person singular must be masculine or feminine gender...
+    וְ/נִגְלָ֥ה | HC/VNq3cs | Isaiah 22:14
+    פָּ֣תַח | HVqp3xs | Psalms 105:41
+    יָצָ֣א | HVqp3cs | Isaiah 51:5
+    וְ/יָשַׁבְתָּ֖ | HC/Vqq2xs | Deuteronomy 12:29
+    רָאֽוּ | HVqp3cs | Genesis 9:23
+    וְ/שָֽׁמְרוּ֙ | HC/Vqq3cs | Genesis 18:19
+    - 6 words deleted.
+  Imperfect verbs (including sequentials) that are 2nd person or 3rd person, along with jussives and imperatives, must be masculine or feminine gender...
+    יָסִ֣יר | HVhi3cs | Isaiah 3:18
+    יִקָּרֵ֥א | HVNi3xs | Isaiah 32:5
+    יֵבֹ֣שׁוּ | HVqi3xp | Psalms 35:4
+    אֶקַּ֣ח | HVqi2cs | Psalms 50:9
+    וְֽ/יֵדְע֗וּ | HC/Vqi3xp | Psalms 59:14
+    יִרְאֶה | HVqi3xs | Psalms 89:49
+    יִדְבַּ֣ק | HVqi3xs | Psalms 101:3
+    תִֽירְא֖וּ/ן | HVqi2cp/Sn | Deuteronomy 1:29
+    דְּֽעוּ | HVqv2xp | Job 19:6
+    הוֹשִׁיעֵ֥/נִי | HVhv2cs/Sp1cs | Psalms 7:2
+    יְבַקְשׁ֞וּ | HVqi3cp | 1 Kings 1:2
+    אֹסְרִ֤י | HVqv2cs | Genesis 49:11
+    וְ/נֻ֛סוּ | HC/Vqv2cp | Zechariah 2:10
+    הָסִ֛ירוּ | HVhv2cp | Zechariah 3:4
+    תֵצְא֛וּ | HVqi2cp | Exodus 12:22
+    תַּעֲשֶׂ֥ה | HVqi2cs | Exodus 30:1
+    תַּֽעֲשֶׂה | HVqi2cs | Exodus 30:4
+    תַּעֲשֶׂ֖ה | HVqi2cs | Exodus 30:4
+    תַעֲל֥וּ | HVqi2cp | Exodus 30:9
+    תִסְּכ֖וּ | HVqi2cp | Exodus 30:9
+    תַעֲשׂ֖וּ | HVqi2cp | Exodus 30:32 (+1 more)
+    תַּעֲשֶׂ֔ה | HVqi2cs | Exodus 30:37
+    תְּדַבֵּ֣ר | HVqi2cs | Exodus 30:31
+    תָבֹ֙אוּ֙ | HVqj2cp | Leviticus 14:34
+    תַעֲשׂ֨וּ | HVqi2cp | Leviticus 26:1
+    תָקִ֣ימוּ | HVqi2cp | Leviticus 26:1
+    תַעֲבֹ֥ר | HVqi2cs | Leviticus 26:6
+    תִגְעַ֥ל | HVqi2cs | Leviticus 26:11
+    תַעֲשׂ֔וּ | HVqi2cp | Leviticus 26:14
+    תֹאב֖וּ | HVqi2cp | Leviticus 26:21
+    תֵּֽלְכ֤וּ | HVqi2cp | Leviticus 26:21
+    תִשְׂבָּֽעוּ | HVqi2cp | Leviticus 26:26
+    תִּגְעַ֣ל | HVqi2cs | Leviticus 26:15
+    תִשְׁמְע֖וּ | HVqi2cp | Leviticus 26:14
+    תִּמְאָ֔סוּ | HVqi2cp | Leviticus 26:15
+    תִתְּנוּ֙ | HVqi2cp | Leviticus 26:1
+    תִּשְׁמֹ֔רוּ | HVqi2cp | Leviticus 26:2
+    תִּירָ֑אוּ | HVqi2cp | Leviticus 26:2
+    תֵּלֵ֑כוּ | HVqi2cp | Leviticus 26:3
+    תִּשְׁמְר֔וּ | HVqi2cp | Leviticus 26:3
+    וְ/הַֽאֲזִ֔ינוּ | HC/Vhv2cp | Joel 1:2
+    הָקִ֤יצוּ | HVhv2cp | Joel 1:5
+    וּ/בְכ֔וּ | H/Vqv2cp | Joel 1:5
+    וְ/הֵילִ֖לוּ | HC/Vpv2cp | Joel 1:5
+    אֲקַבְּצֵ֑/ם | HVpi3cs/Sp3mp | Hosea 8:10
+    אֲזַמֵּ֕ר | HVpi2cs | Judges 5:3
+    - 47 words deleted.
+  Parsings should not contain an x in the middle, except for demonstrative pronouns...
+    כָּל | HNcxxc | Ruth 1:19
+    רֹ֖אשׁ | HNcxsa | Isaiah 28:4
+    חֲז֣וֹן | HNcxsc | Isaiah 29:7
+    בְּ/יִרְאָ֑ה | HR/Ncmxa | Psalms 2:11
+    גּוֹרָלִֽ/י | HNcxsc/Sp1cs | Psalms 16:5
+    נֵכָ֥ר | HNcxsa | Psalms 18:46
+    מֵ/חֻפָּת֑/וֹ | HR/Ncfsc/Sp3xs | Psalms 19:6
+    עֶזְרָתִ֥/י | HNcfsc/Sx1cs | Psalms 27:9
+    רֶ֨גַע | HNcxsa | Psalms 30:6
+    בִּ֭/בְשָׂרִ/י | HR/Ncxsc/Sp1cs | Psalms 38:4
+    רִיבִ֗/י | HNcxsc/Sp1cs | Psalms 43:1
+    עֻ֭זּ/וֹ | HNcmxc/Sp3ms | Psalms 59:10
+    לְשׁוֹנִֽ/י | HNcbxc/Sp1cs | Psalms 66:17
+    בְּ/ת֥וֹךְ | HR/Ncxsc | Psalms 68:26
+    כְּ/גֹ֥דֶל | HR/Ncxsc | Psalms 79:11
+    רֹ֘עֵ֤ה | HVqrmxc | Psalms 80:2
+    תְקַדְּמֶֽ/ךָּ | HVpi3fs/Sp2xs | Psalms 88:14
+    מַחְשָֽׁךְ | HNcxsa | Psalms 88:19
+    עַבְדִּֽ/י | HNcxsc/Sp1cs | Psalms 89:4
+    יְסַדְתָּֽ/ם | HVqp2ms/Sp3xp | Psalms 89:12
+    קָדְשִׁ֣/י | HNcxsc/Sp1cs | Psalms 89:21
+    בְּ/צֶ֑דֶק | HR/Ncmxa | Psalms 98:9
+    וְ֝/שַׁוְעָתִ֗/י | HC/Ncfxc/Sp1cs | Psalms 102:2
+    זֹ֭את | HPpxfs | Psalms 102:19
+    לְ/פָעֳל֑/וֹ | HR/Ncmxc/Sp3ms | Psalms 104:23
+    חֻ֭קָּי/ו | HNcxpc/Sp3ms | Psalms 105:45
+    נַחֲלָתֶֽ/ךָ | HNcmsc/Sp2xs | Psalms 106:5
+    חַסְדּֽ/וֹ | HNcxsc/Sp3ms | Psalms 107:1
+    עוֹלָ֗ם | HNcmxa | Psalms 115:18
+    צֵאתְ/ךָ֥ | HVqc/Sp2xs | Psalms 121:8
+    עוֹלָֽם | HNcmxa | Psalms 139:24
+    יָדֶ֗י/ךָ | HNcfdc/Sx2ms | Psalms 144:7
+    פְּצֵ֥/נִי | HVqv2ms/Sx1cs | Psalms 144:11
+    נֵ֫כָ֥ר | HNcmxa | Psalms 144:11
+    מַעֲשָֽׂי/ו | HNcxpc/Sp3ms | Psalms 145:9
+    וְ/כָל | HC/Ncxsc | Psalms 148:11
+    תִּירָ֑אוּ | HVqixmp | Isaiah 35:4
+    אֲדֹנִ֖/י | HNcmxc/Sp1cs | Isaiah 36:8
+    אֱלֹהָ֗י/ו | HNcxpc/Sp3ms | Isaiah 37:38
+    כְּב֣וֹד | HNcxsc | Isaiah 40:5
+    מִ/מִּזְרָח֙ | HR/Ncxsa | Isaiah 43:5
+    אֱמֶֽת | HNcfxa | Isaiah 43:9
+    תֹּ֔הוּ | HNcxsa | Isaiah 44:9
+    זַרְעֶ֔/ךָ | HNcmsc/Sx2ms | Isaiah 48:19
+    אֵלָֽ/י | HR/Sx1cs | Isaiah 50:8
+    אֶפְעֶֽה | HNcmxa | Isaiah 59:5
+    חָמָ֖ס | HNcmxa | Isaiah 59:6
+    לֵ֔ב | HNcmxa | Isaiah 61:1
+    בֵּֽ/אלֹהַ֔/י | HR/Ncxpc/Sp1cs | Isaiah 61:10
+    יְכַהֵ֣ן | HVpixms | Isaiah 61:10
+    בְּ/אַפִּ֔/י | HR/Ncmxc/Sp1cs | Isaiah 63:6
+    לְ/בֵ֣ית | HR/Ncmxc | Isaiah 63:7
+    מִקְדָּשֶֽׁ/ךָ | HNcmpc/Sx2ms | Isaiah 63:18
+    מֵֽ/עוֹלָם֙ | HR/Ncmxa | Isaiah 63:19
+    בְּ/כָל | HR/Ncmxc | Deuteronomy 4:29
+    כַּ/דָּבָ֤ר | HRd/Ncxsa | Deuteronomy 4:32
+    וּ/בְ/מִלְחָמָ֗ה | HC/R/Ncfxa | Deuteronomy 4:34
+    לַ/שָּׁ֑וְא | HRd/Ncmxa | Deuteronomy 5:11
+    וְ/י֙וֹם֙ | HC/Ncmxa | Deuteronomy 5:14
+    בִּנְ/ךָ֔ | HNcmsc/Sx2fs | Deuteronomy 6:2
+    מֵ/אֶ֥רֶץ | HR/Ncfxc | Deuteronomy 8:14
+    מָ֑יִם | HNcxpa | Deuteronomy 8:15
+    וּ/בְ/רִשְׁעַת֙ | HC/R/Ncfxc | Deuteronomy 9:4
+    הַ/נַּ֖חַל | HTd/Ncxsa | Deuteronomy 9:21
+    מֵֽ/רֵשִׁית֙ | HR/Ncfxc | Deuteronomy 11:12
+    דְגָנֶ֔/ךָ | HNcmsc/Sp2xs | Deuteronomy 11:14
+    בְּ/כָל | HR/Ncxsc | Deuteronomy 11:22
+    אֱלֹֽהֵי/כֶ֗ם | HNcxpc/Sp2mp | Deuteronomy 11:25
+    שֵׂ֥ה | HNcxsc | Deuteronomy 14:4
+    לְ/בַ֥ד | HR/Ncxsa | Deuteronomy 18:8
+    הָ/רָקִיעַ֒ | HTd/Ncxsa | Genesis 1:7
+    לָ/תֵ֧ת | HR/Vxc | Malachi 2:2
+    בְּ/שֵׁ֖ם | HR/Ncxsc | Deuteronomy 18:20
+    מִ/קִּרְבֶּ֑/ךָ | HR/Ncmsc/Sp2xs | Deuteronomy 21:21
+    מִ/בֵּיתֽ/וֹ | HR/Ncmxc/Sp3ms | Deuteronomy 24:1
+    חֵילָֽ/ם | HNcxsc/Sp3ms | Job 5:5
+    שָׁ֑וְא | HNcxsa | Job 7:3
+    מָֽוֶת | HNcmxa | Job 18:13
+    פַּ֣חַד | HNcmxc | Job 22:10
+    פַּ֣חַד | HNcmxa | Job 22:10
+    זִקְנַ֣ת | HNcxsc | 1 Kings 11:4
+    מֵ/אַחַ֖ת | HNcxsc/R | Leviticus 4:2
+    מֵ/הֵֽנָּה | HPp3xp/R | Leviticus 4:2
+    לְ/אַשְׁמַ֣ת | HNcfxc/Rd | Leviticus 4:3
+    לִ/פְנֵ֣י | HNcxsc/Rd | Leviticus 4:4
+    לִ/פְנֵ֥י | HNcxxc/Rd | Leviticus 4:4
+    מוֹעֵֽד | HNcxsa | Leviticus 4:5
+    לִ/פְנֵ֣י | HNcxxc/Rd | Leviticus 4:6
+    פְּנֵ֖י | HNcxxc | Leviticus 4:6
+    יְסוֹד֙ | HNcxsc | Leviticus 4:7
+    פֶּ֖תַח | HNcxsc | Leviticus 4:7
+    חֵ֛לֶב | HNcxsc | Leviticus 4:8
+    הַ/יֹּתֶ֙רֶת֙ | HNcxsa/Td | Leviticus 4:9
+    הַ/כָּבֵ֔ד | HNcxsa/Td | Leviticus 4:9
+    זֶ֣בַח | HNcxsc | Leviticus 4:10
+    ע֤וֹר | HNcxsc | Leviticus 4:11
+    רֹאשׁ֖/וֹ | HNcxsa/Sp3xs | Leviticus 4:11
+    וּ/פִרְשֽׁ/וֹ | HC/Ncxsa/Sp3ms | Leviticus 4:11
+    בָּ/אֵ֑שׁ | HR/Ncxsa | Leviticus 4:12
+    שֶׁ֥פֶךְ | HNcxsa | Leviticus 4:12
+    שֶׁ֥פֶךְ | HNcxsc | Leviticus 4:12
+    שֶׁ֣פֶךְ | HNcxsc | Leviticus 4:12
+    הַ/דֶּ֔שֶׁן | HTd/Ncxsa | Leviticus 4:12
+    הַ/דֶּ֖שֶׁן | HTd/Ncxsa | Leviticus 4:12
+    שִׁגָּי֗וֹן | HNcxsa | Psalms 7:1
+    כָל | HNcmxa | Genesis 4:14
+    כָּל | HNcmxa | Genesis 4:15
+    נַֽעֲמָֽה | HNxxxa | Genesis 4:22
+    שְׁלֹשָׁ֣ה | HAcfxa | Genesis 6:10
+    עֲלֵה | HNxmsc | Genesis 8:11
+    חֲנִיכָ֜י/ו | HNcmpc/Spxms | Genesis 14:14
+    כָּ/אֵ֙לֶּה֙ | HR/Prxcp | Genesis 27:46
+    לִ/פְנֵ֥י | HR/Nxfpc | Genesis 29:26
+    לִ/בְנֵי/הֶ֖ן | HR/Ncmpc/Spxfp | Genesis 31:43
+    פָנֶ֗י/ךָ | HNcfpc/Sx2ms | Genesis 33:10
+    שֶׁ֤בַע | HAcxsa | Genesis 41:27
+    בְּ/שֶׁ֖בַע | HR/Acxsa | Genesis 41:34
+    גְּבִיעִ֞/י | HNcmsc/Prxm | Genesis 44:2
+    כִּ/דְבַ֥ר | HR/Nxmsa | Genesis 44:2
+    לַֽ/אֲשֶׁ֣ר | HRd/Prxc | Genesis 44:4
+    כַּ/דָּבָ֥ר | HRd/Nxmsa | Genesis 44:7
+    הֱשִׁיבֹ֥נוּ | HVhx1cp | Genesis 44:8
+    פְּנֵ֣י | HNxmpc | Genesis 50:1
+    נֶאֱסָ֣ף | HVNixms | Genesis 49:29
+    בְּ/גֹ֙רֶן֙ | HR/Nxmsa | Genesis 50:11
+    בְּ/גֹ֙רֶן֙ | HR/Nxmsc | Genesis 50:11
+    עַצְמֹתַ֖/י | HNxfpc/Sp1cs | Genesis 50:25 (+1 more)
+    הַ/בְּכֽוֹר | HTd/Nxmsa | Zechariah 12:10
+    לִ/פְנֵ֥י | HR/Nxmpc | Zechariah 3:3
+    מִ/זֶּ֖ה | HR/Prxms | Zechariah 5:3
+    הַ/שֶּֽׂה | HTd/Nxmsa | Exodus 12:4
+    אַרְבָּעָ֥ה | HAcmxa | Exodus 12:6
+    בְ/אֶֽרֶץ | HR/Nxfsc | Exodus 12:12
+    מֵ/אֶ֣רֶץ | HRd/Nxfsa | Exodus 12:42
+    כְּלִ֥יל | HNxmsc | Exodus 28:31
+    בַּ/שָּׁ֑מֶן | HRd/Nxmsa | Exodus 29:2
+    בָּנָֽי/ו | HNxmpc/Sp3ms | Exodus 29:9
+    מֵ/הֵֽנָּה | HR/Sp3xp | Leviticus 4:2
+    אַשְׁמָתֽ/וֹ | HNcfsc/Spxms | Leviticus 5:24
+    בְּשַׂ֤ר | HNcmxa | Exodus 29:14
+    בִּגְדֵ֥י | HNxmpc | Exodus 29:21
+    יֹתֶ֤רֶת | HNxfsc | Exodus 29:22
+    מִ/יָּדָ֔/ם | HR/Ncfsc/Spxmp | Exodus 29:25
+    אֵ֥יל | HNxmsc | Exodus 29:31
+    בְּ/מָקֹ֥ם | HR/Nxmsc | Exodus 29:31
+    הַ/שְּׁחִין֙ | HTd/Ncmxa | Leviticus 13:19
+    דַּבֵּר֙ | HVpixms | Numbers 6:2
+    נִזְר֑/וֹ | HNcmsc/Sx3ms | Numbers 6:4
+    כָּל | HNxmsc | Numbers 10:3
+    לְ/מַסְעֵי/הֶֽם | HR/Ncmpc/Sx3mp | Numbers 10:6
+    בְּ/אַרְצְ/כֶ֗ם | HR/Ncfsc/Sx2mp | Numbers 10:9
+    לְ/דֹרֹתֵי/כֶֽם | HR/Ncmpc/Sx2mp | Numbers 10:8
+    אֱלֹֽהֵי/כֶ֔ם | HNcmpc/Sx2mp | Numbers 10:9 (+2 more)
+    מֵ/אֹיְבֵי/כֶֽם | HR/Vqrmpc/Sx2mp | Numbers 10:9
+    שִׂמְחַתְ/כֶ֥ם | HNcfsc/Sx2mp | Numbers 10:10
+    וּֽ/בְ/מוֹעֲדֵי/כֶם֮ | HC/R/Ncmpc/Sx2mp | Numbers 10:10
+    חָדְשֵׁי/כֶם֒ | HNcmpc/Sx2mp | Numbers 10:10
+    עֹלֹ֣תֵי/כֶ֔ם | HNcfpc/Sx2mp | Numbers 10:10
+    שַׁלְמֵי/כֶ֑ם | HNcmpc/Sx2mp | Numbers 10:10
+    אֱלֹהֵי/כֶֽם | HNcmpc/Sx2mp | Numbers 10:10
+    לְ/מַסְעֵי/הֶ֖ם | HR/Ncmpc/Sx3mp | Numbers 10:12
+    לְ/צִבְאֹתָ֑/ם | HR/Ncbpc/Sx3mp | Numbers 10:14 (+3 more)
+    צְבָא֔/וֹ | HNcbsc/Sx3ms | Numbers 10:14 (+2 more)
+    בֹּאָֽ/ם | HVqc/Sx3mp | Numbers 10:21
+    יְגַלְּחֶֽ/נּוּ | HVpi3ms/Sx3ms | Numbers 6:9
+    וְ/הַ/יְבוּסִ֤י | HC/Td/Ngxsa | Numbers 13:29
+    מֵבִ֥יא | HVhpxms | Numbers 15:18
+    אַרְצְ/כֶ֑ם | HNxfsc/Sp2mp | Numbers 22:13
+    נֹשְׂאֵ֖י | HVqpxmpc | Joshua 4:9
+    תִּקְוַ֡ת | HNxfsc | Joshua 2:18
+    דַּבֵּ֛ר | HVpixms | Joshua 20:2
+    תְּנ֤וּ | HVqixmp | Joshua 20:2
+    רִ֤יב | HNcmxa | Hosea 4:1
+    פֹּנֶ֣ה | HVqpxmsa | Joshua 15:7
+    בִּנְ/ךָ֔ | HNcmsc/Sx2ms | Deuteronomy 6:2
+    מִ/בֶּ֛ן | HR/Ncmxc | Exodus 30:14
+    הַאֲזִ֔ינוּ | HVhixmp | Hosea 5:1
+    לְכוּ֙ | HVqixmp | Hosea 6:1
+    - 186 words deleted.
+  Demonstrative pronouns must have gender and number indicated...
+    >> WAS VERIFIED: הֲ/זֹ֥את | HTi/Pd | Ruth 1:19
+    >> WAS VERIFIED: הָ/אֵ֖לֶּה | HTd/Pd | Ruth 3:17
+    >> WAS VERIFIED: מִ/זֶּ֥ה | HR/Pd | Jonah 1:8
+    >> WAS VERIFIED: זֹּ֣את | HPd | Jonah 1:10
+    >> WAS VERIFIED: הַ/זֶּ֖ה | HTd/Pd | Jonah 1:12
+    >> WAS VERIFIED: הַ/זֶּ֔ה | HTd/Pd | Jonah 1:14
+    הַ/זֶּ֗ה | HTd/Pd | Genesis 7:11 (+35 more)
+    הַ/זֶּה֙ | HTd/Pd | Genesis 7:13 (+80 more)
+    הָ/אֵ֗לֶּה | HTd/Pd | Genesis 15:1 (+20 more)
+    הַ/זֶּ֔ה | HTd/Pd | Genesis 17:21 (+132 more)
+    הַ/זֶּ֑ה | HTd/Pd | Genesis 19:13 (+130 more)
+    הָ/אֵ֖לֶּה | HTd/Pd | Genesis 20:8 (+51 more)
+    הָ/אֵ֔לֶּה | HTd/Pd | Genesis 21:29 (+67 more)
+    הַ/זֶּ֛ה | HTd/Pd | Genesis 26:11 (+18 more)
+    הַ/זֶּ֥ה | HTd/Pd | Genesis 31:48 (+1 more)
+    הַ/זֶּ֖ה | HTd/Pd | Genesis 33:8 (+98 more)
+    הָ/אֵ֜לֶּה | HTd/Pd | Genesis 34:21 (+6 more)
+    הַ/זֶּה֮ | HTd/Pd | Genesis 39:9 (+2 more)
+    הָ/אֵ֑לֶּה | HTd/Pd | Genesis 41:35 (+50 more)
+    הַ/זֶּ֜ה | HTd/Pd | Genesis 47:26 (+20 more)
+    אֵֽלֶּה | HPd | Genesis 48:8 (+17 more)
+    הַ/זֶּה֒ | HTd/Pd | Exodus 12:12 (+2 more)
+    הַ/זֶּ֤ה | HTd/Pd | Exodus 12:14 (+4 more)
+    הָ/אֵ֙לֶּה֙ | HTd/Pd | Numbers 5:22 (+17 more)
+    הָ/אֵ֛לֶּה | HTd/Pd | Numbers 5:23 (+5 more)
+    הַ֠/זֶּה | HTd/Pd | Numbers 14:29 (+3 more)
+    הָ/אֵ֡לֶּה | HTd/Pd | Deuteronomy 5:22 (+1 more)
+    הַ/זֶּה | HTd/Pd | Deuteronomy 10:15
+    הָ/אֵ֧לֶּה | HTd/Pd | Joshua 4:7
+    הָ/אֵלֶּה֮ | HTd/Pd | Joshua 10:24 (+2 more)
+    הָ֠/אֵלֶּה | HTd/Pd | Joshua 11:12 (+1 more)
+    הַ/זֶּ֡ה | HTd/Pd | 1 Samuel 17:46 (+2 more)
+    הָ/אֵ֤לֶּה | HTd/Pd | 1 Samuel 31:4 (+2 more)
+    הַ/זֶּ֨ה | HTd/Pd | Jeremiah 13:10
+    הַ/זֶּה֩ | HTd/Pd | Ezekiel 44:2
+    הָ֭/אֵלֶּה | HTd/Pd | Job 32:1
+    הֲ/זֹ֥את | HTi/Pd | Ruth 1:19 (+1 more)
+    הָ/אֵ֨לֶּה | HTd/Pd | 1 Chronicles 11:19
+    מִ/זֶּ֥ה | HR/Pd | Jonah 1:8 (+1 more)
+    זֹּ֣את | HPd | Jonah 1:10 (+1 more)
+    זֹאת֙ | HPd | Isaiah 5:25 (+3 more)
+    זֹּֽאת | HPd | Isaiah 9:6
+    ז֥וּ | HPd | Psalms 62:12
+    זֹ֥את | HPd | Job 10:13
+    הַ/זֹּ֔את | HTd/Pd | Ezekiel 3:1 (+1 more)
+    הַ/זֹּֽאת | HTd/Pd | Ezekiel 3:2
+    זֹ֣את | HPdxf | Genesis 45:17
+    הָ/הֵ֙מָּה֙ | HTd/Pd | Numbers 9:7
+    - 815 words deleted.
+Done with weed-out script.
+
+Running flag script...
+Done with flag script.
+
+Running compare script...
+  25098 words needing status or morph update.
+  25098 words had their status or morph updated.
+Done with compare script.
+
+Running auto-parse script...
+  23349 words were auto-parsed according to pre-determined parsing for common forms.
+Done with auto-parse script.
+
+Running guess-parse script...
+  >> "אֲבוֹתֵי/נוּ": "HNcmpc/Sp1cp", (83%) -- but HNcmpc/Sp1cs in Psalms 44:2 
+  >> "אֲדַבְּרָה": "HVph1cs", (75%) -- but HVpi1cs in Job 7:11 
+  >> "אֲדֹנָ/י": "HNcmpc/Sp1cs", (99%) -- but HNcmsc/Sp1cs in Psalms 59:12 
+  >> "אֲחֵרִים": "HAampa", (96%) -- but HAcmpa in Joshua 24:16 
+  >> "אֲחֹת/וֹ": "HNcfsc/Sp3ms", (87%) -- but HNcfpc/Sp3ms in Deuteronomy 27:22 
+  >> "אִשְׁתִּ/י": "HNcfsc/Sp1cs", (83%) -- but HR/Sp1cs in Genesis 44:27 
+  >> "אֵי": "HD", (95%) -- but HTi in Isaiah 66:1 
+  >> "אֶמְצָא": "HVqi1cs", (90%) -- but HVqh1cs in Genesis 33:15 
+  >> "אֶרֶז": "HNcmsa", (75%) -- but HC in Leviticus 14:4 
+  >> "אַחֶרֶת": "HAafsa", (83%) -- but HNcfsa in Exodus 21:10 
+  >> "אַמְתַּחְתּ/וֹ": "HNcfsc/Sp3ms", (75%) -- but HNcfpc/Sp3ms in Genesis 43:21 
+  >> "אַפְסֵי": "HNcmpc", (87%) -- but HD in Psalms 72:8 
+  >> "אַרְזֵי": "HNcmpc", (80%) -- but HNcmsc in Isaiah 14:8 
+  >> "אַתָּה": "HPp2ms", (99%) -- but HC in Genesis 7:1 
+  >> "אָבִי/ךְ": "HNcmsc/Sp2fs", (80%) -- but HNcmsc/Sp3fs in Genesis 24:23 
+  >> "אָבִיא": "HVhi1cs", (80%) -- but HVqi1cs in Exodus 11:1 
+  >> "אָבוֹא": "HVqi1cs", (87%) -- but HVqh1cs in Genesis 38:16 
+  >> "אָזְנֶ/ךָ": "HNcfsc/Sp2ms", (75%) -- but HNcfdc/Sp2ms in Proverbs 2:2 
+  >> "אָכְל/וֹ": "HVqc/Sp3ms", (75%) -- but HVqrmsc/Sp3ms in Exodus 12:4 
+  >> "אָמַרְתָּ": "HVqp2ms", (83%) -- but HVqp2fs in Isaiah 14:13 
+  >> "אָשִׁיב": "HVhi1cs", (90%) -- but HVHi1cs in Joel 4:4 
+  >> "אֹיְבֵי/הֶם": "HNcmpc/Sp3mp", (85%) -- but HNcmpc/Sp2mp in Leviticus 26:36 
+  >> "אֹכְלָה": "HVqrfsa", (75%) -- but HVqh1cs in Deuteronomy 12:20 
+  >> "אוֹדְ/ךָ": "HVhi1cs/Sp2ms", (91%) -- but HVhi1cp/Sp2ms in Psalms 86:12 
+  >> "בְ/יָדָ/ם": "HR/Ncfsc/Sp3mp", (75%) -- but HC/Ncfsc/Sp3mp in Job 21:16 
+  >> "בָאוּ": "HVqp3cp", (87%) -- but HVqi3mp in Isaiah 37:3 
+  >> "בְּ/אַחֲרִית": "HR/Ncfsc", (85%) -- but HR/Aafpc in Genesis 49:1 
+  >> "בְּ/אַרְצְ/כֶם": "HR/Ncfsc/Sp2mp", (80%) -- but HR/Ncfsc/Sp2cp in Leviticus 26:1 
+  >> "בְּ/יֶדְ/כֶם": "HR/Ncfsc/Sp2mp", (87%) -- but HR/Ncfdc/Sp2mp in Exodus 12:11 
+  >> "בְּ/יָדָ/ם": "HR/Ncfsc/Sp3mp", (83%) -- but HR/Ncfpc/Sp3mp in Exodus 5:21 
+  >> "בְּ/מִסְפַּר": "HR/Ncmsc", (95%) -- but HRd/Ncmsa in Numbers 14:34 
+  >> "בְּ/עַמּ/וֹ": "HR/Ncmsc/Sp3ms", (75%) -- but HR/Ncmpc/Sp3ms in Psalms 106:40 
+  >> "בְּ/עַרְבֹת": "HR/Ncfpc", (85%) -- but HC/Ncfpa in Numbers 35:1 
+  >> "בְּ/פִי": "HR/Ncmsc", (85%) -- but HRd/Ncmsa in Genesis 42:27 
+  >> "בְּ/צֵאת/וֹ": "HR/Vqc/Sp3ms", (80%) -- but HR/Ncfsa/S in Genesis 12:4 
+  >> "בְּ/צֵל": "HR/Ncmsc", (87%) -- but HRd/Ncmsa in Genesis 19:8 
+  >> "בְּ/קִרְבִּ/י": "HR/Ncmsc/Sp1cs", (85%) -- but HR/Ncmpa/Sp1cs in Psalms 39:4 
+  >> "בְּ/תוֹכ/וֹ": "HR/Ncmsc/Sp3ms", (80%) -- but HR/R/Sp3ms in Leviticus 11:33 
+  >> "בְּנֵי/הֶם": "HNcmpc/Sp3mp", (87%) -- but HNcmpc/Sp3cp in Psalms 90:16 
+  >> "בְּצֻרוֹת": "HAafpa", (80%) -- but HAcfpa in Joshua 14:12 
+  >> "בִּ/דְרָכָי/ו": "HR/Ncbpc/Sp3ms", (87%) -- but HR/Ncmpc/Sp3cs in Psalms 128:1 
+  >> "בִּגְדֵי": "HNcmpc", (96%) -- but HNcmsc in Isaiah 52:1 
+  >> "בֵּרַךְ": "HVpp3ms", (85%) -- but HVpi3ms in Isaiah 61:9 
+  >> "בַּ/בָּשָׁן": "HRd/Np", (85%) -- but HR/Np in Joshua 22:7 
+  >> "בַּ/בֹּקֶר": "HRd/Ncmsa", (97%) -- but HR/Ncmsa in Genesis 49:27 
+  >> "בַּ/דָּם": "HRd/Ncmsa", (80%) -- but HR/Ncmsa in Exodus 12:22 
+  >> "בַּ/חֶרֶב": "HRd/Ncfsa", (83%) -- but HR/Ncmsa in Isaiah 3:25 
+  >> "בַּ/חֹדֶשׁ": "HRd/Ncmsa", (94%) -- but HR/Ncmsc in Haggai 1:1 
+  >> "בַּ/חֹשֶׁךְ": "HRd/Ncmsa", (87%) -- but HR/Ncmsa in Isaiah 9:1 
+  >> "בַּ/כֶּסֶף": "HRd/Ncmsa", (80%) -- but HR/Ncmsa in Genesis 13:2 
+  >> "בַּ/מָּקוֹם": "HRd/Ncmsa", (93%) -- but HR/Ncmsa in Genesis 20:11 
+  >> "בַּ/סֵּפֶר": "HRd/Ncmsa", (83%) -- but HR/Ncmsa in Numbers 5:23 
+  >> "בַּ/פַּעַם": "HRd/Ncfsa", (80%) -- but HR/Ncfsa in Exodus 9:14 
+  >> "בַּ/צַּר": "HRd/Aamsa", (88%) -- but HRd/Ncmsa in Psalms 18:7 
+  >> "בַּ/שֶּׁמֶן": "HRd/Ncmsa", (90%) -- but HTd/Ncmsa in Numbers 15:9 
+  >> "בָּ/אֲבָנִים": "HRd/Ncfpa", (83%) -- but HR/Ncfpa in Numbers 14:10 
+  >> "בָּ/עִיר": "HRd/Ncfsa", (90%) -- but HR/Ncfsa in Psalms 55:10 
+  >> "בָּנָי/ו": "HNcmpc/Sp3ms", (98%) -- but HNcmsc/Sp2ms in Exodus 4:20 
+  >> "בֹּאוּ": "HVqv2mp", (87%) -- but HVqv2ms in Psalms 95:6 
+  >> "גְּדֹלוֹת": "HAafpa", (88%) -- but HAcfpa in Joshua 14:12 
+  >> "גֵּי": "HNp", (75%) -- but HNcmsc in Joshua 15:8 
+  >> "דְּבָר/וֹ": "HNcmsc/Sp3ms", (88%) -- but HNcmsc/Sp3cs in Psalms 56:5 
+  >> "דְּבָרַ/י": "HNcmpc/Sp1cs", (88%) -- but HNcmsc/Sp1cs in Psalms 56:6 
+  >> "דַּלְתוֹת": "HNcfpc", (80%) -- but HNcfdc in Isaiah 45:2 
+  >> "הִגִּיד": "HVhp3ms", (85%) -- but HVqp3ms in Isaiah 41:26 
+  >> "הִכִּיתָ": "HVhp2ms", (75%) -- but HVhp1cs in Psalms 3:8 
+  >> "הִכָּה": "HVhp3ms", (90%) -- but HVqp3ms in Exodus 12:29 
+  >> "הֵחֵל": "HVhp3ms", (80%) -- but HVqi3ms in Genesis 44:12 
+  >> "הֵיטִיבוּ": "HVhp3cp", (75%) -- but HVhv2mp in Psalms 33:3 
+  >> "הֵיטֵב": "HVha", (87%) -- but HVhc in Isaiah 1:17 
+  >> "הַ/בְּרֵכָה": "HTd/Ncfsa", (75%) -- but HRd/Ncfsa in Isaiah 36:2 
+  >> "הַ/בְּרָכָה": "HTd/Ncfsa", (88%) -- but HRd/Ncfsa in Joshua 8:34 
+  >> "הַ/בָּאִים": "HTd/Vqrmpa", (87%) -- but HTm/Vqrmpa in Genesis 42:5 
+  >> "הַ/בָּיְתָ/ה": "HTd/Ncmsa/Sd", (75%) -- but HTd/Ncmsa/Sh in Genesis 43:16 
+  >> "הַ/בָּיִת": "HTd/Ncmsa", (88%) -- but HTd/Np in Leviticus 14:39 
+  >> "הַ/בֹּטְחִים": "HTd/Vqrmpa", (75%) -- but HRd/Vqrmpa in Isaiah 42:17 
+  >> "הַ/גְּשׁוּרִי": "HTd/Ngmsa", (80%) -- but HTd/Np in Deuteronomy 3:14 
+  >> "הַ/זְּקֵנִים": "HTd/Aampa", (87%) -- but HTd/Ncmpa in Joel 1:2 
+  >> "הַ/חַרְטֻמִּים": "HTd/Ncmpa", (75%) -- but HNcmpa/R in Exodus 8:14 
+  >> "הַ/חֹרִי": "HTd/Ngmsa", (75%) -- but HTd/Np in Deuteronomy 2:22 
+  >> "הַ/חוּצָ/ה": "HTd/Ncmsa/Sd", (90%) -- but HTd/R/Sd in Joshua 2:19 
+  >> "הַ/יְמָנִית": "HTd/Aafsa", (88%) -- but HTd/Aafpa in Exodus 29:20 
+  >> "הַ/יָּמִים": "HTd/Ncmpa", (99%) -- but HTd/Np in Hosea 3:5 
+  >> "הַ/כֹּל": "HTd/Ncmsa", (91%) -- but HTd/D in Exodus 29:24 
+  >> "הַ/מְעַט": "HTi/Aamsa", (83%) -- but HTd/Aamsa in Deuteronomy 7:7 
+  >> "הַ/מֵּאוֹת": "HTd/Acfpa", (80%) -- but HTd/Ncfpa in Numbers 31:14 
+  >> "הַ/מֵּת": "HTd/Vqrmsa", (87%) -- but HTd/Ncmsa in Exodus 21:35 
+  >> "הַ/מֵּתִים": "HTd/Vqrmpa", (88%) -- but HTd/Ncmpa in Numbers 25:9 
+  >> "הַ/נְּשִׂיאִים": "HTd/Ncmpa", (83%) -- but HRd/Ncmpa in Numbers 10:4 
+  >> "הַ/נֹּתֵן": "HTd/Vqrmsa", (75%) -- but HTd/Vmp3ms in Genesis 49:21 
+  >> "הַ/קָּטֹן": "HTd/Aamsa", (93%) -- but HTd/Ncmsa in Genesis 44:2 
+  >> "הַ/שְּׁלִישִׁי": "HTd/Aomsa", (95%) -- but HTd/Acmsa in Genesis 42:18 
+  >> "הַ/שֹּׁפֵט": "HTd/Vqrmsa", (75%) -- but HTd/Vqrmpa in Deuteronomy 17:9 
+  >> "הָ/אֲלָפִים": "HTd/Acmpa", (75%) -- but HTd/Ncmpa in Numbers 31:14 
+  >> "הָ/אַחֲרוֹן": "HTd/Aamsa", (87%) -- but HTd/Np in Deuteronomy 11:24 
+  >> "הָ/אַחַת": "HTd/Acfsa", (90%) -- but HTd/Aofsa in Genesis 4:19 
+  >> "הָ/אָלָה": "HTd/Ncfsa", (80%) -- but HC/Pdxfs in Numbers 5:21 
+  >> "הָ/עֹלִים": "HTd/Vqrmpa", (75%) -- but HTd/Ncmpa in Genesis 50:14 
+  >> "הָ/רְפָאִים": "HTd/Np", (75%) -- but HTd/Ngmpa in Joshua 13:12 
+  >> "הָ/רַע": "HTd/Aamsa", (80%) -- but HTd/Ncmsa in Judges 4:1 
+  >> "הָ/רֹמֵשׂ": "HTd/Vqrmsa", (80%) -- but HTd/Vmp3ms in Leviticus 11:44 
+  >> "הָבָ/ה": "HVqv2ms/Sh", (85%) -- but HVqv2ms/Sp3fs in Genesis 38:16 
+  >> "הָרִיעוּ": "HVhv2mp", (90%) -- but HVhi2mp in Hosea 5:8 
+  >> "הוֹצִיא": "HVhp3ms", (88%) -- but HVhv2ms in Isaiah 43:8 
+  >> "הוֹרִישׁ": "HVhp3ms", (80%) -- but HVOp3ms in Judges 1:30 
+  >> "וְ/אִכְלוּ": "HC/Vqv2mp", (75%) -- but HC/Vqj2mp in Genesis 45:18 
+  >> "וְ/אֵינֶ/נּוּ": "HC/Tn/Sp3ms", (80%) -- but HC/D/Sp3ms in Genesis 5:24 
+  >> "וְ/אֶעֱשֶׂה": "HC/Vqi1cs", (83%) -- but HC/Vqw1cs in Deuteronomy 9:14 
+  >> "וְ/אֶתְּנָה": "HC/Vqh1cs", (88%) -- but HC/Vqw1cs in Genesis 45:18 
+  >> "וְ/אַחֲרָי/ו": "HC/R/Sp3ms", (88%) -- but HC/R/Sp3fs in Joshua 10:14 
+  >> "וְ/אָנָה": "HC/Ti", (75%) -- but HC/D in Ruth 2:19 
+  >> "וְ/אָעִידָה": "HC/Vhh1cs", (75%) -- but HC/Vqh1cs in Psalms 50:7 
+  >> "וְ/אֹת/וֹ": "HC/To/Sp3ms", (83%) -- but HC/Td/Sp3ms in Leviticus 11:33 
+  >> "וְ/אוּלָם": "HC/C", (90%) -- but HC/Np in Genesis 28:19 
+  >> "וְ/הֵם": "HC/Pp3mp", (95%) -- but HC/Sp3mp in Deuteronomy 1:39 
+  >> "וְ/הַ/מַּיִם": "HC/Td/Ncmpa", (80%) -- but HC/Td/Ncmda in Genesis 8:5 
+  >> "וְ/הַ/נּוֹרָא": "HC/Td/VNrmsa", (80%) -- but HC/Td/Aamsa in Joel 3:4 
+  >> "וְ/טִהַר": "HC/Vpq3ms", (75%) -- but HC/Vqq3ms in Leviticus 14:48 
+  >> "וְ/יֵדְעוּ": "HC/Vqi3mp", (80%) -- but HC/Vqw3mp in Isaiah 19:12 
+  >> "וְ/יֶתֶר": "HC/Ncmsc", (75%) -- but HC/D in Genesis 49:3 
+  >> "וְ/יָדְעוּ": "HC/Vqq3cp", (90%) -- but HC/Vqi3mp in Isaiah 9:8 
+  >> "וְ/יָצְאוּ": "HC/Vqq3cp", (80%) -- but HC/Vqw3mp in Deuteronomy 21:2 
+  >> "וְ/יָשֹׁב": "HC/Vqi3ms", (83%) -- but HC/Vqw3ms in Numbers 25:4 
+  >> "וְ/יֹאמְרוּ": "HC/Vqi3mp", (83%) -- but HC/Vqw3mp in Deuteronomy 32:7 
+  >> "וְ/כַ/אֲשֶׁר": "HC/R/Tr", (85%) -- but HC/R/Pr in Genesis 26:29 
+  >> "וְ/לִ/שְׁמֹר": "HC/R/Vqc", (80%) -- but HR/R/Vqc in Deuteronomy 5:29 
+  >> "וְ/לַ/גֵּר": "HC/Rd/Ncmsa", (90%) -- but HC/R/Ncmsa in Exodus 12:49 
+  >> "וְ/לַ/גָּדִי": "HC/Rd/Np", (83%) -- but HC/Rd/Ngmsa in Joshua 12:6 
+  >> "וְ/נָפְלוּ": "HC/Vqq3cp", (75%) -- but HC/VNq3cp in Isaiah 8:15 
+  >> "וְ/נָשְׂאוּ": "HC/Vqq3cp", (75%) -- but HC/Vqq1cp in Numbers 11:17 
+  >> "וְ/עוֹד": "HC/D", (88%) -- but HC/R in Isaiah 10:4 
+  >> "וְ/צִוָּה": "HC/Vqq3ms", (80%) -- but HC/Vpq3ms in Leviticus 13:54 
+  >> "וְ/שָׁכַב": "HC/Vqq3ms", (83%) -- but HC/Vqp3fs in Exodus 22:15 
+  >> "וְ/שִׂים": "HC/Vqv2ms", (75%) -- but HC/Vqsmsa in Numbers 24:21 
+  >> "וְ/שַׂמְתֶּם": "HC/Vqq2mp", (75%) -- but HC/Vqw2mp in Deuteronomy 31:26 
+  >> "וִ/הְיִיתֶם": "HC/Vqq2mp", (90%) -- but HC/Vqq2cp in Leviticus 11:45 
+  >> "וִ/ישַׁבְתֶּם": "HC/Vqq2mp", (85%) -- but HC/Vqq2ms in Leviticus 25:19 
+  >> "וַ/אֲדַבְּרָה": "HC/Vph1cs", (80%) -- but HC/Vqh1cs in Deuteronomy 31:28 
+  >> "וַ/אֲנַחְנוּ": "HC/Pp1cp", (90%) -- but HC/Pdxcp in Psalms 79:13 
+  >> "וַ/אֲשֶׁר": "HC/Pr", (99%) -- but HC/Tr in Genesis 7:23 
+  >> "וַ/יְחַזֵּק": "HC/Vpw3ms", (85%) -- but HC/Vqw3ms in Exodus 11:10 
+  >> "וַ/יְכַל": "HC/Vpw3ms", (83%) -- but HC/Vqw3ms in Genesis 49:33 
+  >> "וַ/יְמַהֲרוּ": "HC/Vpw3mp", (75%) -- but HC/Vqw2mp in Genesis 44:11 
+  >> "וַ/יְשַׁלְּחוּ": "HC/Vpw3mp", (75%) -- but HC/Vpw3ms in Genesis 37:32 
+  >> "וַ/יְשַׁלַּח": "HC/Vpw3ms", (91%) -- but HC/Vqw3ms in Genesis 45:24 
+  >> "וַ/יִּבְחַר": "HC/Vqw3ms", (87%) -- but HC/Vqq3ms in Deuteronomy 7:7 
+  >> "וַ/יִּירְאוּ": "HC/Vqw3mp", (90%) -- but HC/Vqi3mp in Psalms 64:10 
+  >> "וַ/יִּפְּלוּ": "HC/Vqw3mp", (90%) -- but HC/Vqq3cp in Genesis 50:18 
+  >> "וַ/יִּצְעֲקוּ": "HC/Vqw3mp", (83%) -- but HC/Vqw3ms in Psalms 107:28 
+  >> "וַ/יִּשְׁאֲלוּ": "HC/Vqw3mp", (75%) -- but HC/Vqi3mp in Judges 1:1 
+  >> "וַ/יִּשְׁתַּחֲווּ": "HC/Vvw3mp", (88%) -- but HC/Vtw3mp in 1 Samuel 1:19 
+  >> "וַ/יֵּט": "HC/Vqw3ms", (94%) -- but HC/Vqq3ms in Genesis 49:15 
+  >> "וַ/יֶּאֱסֹף": "HC/Vqw3ms", (83%) -- but HC/VPw3fs in Genesis 49:33 
+  >> "וַ/יַּעֲבֹר": "HC/Vqw3ms", (88%) -- but HC/Vqi3ms in Psalms 37:36 
+  >> "וַ/יַּקְרֵב": "HC/Vhw3ms", (93%) -- but HC/Vqw3ms in Numbers 25:6 
+  >> "וַ/יָּבִיאוּ": "HC/Vhw3mp", (90%) -- but HC/Vqw3mp in Leviticus 24:11 
+  >> "וַ/יָּקֶם": "HC/Vhw3ms", (87%) -- but HC/Vqw3ms in Judges 2:16 
+  >> "וַ/יָּקֻמוּ": "HC/Vqw3mp", (85%) -- but HC/Vqq3cp in Numbers 16:2 
+  >> "וַ/יָּשֶׁב": "HC/Vhw3ms", (87%) -- but HC/Vqw3ms in Genesis 40:21 
+  >> "וַ/יֹּאכְלוּ": "HC/Vqw3mp", (88%) -- but HC/Vqi3mp in Isaiah 9:11 
+  >> "וַ/יֻּגַּד": "HC/VHw3ms", (87%) -- but HC/VPw3ms in Genesis 38:24 
+  >> "וַ/יּוֹאֶל": "HC/Vhw3ms", (75%) -- but HC/Vmq3ms in Joshua 17:12 
+  >> "וַ/יּוֹצֵא": "HC/Vhw3ms", (83%) -- but HC/Vhrmsa in Psalms 136:11 
+  >> "וַ/תִּבְעַר": "HC/Vqw3fs", (75%) -- but HC/Vqw3ms in Isaiah 42:25 
+  >> "וַ/תִּפֹּל": "HC/Vqw3fs", (75%) -- but HC/VNw3fs in Job 1:15 
+  >> "וַ/תַּעַל": "HC/Vqw3fs", (80%) -- but HC/Vhw2ms in Jonah 2:7 
+  >> "וָ/אֶשָּׂא": "HC/Vqw1cs", (85%) -- but HC/Vqi1cs in Zechariah 5:9 
+  >> "וָ/רָע": "HC/Aamsa", (75%) -- but HC/Ncmsa in Genesis 3:22 
+  >> "וּ/בְ/תוֹךְ": "HC/R/Ncmsc", (85%) -- but HC/Rd/Ncmsa in Isaiah 41:18 
+  >> "וּ/בְהֵמָה": "HC/Ncfsa", (75%) -- but HR/Ncfsa in Jonah 4:11 
+  >> "וּ/בֵית": "HC/Ncmsc", (91%) -- but HC/Vqq3msc in Numbers 18:1 
+  >> "וּ/בַ/בֹּקֶר": "HC/Rd/Ncmsa", (75%) -- but HC/R/Ncmsa in Isaiah 17:11 
+  >> "וּ/בַ/מַּיִם": "HC/Rd/Ncmsa", (75%) -- but HC/R/Ncmpa in Psalms 66:12 
+  >> "וּ/בַ/שָּׁנָה": "HC/Rd/Ncfsa", (83%) -- but HC/R/Ncfsa in Deuteronomy 15:12 
+  >> "וּ/בָאתֶם": "HC/Vqq2mp", (80%) -- but HC/Vqw2mp in Genesis 45:19 
+  >> "וּ/מְלֹאָ/הּ": "HC/Ncmsc/Sp3fs", (75%) -- but HC/Aamsc/Sp3fs in Psalms 89:12 
+  >> "וּ/מִ/כָּל": "HC/R/Ncmsc", (80%) -- but HC/Rd/Ncmsa in Genesis 6:19 
+  >> "וּ/מֵאָה": "HC/Acfsa", (93%) -- but HC/Accsa in Leviticus 26:8 
+  >> "וּ/מַיִם": "HC/Ncmpa", (87%) -- but HC/Ncmsa in Jonah 3:7 
+  >> "וּ/מֹשֵׁל": "HC/Vqrmsa", (75%) -- but HC/Ncmsa in Genesis 45:8 
+  >> "וּ/תְכֵלֶת": "HC/Ncfsa", (80%) -- but HC/Aafsa in Exodus 26:1 
+  >> "זֵדִים": "HAampa", (87%) -- but HAamsa in Isaiah 13:11 
+  >> "זַמְּרוּ": "HVpv2mp", (92%) -- but HVpi3mp in Psalms 47:8 
+  >> "זַרְעֲ/ךָ": "HNcmsc/Sp2ms", (94%) -- but HNcmsc/R in Genesis 26:4 
+  >> "זָכוֹר": "HVqa", (80%) -- but HVqv2ms in Deuteronomy 24:9 
+  >> "זָקֵן": "HAamsa", (88%) -- but HVqp3ms in Joshua 23:1 
+  >> "זָקֵן": "HVqp3ms", (80%) -- but HAamsa in Genesis 18:12 
+  >> "חֲזַק": "HVqv2ms", (87%) -- but HVqv2m in Psalms 27:14 
+  >> "חֲכָמִים": "HAampa", (90%) -- but HNcmpa in Obadiah 1:8 
+  >> "חֵילָ/ם": "HNcmsc/Sp3mp", (80%) -- but HNcmpa/Sp3mp in Psalms 49:7 
+  >> "חֶלְמָ/א": "ANcmsd/Td", (83%) -- but ANcmsc/Td in Daniel 2:9 
+  >> "חַטָּאִים": "HAampa", (85%) -- but HNcmpa in Proverbs 1:10 
+  >> "חַיֵּי": "HNcmpc", (88%) -- but HC in Genesis 23:1 
+  >> "חַיָּי/ו": "HNcmpc/Sp3ms", (75%) -- but HNcmsc/Sp3ms in Deuteronomy 17:19 
+  >> "חַנּוּן": "HAamsa", (85%) -- but HD in Exodus 22:26 
+  >> "חָדְלוּ": "HVqp3cp", (75%) -- but HVqi3mp in Job 3:17 
+  >> "חָדָשׁ": "HAamsa", (92%) -- but HNcmsa in Leviticus 26:10 
+  >> "חָזָק": "HAamsa", (88%) -- but HD in Joshua 17:18 
+  >> "חָטָאנוּ": "HVqp1cp", (85%) -- but HVqp1cs in Deuteronomy 1:41 
+  >> "חָכָם": "HAamsa", (85%) -- but HNcmsa in Proverbs 1:5 
+  >> "חָנֵף": "HAamsa", (85%) -- but HNcmsa in Isaiah 10:6 
+  >> "טְמֵאָה": "HAafsa", (85%) -- but HD in Leviticus 11:6 
+  >> "יְבָרֶכְ/ךָ": "HVpi3ms/Sp2ms", (91%) -- but HVqi3ms/Sp2ms in Deuteronomy 14:29 
+  >> "יְדָעוּ/ם": "HVqp3cp/Sp3mp", (75%) -- but HVqi3mp/Sp3mp in Psalms 147:20 
+  >> "יְכַפֵּר": "HVpi3ms", (85%) -- but HVqi3ms in Exodus 30:10 
+  >> "יְשַׁלַּח": "HVpi3ms", (88%) -- but HVqi3ms in Exodus 11:1 
+  >> "יִבְנֶה": "HVqi3ms", (80%) -- but HVOi3ms in Joshua 8:30 
+  >> "יִבָּנֶה": "HVNi3ms", (75%) -- but HVqi3ms in Zechariah 1:16 
+  >> "יִגְדַּל": "HVqi3ms", (85%) -- but HVqi3mp in Psalms 40:17 
+  >> "יִיטַב": "HVqi3ms", (90%) -- but HVhi3ms in Deuteronomy 22:7 
+  >> "יִמּוֹט": "HVNi3ms", (85%) -- but HVqi3ms in Isaiah 40:20 
+  >> "יִפְקֹד": "HVqi3ms", (87%) -- but HVqa in Genesis 50:25 
+  >> "יִפְתַּח": "HVqi3ms", (80%) -- but HVqi3mp in Psalms 38:14 
+  >> "יִקָּח": "HVqi3ms", (83%) -- but HVqp3ms in Psalms 6:10 
+  >> "יִשְׁתּוּ": "HVqi3mp", (85%) -- but HVqp3cp in Deuteronomy 32:38 
+  >> "יִשְׂמְחוּ": "HVqi3mp", (87%) -- but HVqp3cp in Psalms 35:19 
+  >> "יֵדַע": "HVqi3ms", (75%) -- but HVqp3ms in Isaiah 7:16 
+  >> "יַרְבֶּה": "HVhi3ms", (83%) -- but HVqi3ms in Exodus 30:15 
+  >> "יָבִין": "HVqi3ms", (90%) -- but HVhi3ms in Isaiah 28:9 
+  >> "יָבִינוּ": "HVqi3mp", (80%) -- but HVhi3mp in Deuteronomy 32:29 
+  >> "יָגוּר": "HVqi3ms", (88%) -- but HVqp3ms in Isaiah 33:14 
+  >> "יָדִין": "HVqi3ms", (87%) -- but HVqp3ms in Psalms 135:14 
+  >> "יָכְלוּ": "HVqp3cp", (93%) -- but HVqi3mp in Joshua 17:12 
+  >> "יָכֹל": "HVqp3ms", (75%) -- but HVmsmsa in Genesis 45:1 
+  >> "יָלִין": "HVqi3ms", (83%) -- but HVqp3ms in Psalms 30:6 
+  >> "יָמִישׁ": "HVhi3ms", (75%) -- but HVqi3ms in Exodus 33:11 
+  >> "יָמֶי/ךָ": "HNcmpc/Sp2ms", (90%) -- but HNcmpc/Sp3ms in Deuteronomy 5:16 
+  >> "יָסִיר": "HVhi3ms", (80%) -- but HVhp3ms in Isaiah 25:8 
+  >> "יָעַר": "HNcmsa", (83%) -- but HNcmpa in Psalms 83:15 
+  >> "יָשְׁבוּ": "HVqp3cp", (88%) -- but HVqi3mp in Psalms 68:11 
+  >> "יָשִׁיב": "HVhi3ms", (90%) -- but HVqi3ms in Exodus 21:34 
+  >> "יָשִׁית": "HVqi3ms", (75%) -- but HVhi3ms in Isaiah 26:1 
+  >> "יָשׁוּבוּ": "HVqi3mp", (88%) -- but HVqi3ms in Psalms 51:15 
+  >> "יָשִׂים": "HVqi3ms", (90%) -- but HVhi3ms in Isaiah 62:7 
+  >> "יֹצְאִים": "HVqrmpa", (83%) -- but HVmp3cp in Zechariah 6:6 
+  >> "יֹשְׁבֶי/הָ": "HVqrmpc/Sp3fs", (83%) -- but HNcmpc/Sp3fs in Isaiah 24:1 
+  >> "יוֹמ/וֹ": "HNcmsc/Sp3ms", (83%) -- but HNcmpc/Sp3ms in Job 1:4 
+  >> "יוֹצֵא": "HVqrmsa", (83%) -- but HVmp1cs in Exodus 11:4 
+  >> "כִי": "HC", (95%) -- but HTm in Isaiah 30:16 
+  >> "כַ/מַּיִם": "HRd/Ncmpa", (75%) -- but HR/Ncmpa in Psalms 88:18 
+  >> "כְּ/עֵין": "HR/Ncbsc", (83%) -- but HC/Ncbsc in Ezekiel 1:4 
+  >> "כִּ/מְעַט": "HR/Aamsa", (85%) -- but HR/D in Genesis 26:10 
+  >> "כִּלָּה": "HVpp3ms", (83%) -- but HVqp3ms in Genesis 44:12 
+  >> "כַּ/דְּבָרִים": "HRd/Ncmpa", (75%) -- but HR/Ncmpa in Genesis 24:28 
+  >> "כַּ/מִּשְׁפָּט": "HRd/Ncmsa", (91%) -- but HR/Ncmsa in Exodus 21:31 
+  >> "כַּ/מָּה": "HR/Ti", (87%) -- but HR/D in Zechariah 2:6 
+  >> "כַּנְפֵי/הֶם": "HNcfpc/Sp3mp", (75%) -- but HNcfpc/Sp3ms in Ezekiel 1:8 
+  >> "כַּפַּ/י": "HNcfdc/Sp1cs", (75%) -- but HNcfdc/Sp1cp in Genesis 31:42 
+  >> "כָּלִיל": "HNcmsa", (75%) -- but HD in Isaiah 2:18 
+  >> "כָּתִית": "HAamsa", (75%) -- but HD in Exodus 29:40 
+  >> "כֻּלָּ/נוּ": "HNcmsc/Sp1cp", (90%) -- but HD/Sp1cp in Exodus 12:33 
+  >> "לְ/אַבְרָהָם": "HR/Np", (96%) -- but HC/Np in Genesis 25:12 
+  >> "לְ/אָחִי/ו": "HR/Ncmsc/Sp3ms", (80%) -- but HR/Ncmpc/Sp3ms in Deuteronomy 19:19 
+  >> "לְ/בַדִּ/י": "HR/Ncmsc/Sp1cs", (90%) -- but HC/Ncmsc/Sp1cs in Isaiah 49:21 
+  >> "לְ/דָוִד": "HR/Np", (99%) -- but HC/Np in Psalms 61:1 
+  >> "לְ/הִשְׁתַּחֲוֺת": "HR/Vvc", (75%) -- but HR/Vtc in 1 Samuel 1:3 
+  >> "לְ/טָמְאָה": "HR/Vqc", (80%) -- but HR/Ncfsa in Leviticus 22:8 
+  >> "לְ/מִשְׁפְּחֹתָ/ם": "HR/Ncfpc/Sp3mp", (98%) -- but HC/Ncfpc/Sp3mp in Numbers 26:35 
+  >> "לְ/מָחָר": "HR/D", (75%) -- but HR/Ncmsa in Joshua 7:13 
+  >> "לְ/נַפְשִׁ/י": "HR/Ncbsc/Sp1cs", (87%) -- but HR/Ncbsc/Sp3ms in Psalms 11:1 
+  >> "לְ/פַרְעֹה": "HR/Np", (95%) -- but HR/Ngmsa in Genesis 45:8 
+  >> "לְ/צִיּוֹן": "HR/Np", (75%) -- but HC/Np in Isaiah 41:27 
+  >> "לְ/שִׁבְעַת": "HR/Acbsc", (80%) -- but HRd/Acmsa in Genesis 7:10 
+  >> "לְ/שָׁרֵת": "HR/Vpc", (85%) -- but HR/Vqc in Deuteronomy 18:5 
+  >> "לִ/בְנִ/י": "HR/Ncmsc/Sp1cs", (83%) -- but HRd/Ncmsa/Sp1cs in Genesis 24:4 
+  >> "לִ/בְנֵי": "HR/Ncmpc", (99%) -- but HRd/Ncmpa in Exodus 6:6 
+  >> "לִ/פְנוֹת": "HR/Vqc", (75%) -- but HRd/Vqc in Genesis 24:63 
+  >> "לִ/קְרֹא": "HR/Vqc", (88%) -- but HC/Vqc in Exodus 10:16 
+  >> "לִ/שְׁתֵּי": "HR/Acfdc", (80%) -- but HR/Accdc in Exodus 26:19 
+  >> "לִבְּ/ךָ": "HNcmsc/Sp2ms", (83%) -- but HNcmsc/Sp3ms in Isaiah 33:18 
+  >> "לִבָּ/ם": "HNcmsc/Sp3mp", (91%) -- but HNcmsc/Sp3ms in Genesis 50:21 
+  >> "לִוְיָתָן": "HNcmsa", (80%) -- but HNp in Psalms 74:14 
+  >> "לַ/אֲחֵי/כֶם": "HR/Ncmpc/Sp2mp", (75%) -- but HC/Ncmpc/Sp2mp in Joshua 22:4 
+  >> "לַ/אֲחֻזָּה": "HR/Ncfsa", (83%) -- but HRd/Ncfsa in Leviticus 14:34 
+  >> "לַ/חֲצִי": "HRd/Ncmsa", (75%) -- but HR/Ncmsc in Deuteronomy 3:13 
+  >> "לַ/יּוֹם": "HRd/Ncmsa", (85%) -- but HR/Ncmsa in Joel 1:15 
+  >> "לַ/מִּלְחָמָה": "HRd/Ncfsa", (95%) -- but HR/Ncfsa in Psalms 18:40 
+  >> "לַ/מִּשְׁפָּט": "HRd/Ncmsa", (85%) -- but HR/Ncmsa in Isaiah 28:26 
+  >> "לַ/מָּקוֹם": "HRd/Ncmsa", (75%) -- but HR/Ncmsa in Genesis 18:24 
+  >> "לַ/מֹּלֶךְ": "HR/Np", (75%) -- but HRd/Np in Leviticus 18:21 
+  >> "לַ/עֲבָדֶי/ךָ": "HR/Ncmpc/Sp2ms", (85%) -- but HRd/Ncmpa/Sp2ms in Genesis 44:7 
+  >> "לָ/אִישׁ": "HRd/Ncmsa", (87%) -- but HR/Ncmsa in Numbers 5:8 
+  >> "לָ/אַיִל": "HRd/Ncmsa", (88%) -- but HTd/Ncmsa in Numbers 15:6 
+  >> "לָ/עַד": "HR/Ncmsa", (93%) -- but HC/Ncmsa in Isaiah 64:8 
+  >> "לָ/קַחַת": "HR/Vqc", (88%) -- but HC/Vqc in Deuteronomy 4:34 
+  >> "לָ/רָשָׁע": "HR/Aamsa", (75%) -- but HRd/Aamsa in Exodus 2:13 
+  >> "לָ/רֹב": "HR/Ncmsa", (83%) -- but HRd/Ncmsa in Joshua 11:4 
+  >> "לוּלֵי": "HC", (87%) -- but HTj in Psalms 119:92 
+  >> "מְאַת": "HAcfsc", (91%) -- but HAcfpc in Genesis 25:7 
+  >> "מְרֵעִים": "HVhrmpa", (91%) -- but HVqrmpa in Psalms 22:17 
+  >> "מְרַגְּלִים": "HVprmpa", (85%) -- but HAampa in Joshua 2:1 
+  >> "מְתֵי": "HNcmpc", (88%) -- but HVqrmpc in Isaiah 5:13 
+  >> "מִ/יָּם": "HR/Ncmsa", (87%) -- but HRd/Ncmsa in Genesis 12:8 
+  >> "מִ/סָּבִיב": "HR/D", (90%) -- but HR/R in Numbers 16:24 
+  >> "מִ/קֵּץ": "HR/Ncmsc", (90%) -- but HRd/Ncmsa in Genesis 4:3 
+  >> "מִ/תָּחַת": "HR/R", (75%) -- but HR/D in Exodus 20:4 
+  >> "מִדָּה": "HNcfsa", (83%) -- but HAafsa in Zechariah 2:5 
+  >> "מִצְוֺתַ/י": "HNcfpc/Sp1cs", (83%) -- but HNcfpc/Sp2cs in Deuteronomy 5:29 
+  >> "מִשְׁפְּטֵי": "HNcmpc", (85%) -- but HNcmsc in Psalms 119:13 
+  >> "מֵ/אִתָּ/ם": "HR/To/Sp3mp", (88%) -- but HR/R/Sp3mp in Numbers 18:26 
+  >> "מֵ/אַחֲרֵי": "HR/R", (75%) -- but HR/D in Numbers 14:43 
+  >> "מֵ/אַיִן": "HR/D", (83%) -- but HR/Ti in Job 1:7 
+  >> "מֵ/עַתָּה": "HR/D", (87%) -- but HR/Ncmsa in Psalms 131:3 
+  >> "מֵתִים": "HVqrmpa", (75%) -- but HNcmpa in Exodus 12:33 
+  >> "מַאֲכָל": "HNcmsa", (85%) -- but HVqrmsa in Isaiah 62:8 
+  >> "מַלְכִּ/י": "HNcmsc/Sp1cs", (83%) -- but HNcmpc/Sp1cs in Psalms 68:25 
+  >> "מָיִם": "HNcmpa", (97%) -- but HNcmda in Exodus 30:18 
+  >> "מָלְאָה": "HVqp3fs", (90%) -- but HVqp3ms in Psalms 26:10 
+  >> "מָלֵא": "HAamsa", (75%) -- but HVqp3ms in Deuteronomy 34:9 
+  >> "מָרוֹם": "HNcmsa", (90%) -- but HNp in Psalms 56:3 
+  >> "מָתַי": "HD", (96%) -- but HTi in Isaiah 6:11 
+  >> "מוֹת": "HNcmsc", (90%) -- but HVqc in Judges 1:1 
+  >> "נְדִיבִים": "HAampa", (80%) -- but HAamsa in 1 Samuel 2:8 
+  >> "נְהַר": "HNcmsc", (83%) -- but HNp in Deuteronomy 11:24 
+  >> "נִפְלָאוֹת": "HVNrfpa", (87%) -- but HVNsfpa in Joshua 3:5 
+  >> "נִתְּנָה": "HVNp3fs", (75%) -- but HVqh1cp in Numbers 14:4 
+  >> "נָכוֹן": "HVNrmsa", (94%) -- but HVNsmsa in Hosea 6:3 
+  >> "נָפְלוּ": "HVqp3cp", (83%) -- but HVqi3mp in Psalms 55:5 
+  >> "נָשָׁי/ו": "HNcfpc/Sp3ms", (85%) -- but HAcfpc/Sp3ms in Genesis 32:23 
+  >> "נֹטֶה": "HVqrmsa", (75%) -- but HVmp3ms in Zechariah 12:1 
+  >> "נוֹדַע": "HVNp3ms", (83%) -- but HVHp3ms in Exodus 21:36 
+  >> "סוּרוּ": "HVqv2mp", (87%) -- but HVqp3cp in Psalms 139:19 
+  >> "עֲשִׂיתֶם": "HVqp2mp", (88%) -- but HVqp2m in Genesis 44:5 
+  >> "עֵינֵי/נוּ": "HNcbdc/Sp1cp", (75%) -- but HNcbpc/Sp1cp in Numbers 11:6 
+  >> "עֵינָיִם": "HNcbda", (80%) -- but HNcmpa in Zechariah 3:9 
+  >> "עַד": "HNcmsa", (85%) -- but HD in Isaiah 26:4 
+  >> "עַד": "HR", (99%) -- but HD in Ruth 1:13 
+  >> "עַל": "HR", (99%) -- but HC in Psalms 1:5 
+  >> "עַמּ/וֹ": "HNcmsc/Sp3ms", (98%) -- but HNcmsc/Sp2ms in Psalms 85:9 
+  >> "עָלֵי/מוֹ": "HR/Sp3mp", (87%) -- but HR/Sp3ms in Job 20:23 
+  >> "עָצְמוּ": "HVqp3cp", (80%) -- but HVqi3mp in Isaiah 31:1 
+  >> "עֹזֵר": "HVqrmsa", (80%) -- but HVqrmpa in Psalms 30:11 
+  >> "עֹמְדִים": "HVqrmpa", (83%) -- but HAampa in Exodus 26:15 
+  >> "עוֹלָם": "HNcmsa", (99%) -- but HNcmpa in Psalms 131:3 
+  >> "פִ/י": "HNcmsc/Sp1cs", (88%) -- but HNcfsc/Sp3ms in Genesis 45:12 
+  >> "פְּקוּדֵי": "HVqsmpc", (87%) -- but HNcmpc in Numbers 1:45 
+  >> "פִּי/הֶם": "HNcmsc/Sp3mp", (85%) -- but HNcmsc/Sp3cp in Psalms 22:14 
+  >> "פִּי/הָ": "HNcmsc/Sp3fs", (90%) -- but HNcmsc/Sp3ms in Genesis 4:11 
+  >> "פָּקַד": "HVqp3ms", (87%) -- but HVqp3fs in Numbers 1:44 
+  >> "צִוָּ/הוּ": "HVpp3ms/Sp3ms", (75%) -- but HVqp3ms/Sp3ms in Exodus 4:28 
+  >> "צַו": "HVpv2ms", (87%) -- but HVqv2ms in Leviticus 24:2 
+  >> "קְרָא": "HVqv2ms", (92%) -- but HVqp3ms in Zechariah 1:17 
+  >> "קִוִּיתִי": "HVpp1cs", (75%) -- but HVqp1cs in Genesis 49:18 
+  >> "קֵדְמָ/ה": "HD/Sd", (92%) -- but HNcmsc/Sd in Exodus 27:13 
+  >> "קָדְשִׁ/י": "HNcmsc/Sp1cs", (93%) -- but HAamsc/Sp1cs in Psalms 2:6 
+  >> "קָנָה": "HVqp3ms", (80%) -- but HVqp3fs in Genesis 50:13 
+  >> "קָרְבוּ": "HVqp3cp", (75%) -- but HVpv2mp in Isaiah 41:21 
+  >> "קָרוֹב": "HAamsa", (95%) -- but HD in Genesis 45:10 
+  >> "רְאוּ": "HVqv2mp", (88%) -- but HVqv2ms in Deuteronomy 32:39 
+  >> "רִאשׁוֹן": "HAamsa", (80%) -- but HAomsa in Exodus 12:2 
+  >> "רַגְלֵי/הֶם": "HNcfdc/Sp3mp", (88%) -- but HNcfpc/Sp3mp in Isaiah 59:7 
+  >> "רַע": "HAamsa", (83%) -- but HNcmsa in Genesis 6:5 
+  >> "רָב": "HAamsa", (95%) -- but HVqp3ms in Deuteronomy 33:7 
+  >> "רָחוֹק": "HAamsa", (75%) -- but HNcmsa in Joshua 3:4 
+  >> "רָע": "HAamsa", (94%) -- but HVqp3ms in Isaiah 3:11 
+  >> "רֹב": "HNcmsc", (80%) -- but HAamsa in Psalms 37:11 
+  >> "רֹעֶה": "HVqrmsa", (83%) -- but HNcmsa in Genesis 49:24 
+  >> "שְׁאוֹל": "HNp", (95%) -- but HNcbsa in Jonah 2:3 
+  >> "שְׁלַח": "HVqv2ms", (90%) -- but HVqc in Isaiah 58:9 
+  >> "שְׁמָ/הּ": "HNcmsc/Sp3fs", (90%) -- but HD/Sd in Genesis 50:11 
+  >> "שְׁמָמָה": "HNcfsa", (90%) -- but HAafsa in Leviticus 26:33 
+  >> "שִׁבְטֵי": "HNcmpc", (91%) -- but HNcmsc in Psalms 78:55 
+  >> "שִׁלְחוּ": "HVqv2mp", (75%) -- but HVpp3cp in Psalms 74:7 
+  >> "שָׁמַעְנוּ": "HVqp1cp", (90%) -- but HVqp2cp in Obadiah 1:1 
+  >> "שָׁמֹעַ": "HVqa", (75%) -- but HVqc in Exodus 22:22 
+  >> "שֹׁכֵב": "HVqrmsa", (87%) -- but HVmp3ms in Exodus 22:18 
+  >> "שֹׁפְטֵי": "HVqrmpc", (75%) -- but HNcmpc in Numbers 25:5 
+  >> "שׁוֹר/וֹ": "HNcmsc/Sp3ms", (80%) -- but HNcmsc/Sp2ms in Deuteronomy 22:4 
+  >> "שׁוּבָ/ה": "HVqv2ms/Sh", (83%) -- but HVqv2fs/Sh in Isaiah 44:22 
+  >> "שְׂעֹרִים": "HNcfpa", (85%) -- but HNcmsa in Numbers 5:15 
+  >> "תִשְׁתַּחֲוֶה": "HVvi2ms", (80%) -- but HVvi2mp in Exodus 34:14 
+  >> "תָבֹאוּ": "HVqi2mp", (87%) -- but HVqi3mp in 1 Kings 11:2 
+  >> "תָמִים": "HAamsa", (80%) -- but HAampa in Exodus 12:5 
+  >> "תְּהִלָּה": "HNcfsa", (83%) -- but HNgfsa in Psalms 40:4 
+  >> "תְּנָ/ה": "HVqv2ms/Sh", (88%) -- but HVqv2fs/Sh in Joshua 15:19 
+  >> "תִּהְיוּ": "HVqi2mp", (85%) -- but HVqv2mp in Zechariah 1:4 
+  >> "תִּקְעוּ": "HVqv2mp", (75%) -- but HVqi2mp in Hosea 5:8 
+  >> "תִּשְׁמֹר": "HVqi2ms", (83%) -- but HVqi2m in Job 22:15 
+  >> "תֵּדְעוּ": "HVqi2mp", (75%) -- but HVqp2mp in Joshua 23:13 
+  >> "תֵּחָת": "HVNi2ms", (75%) -- but HVqi2ms in Joshua 1:9 
+  >> "תַּעֲשׂוּ/ן": "HVqi2mp/Sn", (75%) -- but HVqi2ms/Sn in Exodus 4:15 
+  >> "תָּרוּם": "HVqi3fs", (75%) -- but HVqi3ms in Psalms 89:25 
+  >> "תָּשִׂים": "HVqi2ms", (83%) -- but HVci2m in Genesis 44:2 
+  >> "תֹּאכֵלוּ": "HVqi2mp", (91%) -- but HVqi3mp in Isaiah 61:6 
+  >> "תֹּאמְרוּ": "HVqi2mp", (75%) -- but HVqi3mp in Psalms 11:1 
+  >> "אֱלֹהִים": "HNcmpa", (99%) -- but HNcmsa in Deuteronomy 25:18 , HNp in Exodus 9:30 
+  >> "אֱמֶת": "HNcfsa", (90%) -- but HAafsa in Psalms 19:10 , HAamsa in Joshua 2:12 
+  >> "אֵיךְ": "HTi", (81%) -- but HTj in Psalms 11:1 (+1 more)
+  >> "אֵיכָה": "HTi", (75%) -- but HTj in Isaiah 1:21 (+1 more)
+  >> "אֵלֵךְ": "HVqi1cs", (88%) -- but HVqi1c in Psalms 26:11 , HVqp1cs in Numbers 10:30 
+  >> "אֶבְיוֹן": "HAamsa", (83%) -- but HNcmsa in Deuteronomy 15:7 (+1 more)
+  >> "אַחֲרֶי/ךָ": "HR/Sp2ms", (89%) -- but HD/Sp2ms in Genesis 19:17 (+1 more)
+  >> "אַחַ/י": "HNcmpc/Sp1cs", (80%) -- but HNcmsc/Sp1cp in Joshua 2:13 , HNcmsc/Sp1cs in Genesis 29:4 
+  >> "אַתְּ": "HPp2fs", (80%) -- but HPp2ms in Numbers 11:15 , HPp3fs in Genesis 24:60 
+  >> "אָבִי/נוּ": "HNcmsc/Sp1cp", (85%) -- but HNcmpc/Sp1cp in Isaiah 63:16 , HNcmsc/Sp3ms in Isaiah 63:16 
+  >> "אָחוֹר": "HNcmsa", (88%) -- but HD in Genesis 49:17 , HR in Isaiah 28:13 
+  >> "אָמְרוּ": "HVqp3cp", (88%) -- but HVqi3mp in Psalms 12:5 (+1 more)
+  >> "אֹיְבָי/ו": "HNcmpc/Sp3ms", (81%) -- but HVqrmpc/Sp3ms in Numbers 32:21 (+1 more)
+  >> "בַ/בֹּקֶר": "HRd/Ncmsa", (88%) -- but HR/Ncmsa in Numbers 14:40 (+1 more)
+  >> "בַ/יּוֹם": "HRd/Ncmsa", (83%) -- but HR/Ncmsa in Isaiah 3:7 (+1 more)
+  >> "בָ/עַמִּים": "HRd/Ncmpa", (71%) -- but HR/Ncmpa in Isaiah 12:4 (+1 more)
+  >> "בַּ/יָּם": "HRd/Ncmsa", (71%) -- but HR/Ncmsa in Isaiah 18:2 (+1 more)
+  >> "בַּ/יָּמִים": "HRd/Ncmpa", (85%) -- but HR/Ncmpa in Genesis 24:1 (+1 more)
+  >> "בַּ/קֹּדֶשׁ": "HRd/Ncmsa", (87%) -- but HR/Ncmsa in Psalms 63:3 (+1 more)
+  >> "בָּ/אָדָם": "HRd/Ncmsa", (84%) -- but HR/Ncmsa in Exodus 9:10 (+1 more)
+  >> "בָּ/רִאשֹׁנָה": "HRd/Aafsa", (71%) -- but HRd/Aofsa in Genesis 13:4 , HRd/Ncfsa in Joshua 8:33 
+  >> "בָּרוּךְ": "HVqsmsa", (93%) -- but A in Genesis 14:19 , HVpsmsa in Genesis 9:26 
+  >> "גָּדוֹל": "HAamsa", (96%) -- but HD in Exodus 11:3 , HNcmsa in Joshua 22:10 
+  >> "דִּבֵּר": "HVpp3ms", (86%) -- but HVpp in Genesis 44:2 , HVqi3ms in Exodus 12:25 
+  >> "הַ/טָּמֵא": "HTd/Aamsa", (77%) -- but HTd/Ncmsa in Leviticus 11:29 (+1 more)
+  >> "הַ/יְאֹר": "HTd/Np", (90%) -- but HTd/Ncmsa in Exodus 4:9 (+1 more)
+  >> "הַ/יֹּשְׁבִים": "HTd/Vqrmpa", (81%) -- but HTd/Vmp3cp in Leviticus 26:32 (+1 more)
+  >> "הַ/מָּיִם": "HTd/Ncmpa", (89%) -- but HTd/Ncmda in Genesis 1:2 (+1 more)
+  >> "הַלְלוּ": "HVpv2mp", (93%) -- but HVpv2ms in Psalms 150:6 , HVqv2mp in Psalms 115:18 
+  >> "הָ/אֲדָמָה": "HTd/Ncfsa", (97%) -- but HC/Ncfsa in Genesis 4:10 , HRd/Ncfsa in Exodus 32:12 
+  >> "וְ/אֵיךְ": "HC/Ti", (77%) -- but HC/Tj in Exodus 6:12 (+1 more)
+  >> "וְ/אֶל": "HC/R", (99%) -- but HC/To in Leviticus 11:1 (+1 more)
+  >> "וְ/אַרְגָּמָן": "HC/Ncmsa", (89%) -- but HC/Aamsa in Exodus 26:1 (+1 more)
+  >> "וְ/אַתֶּם": "HC/Pp2mp", (95%) -- but HC/Pp1cp in Exodus 19:6 , HC/Sp2mp in Deuteronomy 1:40 
+  >> "וְ/הַ/חִוִּי": "HC/Td/Ngmsa", (75%) -- but HC/Td/Np in Exodus 34:11 (+1 more)
+  >> "וְ/הַ/נּוֹתָר": "HC/Td/VNrmsa", (71%) -- but HC/Td/Ncmsa in Leviticus 14:18 (+1 more)
+  >> "וְ/הָ/אֱמֹרִי": "HC/Td/Ngmsa", (80%) -- but HC/Td/Np in Deuteronomy 3:9 (+1 more)
+  >> "וַ/יְדַבְּרוּ": "HC/Vpw3mp", (77%) -- but HC/Vqw3mp in Genesis 45:27 (+1 more)
+  >> "וַ/יַּשְׁכֵּם": "HC/Vhw3ms", (83%) -- but HC/Vhi3ms in Genesis 22:3 , HC/Vhj3ms in Exodus 34:4 
+  >> "וַ/יָּסַר": "HC/Vhw3ms", (71%) -- but HC/Vqw3ms in Exodus 8:27 (+1 more)
+  >> "וַ/יֹּאמְרוּ": "HC/Vqw3mp", (98%) -- but HC/Vqi3mp in Genesis 43:28 , HC/Vqw2mp in Genesis 44:7 
+  >> "וּ/בַ/בְּהֵמָה": "HC/Rd/Ncfsa", (81%) -- but HC/R/Ncfsa in Genesis 7:21 (+1 more)
+  >> "וּ/מֵת": "HC/Vqq3ms", (77%) -- but HC/Ncmsa in Exodus 11:5 (+1 more)
+  >> "זָר": "HAamsa", (85%) -- but HNcmsa in Exodus 30:33 (+1 more)
+  >> "זֶּה": "HPdxms", (85%) -- but HAamsa in Job 9:29 , HPdxfs in Exodus 5:22 
+  >> "חַיָּה": "HAafsa", (81%) -- but HNcfsa in Genesis 18:10 (+1 more)
+  >> "חָי": "HAamsa", (85%) -- but HNcmsa in Genesis 3:20 , HVqp3ms in Job 19:25 
+  >> "טָהוֹר": "HAamsa", (95%) -- but HD in Leviticus 11:36 (+1 more)
+  >> "טוֹב": "HAamsa", (97%) -- but HD in Genesis 40:16 , HNcmsa in Numbers 10:29 
+  >> "יִכָּרֵת": "HVNi3ms", (80%) -- but HVqi3ms in Isaiah 55:13 (+1 more)
+  >> "כֻּלָּ/ם": "HNcmsc/Sp3mp", (93%) -- but HNcmpc/Sp3mp in Isaiah 31:3 , HNcmsc/Sp3ms in Isaiah 60:6 
+  >> "לְ/בַדּ/וֹ": "HR/Ncmsc/Sp3ms", (89%) -- but HR/D/Sp3ms in Genesis 44:20 (+1 more)
+  >> "לְ/פִי": "HR/Ncmsc", (93%) -- but HRd/Ncmsa in Genesis 34:26 (+1 more)
+  >> "לַ/בֹּקֶר": "HRd/Ncmsa", (71%) -- but HR/Ncmsa in Psalms 49:15 (+1 more)
+  >> "לַ/כֹּהֵן": "HRd/Ncmsa", (87%) -- but HR/Ncmsa in Leviticus 27:21 (+1 more)
+  >> "לַ/מְנַצֵּחַ": "HRd/Vprmsa", (96%) -- but HRd/Vqrmsa in Psalms 139:1 (+1 more)
+  >> "לַ/עֲבָדִים": "HR/Ncmpa", (71%) -- but HRd/Ncmpa in Genesis 44:9 (+1 more)
+  >> "לַ/צַּדִּיק": "HR/Aamsa", (75%) -- but HRd/Aamsa in Psalms 58:12 (+1 more)
+  >> "לַ/צָּבָא": "HRd/Ncbsa", (83%) -- but HR/Ncbsa in Joshua 22:12 , HTd/Ncbsa in Numbers 31:27 
+  >> "מִ/יַּד": "HR/Ncfsc", (95%) -- but HRd/Ncfsa in Genesis 38:20 (+1 more)
+  >> "מִ/לְ/מָעְלָ/ה": "HR/R/D/Sd", (83%) -- but HR/R/R/Sd in Exodus 26:14 (+1 more)
+  >> "מִ/מָּחֳרָת": "HR/Ncfsa", (75%) -- but HRd/Ncfsa in Genesis 19:34 (+1 more)
+  >> "מִ/נֶּגֶד": "HR/R", (80%) -- but HR/D in Numbers 2:2 (+1 more)
+  >> "מִ/תַּחַת": "HR/R", (91%) -- but HR/D in Genesis 35:8 (+1 more)
+  >> "נִמְצָא": "HVNp3ms", (80%) -- but HVqi1cp in Genesis 47:25 (+1 more)
+  >> "עִמָּ/נוּ": "HR/Sp1cp", (90%) -- but HR/Sp1cs in Isaiah 8:10 , HR/Sp3ms in Psalms 54:2 
+  >> "עָשִׂיתָ": "HVqp2ms", (94%) -- but HVqp1cs in Genesis 27:45 (+1 more)
+  >> "צִוִּיתִי": "HVpp1cs", (80%) -- but HVqp1cs in Exodus 29:35 (+1 more)
+  >> "צַדִּיקִים": "HAampa", (90%) -- but HAamsa in Psalms 37:17 , HNcmpa in Isaiah 60:21 
+  >> "קְדֹשִׁים": "HAampa", (83%) -- but HD in Leviticus 11:44 (+1 more)
+  >> "קָדוֹשׁ": "HAamsa", (92%) -- but HD in Leviticus 11:44 (+1 more)
+  >> "שֵׁנִית": "HAofsa", (83%) -- but HAafsa in Numbers 10:6 , HD in Zechariah 4:12 
+  >> "שֶׁקֶץ": "HD", (75%) -- but HNcmsa in Leviticus 7:21 (+1 more)
+  >> "שַׁלַּח": "HVpv2ms", (81%) -- but HVpc in Genesis 8:10 (+1 more)
+  >> "שְׂפָתַ/י": "HNcfdc/Sp1cs", (75%) -- but HNcfpc/Sp1cs in Psalms 40:10 (+1 more)
+  >> "שִׂים": "HVqv2ms", (75%) -- but HVqc in Job 20:4 , HVqsmsa in Obadiah 1:4 
+  >> "תְּכֵלֶת": "HNcfsa", (92%) -- but HAafsa in Exodus 26:36 (+1 more)
+  >> "תִּירָאוּ": "HVqi2mp", (71%) -- but HVqv2mp in Genesis 50:19 (+1 more)
+  >> "תֵּימָנָ/ה": "HNcfsa/Sd", (71%) -- but HAamsa/Sd in Exodus 27:9 , HD/Sd in Exodus 26:35 
+  >> "תַּחַת": "HR", (98%) -- but HD in Genesis 35:8 , HNcmsc in Joshua 4:9 
+  >> "אֲשֶׁר": "HTr", (99%) -- but HD in Numbers 15:30 , HPr in Genesis 8:17 (+1 more)
+  >> "אֶחָי/ו": "HNcmpc/Sp3ms", (94%) -- but HNcmpc/Sp3fs in Genesis 50:24 , HNcmpc/Sp3mp in Numbers 25:6 , HNcmsc/Sp3ms in Genesis 27:37 
+  >> "אַחֲרָי/ו": "HR/Sp3ms", (81%) -- but HD/Sp3fs in Leviticus 20:5 , HD/Sp3ms in Genesis 19:6 (+1 more)
+  >> "אַחֵר": "HAamsa", (89%) -- but HD in Exodus 22:4 (+2 more)
+  >> "אַשְׁרֵי": "HTj", (89%) -- but HNcmpc in Psalms 1:1 , HVqsmpc in Psalms 119:1 (+1 more)
+  >> "אֹיְבֶי/ךָ": "HNcmpc/Sp2ms", (86%) -- but HVqrmpc/Sp2ms in Exodus 23:22 (+2 more)
+  >> "בְּ/טֶרֶם": "HR/D", (85%) -- but HR/R in Genesis 45:28 (+2 more)
+  >> "בַּ/שָּׁמַיִם": "HRd/Ncmpa", (72%) -- but HR/Ncmpa in Psalms 11:4 (+1 more), HRd/Ncmda in Joshua 2:11 
+  >> "בָּ/אַמָּה": "HRd/Ncfsa", (72%) -- but HR/Ncfsa in Exodus 26:8 (+2 more)
+  >> "בָּ/הָר": "HRd/Ncmsa", (89%) -- but HR/Ncmsa in Numbers 14:45 (+1 more), HTd/Ncmsa in Joshua 11:2 
+  >> "הַ/יֹּשֵׁב": "HTd/Vqrmsa", (72%) -- but HTd/Ncmsa in Exodus 12:29 , HTd/Vmp3ms in Exodus 11:5 , HTd/Vop3ms in Joshua 17:16 
+  >> "הָ/עַמִּים": "HTd/Ncmpa", (91%) -- but HTd/Ncmsa in Deuteronomy 2:25 (+1 more), HTe/Ncmpa in Psalms 96:3 
+  >> "הוֹלֵךְ": "HVqrmsa", (78%) -- but HVmp3ms in Leviticus 11:27 (+2 more)
+  >> "הוֹצֵאתִי": "HVhp1cs", (70%) -- but HVHp1cs in Exodus 12:17 (+1 more), HVqp1cs in Leviticus 26:45 
+  >> "וְ/הַ/כְּנַעֲנִי": "HC/Td/Np", (72%) -- but HC/Td/Ngmsa in Numbers 13:29 (+2 more)
+  >> "וְ/נִכְרְתָה": "HC/VNq3fs", (81%) -- but HC/VNi3fs in Exodus 12:19 , HC/VNw3fs in Exodus 31:14 , HC/Vqh1cp in Genesis 26:28 
+  >> "וַ/יְצַו": "HC/Vpw3ms", (88%) -- but HC/Vqw3ms in Genesis 44:1 (+2 more)
+  >> "וַ/יַּגֵּד": "HC/Vhw3ms", (72%) -- but HC/Vhi3ms in Psalms 52:2 , HC/Vqw3ms in Genesis 29:12 (+1 more)
+  >> "וַ/תִּקְרָא": "HC/Vqw3fs", (85%) -- but HC/Vqi3fs in Genesis 35:18 , HC/Vqw3ms in Genesis 38:4 (+1 more)
+  >> "וַ/תֵּלֶד": "HC/Vqw3fs", (92%) -- but HC/Vqq2fs in Isaiah 8:3 , HC/Vqw3mp in Genesis 38:3 , HD/Vqi3fs in Genesis 4:1 
+  >> "וָ/דֹר": "HC/Ncmsa", (80%) -- but HR/Ncmsa in Psalms 33:11 (+2 more)
+  >> "וּ/לְמַעַן": "HC/C", (72%) -- but HC/R in Exodus 9:16 (+2 more)
+  >> "זִקְנֵי": "HAampc", (89%) -- but HNcmpc in Genesis 50:7 (+1 more), HNcmsc in Exodus 12:21 
+  >> "זָרִים": "HAampa", (70%) -- but HNcmpa in Isaiah 1:7 (+2 more)
+  >> "יַעַן": "HC", (83%) -- but HD in Numbers 20:12 (+1 more), HTj in Leviticus 26:43 
+  >> "יֻלַּד": "HVPp3ms", (75%) -- but HVPi3ms in Genesis 41:50 , HVQp3ms in Genesis 4:26 (+1 more)
+  >> "כַּ/אֲשֶׁר": "HR/Tr", (99%) -- but HR/D in Exodus 21:22 , HR/Pr in Leviticus 8:4 , HRd/D in Leviticus 24:23 
+  >> "לַ/אֲשֶׁר": "HR/Tr", (76%) -- but HR/D in Joshua 17:16 , HR/Pr in Genesis 27:8 (+1 more)
+  >> "לַ/לְוִיִּם": "HRd/Ngmpa", (72%) -- but HC/Np in Numbers 35:2 , HR/Np in Joshua 18:7 , HRd/Np in Isaiah 66:21 
+  >> "מְאֹד": "HD", (97%) -- but HAamsa in Genesis 41:19 (+1 more), HNcmsa in Numbers 11:33 
+  >> "מִ/בְּנוֹת": "HR/Ncfpc", (70%) -- but HRd/Ncfpa in Genesis 24:3 (+2 more)
+  >> "מַצּוֹת": "HNcfpa", (85%) -- but HAafpa in Exodus 29:2 (+1 more), HNcmsa in Deuteronomy 16:3 
+  >> "מוֹשִׁיעַ": "HVhrmsa", (72%) -- but HNcmsa in Judges 3:9 (+2 more)
+  >> "עֶלְיוֹן": "HNp", (86%) -- but HAamsa in Psalms 47:3 (+1 more), HAcbda in Genesis 14:19 
+  >> "רַגְלָי/ו": "HNcfdc/Sp3ms", (76%) -- but HNcfpc/Sp3ms in Exodus 25:26 (+2 more)
+  >> "שְׁמֶ/ךָ": "HNcmsc/Sp2ms", (84%) -- but HNcmsc/Sp1cs in Genesis 12:2 , HNcmsc/Sp2mp in Psalms 79:9 , HNcmsc/Sp3ms in Psalms 61:6 
+  >> "שְׁתֵּי": "HAcfpc", (93%) -- but HAcfdc in Leviticus 12:8 (+2 more)
+  >> "שָׁנִי": "HNcmsa", (85%) -- but HAamsa in Exodus 26:31 (+2 more)
+  >> "שְׂאוּ": "HVqv2mp", (78%) -- but HVqv2ms in Numbers 26:2 (+2 more)
+  >> "שָׂם": "HVqp3ms", (84%) -- but HVqrmsa in Genesis 21:14 (+2 more)
+  >> "תָּמִים": "HAamsa", (87%) -- but HAampa in Psalms 101:2 (+1 more), HNcmsa in Psalms 15:2 
+  >> "אֱלֹהֵי/כֶם": "HNcmpc/Sp2mp", (96%) -- but HNcmpc/Sp2cp in Leviticus 24:22 (+1 more), HNcmpc/Sp2ms in Psalms 76:12 , HNcmpc/Sp3mp in Leviticus 20:24 
+  >> "אֹיְבֵי/כֶם": "HNcmpc/Sp2mp", (77%) -- but HVqrmpc/Sp2mp in Numbers 14:42 (+3 more)
+  >> "בַּ/יהוָה": "HR/Np", (90%) -- but HNp/Rd in Judges 1:1 , HRd/Np in Joshua 9:18 (+1 more), HTd/Np in Hosea 1:7 
+  >> "בַּ/מַּיִם": "HRd/Ncmpa", (84%) -- but HRd/Ncfda in Leviticus 11:32 , HRd/Ncmda in Leviticus 11:9 (+2 more)
+  >> "דִּי": "AT", (95%) -- but ATr in Daniel 2:8 (+3 more)
+  >> "הַ/שֵּׁנִי": "HTd/Aomsa", (84%) -- but HTd/Aamsa in Numbers 10:11 , HTd/Acmda in Numbers 29:17 , HTd/Acmsa in Genesis 41:52 , HTd/Aompa in Exodus 29:39 
+  >> "וְ/אַחַר": "HC/D", (84%) -- but HC/R in Leviticus 14:19 (+3 more)
+  >> "וְ/הַ/יְבוּסִי": "HC/Td/Ngmsa", (73%) -- but HC/Td/Np in Exodus 23:23 (+3 more)
+  >> "וּ/שְׁנֵי": "HC/Acmdc", (81%) -- but HC/Acmpc in Exodus 36:26 (+1 more), HC/Acmsc in Exodus 26:21 , HC/Aompc in Numbers 22:22 
+  >> "חַי": "HAamsa", (81%) -- but HNcmsa in Deuteronomy 32:40 (+3 more)
+  >> "יִהְיוּ": "HVqi3mp", (94%) -- but HVqi3ms in Leviticus 11:11 (+3 more)
+  >> "עֹמֵד": "HVqrmsa", (78%) -- but HVmp3fs in Zechariah 3:1 , HVmp3ms in Zechariah 1:8 (+1 more), HVmrmsa in Zechariah 3:5 
+  >> "קוּם": "HVqv2ms", (80%) -- but HVqc in Isaiah 24:20 (+3 more)
+  >> "רַב": "HAamsa", (86%) -- but HD in Deuteronomy 1:6 (+2 more), HTa in Genesis 45:28 
+  >> "הַ/שֵּׁנִית": "HTd/Aofsa", (80%) -- but HTd/Aafsa in Numbers 9:1 (+1 more), HTd/Aofpa in Exodus 26:4 (+2 more)
+  >> "זֹּאת": "HPdxfs", (78%) -- but HAafsa in Genesis 3:13 (+3 more), HTm in Joel 1:2 
+  >> "טָמֵא": "HAamsa", (85%) -- but HD in Leviticus 11:4 (+4 more)
+  >> "יֵאָכֵל": "HVNi3ms", (77%) -- but HVPi3ms in Exodus 29:34 (+1 more), HVqi3ms in Exodus 12:16 (+2 more)
+  >> "יֵעָשֶׂה": "HVNi3ms", (73%) -- but HVpi3ms in Exodus 21:31 , HVqi3ms in Exodus 12:16 (+2 more), HVqj3ms in Leviticus 24:19 
+  >> "יָדְעוּ": "HVqp3cp", (75%) -- but HVqi3mp in Isaiah 44:18 (+4 more)
+  >> "לַ/יהוָה": "HR/Np", (99%) -- but HR/Ncmsa in Leviticus 2:16 , HRd/Np in Genesis 4:3 (+3 more)
+  >> "מוֹת": "HVqa", (80%) -- but HVoc in Leviticus 24:16 , HVqc in Exodus 21:16 (+3 more)
+  >> "תָּמִיד": "HD", (84%) -- but HAamsa in Exodus 27:20 (+1 more), HNcmsa in Exodus 29:42 (+2 more)
+  >> "נִיחֹחַ": "HNcmsa", (78%) -- but HAamsa in Exodus 29:41 (+6 more)
+  >> "הַ/לְוִיִּם": "HTd/Ncmpa", (92%) -- but HTd/Ngmpa in Numbers 3:12 (+7 more)
+  >> "וְ/כִי": "HC/C", (71%) -- but HC/D in Exodus 21:33 (+5 more), HC/R in Exodus 4:31 (+2 more), HC/Tm in Genesis 45:26 , HC/Tr in Exodus 12:48 (+6 more)
+  37307 words guess-parsed from 5351 unique forms.
+Done with guess-parse script.
+
+Running check script...
+Done with check script.
+
+Running validate script...
+Done with validate script.
+
+END RESULT:
+  none: 64147 (20%)
+  conflict: 1293 (0%)
+  single: 216469 (70%)
+  confirmed: 21356 (6%)
+  verified: 3507 (1%)
+  error: 0 (0%)
+  single/confirmed/verified: 241332 (78%)
+
+COMPLETED
