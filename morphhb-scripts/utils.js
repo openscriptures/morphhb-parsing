@@ -162,11 +162,12 @@ const utils = {
   makeVowelless: (word) => (
     word
       .replace(/[\u05B0-\u05BC\u05C1\u05C2\u05C4]/g, '')  // remove vowels
+      .replace(/[שׁשׂ]/g, 'ש')  // make shin/sin ambiguous
   ),
 
-  runReplaceOnMorph: ({ connection, table, regex, replace, doVerified=false, next }) => {
+  runReplaceOnMorph: ({ connection, table, regex, replace, doVerified=false, col='morph', quiet=false, next }) => {
 
-    let select = `SELECT * FROM ${table}_enhanced WHERE morph REGEXP '${regex.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'`
+    let select = `SELECT * FROM ${table}_enhanced WHERE ${col} REGEXP '${regex.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'`
 
     if(!doVerified) {
       if(table == 'notes') {
@@ -182,12 +183,14 @@ const utils = {
       if(err) throw err
 
       const updates = result.map(row => {
-        updatesByMorph[row.morph] = row.morph.replace(regex, replace)
-        return `UPDATE ${table}_enhanced SET morph='${row.morph.replace(regex, replace)}' WHERE id=${row.id}`
+        updatesByMorph[row[col]] = row[col].replace(regex, replace)
+        return `UPDATE ${table}_enhanced SET ${col}='${row[col].replace(regex, replace)}' WHERE id=${row.id}`
       })
 
-      for(let i in updatesByMorph) {
-        console.log(`    ${i} > ${updatesByMorph[i]}`)
+      if(!quiet) {
+        for(let i in updatesByMorph) {
+          console.log(`    ${i} > ${updatesByMorph[i]}`)
+        }
       }
       
       utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
