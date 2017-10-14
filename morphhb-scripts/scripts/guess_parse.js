@@ -82,7 +82,7 @@ module.exports = (connection, done) => {
                           
           if(mainMorph && totalWithThisForm >= 2 && !noSimpleAutoParse) {
             uniqueWordsCount++
-            updateWordQueries.push(`UPDATE words_enhanced SET morph='${result[0].morph}', status='single' ${autoParseWhere}`)
+            updateWordQueries.push(`UPDATE words_enhanced SET morph='${mainMorph}', status='single' ${autoParseWhere}`)
 
             if(outliers.length > 0) {
               const selectWordWithLocInfo = outliers.map(outlier => `
