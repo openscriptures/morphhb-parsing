@@ -83,8 +83,33 @@ connection.connect(function(err) {
       connection.query(statement, (err, result) => {
         if(err) throw err
 
-        console.log(`    - done.`)
-        next()
+        const updates = []
+        let offsetAdjustment = 0
+        let priorLoc = ''
+
+        result.forEach(row => {
+          if(`${row.bookId}-${row.chapter}-${row.verse}` != priorLoc) {
+            offsetAdjustment = 0
+          }
+          const wordParts = row.word.split(/[ ־]/g)
+          updates.push(`UPDATE etcbc_enhanced SET number=number+${wordParts.length-1} WHERE bookId=${row.bookId} AND chapter=${row.chapter} AND verse=${row.verse} AND number>${row.number}`)
+          updates.push(`DELETE FROM etcbc_enhanced WHERE id=${row.id}`)
+          wordParts.forEach(wordPart => {
+            updates.push(`
+              INSERT INTO etcbc_enhanced
+                (bookId, chapter, verse, number, word, lemma, wordtype, status)
+                VALUES ("${row.bookId}", "${row.chapter}", "${row.verse}", "${row.number + offsetAdjustment++}", "${wordPart}", "", "word", "none")
+            `)
+          })
+          offsetAdjustment--
+          priorLoc = `${row.bookId}-${row.chapter}-${row.verse}`
+        })
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`    - done.`)
+          next()                
+        })
+              
       })
     
     },
@@ -120,7 +145,8 @@ connection.connect(function(err) {
             morph,
             wordtype,
             status
-          FROM etcbc_enhanced;
+          FROM etcbc_enhanced
+          ORDER BY bookId, chapter, verse, number;
         DROP TABLE IF EXISTS etcbc_enhanced; 
         RENAME TABLE etcbc_temp TO etcbc_enhanced;
       `
@@ -133,38 +159,6 @@ connection.connect(function(err) {
       })
 
     },
-
-    // (x, next) => {
-
-    //   console.log(`  Getting rid of alternative ש's...`)
-    
-    //   utils.runReplaceOnMorph({
-    //     connection,
-    //     table: 'etcbc',
-    //     regex: /[שׁשׂ]/g,
-    //     replace: 'ש',
-    //     col: 'word',
-    //     quiet: true,
-    //     next,
-    //   })
-
-    // },
-    
-    // (x, next) => {
-
-    //   console.log(`  Getting rid of double /...`)
-    
-    //   utils.runReplaceOnMorph({
-    //     connection,
-    //     table: 'etcbc',
-    //     regex: /\/\//g,
-    //     replace: '/',
-    //     col: 'word',
-    //     quiet: true,
-    //     next,
-    //   })
-
-    // },
 
     (x, next) => {
       
