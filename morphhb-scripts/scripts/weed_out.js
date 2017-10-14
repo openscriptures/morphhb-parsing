@@ -102,6 +102,18 @@ module.exports = (connection, done) => {
 
     (x, next) => {
       
+      console.log(`  Participles must have gender, number and state indicated...`)
+
+      utils.removeNoteOnMatch({
+        connection,
+        regex: /^H([^\/]*\/)*V[^\/][rs](\/|$|([^\/p]|[^\/][^\/])(\/|$))/,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+      
       console.log(`  Pronouns and particles must have type indicated...`)
 
       utils.removeNoteOnMatch({
