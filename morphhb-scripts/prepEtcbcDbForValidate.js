@@ -92,7 +92,7 @@ connection.connect(function(err) {
             offsetAdjustment = 0
           }
           const wordParts = row.word.split(/[ ־]/g)
-          updates.push(`UPDATE etcbc_enhanced SET number=number+${wordParts.length-1} WHERE bookId=${row.bookId} AND chapter=${row.chapter} AND verse=${row.verse} AND number>${row.number}`)
+          updates.push(`UPDATE etcbc_enhanced SET number=number+${wordParts.length-1} WHERE bookId=${row.bookId} AND chapter=${row.chapter} AND verse=${row.verse} AND number>${row.number + offsetAdjustment}`)
           updates.push(`DELETE FROM etcbc_enhanced WHERE id=${row.id}`)
           wordParts.forEach(wordPart => {
             updates.push(`
@@ -118,13 +118,89 @@ connection.connect(function(err) {
       
       console.log(`  Adding blank rows where there is qere...`)
 
-      // ETCBC has no qere
-      // 2000 places where the words do not match up
-      // ------Between OSHB and ETCBC, sometimes words (especially place names) are stored together in one row or separately in different rows. Eg, Gen 4:22; 14:7.
-      next()
+      const statement = `SELECT * FROM words WHERE wordtype='qere'`
+
+      connection.query(statement, (err, result) => {
+        if(err) throw err
+
+        const updates = []
+
+        result.forEach(row => {
+          updates.push(`UPDATE etcbc_enhanced SET number=number+1 WHERE bookId=${row.bookId} AND chapter=${row.chapter} AND verse=${row.verse} AND number>=${row.number}`)
+          updates.push(`
+            INSERT INTO etcbc_enhanced
+              (bookId, chapter, verse, number, lemma, wordtype, status)
+              VALUES ("${row.bookId}", "${row.chapter}", "${row.verse}", "${row.number}", "", "qere", "none")
+          `)
+        })
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`    - done.`)
+          next()                
+        })
+              
+      })
 
     },
 
+    (x, next) => {
+      
+      console.log(`  Divide words where they should have been divided...`)
+
+      const updates = []
+      ;[
+        [4,7,59,16,"פְּדָה","צֽוּר","6301"],
+      ].forEach(updateInfo => {
+        updates.push(`UPDATE etcbc_enhanced SET number=number+1 WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number>${updateInfo[3]}`)
+        updates.push(`UPDATE etcbc_enhanced SET word="${updateInfo[4]}" WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number=${updateInfo[3]}`)
+        updates.push(`
+          INSERT INTO etcbc_enhanced
+            (bookId, chapter, verse, number, word, lemma, wordtype, status)
+            VALUES ("${updateInfo[0]}", "${updateInfo[1]}", "${updateInfo[2]}", "${updateInfo[3]+1}", "${updateInfo[5]}", "${updateInfo[6]}", "word", "none")
+        `)
+      })
+      
+      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+        console.log(`    - done.`)
+        next()                
+      })
+              
+    },
+
+    // (x, next) => {
+      
+    //   console.log(`  Fix misc...`)
+
+    //   const updates = []
+    //   updates.push(`UPDATE etcbc_enhanced SET number=14 WHERE bookId=4 AND chapter=34 AND verse=4 AND number=15 AND word="חֲצַר"`)
+      
+    //   utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+    //     console.log(`    - done.`)
+    //     next()                
+    //   })
+              
+    // },
+
+    (x, next) => {
+      
+      console.log(`  Combine words where they should be combined...`)
+
+      const updates = []
+      ;[
+        [4,10,25,13,"עַמִּישַׁדָּֽי"],
+      ].forEach(updateInfo => {
+        updates.push(`UPDATE etcbc_enhanced SET word="${updateInfo[4]}" WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number=${updateInfo[3]}`)
+        updates.push(`DELETE FROM etcbc_enhanced WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number=${updateInfo[3]+1}`)
+        updates.push(`UPDATE etcbc_enhanced SET number=number-1 WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number>${updateInfo[3]+1}`)
+      })
+      
+      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+        console.log(`    - done.`)
+        next()                
+      })
+              
+    },
+    
     (x, next) => {
       
       console.log(`  Reindexing...`)
@@ -166,7 +242,7 @@ connection.connect(function(err) {
 
       const limit = 1000
       let offset = 0
-      let maxToShow = 20
+      let maxToShow = 40
       
       const more = () => {
 
@@ -194,6 +270,8 @@ connection.connect(function(err) {
           }
           
           result.some(row => {
+
+            if(!row.eWord) return
             
             row.word = utils.makeVowelless(utils.makeAccentless(row.word.replace(/\//g, '')))
             row.eWord = utils.makeVowelless(utils.makeAccentless(row.eWord.replace(/\//g, '')))
@@ -202,7 +280,7 @@ connection.connect(function(err) {
               console.log(`    Word number or verse off: ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}] vs ${utils.getBibleBookName(row.eBookId)} ${row.eChapter}:${row.eVerse}[${row.eNumber}]`)
               maxToShow--
             } else if(row.word != row.eWord) {
-              console.log(`    Word discrepancy: ${row.word} vs ${row.eWord} in ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}]`)
+              console.log(`    [${row.bookId},${row.chapter},${row.verse},${row.number},"","","${row.lemma}"] --Word discrepancy: ${row.word} vs ${row.eWord} in ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}]`)
               maxToShow--
             }
   
