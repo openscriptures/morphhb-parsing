@@ -247,18 +247,6 @@ module.exports = (connection, done) => {
 
     (x, next) => {
       
-      console.log(`  Infinitive absolutes cannot be a part of a multi-part word...`)
-
-      utils.removeNoteOnMatch({
-        connection,
-        regex: /^(H([^\/]*\/)+V[^\/]a|HV[^\/]a.)/,
-        next,
-      })
-
-    },
-
-    (x, next) => {
-      
       console.log(`  Participles must have a masculine or feminine gender...`)
 
       utils.removeNoteOnMatch({
