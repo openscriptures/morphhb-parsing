@@ -81,12 +81,12 @@ connection.connect(function(err) {
           utils.runInSeries([
             fix,
             weedOut,
-            flag,
+            check,
             compare,
             autoParse,
             guessParse,
-            check,
             validate,
+            flag,
             () => {
 
               const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
