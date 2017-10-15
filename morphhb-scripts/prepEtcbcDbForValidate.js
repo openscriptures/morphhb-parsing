@@ -54,16 +54,35 @@ connection.connect(function(err) {
 
     (x, next) => {
       
-      console.log(`  Removing 6 etcbc_enhanced qere word additions...`)
+      console.log(`  Removing etcbc_enhanced qere word additions...`)
 
-      const statement = `
-        UPDATE etcbc_enhanced SET word="את" WHERE bookId=13 AND chapter=38 AND verse=16 AND number=9;
-        UPDATE etcbc_enhanced SET word="אם" WHERE bookId=13 AND chapter=39 AND verse=12 AND number=9;
-        UPDATE etcbc_enhanced SET word="ידרך" WHERE bookId=13 AND chapter=51 AND verse=3 AND number=1;
-        UPDATE etcbc_enhanced SET word="חמשׁ" WHERE bookId=14 AND chapter=48 AND verse=16 AND number=10;
-        UPDATE etcbc_enhanced SET word="אם" WHERE bookId=31 AND chapter=3 AND verse=12 AND number=3;
-        UPDATE etcbc_enhanced SET word="בתיהם" WHERE bookId=39 AND chapter=34 AND verse=6 AND number=6;
+      // UPDATE etcbc_enhanced SET word="את" WHERE bookId=13 AND chapter=38 AND verse=16 AND number=9;
+      // UPDATE etcbc_enhanced SET word="אם" WHERE bookId=13 AND chapter=39 AND verse=12 AND number=9;
+      // UPDATE etcbc_enhanced SET word="ידרך" WHERE bookId=13 AND chapter=51 AND verse=3 AND number=1;
+      // UPDATE etcbc_enhanced SET word="חמשׁ" WHERE bookId=14 AND chapter=48 AND verse=16 AND number=10;
+      // UPDATE etcbc_enhanced SET word="אם" WHERE bookId=31 AND chapter=3 AND verse=12 AND number=3;
+      // UPDATE etcbc_enhanced SET word="בתיהם" WHERE bookId=39 AND chapter=34 AND verse=6 AND number=6;
+
+      let statement = `
       `
+
+      ;[
+        [7,20,13,14],
+        [9,8,3,12],
+        [9,16,23,8],
+        [9,18,20,18],
+        [11,19,31,9],
+        [11,19,37,8],
+        [13,31,38,2],
+        [13,50,29,12],
+        [31,3,5,5],
+        [31,3,17,8],
+      ].forEach(qere => {
+        statement += `
+          DELETE FROM etcbc_enhanced WHERE bookId=${qere[0]} AND chapter=${qere[1]} AND verse=${qere[2]} AND number=${qere[3]};
+          UPDATE etcbc_enhanced SET number=number-1 WHERE bookId=${qere[0]} AND chapter=${qere[1]} AND verse=${qere[2]} AND number>${qere[3]};
+        `
+      })
 
       connection.query(statement, (err, result) => {
         if(err) throw err
@@ -242,7 +261,7 @@ connection.connect(function(err) {
 
       const limit = 1000
       let offset = 0
-      let maxToShow = 40
+      let maxToShow = 200
       
       const more = () => {
 
