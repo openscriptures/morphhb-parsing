@@ -207,6 +207,7 @@ connection.connect(function(err) {
       const updates = []
       ;[
         [4,10,25,13,"עַמִּישַׁדָּֽי"],
+        [1,14,17,8,"כְּדָרלָעֹ֔מֶר"],
       ].forEach(updateInfo => {
         updates.push(`UPDATE etcbc_enhanced SET word="${updateInfo[4]}" WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number=${updateInfo[3]}`)
         updates.push(`DELETE FROM etcbc_enhanced WHERE bookId=${updateInfo[0]} AND chapter=${updateInfo[1]} AND verse=${updateInfo[2]} AND number=${updateInfo[3]+1}`)
