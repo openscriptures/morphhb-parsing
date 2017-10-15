@@ -205,6 +205,29 @@ connection.connect(function(err) {
       
     },
 
+    (x, next) => {
+
+      console.log(`  Correct the lemma and word for 994...`)
+
+      const select = `SELECT * FROM words WHERE lemma="b/994"`
+  
+      connection.query(select, (err, result) => {
+        if(err) throw err
+  
+        const updates = result.map(row => {
+          return `UPDATE words SET word='${row.word.replace(/\//g, '')}', lemma="994" WHERE id=${row.id}`
+        })
+  
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+          console.log(`    - ${numRowsUpdated} words updated.`)
+          next()
+        })
+  
+      })
+  
+    },
+    
     () => {
       console.log(`\nCOMPLETED\n`)
       process.exit()
