@@ -242,14 +242,14 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
-      console.log(`  Multi-part words with the last part marked a personal pronoun, and with an adjective, noun, preposition or verb in the second to last part, will be corrected to be a pronominal suffix...`)
+      console.log(`  Multi-part words with the last part marked a personal pronoun, and with an adjective, noun, or verb in the second to last part, will be corrected to be a pronominal suffix...`)
     
-      // /[ANRV]/Pp???
+      // /[ANV]/Pp???
 
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*[ANRV][^\/]*\/)Pp([^\/][^\/][^\/])/,
+        regex: /^(H(?:[^\/]*\/)*[ANV][^\/]*\/)Pp([^\/][^\/][^\/])/,
         replace: '$1Sp$2',
         doVerified: true,
         next,
@@ -268,7 +268,7 @@ module.exports = (connection, done) => {
         table: 'notes',
         regex: /^(H(?:[^\/]*\/)*(?:Rd|Td)\/(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))c/,
         replace: '$1a',
-        doVerified: true,
+        // doVerified: true,
         next,
       })
 
@@ -498,21 +498,6 @@ module.exports = (connection, done) => {
         table: 'notes',
         regex: /^(H(?:[^\/]*\/)*A)x/,
         replace: '$1a',
-        doVerified: true,
-        next,
-      })
-
-    },
-
-    (x, next) => {
-
-      console.log(`  Parsing that include R/Rd/ should really be simply Rd/...`)
-    
-      utils.runReplaceOnMorph({
-        connection,
-        table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*)R\/(Rd\/)/,
-        replace: '$1$2',
         doVerified: true,
         next,
       })
