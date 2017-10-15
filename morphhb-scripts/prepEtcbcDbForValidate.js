@@ -420,7 +420,21 @@ connection.connect(function(err) {
       })
 
     },
+
+    (x, next) => {
+
+      console.log(`  Demonstrative pronouns with missing x for the person will be corrected...`)
     
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*Pd)([sp])/,
+        replace: '$1xc$2',
+        next,
+      })
+
+    },
+
     () => {
       console.log(`\nCOMPLETED\n`)
       process.exit()
