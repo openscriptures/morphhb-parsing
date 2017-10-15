@@ -104,6 +104,7 @@ connection.connect(function(err) {
                       const checkWord = (word, wordtype) => {
                         if(!books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex}`]) {
                           console.log(`      word loc not found: ${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex} (${verse.$.osisID})`)
+                          process.exit()
                         } else {
                           if(books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex}`].word != word._) {
                             if(books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex}`].word == conformAccents(word._)) {
@@ -127,6 +128,16 @@ connection.connect(function(err) {
 
                       switch(item['#name']) {
                         case 'seg': {
+                          if(!books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex-1}`]) {
+                            console.log(`      word loc not found (in seg): ${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex-1} (${verse.$.osisID})`)
+                            process.exit()
+                          }
+                          if(!['x-samekh','x-pe','x-reversednun'].includes(item.$.type)) {
+                            if(books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex-1}`].append != item._) {
+                              console.log(`      append doesn't match: ${books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex-1}`].append} | ${item._} (${verse.$.osisID})`)
+                              updates.push(`UPDATE words SET append="${item._}" WHERE id="${books[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex-1}`].id}"`)
+                            }
+                          }
                           break
                         }
                         case 'note': {
