@@ -44,7 +44,7 @@ const autoParseForms = {
   "לוּ": "HC",
   "נָא": "HTe",
   "אָנָּא": "HTe",
-  // "בִּי": "HTe (when not preposition with 1cs suffix)",
+  "בִּי": "HTe",
   "הָהּ": "HTj",
   "הוֹ": "HTj",
   "הֶאָח": "HTj",
