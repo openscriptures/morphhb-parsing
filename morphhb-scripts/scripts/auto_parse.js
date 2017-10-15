@@ -15,7 +15,15 @@ module.exports = (connection, done) => {
         WHERE 
           accentlessword='${form}'
           AND status NOT IN('confirmed', 'verified')
-      `)
+    `)
+  }
+
+  for(let form in superAutoParseForms) {
+    updates.push(`
+      UPDATE words_enhanced SET morph='${superAutoParseForms[form]}', status='single'
+        WHERE 
+          accentlessword='${form}'
+    `)
   }
 
   utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
@@ -124,3 +132,10 @@ const autoParseForms = {
   "לְ/כָל": "HR/Ncmsc",
 
 }
+
+const superAutoParseForms = {
+  // These will even correct verified parsings
+
+  "בַּ/יּוֹם": "HRd/Ncmsa",
+  "וּ/בַ/לַּיְלָה": "HC/Rd/Ncmsa",
+}  
