@@ -162,6 +162,19 @@ connection.connect(function(err) {
                           break
                         }
                         case 'w': {
+                          (item.seg || []).forEach(seg => {
+                            item._ += seg._
+                          })
+                          const specialCases = {
+                            "3-11-42-3": "גָּח֜וֹן",
+                            "7-18-30-10": "מְנַשֶּׁ֜ה",
+                            "27-80-14-2": "מִיָּ֑עַר",
+                            "29-38-13-4": "רְשָׁעִ֣ים",
+                            "29-38-15-1": "מֵרְשָׁעִ֣ים",
+                          }
+                          if(specialCases[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex}`]) {
+                            item._ = specialCases[`${loc[0]}-${loc[1]}-${loc[2]}-${wordIndex}`]
+                          }
                           checkWord(item, 'word')
                           break
                         }
