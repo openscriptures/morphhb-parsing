@@ -242,16 +242,19 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
-      console.log(`  Multi-part words with the last part marked a personal pronoun, and with an adjective, noun, or verb in the second to last part, will be corrected to be a pronominal suffix...`)
+      console.log(`  Multi-part words with the last part marked a personal pronoun, and with an adjective, noun, preposition (usually), or verb in the second to last part, will be corrected to be a pronominal suffix...`)
     
-      // /[ANV]/Pp???
+      // /[ANRV]/Pp???
+
+      // there are a handful of places where a preposition can combine with a personal pronoun. eg. בָּ/הֵֽמָּה
+      // however, since most of the time this needs to be corrected, we will just correct all but those that are verified
 
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*[ANV][^\/]*\/)Pp([^\/][^\/][^\/])/,
+        regex: /^(H(?:[^\/]*\/)*[ANRV][^\/]*\/)Pp([^\/][^\/][^\/])/,
         replace: '$1Sp$2',
-        doVerified: true,
+        // doVerified: true,
         next,
       })
 
