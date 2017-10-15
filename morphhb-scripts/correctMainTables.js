@@ -41,7 +41,8 @@ connection.connect(function(err) {
       console.log(`  Fix words where they were cut-off or incorrect...`)
 
       const statement = `
-        UPDATE word SET word="אֶחָֽד", append="׃" WHERE bookId=5 AND chapter=6 AND verse=4 AND number=5;
+        UPDATE words SET word="אֶחָֽד", append="׃" WHERE bookId=5 AND chapter=6 AND verse=4 AND number=5;
+        UPDATE words SET wordtype="qere" WHERE bookId=13 AND chapter=6 AND verse=29 AND number=4;
       `
 
       connection.query(statement, (err, result) => {
