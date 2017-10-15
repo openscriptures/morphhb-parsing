@@ -117,7 +117,7 @@ const utils = {
     utils.addColumn(connection, {
       table: 'words',
       col: 'accentlessword',
-      colDef: 'VARCHAR(20)',
+      colDef: 'VARCHAR(30)',
       afterCol: 'word',
     }, () => {
 
