@@ -357,7 +357,7 @@ connection.connect(function(err) {
       utils.runReplaceOnMorph({
         connection,
         table: 'etcbc',
-        regex: /^(H(?:[^\/]*\/)*Np)[^\/]+/,
+        regex: /^([HA](?:[^\/]*\/)*Np)[^\/]+/,
         replace: '$1',
         next,
       })
@@ -371,7 +371,7 @@ connection.connect(function(err) {
       utils.runReplaceOnMorph({
         connection,
         table: 'etcbc',
-        regex: /^(H(?:[^\/]*\/)*Nc)([^bcfm])/,
+        regex: /^([HA](?:[^\/]*\/)*Nc)([^bcfm])/,
         replace: '$1b$2',
         next,
       })
@@ -414,7 +414,7 @@ connection.connect(function(err) {
       utils.runReplaceOnMorph({
         connection,
         table: 'etcbc',
-        regex: /^(H(?:[^\/]*\/)*Pd)([mfc][sp])/,
+        regex: /^([HA](?:[^\/]*\/)*Pd)([mfc][sp])/,
         replace: '$1x$2',
         next,
       })
@@ -428,7 +428,7 @@ connection.connect(function(err) {
       utils.runReplaceOnMorph({
         connection,
         table: 'etcbc',
-        regex: /^(H(?:[^\/]*\/)*Pd)([sp])/,
+        regex: /^([HA](?:[^\/]*\/)*Pd)([sp])/,
         replace: '$1xc$2',
         next,
       })
