@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "xml2js": "^0.4.19"
   }
 }
