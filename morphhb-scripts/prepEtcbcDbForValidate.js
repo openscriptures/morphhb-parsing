@@ -256,83 +256,78 @@ connection.connect(function(err) {
 
     },
 
-    (x, next) => {
+    // (x, next) => {
       
-      console.log(`  Check for alignment...`)
+    //   console.log(`  Check for alignment...`)
 
-      const limit = 1000
-      let offset = 0
-      let maxToShow = 200
+    //   const limit = 1000
+    //   let offset = 0
+    //   let maxToShow = 200
       
-      const more = () => {
+    //   const more = () => {
 
-        const statement = `
-          SELECT
-            words.*,
-            etcbc_enhanced.bookId as eBookId,
-            etcbc_enhanced.chapter as eChapter,
-            etcbc_enhanced.verse as eVerse,
-            etcbc_enhanced.number as eNumber,
-            etcbc_enhanced.word as eWord
-          FROM words
-            LEFT JOIN etcbc_enhanced ON (words.id=etcbc_enhanced.id)
-          LIMIT ${limit}
-          OFFSET ${offset}
-        `
+    //     const statement = `
+    //       SELECT
+    //         words.*,
+    //         etcbc_enhanced.bookId as eBookId,
+    //         etcbc_enhanced.chapter as eChapter,
+    //         etcbc_enhanced.verse as eVerse,
+    //         etcbc_enhanced.number as eNumber,
+    //         etcbc_enhanced.word as eWord
+    //       FROM words
+    //         LEFT JOIN etcbc_enhanced ON (words.id=etcbc_enhanced.id)
+    //       LIMIT ${limit}
+    //       OFFSET ${offset}
+    //     `
   
-        connection.query(statement, (err, result) => {
-          if(err) throw err
+    //     connection.query(statement, (err, result) => {
+    //       if(err) throw err
 
-          if(result.length == 0 || maxToShow <= 0) {
-            console.log(`    - done.`)
-            next()
-            return 
-          }
+    //       if(result.length == 0 || maxToShow <= 0) {
+    //         console.log(`    - done.`)
+    //         next()
+    //         return 
+    //       }
           
-          result.some(row => {
+    //       result.some(row => {
 
-            if(!row.eWord) return
+    //         if(!row.eWord) return
             
-            row.word = utils.makeVowelless(utils.makeAccentless(row.word.replace(/\//g, '')))
-            row.eWord = utils.makeVowelless(utils.makeAccentless(row.eWord.replace(/\//g, '')))
+    //         row.word = utils.makeVowelless(utils.makeAccentless(row.word.replace(/\//g, '')))
+    //         row.eWord = utils.makeVowelless(utils.makeAccentless(row.eWord.replace(/\//g, '')))
   
-            if(row.bookId != row.eBookId || row.chapter != row.eChapter || row.verse != row.eVerse || row.number != row.eNumber) {
-              console.log(`    Word number or verse off: ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}] vs ${utils.getBibleBookName(row.eBookId)} ${row.eChapter}:${row.eVerse}[${row.eNumber}]`)
-              maxToShow--
-            } else if(row.word != row.eWord) {
-              console.log(`    [${row.bookId},${row.chapter},${row.verse},${row.number},"","","${row.lemma}"] --Word discrepancy: ${row.word} vs ${row.eWord} in ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}]`)
-              maxToShow--
-            }
+    //         if(row.bookId != row.eBookId || row.chapter != row.eChapter || row.verse != row.eVerse || row.number != row.eNumber) {
+    //           console.log(`    Word number or verse off: ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}] vs ${utils.getBibleBookName(row.eBookId)} ${row.eChapter}:${row.eVerse}[${row.eNumber}]`)
+    //           maxToShow--
+    //         } else if(row.word != row.eWord) {
+    //           console.log(`    [${row.bookId},${row.chapter},${row.verse},${row.number},"","","${row.lemma}"] --Word discrepancy: ${row.word} vs ${row.eWord} in ${utils.getBibleBookName(row.bookId)} ${row.chapter}:${row.verse}[${row.number}]`)
+    //           maxToShow--
+    //         }
   
-            return maxToShow <= 0
-          })
+    //         return maxToShow <= 0
+    //       })
 
-          offset += limit
-          more()
-        })
+    //       offset += limit
+    //       more()
+    //     })
 
-      }
+    //   }
 
-      more()
+    //   more()
       
-    },
+    // },
 
     (x, next) => {
-      
-      console.log(`  Correct morph of prepositions with definite article...`)
 
-      // May need to modify code so that Prepositions followed by Definite Article only have Rd morph code, instead of RTd, since ETCBC stores definite article in its own row after the preposition row.
-      next()
-
-    },
-
-    (x, next) => {
-      
-      console.log(`  Mark place of suffixes...`)
-
-      // ETCBC does not parse suffixes, although they are (to some degree) stored in a separate column in the database. OSHB does parse them, so need to work with that.
-      // Often when a word has a suffix, ETCBC parses it as absolute, whereas OSHB parses it as construct.
-      next()
+      console.log(`  Change R/Td to Rd...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*)R\/?Td/,
+        replace: '$1Rd',
+        next,
+      })
 
     },
 
@@ -344,10 +339,88 @@ connection.connect(function(err) {
       // 1cp
       // 3cp
       // In ETCBC, where 3rd common is an option in OSHB, the ETCBC will sometimes NOT use any gender. Eg. HC/Vqp3p instead of HC/Vqq3cp
-      next()
+      
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^([HA](?:[^\/]*\/)*(?:V[^\/][^\/]|Pp)[13])([ps])/,
+        replace: '$1c$2',
+        next,
+      })
 
     },
 
+    (x, next) => {
+      
+      console.log(`  Proper nouns (Np) will have unneeded parsing info (anything after the p) removed...`)
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*Np)[^\/]+/,
+        replace: '$1',
+        next,
+      })
+      
+    },
+
+    (x, next) => {
+      
+      console.log(`  Mark nouns as both gender if gender is not indicated...`)
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*Nc)([^bcfm])/,
+        replace: '$1b$2',
+        next,
+      })
+      
+    },
+
+    (x, next) => {
+
+      console.log(`  Infinitive constructs (V?c) and absolutes (V?a) will have unneeded parsing info (anything after the c or a) removed...`)
+    
+      // V?[ca]
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*V[^\/][ca])[^\/]+/,
+        replace: '$1',
+        next,
+      })
+
+    },
+
+    (x, next) => {
+
+      console.log(`  Interrogative pronouns will be changed to interrogative particles (Pi > Ti)...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*)P(i)/,
+        replace: '$1T$2',
+        next,
+      })
+    },
+
+    (x, next) => {
+
+      console.log(`  Demonstrative pronouns with missing x for the person will be corrected...`)
+    
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'etcbc',
+        regex: /^(H(?:[^\/]*\/)*Pd)([mfc][sp])/,
+        replace: '$1x$2',
+        next,
+      })
+
+    },
+    
     () => {
       console.log(`\nCOMPLETED\n`)
       process.exit()
