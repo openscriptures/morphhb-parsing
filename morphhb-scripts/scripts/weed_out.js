@@ -82,7 +82,7 @@ module.exports = (connection, done) => {
 
       utils.removeNoteOnMatch({
         connection,
-        regex: /^H$/,
+        regex: /^H(\/|$)/,
         next,
       })
 
