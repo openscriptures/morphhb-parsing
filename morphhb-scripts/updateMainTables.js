@@ -102,8 +102,8 @@ connection.connect(function(err) {
 
               const updates = words.map(word => `
                 INSERT INTO notes
-                  (memberId, noteDate, morph, verification, bad)
-                  VALUES (416, '0000-01-01 00:00:00', '${word.morph}', 0, 0)
+                  (memberId, noteDate, morph, verification)
+                  VALUES (416, '0000-01-01 00:00:00', '${word.morph}', 0)
               `)
 
               const addlUpdates = []
