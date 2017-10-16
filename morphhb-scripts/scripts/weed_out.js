@@ -11,30 +11,22 @@ module.exports = (connection, done) => {
       
       console.log(`  Number of morph parts must match the number of word parts...`)
 
-      const deleteStatement = `
-        DELETE FROM notes_enhanced WHERE id IN (
-          SELECT tbl.id FROM (
-            SELECT 
-              notes_enhanced.id,
-              notes_enhanced.morph,    
-              words_enhanced.word,    
-              (LENGTH(notes_enhanced.morph) - LENGTH( REPLACE ( notes_enhanced.morph, "/", "") ) ) as morphSeparators,
-              (LENGTH(words_enhanced.word) - LENGTH( REPLACE ( words_enhanced.word, "/", "") ) ) as wordSeparators
-            FROM notes_enhanced
-              LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
-              LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
-          ) as tbl WHERE tbl.morphSeparators != tbl.wordSeparators      
-        )
+      const select = `
+        SELECT tbl.id FROM (
+          SELECT 
+            notes_enhanced.id,
+            notes_enhanced.morph,    
+            words_enhanced.word,    
+            (LENGTH(notes_enhanced.morph) - LENGTH( REPLACE ( notes_enhanced.morph, "/", "") ) ) as morphSeparators,
+            (LENGTH(words_enhanced.word) - LENGTH( REPLACE ( words_enhanced.word, "/", "") ) ) as wordSeparators
+          FROM notes_enhanced
+            LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
+            LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+        ) as tbl WHERE tbl.morphSeparators != tbl.wordSeparators      
       `
 
-      connection.query(deleteStatement, (err, result) => {
-        if(err) throw err
+      utils.deleteNotesAndWordnoteRows({ connection, select }, next)
 
-        console.log(`    ${result.affectedRows} parsings deleted because they had a different number of parts than the word`)
-        
-        next()
-      })
-  
     },
 
     (x, next) => {
@@ -46,31 +38,18 @@ module.exports = (connection, done) => {
       connection.query(select, (err, result) => {
         if(err) throw err
 
-        const updates = []
+        const badMorphs = []
 
         result.forEach(row => {
           const morphFirstLetter = row.morph.substr(0,1)
           if(!codeValidator.parsingCodeIsValid(row.morph) || !row.morph.substr(1).split('/').every(morphPart => codeValidator.parsingCodeIsValid(morphFirstLetter + morphPart))) {
-
-            // if(row.morph == 'HPdcp') {
-            //   updates.push(`UPDATE notes_enhanced SET morph='HPdxcp' WHERE morph='${row.morph}'`)
-            // } else if(row.morph == 'HC/Pdcp') {
-            //   updates.push(`UPDATE notes_enhanced SET morph='HC/Pdxcp' WHERE morph='${row.morph}'`)
-            // } else if(row.morph == 'HR/S3mp') {
-            //   updates.push(`UPDATE notes_enhanced SET morph='HR/Sp3mp' WHERE morph='${row.morph}'`)
-            // } else if(codeValidator.parsingCodeIsValid('H' + row.morph) && row.morph.split('/').every(morphPart => codeValidator.parsingCodeIsValid('H' + morphPart))) {
-            //   updates.push(`UPDATE notes_enhanced SET morph='${'H' + row.morph}' WHERE morph='${row.morph}'`)
-            // } else {
-              updates.push(`DELETE FROM notes_enhanced WHERE morph='${row.morph}'`)
-              console.log(`    ${row.morph} is invalid`)
-            // }
+            console.log(`    ${row.morph} is invalid`)
+            badMorphs.push(`"${row.morph}"`)
           }
         })
 
-        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`    ${numRowsUpdated} parsings deleted`)
-          next()
-        })
+        const select = `SELECT id FROM notes_enhanced WHERE morph IN(${badMorphs.join(',')})`
+        utils.deleteNotesAndWordnoteRows({ connection, select }, next)
 
       })
       

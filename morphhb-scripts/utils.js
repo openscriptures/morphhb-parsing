@@ -235,21 +235,16 @@ const utils = {
         } else {
           parsingsToDelete[`${row.word} | ${row.morph}`].addl++
         }
-        return `DELETE FROM notes_enhanced WHERE id=${row.id}`
       })
 
       for(let i in parsingsToDelete) {
         console.log(`    ${parsingsToDelete[i].info}` + (parsingsToDelete[i].addl ? ` (+${parsingsToDelete[i].addl} more)` : ``))
       }
-
-      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-        if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got deleted. Just ${numRowsUpdated}/${updates.length}.`)
-        console.log(`    - ${numRowsUpdated} words deleted.`)
-        next()
-      })
-
+      
     })
 
+    utils.deleteNotesAndWordnoteRows({ connection, select }, next)
+    
   },
 
   deleteRowsMadeByScript: ({ connection, enhancedTables=true }, done) => {
@@ -294,6 +289,27 @@ const utils = {
         console.log(`    - rows deleted.`)
         done()
 
+      })
+    })
+
+  },
+
+  deleteNotesAndWordnoteRows: ({ connection, select }, done) => {
+
+    connection.query(select, (err, result) => {
+      if(err) throw err
+
+      const updates = []
+
+      result.forEach(row => {
+        updates.push(`DELETE FROM notes_enhanced WHERE id=${row.id}`)
+        updates.push(`DELETE FROM wordnote_enhanced WHERE noteId=${row.id}`)
+      })
+
+      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+        if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got deleted. Just ${numRowsUpdated}/${updates.length}.`)
+        console.log(`    - ${numRowsUpdated} rows deleted`)
+        done()
       })
     })
 

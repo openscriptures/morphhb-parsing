@@ -69,7 +69,7 @@ module.exports = (connection, done) => {
         newMorph = word.notes[0].morph
       } else {
         newStatus = 'conflict'
-        newMorph = null
+        newMorph = word.notes[word.notes.length - 1].morph
       }
   
       if(newMorph != word.morph || newStatus != word.status) {
