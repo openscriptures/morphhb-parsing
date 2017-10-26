@@ -11,7 +11,7 @@ module.exports = (connection, done) => {
   // Then reruns the compare script to have these new rows brought through to the words_enhanced table
 
   // Only seek to auto parse words without morph data
-  let selectWordsWithoutMorph = `SELECT DISTINCT accentlessword, lemma FROM words_enhanced WHERE morph IS NULL`
+  let selectWordsWithoutMorph = `SELECT DISTINCT accentlessword, lemma FROM words_enhanced WHERE morph IS NULL OR noguess IS NOT NULL`
   connection.query(selectWordsWithoutMorph, (err, result) => {
     if(err) throw err
 
@@ -27,14 +27,13 @@ module.exports = (connection, done) => {
 
         const rowWithoutMorph = result.shift()
 
-        // Only uses forms which have been parsed 2+ times by humans, are not flagged as questionable, and in every
-        // instance they have been parsed the same
         const selectWord = `SELECT morph, COUNT(morph) as cnt FROM words_enhanced
                             WHERE
                               accentlessword="${rowWithoutMorph.accentlessword}"
                               AND lemma="${rowWithoutMorph.lemma}"
                               AND morph IS NOT NULL
                               AND status IN ('single', 'confirmed', 'verified')
+                              AND noguess IS NULL
                             GROUP BY morph
                           `
         connection.query(selectWord, (err, result) => {
@@ -43,7 +42,7 @@ module.exports = (connection, done) => {
           const autoParseWhere = `WHERE
             accentlessword="${rowWithoutMorph.accentlessword}"
             AND lemma="${rowWithoutMorph.lemma}"
-            AND status IN ('none', 'conflict')
+            AND (status IN ('none', 'conflict') OR noguess IS NOT NULL)
           `
 
           let totalWithThisForm = 0

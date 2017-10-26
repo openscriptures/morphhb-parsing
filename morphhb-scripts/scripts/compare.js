@@ -12,13 +12,15 @@ module.exports = (connection, done) => {
                     words_enhanced.id,
                     words_enhanced.morph,
                     words_enhanced.status,
+                    words_enhanced.noguess,
                     notes_enhanced.memberId,
                     notes_enhanced.morph as noteMorph,
-                    notes_enhanced.verification
+                    notes_enhanced.verification,
+                    notes_enhanced.etcbcnomatch
                   FROM words_enhanced
                     LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
                     LEFT JOIN notes_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
-                  ORDER BY words_enhanced.id, notes_enhanced.noteDate DESC`
+                  ORDER BY words_enhanced.id, notes_enhanced.etcbcnomatch, notes_enhanced.noteDate DESC`
 
   connection.query(select, (err, result) => {
     if(err) throw err
@@ -71,9 +73,11 @@ module.exports = (connection, done) => {
         newStatus = 'conflict'
         newMorph = word.notes[word.notes.length - 1].morph
       }
+
+      const newNoguess = word.etcbcnomatch ? '1' : null
   
-      if(newMorph != word.morph || newStatus != word.status) {
-        updates.push(`UPDATE words_enhanced SET morph=${newMorph ? `'${newMorph}'` : `NULL`}, status='${newStatus}' WHERE id=${word.id}`)
+      if(newMorph != word.morph || newStatus != word.status || newNoguess != word.noguess) {
+        updates.push(`UPDATE words_enhanced SET morph=${newMorph ? `'${newMorph}'` : `NULL`}, status='${newStatus}', noguess=${newNoguess ? `'${newNoguess}'` : `NULL`} WHERE id=${word.id}`)
       }
     })
 
