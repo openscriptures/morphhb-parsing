@@ -19,6 +19,7 @@ module.exports = (connection, done) => {
           LEFT JOIN etcbc_enhanced ON (etcbc_enhanced.id = words_enhanced.id)
         WHERE 
           words_enhanced.morph IS NOT NULL
+          AND etcbc_enhanced.morph IS NOT NULL
       `
 
       connection.query(statement, (err, result) => {
@@ -65,9 +66,7 @@ module.exports = (connection, done) => {
         mismatchedVerifieds = Object.values(mismatchedVerifieds)
         mismatchedVerifieds.sort((a,b) => (a.num > b.num ? 1 : -1))
         mismatchedVerifieds.forEach(mismatchedWord => {
-          if(mismatchedWord.num >= 5) {
-            console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x)`)
-          }
+          console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x were verified by didn't match)`)
         })
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
