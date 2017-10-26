@@ -47,19 +47,21 @@ module.exports = (connection, done) => {
 
           if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
             etcbcMorph = etcbcMorph
-              .replace(/^(H(?:[^\/]*\/)*Nc)m([^\/][^\/])/, '$1Ab$2')  // etcbc marks פנים as masc
+              .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
           }
           
           if(row.lemma.match(/(^|\/)6440$/)) {
             etcbcMorph = etcbcMorph
-              .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
+              .replace(/^(H(?:[^\/]*\/)*Nc)m([^\/][^\/])/, '$1b$2')  // etcbc marks פנים as masc
           }
 
           morph = row.morph
             .replace(/^(A(?:[^\/]*\/)*)Td/, '$1')  // definite article for Aramaic not indicated in etcbc
             .replace(/^(H(?:[^\/]*\/)*)Ac/, '$1Nc')  // cardinal numbers not indicated in etcbc
-            .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/, '$1')  // suffixes not indicated in etcbc
+            .replace(/^(H(?:[^\/]*\/)*)Ao/, '$1Aa')  // ordinal numbers not indicated in etcbc
+            .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
             .replace(/^(H(?:[^\/]*\/)*)Ng([^\/][^\/][^\/])/, '$1Aa$2')  // gentilic nouns not indicated in etcbc
+            .replace(/^(H(?:[^\/]*\/)*V[^\/])q/, '$1p')  // etcbc doesn't use WeQatal verb stem
 
 
           if(etcbcMorph.match(/^(H(?:[^\/]*\/)*N[^\/])b/)) {
@@ -67,10 +69,17 @@ module.exports = (connection, done) => {
               .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
           }
 
+          if(row.accentlessword.match(/נֶגֶד/)) return  // etcbc marks this HNcmsc
+          if(row.accentlessword.match(/אַחֲרֵי/)) return  // etcbc marks this HNcmpc
+          if(row.accentlessword.match(/תַּחַת/)) return  // etcbc marks this HNcmsc
+          if(row.accentlessword.match(/מְאֹד/)) return  // etcbc marks this HNcmsa
+          if(row.accentlessword.match(/מַיִם/)) return  // etcbc marks this HNcmpa (i.e. not dual)
+          if(row.accentlessword.match(/(בֵּין|וּ\/בֵ)/)) return  // etcbc marks this HNcmsc
+          if(row.accentlessword.match(/סָבִיב/)) return  // etcbc marks this HNcbsa
           if(row.accentlessword.match(/עוֹד/)) return  // etcbc marks this HNcmsa
           if(row.accentlessword.match(/אֲדֹנָ\/י/)) return  // etcbc marks this HNp
           if(row.accentlessword.match(/הִנֵּה/)) return  // etcbc marks this HTj
-          if(row.accentlessword.match(/לָ\/מָה/)) return  // etcbc marks this as single unit
+          if(row.accentlessword.match(/(לָ\/מָה|לָ\/מָּה)/)) return  // etcbc marks this as single unit
           if(row.accentlessword.match(/(אַיִן|אֵין)/)) return  // etcbc marks this as a noun
 
           if(morph == etcbcMorph) return
@@ -110,15 +119,4 @@ module.exports = (connection, done) => {
     }
   ])
     
-
-
-
-  // can I trust construct/absolute?
-  // particles parsed differently?
-
-  // ETCBC doesn't use WeQatal verb stem, whereas OSHB may.
-  // Adjective in ETCBC do not have cardinal or ordinal types
-  // ETCBC does not parse suffixes, although they are (to some degree) stored in a separate column in the database. OSHB does parse them, so need to work with that.
-  // Often when a word has a suffix, ETCBC parses it as absolute, whereas OSHB parses it as construct.
-  
 }  
