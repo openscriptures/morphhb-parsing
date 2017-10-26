@@ -121,31 +121,39 @@ const utils = {
       afterCol: 'word',
     }, () => {
 
-      const selectAllUniqueWords = `SELECT DISTINCT word FROM words_enhanced`
-  
-      connection.query(selectAllUniqueWords, (err, result) => {
-        if(err) throw err
+      utils.addColumn(connection, {
+        table: 'words',
+        col: 'noguess',
+        colDef: 'TINYINT(1)',
+        afterCol: 'status',
+      }, () => {
 
-        let updatesWithAccentlessWord = []
+        const selectAllUniqueWords = `SELECT DISTINCT word FROM words_enhanced`
+    
+        connection.query(selectAllUniqueWords, (err, result) => {
+          if(err) throw err
 
-        result.forEach(row => {
-          const accentlessWord = utils.makeAccentless(row.word)
-          updatesWithAccentlessWord.push(`UPDATE words_enhanced SET accentlessword="${accentlessWord}" WHERE word="${row.word}"`)
-        })
+          let updatesWithAccentlessWord = []
 
-        utils.doUpdatesInChunks(connection, { updates: updatesWithAccentlessWord }, numRowsUpdated => {
-          
-          utils.createIndexes(connection, {
-            indexes: [
-              {
-                table: 'words',
-                col: 'accentlessword',
-              },
-            ],
-          }, () => {
-              
-            done()
-  
+          result.forEach(row => {
+            const accentlessWord = utils.makeAccentless(row.word)
+            updatesWithAccentlessWord.push(`UPDATE words_enhanced SET accentlessword="${accentlessWord}" WHERE word="${row.word}"`)
+          })
+
+          utils.doUpdatesInChunks(connection, { updates: updatesWithAccentlessWord }, numRowsUpdated => {
+            
+            utils.createIndexes(connection, {
+              indexes: [
+                {
+                  table: 'words',
+                  col: 'accentlessword',
+                },
+              ],
+            }, () => {
+                
+              done()
+    
+            })
           })
         })
       })
