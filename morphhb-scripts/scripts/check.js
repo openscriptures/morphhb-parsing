@@ -55,9 +55,17 @@ module.exports = (connection, done) => {
               .replace(/^(H(?:[^\/]*\/)*Nc)m([^\/][^\/])/, '$1b$2')  // etcbc marks פנים as masc
           }
 
-          morph = row.morph
+          if(morph.match(/^(H(?:[^\/]*\/)*)Ac/)) {
+            // cardinal numbers not indicated in etcbc
+            // etcbc marks gender on numbers differently
+            etcbcMorph = etcbcMorph
+              .replace(/^(H(?:[^\/]*\/)*)Nc[bmf]/, '$1Ncx')  
+            morph = morph
+              .replace(/^(H(?:[^\/]*\/)*)Ac[bmf]/, '$1Ncx')  
+          }
+
+          morph = morph
             .replace(/^(A(?:[^\/]*\/)*)Td/, '$1')  // definite article for Aramaic not indicated in etcbc
-            .replace(/^(H(?:[^\/]*\/)*)Ac/, '$1Nc')  // cardinal numbers not indicated in etcbc
             .replace(/^(H(?:[^\/]*\/)*)Ao/, '$1Aa')  // ordinal numbers not indicated in etcbc
             .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
             .replace(/^(H(?:[^\/]*\/)*)Ng([^\/][^\/][^\/])/, '$1Aa$2')  // gentilic nouns not indicated in etcbc
@@ -100,7 +108,9 @@ module.exports = (connection, done) => {
         mismatchedWords = Object.values(mismatchedWords)
         mismatchedWords.sort((a,b) => (a.num > b.num ? 1 : -1))
         mismatchedWords.forEach(mismatchedWord => {
-          console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x)`)
+          if(mismatchedWord.num >= 5) {
+            console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x)`)
+          }
         })
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
