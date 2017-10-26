@@ -323,6 +323,60 @@ const utils = {
 
   },
 
+  compareWithETCBC: ({ row }) => {
+
+    let morph = row.morph
+    let etcbcMorph = row.etcbcMorph
+
+    if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
+    }
+    
+    if(row.lemma.match(/(^|\/)6440$/)) {
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*Nc)m([^\/][^\/])/, '$1b$2')  // etcbc marks פנים as masc
+    }
+
+    if(morph.match(/^(H(?:[^\/]*\/)*)Ac/)) {
+      // cardinal numbers not indicated in etcbc
+      // etcbc marks gender on numbers differently
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*)Nc[bmf]/, '$1Ncx')  
+      morph = morph
+        .replace(/^(H(?:[^\/]*\/)*)Ac[bmf]/, '$1Ncx')  
+    }
+
+    morph = morph
+      .replace(/^(A(?:[^\/]*\/)*)Td/, '$1')  // definite article for Aramaic not indicated in etcbc
+      .replace(/^(H(?:[^\/]*\/)*)Ao/, '$1Aa')  // ordinal numbers not indicated in etcbc
+      .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
+      .replace(/^(H(?:[^\/]*\/)*)Ng([^\/][^\/][^\/])/, '$1Aa$2')  // gentilic nouns not indicated in etcbc
+      .replace(/^(H(?:[^\/]*\/)*V[^\/])q/, '$1p')  // etcbc doesn't use WeQatal verb stem
+
+
+    if(etcbcMorph.match(/^(H(?:[^\/]*\/)*N[^\/])b/)) {
+      morph = morph
+        .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
+    }
+
+    if(row.accentlessword.match(/נֶגֶד/)) return "unknown" // etcbc marks this HNcmsc
+    if(row.accentlessword.match(/אַחֲרֵי/)) return "unknown" // etcbc marks this HNcmpc
+    if(row.accentlessword.match(/תַּחַת/)) return "unknown" // etcbc marks this HNcmsc
+    if(row.accentlessword.match(/מְאֹד/)) return "unknown" // etcbc marks this HNcmsa
+    if(row.accentlessword.match(/מַיִם/)) return "unknown" // etcbc marks this HNcmpa (i.e. not dual)
+    if(row.accentlessword.match(/(בֵּין|וּ\/בֵ)/)) return "unknown" // etcbc marks this HNcmsc
+    if(row.accentlessword.match(/סָבִיב/)) return "unknown" // etcbc marks this HNcbsa
+    if(row.accentlessword.match(/עוֹד/)) return "unknown" // etcbc marks this HNcmsa
+    if(row.accentlessword.match(/אֲדֹנָ\/י/)) return "unknown" // etcbc marks this HNp
+    if(row.accentlessword.match(/הִנֵּה/)) return "unknown" // etcbc marks this HTj
+    if(row.accentlessword.match(/(לָ\/מָה|לָ\/מָּה)/)) return "unknown" // etcbc marks this as single unit
+    if(row.accentlessword.match(/(אַיִן|אֵין)/)) return "unknown" // etcbc marks this as a noun
+
+    return morph == etcbcMorph ? "match" : "no match"
+    
+  },
+
   getBibleBookName: (bookid) => {
 
     return [
