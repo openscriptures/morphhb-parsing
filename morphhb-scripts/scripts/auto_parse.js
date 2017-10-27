@@ -120,6 +120,11 @@ const autoParseForms = {
   "שָׁמַיִם": "HNcmpa",
   "שְׁנֵי/הֶם": "HAcmpc/Sp3mp",
   "הָ/רִאשׁוֹן": "HTd/Aomsa",
+  "וַ/אֲשֶׁר": "HC/Tr",
+  "לָא": "HTn",
+  "לוֹא": "HTn",
+  "אֵי": "HTi",
+  "מָחָר": "HNcmsa",
   
   // Auto parse of most common forms that are not getting guess-parsed
   "כָּל": "HNcmsc",

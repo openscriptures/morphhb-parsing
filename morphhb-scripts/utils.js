@@ -323,7 +323,7 @@ const utils = {
 
   },
 
-  compareWithETCBC: ({ row }) => {
+  compareWithETCBC: ({ row, skipAddl=false }) => {
 
     let morph = row.morph
     let etcbcMorph = row.etcbcMorph
@@ -360,8 +360,9 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
     }
 
+    if(row.accentlessword.match(/בְּעַד/)) return "unknown" // etcbc marks this HNcbsc
     if(row.accentlessword.match(/נֶגֶד/)) return "unknown" // etcbc marks this HNcmsc
-    if(row.accentlessword.match(/אַחֲרֵי/)) return "unknown" // etcbc marks this HNcmpc
+    if(row.accentlessword.match(/(אַחֲרֵי|אַחֲרֶי)/)) return "unknown" // etcbc marks this HNcmpc/a
     if(row.accentlessword.match(/תַּחַת/)) return "unknown" // etcbc marks this HNcmsc
     if(row.accentlessword.match(/מְאֹד/)) return "unknown" // etcbc marks this HNcmsa
     if(row.accentlessword.match(/מַיִם/)) return "unknown" // etcbc marks this HNcmpa (i.e. not dual)
@@ -372,6 +373,13 @@ const utils = {
     if(row.accentlessword.match(/הִנֵּה/)) return "unknown" // etcbc marks this HTj
     if(row.accentlessword.match(/(לָ\/מָה|לָ\/מָּה)/)) return "unknown" // etcbc marks this as single unit
     if(row.accentlessword.match(/(אַיִן|אֵין)/)) return "unknown" // etcbc marks this as a noun
+
+// down to 17x
+
+    if(skipAddl) {
+      if(row.accentlessword.match(/כֵּן/)) return "unknown"
+      if(row.accentlessword.match(/אַף/)) return "unknown"
+    }
 
     return morph == etcbcMorph ? "match" : "no match"
     

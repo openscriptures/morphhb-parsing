@@ -30,7 +30,7 @@ module.exports = (connection, done) => {
                 
         result.forEach(row => {
 
-          const compareResult = utils.compareWithETCBC({ row })
+          const compareResult = utils.compareWithETCBC({ row, skipAddl: true })
 
           if(compareResult == "unknown") return
 
