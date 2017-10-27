@@ -66,7 +66,7 @@ module.exports = (connection, done) => {
         mismatchedVerifieds = Object.values(mismatchedVerifieds)
         mismatchedVerifieds.sort((a,b) => (a.num > b.num ? 1 : -1))
         mismatchedVerifieds.forEach(mismatchedWord => {
-          console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x were verified but didn't match)`)
+          console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x was verified but didn't match)`)
         })
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
