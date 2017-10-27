@@ -360,6 +360,8 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
     }
 
+    if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this HNcbsa
+    if(row.accentlessword.match(/נֶגְדּ/)) return "unknown" // etcbc marks this HNcmsa
     if(row.accentlessword.match(/בְּעַד/)) return "unknown" // etcbc marks this HNcbsc
     if(row.accentlessword.match(/נֶגֶד/)) return "unknown" // etcbc marks this HNcmsc
     if(row.accentlessword.match(/(אַחֲרֵי|אַחֲרֶי)/)) return "unknown" // etcbc marks this HNcmpc/a
