@@ -87,7 +87,7 @@ module.exports = (connection, done) => {
             ))
           })
                           
-          if(mainMorph && totalWithThisForm >= 2 && !noSimpleAutoParse) {
+          if(mainMorph && totalWithThisForm >= 1 && !noSimpleAutoParse) {
 
             if(canBeAbsoluteOrConstruct) {
               // each instance needs to be evaluated to be construct or absolute based on context
