@@ -135,7 +135,6 @@ const autoParseForms = {
   "כָל": "HNcmsc",
   "וְ/עַד": "HC/R",
   "לְ/כָל": "HR/Ncmsc",
-
 }
 
 const superAutoParseForms = {
@@ -144,4 +143,5 @@ const superAutoParseForms = {
   "בַּ/יּוֹם": "HRd/Ncmsa",
   "וּ/בַ/לַּיְלָה": "HC/Rd/Ncmsa",
   "לָ/כֶם": "HR/Sp2mp",
+  "וַ/יֹּאמֶר": "HC/Vqw3ms",
 }  
