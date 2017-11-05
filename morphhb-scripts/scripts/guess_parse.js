@@ -25,10 +25,13 @@ module.exports = (connection, done) => {
     result = result.filter(row => !blacklistedForms.includes(row.accentlessword))
     
     let uniqueWordsCount = 0
+    let uniqueWordsCount2 = 0
     let totalWordsWithUnknownState = 0
     let totalNotSimpleToParse = 0
     const updateWordQueries = []
+    const updateWordQueries2 = []
     const outlierOutput = []
+    const constructAbsolutesToGuess = []
 
     const tryNextWord = () => {
 
@@ -99,103 +102,14 @@ module.exports = (connection, done) => {
           if(mainMorph && totalWithThisForm >= 1 && !noSimpleAutoParse) {
 
             if(canBeAbsoluteOrConstruct) {
-              // each instance needs to be evaluated to be construct or absolute based on context
 
-              const stateSelect1 = `SELECT * FROM words_enhanced ${autoParseWhere}`
-              connection.query(stateSelect1, (err, stateResults1) => {
-                if(err) throw err
-
-                let extraQueries = 0
-                let doneWithMainLoop = false
-
-                const constructMorph = mainMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))[ac]/, '$1c')
-                const absoluteMorph = mainMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))[ac]/, '$1a')
-
-                stateResults1.forEach(stateRow1 => {
-                  if(
-                    stateRow1.append == "־"
-                    || stateRow1.accentlessword.match(/ֵי$/)
-                  ) {
-                    // construct if
-                      // with dash
-                      // ends with 2dots-yud
-                    uniqueWordsCount++
-                    updateWordQueries.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
-                  } else if(
-                    stateRow1.accentlessword.match(/ִים$/)
-                    || stateRow1.accentlessword.match(/ָה$/)
-                    || stateRow1.accentlessword.match(/^הַ\//)
-                  ) {
-                    // absolute if
-                      // ends in yud-mem OR patach-hey
-                      // has definite article
-                    uniqueWordsCount++
-                    updateWordQueries.push(`UPDATE words_enhanced SET morph='${absoluteMorph}', status='single' WHERE id=${stateRow1.id}`)
-                  } else {
-
-                    extraQueries++
-
-                    const stateSelect2 = `
-                      SELECT * FROM words_enhanced
-                        WHERE
-                          bookId=${stateRow1.bookId}
-                          AND chapter=${stateRow1.chapter}
-                          AND verse=${stateRow1.verse}
-                        ORDER BY number
-                    `
-                    connection.query(stateSelect2, (err, stateResults2) => {
-                      if(err) throw err
-
-                      const prevWord = stateRow1.wordtype == 'qere' ? stateResults2[stateRow1.number-2] : stateResults2[stateRow1.number-1]
-                      const nextWord = !stateResults2[stateRow1.number+1]
-                        ? null
-                        : stateResults2[stateRow1.number+1].wordtype == 'qere'
-                          ? stateResults2[stateRow1.number+2]
-                          : stateResults2[stateRow1.number+1]
-
-                      if(
-                        stateRow1.number == stateResults2.length - 1
-                        || (
-                          prevWord
-                          && prevWord.append == "־"
-                          && stateRow1.append != "־"
-                        )
-                        || (nextWord && nextWord.morph && !nextWord.morph.match(/^H(?:[^\/]*\/)*(?:N|A|V[^\/][rs])/))
-                        || (nextWord && nextWord.morph && nextWord.morph.match(/^H[CR]/))
-                      ) {
-                        // absolute if
-                          // last in verse
-                          // dash before but not after
-                          // following word is
-                            // not noun, adj or participle
-                            // has a preposition or conjunction
-                        uniqueWordsCount++
-                        updateWordQueries.push(`UPDATE words_enhanced SET morph='${absoluteMorph}', status='single' WHERE id=${stateRow1.id}`)
-                      } else if(
-                        (nextWord && nextWord.morph && nextWord.morph.match(/^H(?:[^\/]*\/)*Np/))
-                        || (nextWord && nextWord.morph && nextWord.morph.match(/^HTd/))
-                      ) {
-                        // construct if
-                          // proper name follows
-                          // noun with definite article follows
-                        uniqueWordsCount++
-                        updateWordQueries.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
-                      } else {
-                        totalWordsWithUnknownState++
-                      }
-
-                      if(--extraQueries == 0 && doneWithMainLoop) tryNextWord()
-                          
-                    })
-
-                  }
-                })
-
-                doneWithMainLoop = true
-                if(extraQueries == 0) tryNextWord()
-
+              constructAbsolutesToGuess.push({
+                autoParseWhere,
+                mainMorph,
               })
-                    
+
+              tryNextWord()
+              
             } else {
               uniqueWordsCount++
               updateWordQueries.push(`UPDATE words_enhanced SET morph='${mainMorph}', status='single' ${autoParseWhere}`)
@@ -250,22 +164,131 @@ module.exports = (connection, done) => {
 
         })
 
-      } else {  // done composing updates
+      } else {  // done composing base updates
 
         outlierOutput.sort()
         outlierOutput.forEach(outlierLine => {
           console.log(outlierLine.substr(3))
         })
-        console.log(`  ** ${totalWordsWithUnknownState} words can be guess-parsed if I can determine their state`)
-        console.log(`  ** ${totalNotSimpleToParse} have multiple valid parsings and thus were not guess-parsed`)
         
         // run updates
         utils.doUpdatesInChunks(connection, { updates: updateWordQueries }, numRowsUpdated => {
 
           console.log(`  ${numRowsUpdated} words guess-parsed from ${uniqueWordsCount} unique forms.`)
+          console.log(`  ** ${totalNotSimpleToParse} have multiple valid parsings and thus were not guess-parsed`)          
 
-          console.log(`Done with guess-parse script.`)
-          done()
+          
+          // now do the guesses for words that could be either construct or absolute
+          ;(async () => {
+
+            for(let i=0; i<constructAbsolutesToGuess.length; i++) {
+              const constructAbsoluteToGuess = constructAbsolutesToGuess[i]
+              const { autoParseWhere, mainMorph } = constructAbsoluteToGuess
+  
+              // each instance needs to be evaluated to be construct or absolute based on context
+              
+              const stateSelect1 = `SELECT * FROM words_enhanced ${autoParseWhere}`
+              const stateResults1 = await new Promise((resolve, reject) => {
+                connection.query(stateSelect1, (err, results) => {
+                  if(err) throw err
+                  resolve(results)
+                })
+              })
+
+              const constructMorph = mainMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))[ac]/, '$1c')
+              const absoluteMorph = mainMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))[ac]/, '$1a')
+  
+              for(let j=0; j<stateResults1.length; j++) {
+                const stateRow1 = stateResults1[j]
+                
+                if(
+                  stateRow1.append == "־"
+                  || stateRow1.accentlessword.match(/ֵי$/)
+                ) {
+                  // construct if
+                    // with dash
+                    // ends with 2dots-yud
+                  uniqueWordsCount2++
+                  updateWordQueries2.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
+                } else if(
+                  stateRow1.accentlessword.match(/ִים$/)
+                  || stateRow1.accentlessword.match(/ָה$/)
+                  || stateRow1.accentlessword.match(/^הַ\//)
+                ) {
+                  // absolute if
+                    // ends in yud-mem OR patach-hey
+                    // has definite article
+                  uniqueWordsCount2++
+                  updateWordQueries2.push(`UPDATE words_enhanced SET morph='${absoluteMorph}', status='single' WHERE id=${stateRow1.id}`)
+                } else {
+
+                  const stateSelect2 = `
+                    SELECT * FROM words_enhanced
+                      WHERE
+                        bookId=${stateRow1.bookId}
+                        AND chapter=${stateRow1.chapter}
+                        AND verse=${stateRow1.verse}
+                      ORDER BY number
+                  `
+                  const stateResults2 = await new Promise((resolve, reject) => {
+                    connection.query(stateSelect2, (err, results) => {
+                      if(err) throw err
+                      resolve(results)
+                    })
+                  })
+
+                  const prevWord = stateRow1.wordtype == 'qere' ? stateResults2[stateRow1.number-2] : stateResults2[stateRow1.number-1]
+                  const nextWord = !stateResults2[stateRow1.number+1]
+                    ? null
+                    : stateResults2[stateRow1.number+1].wordtype == 'qere'
+                      ? stateResults2[stateRow1.number+2]
+                      : stateResults2[stateRow1.number+1]
+
+                  if(
+                    stateRow1.number == stateResults2.length - 1
+                    || (
+                      prevWord
+                      && prevWord.append == "־"
+                      && stateRow1.append != "־"
+                    )
+                    || (nextWord && nextWord.morph && !nextWord.morph.match(/^H(?:[^\/]*\/)*(?:N|A|V[^\/][rs])/))
+                    || (nextWord && nextWord.morph && nextWord.morph.match(/^H[CR]/))
+                  ) {
+                    // absolute if
+                      // last in verse
+                      // dash before but not after
+                      // following word is
+                        // not noun, adj or participle
+                        // has a preposition or conjunction
+                    uniqueWordsCount2++
+                    updateWordQueries2.push(`UPDATE words_enhanced SET morph='${absoluteMorph}', status='single' WHERE id=${stateRow1.id}`)
+                  } else if(
+                    (nextWord && nextWord.morph && nextWord.morph.match(/^H(?:[^\/]*\/)*Np/))
+                    || (nextWord && nextWord.morph && nextWord.morph.match(/^HTd/))
+                  ) {
+                    // construct if
+                      // proper name follows
+                      // noun with definite article follows
+                    uniqueWordsCount2++
+                    updateWordQueries2.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
+                  } else {
+                    totalWordsWithUnknownState++
+                  }
+
+                }
+              }
+            }
+
+            // run updates
+            utils.doUpdatesInChunks(connection, { updates: updateWordQueries2 }, numRowsUpdated => {
+              console.log(`  ${numRowsUpdated} words guess-parsed after state was determined.`)
+              console.log(`  ** ${totalWordsWithUnknownState} words can be guess-parsed if I can determine their state`)
+      
+              console.log(`Done with guess-parse script.`)
+              done()
+            })
+
+          })()
 
         })
       }
