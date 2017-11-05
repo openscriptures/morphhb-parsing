@@ -24,7 +24,15 @@ module.exports = (connection, done) => {
       console.log(`  Flag notes_enhanced entries that do not match...`)
 
       const statement = `
-        SELECT notes_enhanced.id, notes_enhanced.morph, etcbc_enhanced.morph as etcbcMorph, words_enhanced.accentlessword, words_enhanced.bookId, words_enhanced.chapter, words_enhanced.verse, words_enhanced.lemma
+        SELECT
+          notes_enhanced.id,
+          notes_enhanced.morph,
+          etcbc_enhanced.morph as etcbcMorph,
+          words_enhanced.accentlessword,
+          words_enhanced.bookId,
+          words_enhanced.chapter,
+          words_enhanced.verse,
+          words_enhanced.lemma
         FROM notes_enhanced
           LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
           LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)

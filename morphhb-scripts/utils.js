@@ -347,6 +347,8 @@ const utils = {
     let morph = row.morph
     let etcbcMorph = row.etcbcMorph
 
+    if(morph == etcbcMorph) return "match"
+    
     if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
@@ -379,7 +381,6 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
     }
 
-    if(row.accentlessword.match(/הִנֵּה/)) return "unknown" // etcbc marks this HTj
     if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this HNcbsa
     if(row.accentlessword.match(/נֶגְדּ/)) return "unknown" // etcbc marks this HNcmsa
     if(row.accentlessword.match(/בְּעַד/)) return "unknown" // etcbc marks this HNcbsc
@@ -392,7 +393,7 @@ const utils = {
     if(row.accentlessword.match(/סָבִיב/)) return "unknown" // etcbc marks this HNcbsa
     if(row.accentlessword.match(/עוֹד/)) return "unknown" // etcbc marks this HNcmsa
     if(row.accentlessword.match(/אֲדֹנָ\/י/)) return "unknown" // etcbc marks this HNp
-    if(row.accentlessword.match(/הִנֵּה/)) return "unknown" // etcbc marks this HTj
+    if(row.accentlessword.match(/(הִנֵּה|הִנֵּה)/)) return "unknown" // etcbc marks this HTj
     if(row.accentlessword.match(/(לָ\/מָה|לָ\/מָּה)/)) return "unknown" // etcbc marks this as single unit
     if(row.accentlessword.match(/(אַיִן|אֵין)/)) return "unknown" // etcbc marks this as a noun
 
