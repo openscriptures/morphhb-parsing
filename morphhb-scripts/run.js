@@ -63,7 +63,27 @@ connection.connect(function(err) {
         },
         {
           table: 'words',
+          col: 'bookId',
+        },
+        {
+          table: 'words',
+          col: 'chapter',
+        },
+        {
+          table: 'words',
+          col: 'verse',
+        },
+        {
+          table: 'words',
+          col: 'number',
+        },
+        {
+          table: 'words',
           col: 'lemma',
+        },
+        {
+          table: 'words',
+          col: 'wordtype',
         },
         {
           table: 'words',
@@ -72,52 +92,54 @@ connection.connect(function(err) {
       ],
     }, () => {
 
-      utils.createAccentlessWordCol(connection, () => {
+      utils.createAccentlessWordCol({ connection, table: 'words' }, () => {
+        utils.createNoGuessCol(connection, () => {
         
-        console.log(`Done creating _enhanced tables.`)
+          console.log(`Done creating _enhanced tables.`)
 
-        utils.deleteRowsMadeByScript({ connection }, () => {
-      
-          utils.runInSeries([
-            fix,
-            weedOut,
-            check,
-            compare,
-            autoParse,
-            guessParse,
-            validate,
-            flag,
-            () => {
+          utils.deleteRowsMadeByScript({ connection }, () => {
+        
+            utils.runInSeries([
+              fix,
+              weedOut,
+              check,
+              compare,
+              autoParse,
+              guessParse,
+              validate,
+              flag,
+              () => {
 
-              const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
+                const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
 
-              const countStatuses = statuses.map(status => `
-                SELECT COUNT(*) as cnt FROM words_enhanced WHERE status='${status}'
-              `).join(';')
+                const countStatuses = statuses.map(status => `
+                  SELECT COUNT(*) as cnt FROM words_enhanced WHERE status='${status}'
+                `).join(';')
 
-              connection.query(countStatuses, (err, results) => {
-                if(err) throw err
+                connection.query(countStatuses, (err, results) => {
+                  if(err) throw err
 
-                let total = 0
-                results.forEach(result => total += result[0].cnt)
+                  let total = 0
+                  results.forEach(result => total += result[0].cnt)
 
-                console.log(`\nEND RESULT:`)
-                let totalWithAtLeastSinglePass = 0
-                results.forEach((result, index) => {
-                  console.log(`  ${statuses[index]}: ${result[0].cnt} (${parseInt((result[0].cnt/total)*100)}%)`)
-                  if([ 'single', 'confirmed', 'verified' ].includes(statuses[index])) {
-                    totalWithAtLeastSinglePass += result[0].cnt
-                  }
+                  console.log(`\nEND RESULT:`)
+                  let totalWithAtLeastSinglePass = 0
+                  results.forEach((result, index) => {
+                    console.log(`  ${statuses[index]}: ${result[0].cnt} (${parseInt((result[0].cnt/total)*100)}%)`)
+                    if([ 'single', 'confirmed', 'verified' ].includes(statuses[index])) {
+                      totalWithAtLeastSinglePass += result[0].cnt
+                    }
+                  })
+                  console.log(`  single/confirmed/verified: ${totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
+                  
+                  console.log(`\nCOMPLETED\n`)
+                  process.exit()
+
                 })
-                console.log(`  single/confirmed/verified: ${totalWithAtLeastSinglePass} (${parseInt((totalWithAtLeastSinglePass/total)*100)}%)`)
-                
-                console.log(`\nCOMPLETED\n`)
-                process.exit()
-
-              })
-            }
-          ], connection)
+              }
+            ], connection)
       
+          })
         })
       })
     })

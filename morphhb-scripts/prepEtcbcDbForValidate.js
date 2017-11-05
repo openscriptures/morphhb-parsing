@@ -53,6 +53,44 @@ connection.connect(function(err) {
     },
 
     (x, next) => {
+
+      console.log(`  Create col indexes...`)
+    
+      utils.createIndexes(connection, {
+        indexes: [
+          {
+            table: 'etcbc',
+            col: 'morph',
+          },
+          {
+            table: 'etcbc',
+            col: 'word',
+          },
+          {
+            table: 'etcbc',
+            col: 'bookId',
+          },
+          {
+            table: 'etcbc',
+            col: 'chapter',
+          },
+          {
+            table: 'etcbc',
+            col: 'verse',
+          },
+          {
+            table: 'etcbc',
+            col: 'number',
+          },
+        ],
+      }, () => {
+        console.log(`    - done.`)
+        next()
+      })
+
+    },
+
+    (x, next) => {
       
       console.log(`  Removing etcbc_enhanced qere word additions...`)
 
@@ -431,6 +469,17 @@ connection.connect(function(err) {
         regex: /^([HA](?:[^\/]*\/)*Pd)([sp])/,
         replace: '$1xc$2',
         next,
+      })
+
+    },
+
+    (x, next) => {
+
+      console.log(`  Create accentlessword column...`)
+    
+      utils.createAccentlessWordCol({ connection, table: 'etcbc' }, () => {
+        console.log(`    - done.`)
+        next()
       })
 
     },

@@ -112,60 +112,69 @@ const utils = {
 
   },
 
-  createAccentlessWordCol: (connection, done) => {
+  createAccentlessWordCol: ({ connection, table }, done) => {
 
     utils.addColumn(connection, {
-      table: 'words',
+      table,
       col: 'accentlessword',
       colDef: 'VARCHAR(30)',
       afterCol: 'word',
     }, () => {
 
-      utils.addColumn(connection, {
-        table: 'words',
-        col: 'noguess',
-        colDef: 'TINYINT(1)',
-        afterCol: 'status',
-      }, () => {
+      const selectAllUniqueWords = `SELECT DISTINCT word FROM ${table}_enhanced`
+  
+      connection.query(selectAllUniqueWords, (err, result) => {
+        if(err) throw err
 
-        const selectAllUniqueWords = `SELECT DISTINCT word FROM words_enhanced`
-    
-        connection.query(selectAllUniqueWords, (err, result) => {
-          if(err) throw err
+        let updatesWithAccentlessWord = []
 
-          let updatesWithAccentlessWord = []
-
-          result.forEach(row => {
+        result.forEach(row => {
+          if(row.word) {
             const accentlessWord = utils.makeAccentless(row.word)
-            updatesWithAccentlessWord.push(`UPDATE words_enhanced SET accentlessword="${accentlessWord}" WHERE word="${row.word}"`)
-          })
+            updatesWithAccentlessWord.push(`UPDATE ${table}_enhanced SET accentlessword="${accentlessWord}" WHERE word="${row.word}"`)
+          }
+        })
 
-          utils.doUpdatesInChunks(connection, { updates: updatesWithAccentlessWord }, numRowsUpdated => {
-            
-            utils.createIndexes(connection, {
-              indexes: [
-                {
-                  table: 'words',
-                  col: 'accentlessword',
-                },
-              ],
-            }, () => {
+        utils.doUpdatesInChunks(connection, { updates: updatesWithAccentlessWord }, numRowsUpdated => {
+          
+          utils.createIndexes(connection, {
+            indexes: [
+              {
+                table,
+                col: 'accentlessword',
+              },
+            ],
+          }, () => {
+              
+            done()
 
-              utils.createIndexes(connection, {
-                indexes: [
-                  {
-                    table: 'words',
-                    col: 'noguess',
-                  },
-                ],
-              }, () => {
-                
-                done()
-    
-              })
-            })
           })
         })
+      })
+    })
+
+  },
+
+  createNoGuessCol: (connection, done) => {
+
+    utils.addColumn(connection, {
+      table: 'words',
+      col: 'noguess',
+      colDef: 'TINYINT(1)',
+      afterCol: 'status',
+    }, () => {
+
+      utils.createIndexes(connection, {
+        indexes: [
+          {
+            table: 'words',
+            col: 'noguess',
+          },
+        ],
+      }, () => {
+        
+        done()
+
       })
     })
 
@@ -342,7 +351,7 @@ const utils = {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
     }
-    
+
     if(row.lemma.match(/(^|\/)6440$/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*Nc)m([^\/][^\/])/, '$1b$2')  // etcbc marks פנים as masc
@@ -370,6 +379,7 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
     }
 
+    if(row.accentlessword.match(/הִנֵּה/)) return "unknown" // etcbc marks this HTj
     if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this HNcbsa
     if(row.accentlessword.match(/נֶגְדּ/)) return "unknown" // etcbc marks this HNcmsa
     if(row.accentlessword.match(/בְּעַד/)) return "unknown" // etcbc marks this HNcbsc
