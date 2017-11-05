@@ -106,6 +106,7 @@ module.exports = (connection, done) => {
               constructAbsolutesToGuess.push({
                 autoParseWhere,
                 mainMorph,
+                accentlessword: rowWithoutMorph.accentlessword,
               })
 
               tryNextWord()
@@ -181,10 +182,12 @@ module.exports = (connection, done) => {
           // now do the guesses for words that could be either construct or absolute
           ;(async () => {
 
+            const cannotDetermineStateOfWords = {}
+
             for(let i=0; i<constructAbsolutesToGuess.length; i++) {
               const constructAbsoluteToGuess = constructAbsolutesToGuess[i]
-              const { autoParseWhere, mainMorph } = constructAbsoluteToGuess
-  
+              const { autoParseWhere, mainMorph, accentlessword } = constructAbsoluteToGuess
+
               // each instance needs to be evaluated to be construct or absolute based on context
               
               const stateSelect1 = `SELECT * FROM words_enhanced ${autoParseWhere}`
@@ -273,6 +276,10 @@ module.exports = (connection, done) => {
                     updateWordQueries2.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
                   } else {
                     totalWordsWithUnknownState++
+                    if(!cannotDetermineStateOfWords[accentlessword]) {
+                      cannotDetermineStateOfWords[accentlessword] = 0
+                    }
+                    cannotDetermineStateOfWords[accentlessword]++
                   }
 
                 }
@@ -282,7 +289,7 @@ module.exports = (connection, done) => {
             // run updates
             utils.doUpdatesInChunks(connection, { updates: updateWordQueries2 }, numRowsUpdated => {
               console.log(`  ${numRowsUpdated} words guess-parsed after state was determined.`)
-              console.log(`  ** ${totalWordsWithUnknownState} words can be guess-parsed if I can determine their state`)
+              console.log(`  ** ${totalWordsWithUnknownState} words can be guess-parsed if I can determine their state (${Object.keys(cannotDetermineStateOfWords).length} unique forms)`)
       
               console.log(`Done with guess-parse script.`)
               done()
