@@ -7,34 +7,399 @@ module.exports = (connection, done) => {
   // Updates the words_enhanced table [and eventually will also insert into the notes and wordnote table with memberid=416]
   // according to pre-determined parsing for common forms
 
-  const updates = []
+  utils.runInSeries([
 
-  for(let form in autoParseForms) {
-    updates.push(`
-      UPDATE words_enhanced SET morph='${autoParseForms[form]}', status='single'
-        WHERE 
-          accentlessword='${form}'
-          AND status NOT IN('confirmed', 'verified')
+    (x, next) => {
+
+      const updates = []
+
+      for(let form in autoParseForms) {
+        updates.push(`
+          UPDATE words_enhanced SET morph='${autoParseForms[form]}', status='single'
+            WHERE 
+              accentlessword='${form}'
+              AND status NOT IN('confirmed', 'verified')
+              AND NOT ${utils.whereAramaic}
+        `)
+      }
+
+      for(let form in superAutoParseForms) {
+        updates.push(`
+          UPDATE words_enhanced SET morph='${superAutoParseForms[form]}', status='single'
+            WHERE 
+              accentlessword='${form}'
+              AND NOT ${utils.whereAramaic}
+        `)
+      }
+
+      utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+        console.log(`  ${numRowsUpdated} words were auto-parsed according to pre-determined parsing for common forms.`)
+        next()
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=bdb.id)
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
           AND NOT ${utils.whereAramaic}
-    `)
-  }
+      `
 
-  for(let form in superAutoParseForms) {
-    updates.push(`
-      UPDATE words_enhanced SET morph='${superAutoParseForms[form]}', status='single'
-        WHERE 
-          accentlessword='${form}'
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HNp" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('c/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
           AND NOT ${utils.whereAramaic}
-    `)
-  }
+      `
 
-  utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-    console.log(`  ${numRowsUpdated} words were auto-parsed according to pre-determined parsing for common forms.`)
-    console.log(`Done with auto-parse script.`)
-    done()
-        
-  })
-  
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HC/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('l/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('b/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('m/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('k/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('d/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HTd/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('c/l/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('c/b/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('c/m/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      // parse proper nouns (according to bdb) as such
+
+      const select = `
+        SELECT
+          words_enhanced.id
+        FROM
+          words_enhanced
+          LEFT JOIN bdb ON (words_enhanced.lemma=CONCAT('c/k/', bdb.id))
+        WHERE
+          bdb.pos LIKE "n-pr%"
+          AND words_enhanced.morph IS NULL
+          AND NOT ${utils.whereAramaic}
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          next()
+        })
+            
+      })
+
+    },
+
+    (x, next) => {
+
+      console.log(`Done with auto-parse script.`)
+      done()
+
+    },
+      
+  ])
 }
 
 const autoParseForms = {
