@@ -11,7 +11,14 @@ module.exports = (connection, done) => {
   // Then reruns the compare script to have these new rows brought through to the words_enhanced table
 
   // Only seek to auto parse words without morph data
-  let selectWordsWithoutMorph = `SELECT DISTINCT accentlessword, lemma FROM words_enhanced WHERE morph IS NULL OR noguess IS NOT NULL`
+  let selectWordsWithoutMorph = `
+    SELECT
+      DISTINCT accentlessword, lemma
+      FROM words_enhanced
+      WHERE
+        (morph IS NULL OR noguess IS NOT NULL)
+        AND NOT ${utils.whereAramaic}
+      `
   connection.query(selectWordsWithoutMorph, (err, result) => {
     if(err) throw err
 
@@ -36,6 +43,7 @@ module.exports = (connection, done) => {
                               AND morph IS NOT NULL
                               AND status IN ('single', 'confirmed', 'verified')
                               AND noguess IS NULL
+                              AND NOT ${utils.whereAramaic}
                             GROUP BY morph
                           `
         connection.query(selectWord, (err, result) => {
@@ -45,6 +53,7 @@ module.exports = (connection, done) => {
             accentlessword="${rowWithoutMorph.accentlessword}"
             AND lemma="${rowWithoutMorph.lemma}"
             AND (status IN ('none', 'conflict') OR noguess IS NOT NULL)
+            AND NOT ${utils.whereAramaic}
           `
 
           let totalWithThisForm = 0
@@ -199,6 +208,7 @@ module.exports = (connection, done) => {
                       AND lemma="${rowWithoutMorph.lemma}"
                       AND morph="${outlier.morph}"
                       AND status IN ('single', 'confirmed', 'verified')
+                      AND NOT ${utils.whereAramaic}
                     LIMIT 1
                 `)
                 connection.query(selectWordWithLocInfo.join(';'), (err, results) => {

@@ -15,6 +15,7 @@ module.exports = (connection, done) => {
         WHERE 
           accentlessword='${form}'
           AND status NOT IN('confirmed', 'verified')
+          AND NOT ${utils.whereAramaic}
     `)
   }
 
@@ -23,6 +24,7 @@ module.exports = (connection, done) => {
       UPDATE words_enhanced SET morph='${superAutoParseForms[form]}', status='single'
         WHERE 
           accentlessword='${form}'
+          AND NOT ${utils.whereAramaic}
     `)
   }
 

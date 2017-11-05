@@ -150,9 +150,19 @@ const utils = {
                 },
               ],
             }, () => {
+
+              utils.createIndexes(connection, {
+                indexes: [
+                  {
+                    table: 'words',
+                    col: 'noguess',
+                  },
+                ],
+              }, () => {
                 
-              done()
+                done()
     
+              })
             })
           })
         })
@@ -479,6 +489,26 @@ const utils = {
     }[abbr]
 
   },
+  
+  // ARAMAIC PASSAGES:
+    // Genesis 31:47 – translation of a Hebrew placename, Jegar-Sahadutha Strong's #H3026
+    // Jeremiah 10:11 – a single sentence denouncing idolatry occurs in the middle of a Hebrew text.
+    // Daniel 2:4b–7:28 – five stories about Daniel and his colleagues, and an apocalyptic vision.
+    // Ezra 4:8–6:18 and 7:12–26 – quotations of documents from the 5th century BCE on the restoration of the Temple in Jerusalem.
+  whereAramaic: `
+    (
+      (bookId=1 AND chapter=31 AND verse=47)
+      OR (bookId=13 AND chapter=10 AND verse=11)
+      OR (bookId=35 AND chapter=2 AND verse>=4)
+      OR (bookId=35 AND chapter>2 AND chapter<7)
+      OR (bookId=35 AND chapter=7 AND verse<=28)
+      OR (bookId=36 AND chapter=4 AND verse>=8)
+      OR (bookId=36 AND chapter=5)
+      OR (bookId=36 AND chapter=6 AND verse<=18)
+      OR (bookId=36 AND chapter=7 AND verse>=12)
+      OR (bookId=36 AND chapter=7 AND verse<=26)
+    )
+  `
 
 }
   
