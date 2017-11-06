@@ -348,7 +348,9 @@ const utils = {
     let etcbcMorph = row.etcbcMorph
 
     if(morph == etcbcMorph) return "match"
-    
+
+    // etcbcMorph = etcbcMorph.replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // TESTING ONLY - make all nouns both
+          
     if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct

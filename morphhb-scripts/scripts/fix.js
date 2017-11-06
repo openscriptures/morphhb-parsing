@@ -552,6 +552,21 @@ module.exports = (connection, done) => {
 
     },
 
+    // (x, next) => {
+
+    //   console.log(`  TESTING ONLY - make all nouns both...`)
+    
+    //   utils.runReplaceOnMorph({
+    //     connection,
+    //     table: 'notes',
+    //     regex: /^(H(?:[^\/]*\/)*N[^\/])[mf]/,
+    //     replace: '$1b',
+    //     doVerified: true,
+    //     next,
+    //   })
+
+    // },
+
     () => {
       console.log(`Done with fix script.`)
       done()
