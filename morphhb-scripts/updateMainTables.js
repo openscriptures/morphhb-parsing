@@ -136,7 +136,27 @@ connection.connect(function(err) {
                       },
                       {
                         table: 'words',
+                        col: 'bookId',
+                      },
+                      {
+                        table: 'words',
+                        col: 'chapter',
+                      },
+                      {
+                        table: 'words',
+                        col: 'verse',
+                      },
+                      {
+                        table: 'words',
+                        col: 'number',
+                      },
+                      {
+                        table: 'words',
                         col: 'lemma',
+                      },
+                      {
+                        table: 'words',
+                        col: 'wordtype',
                       },
                       {
                         table: 'words',
