@@ -518,6 +518,7 @@ const superAutoParseForms = {
   "וּ/בַ/לַּיְלָה": "HC/Rd/Ncmsa",
   "לָ/כֶם": "HR/Sp2mp",
   "וַ/יֹּאמֶר": "HC/Vqw3ms",
+  "לַ/מְנַצֵּחַ": "HRd/Vprmsa",
 
   "לָ/מֶה": "HTi",
   "לָ/כֵן": "HR/D",
