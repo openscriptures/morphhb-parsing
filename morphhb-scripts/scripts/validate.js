@@ -23,6 +23,25 @@ const suffixParsingMap = {
   "ן": "/Sn",
 }
 
+const autoValidateMap = {
+  "אֶחָד": "HAcmsa",
+  "אֵין": "HTn",
+  "וְ/הִנֵּה": "HC/Tm",
+  "וְ/אֵין": "HC/Tn",
+  "סָבִיב": "HD",
+  "לָ/כֵן": "HR/D",
+  "הַ/לְוִיִּם": "HTd/Ngmpa",
+  
+  // 167	אַנְשֵׁי	HNcbpc	HNcmpc
+  // 159	הָ/אִישׁ	HTd/Ncbsa	HTd/Ncmsa
+  // 117	הָ/אֲנָשִׁים	HTd/Ncbpa	HTd/Ncmpa
+  // 108	אֲנָשִׁים	HNcbpa	HNcmpa
+  
+  "שָׁמָּ/ה": "HD/Sd",
+  "לָ/מָּה": "HR/Ti",
+  "פְּלִשְׁתִּים": "HNgmpa",
+}
+
 // change status of words_enhanced rows based upon etcbc
 
 module.exports = (connection, done) => {
@@ -59,10 +78,14 @@ module.exports = (connection, done) => {
 
           let newStatus = row.status
 
-          if(row.morph == row.etcbcMorph || (
-            row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == row.etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
-            && row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[utils.makeAccentless(row.word.replace(/^.*\/([^\/]+)$/, '$1'))]
-          )) {
+          if(
+            row.morph == row.etcbcMorph
+            || (
+              row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == row.etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
+              && row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[utils.makeAccentless(row.word.replace(/^.*\/([^\/]+)$/, '$1'))]
+            )
+            || autoValidateMap[row.accentlessword] == row.morph
+          ) {
             newStatus = "verified"
           } else if(compareResult == "match") {
             newStatus = row.status == "verified" ? "verified" : "confirmed"
