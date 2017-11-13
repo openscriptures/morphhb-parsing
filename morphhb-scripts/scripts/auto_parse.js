@@ -502,6 +502,7 @@ const autoParseForms = {
   "וְ/עַד": "HC/R",
   "לְ/כָל": "HR/Ncmsc",
   "יַעַן": "HC",
+  "בְנ/וֹ": "HNcmsc/Sp3ms",
 
   "לְ/פָנֵי/נוּ": "HR/Ncmpc/Sp1cp",
   "מִ/לְּ/פָנֵ/נוּ": "HR/R/Ncmpc/Sp1cp",
