@@ -568,7 +568,7 @@ module.exports = (connection, done) => {
         "8593",
         "216",
         "226",
-        "376",
+        // "376",  איש - should not be both!
         "727",
         "776",
         "784",
