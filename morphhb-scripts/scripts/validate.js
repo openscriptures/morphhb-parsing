@@ -60,7 +60,7 @@ module.exports = (connection, done) => {
           let newStatus = row.status
 
           if(row.morph == row.etcbcMorph || (
-            row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == row.etcbcMorph
+            row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == row.etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
             && row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[utils.makeAccentless(row.word.replace(/^.*\/([^\/]+)$/, '$1'))]
           )) {
             newStatus = "verified"
