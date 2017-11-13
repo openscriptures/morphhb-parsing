@@ -1,4 +1,4 @@
-const MINIMUM_PERCENTAGE_OF_UNIFORMITY_FOR_GUESS = 70
+const MINIMUM_PERCENTAGE_OF_UNIFORMITY_FOR_GUESS = 50  // this does more good than bad at 50, do keeping it
 
 const utils = require('../utils')
 
