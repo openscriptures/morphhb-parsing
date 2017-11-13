@@ -1,8 +1,6 @@
 Definite 'both' gender nouns
   גַּיְא  - H1516
-  גָּמָל  - H1581
   גַּן  - H1588
-  דֹּב  - H1677
   חַלּוֹן  - H2474
   עֲבֹת  - H5688
   שַׁבָּת  - H7676
@@ -10,7 +8,6 @@ Definite 'both' gender nouns
   תַּעַר  - H8593
   אוֹר  - H216
   אוֹת  - H226
-  אִישׁ  - H376
   אָרוֹן  - H727
   אֶרֶץ  - H776
   אֵשׁ  - H784
@@ -26,13 +23,17 @@ Definite 'both' gender nouns
   צֹאן  - H6629
   צִפּוֹר  - H6833
   רוּחַ  - H7307
-  שְׁאוֹל  - H7585
   שֶׂה  - H7716
   חָצֵר  - H2691a
   סִיר  - H5518a
 
 
 Should they be marked 'both' gender?  
+
+  'both' in all three
+    גָּמָל  - H1581
+    אִישׁ  - H376
+    דֹּב  - H1677
 
   'both' in bdb and and at least once in uhb
     גַב  - H1354

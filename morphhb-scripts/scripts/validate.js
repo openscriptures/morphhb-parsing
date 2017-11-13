@@ -31,12 +31,6 @@ const autoValidateMap = {
   "סָבִיב": "HD",
   "לָ/כֵן": "HR/D",
   "הַ/לְוִיִּם": "HTd/Ngmpa",
-  
-  // 167	אַנְשֵׁי	HNcbpc	HNcmpc
-  // 159	הָ/אִישׁ	HTd/Ncbsa	HTd/Ncmsa
-  // 117	הָ/אֲנָשִׁים	HTd/Ncbpa	HTd/Ncmpa
-  // 108	אֲנָשִׁים	HNcbpa	HNcmpa
-  
   "שָׁמָּ/ה": "HD/Sd",
   "לָ/מָּה": "HR/Ti",
   "פְּלִשְׁתִּים": "HNgmpa",
