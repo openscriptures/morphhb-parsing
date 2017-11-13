@@ -68,7 +68,7 @@ module.exports = (connection, done) => {
 
           const compareResult = utils.compareWithETCBC({ row, skipAddl: true })
 
-          if(compareResult == "unknown") return
+          if(compareResult == "unknown" && autoValidateMap[row.accentlessword] != row.morph) return
 
           let newStatus = row.status
 
