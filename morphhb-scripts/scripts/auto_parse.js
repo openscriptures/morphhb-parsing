@@ -492,8 +492,6 @@ const autoParseForms = {
   "לוֹא": "HTn",
   "אֵי": "HTi",
   "מָחָר": "HNcmsa",
-  
-  // Auto parse of most common forms that are not getting guess-parsed
   "כָּל": "HNcmsc",
   "וְ/כָל": "HC/Ncmsc",
   "וַ/יֹּאמֶר": "HC/Vqw3mp",
@@ -503,7 +501,8 @@ const autoParseForms = {
   "לְ/כָל": "HR/Ncmsc",
   "יַעַן": "HC",
   "בְנ/וֹ": "HNcmsc/Sp3ms",
-
+  "בְּ/עֵינֵי": "HR/Ncfdc",
+  
   "לְ/פָנֵי/נוּ": "HR/Ncmpc/Sp1cp",
   "מִ/לְּ/פָנֵ/נוּ": "HR/R/Ncmpc/Sp1cp",
   "מִ/פָּנֵי/נוּ": "HR/Ncmpc/Sp1cp",
