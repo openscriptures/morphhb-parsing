@@ -349,8 +349,6 @@ const utils = {
 
     if(morph == etcbcMorph) return "match"
 
-    // etcbcMorph = etcbcMorph.replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // TESTING ONLY - make all nouns both
-          
     if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
@@ -380,7 +378,7 @@ const utils = {
 
     if(etcbcMorph.match(/^(H(?:[^\/]*\/)*N[^\/])b/)) {
       morph = morph
-        .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since we might specify gender per context)
+        .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since these have been pre-decided)
     }
 
     if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this HNcbsa

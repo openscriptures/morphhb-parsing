@@ -552,20 +552,95 @@ module.exports = (connection, done) => {
 
     },
 
-    // (x, next) => {
+    (x, next) => {
 
-    //   console.log(`  TESTING ONLY - make all nouns both...`)
-    
-    //   utils.runReplaceOnMorph({
-    //     connection,
-    //     table: 'notes',
-    //     regex: /^(H(?:[^\/]*\/)*N[^\/])[mf]/,
-    //     replace: '$1b',
-    //     doVerified: true,
-    //     next,
-    //   })
+      console.log(`  Make all both gender nouns to be parsed as both in every instance...`)
 
-    // },
+      const bothGenderLemmas = [
+        "1516",
+        "1581",
+        "1588",
+        "1677",
+        "2474",
+        "5688",
+        "7676",
+        "8121",
+        "8593",
+        "216",
+        "226",
+        "376",
+        "727",
+        "776",
+        "784",
+        "1612",
+        "1870",
+        "2206",
+        "3027",
+        "3956",
+        "4043",
+        "4264",
+        "5645",
+        "6256",
+        "6629",
+        "6833",
+        "7307",
+        "7585",
+        "7716",
+        "2691 a",
+        "5518 a",
+      ]
+
+      // get all nouns with a gender, with their lemma
+      const select = `
+        SELECT 
+          notes_enhanced.id,
+          notes_enhanced.morph,
+          words_enhanced.lemma
+        FROM notes_enhanced
+          LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
+          LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+        WHERE 
+          notes_enhanced.morph REGEXP '^H([^\/]*\/)*N[^\/][mfb]'
+      `
+  
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        // see which nouns need updating
+        const updates = []
+        const lemmasMadeBoth = {}
+        const lemmasWithMorphThrownOut = {}
+
+        result.forEach(row => {
+          const nakedLemma = row.lemma.split('/').pop()
+          const shouldBeParsedBoth = bothGenderLemmas.includes(nakedLemma)
+          const isParsedBoth = !!row.morph.match(/^H([^\/]*\/)*N[^\/]b/)
+
+          if(shouldBeParsedBoth && !isParsedBoth) {
+            updates.push(`UPDATE notes_enhanced SET morph="${row.morph.replace(/^(H(?:[^\/]*\/)*N[^\/])[mf](.*)$/, '$1b$2')}" WHERE id="${row.id}"`)
+            lemmasMadeBoth[nakedLemma] = true
+            
+          } else if(!shouldBeParsedBoth && isParsedBoth) {
+            // invalidate it so it gets thrown out
+            updates.push(`UPDATE notes_enhanced SET morph="-" WHERE id="${row.id}"`)
+            lemmasWithMorphThrownOut[nakedLemma] = true
+            
+          }
+        })
+  
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+          console.log(`    ${Object.keys(lemmasMadeBoth).length} lemmas conformed to gender both.`)
+          console.log(`    ${Object.keys(lemmasWithMorphThrownOut).length} lemmas where the morph was thrown out because it was incorrectly marked gender both.`)
+          Object.keys(lemmasWithMorphThrownOut).forEach(nakedLemma => {
+            console.log(`      ${nakedLemma}`)
+          })
+          console.log(`    - ${numRowsUpdated} words updated.`)
+          next()
+        })
+      })
+
+    },
 
     () => {
       console.log(`Done with fix script.`)
