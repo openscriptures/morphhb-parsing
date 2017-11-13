@@ -1,5 +1,28 @@
 const utils = require('../utils')
 
+const suffixParsingMap = {
+  "י": "/Sp1cs",
+  "נִי": "/Sp1cs",
+  "נוּ": "/Sp1cp",
+  "ךָ": "/Sp2ms",
+  "כָּה": "/Sp2ms",
+  "ךְ": "/Sp2fs",
+  "כֶם": "/Sp2mp",
+  "כֶן": "/Sp2fp",
+  "וֹ": "/Sp3ms",
+  "ו": "/Sp3ms",
+  "הוּ": "/Sp3ms",
+  "הּ": "/Sp3fs",
+  "הָ": "/Sp3fs",
+  "הָ": "/Sp3fs",
+  "נָּה": "/Sp3fs",
+  "ם": "/Sp3mp",
+  "הֶם": "/Sp3mp",
+  "הֶן": "/Sp3fp",
+  "ה": "/Sh",
+  "ן": "/Sn",
+}
+
 // change status of words_enhanced rows based upon etcbc
 
 module.exports = (connection, done) => {
@@ -36,7 +59,10 @@ module.exports = (connection, done) => {
 
           let newStatus = row.status
 
-          if(row.morph == row.etcbcMorph) {
+          if(row.morph == row.etcbcMorph || (
+            row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == row.etcbcMorph
+            && row.morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[utils.makeAccentless(row.word.replace(/^.*\/([^\/]+)$/, '$1'))]
+          )) {
             newStatus = "verified"
           } else if(compareResult == "match") {
             newStatus = row.status == "verified" ? "verified" : "confirmed"
