@@ -412,6 +412,11 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when etcbc marks it both (since these have been pre-decided)
     }
 
+    if(morph.match(/^(H(?:[^\/]*\/)*N[^\/])b/)) {
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when we mark it both (since these have been pre-decided)
+    }
+
     if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this HNcbsa
     if(row.accentlessword.match(/נֶגְדּ/)) return "unknown" // etcbc marks this HNcmsa
     if(row.accentlessword.match(/בְּעַד/)) return "unknown" // etcbc marks this HNcbsc
