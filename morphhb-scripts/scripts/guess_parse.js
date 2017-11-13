@@ -211,16 +211,18 @@ module.exports = (connection, done) => {
                   // construct if
                     // with dash
                     // ends with 2dots-yud
-                  uniqueWordsCount2++
+                    uniqueWordsCount2++
                   updateWordQueries2.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
                 } else if(
                   stateRow1.accentlessword.match(/ִים$/)
                   || stateRow1.accentlessword.match(/ָה$/)
                   || stateRow1.accentlessword.match(/^הַ\//)
+                  || stateRow1.word.match(/[֑|֔֗|]/)
                 ) {
                   // absolute if
                     // ends in yud-mem OR patach-hey
                     // has definite article
+                    // has disjunctive accent
                   uniqueWordsCount2++
                   updateWordQueries2.push(`UPDATE words_enhanced SET morph='${absoluteMorph}', status='single' WHERE id=${stateRow1.id}`)
                 } else {
@@ -268,18 +270,25 @@ module.exports = (connection, done) => {
                   } else if(
                     (nextWord && nextWord.morph && nextWord.morph.match(/^H(?:[^\/]*\/)*Np/))
                     || (nextWord && nextWord.morph && nextWord.morph.match(/^HTd/))
+                    || (nextWord && nextWord.morph && nextWord.morph.match(/^H(?:[^\/]*\/)*N/) && stateRow1.word.match(/ֽ|֣|֥/))
                   ) {
                     // construct if
                       // proper name follows
                       // noun with definite article follows
+                      // following word is noun and has this word has a conjunctive accent
                     uniqueWordsCount2++
                     updateWordQueries2.push(`UPDATE words_enhanced SET morph='${constructMorph}', status='single' WHERE id=${stateRow1.id}`)
                   } else {
-                    totalWordsWithUnknownState++
-                    if(!cannotDetermineStateOfWords[accentlessword]) {
-                      cannotDetermineStateOfWords[accentlessword] = 0
-                    }
-                    cannotDetermineStateOfWords[accentlessword]++
+
+                    // we don't really know if it should be absolute or construct, but guess at it nonetheless
+                    uniqueWordsCount2++
+                    updateWordQueries2.push(`UPDATE words_enhanced SET morph='${mainMorph}', status='single' WHERE id=${stateRow1.id}`)
+                    
+                    // totalWordsWithUnknownState++
+                    // if(!cannotDetermineStateOfWords[accentlessword]) {
+                    //   cannotDetermineStateOfWords[accentlessword] = 0
+                    // }
+                    // cannotDetermineStateOfWords[accentlessword]++
                   }
 
                 }
