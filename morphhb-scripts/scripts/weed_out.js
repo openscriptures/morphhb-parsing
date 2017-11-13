@@ -12,7 +12,7 @@ module.exports = (connection, done) => {
       console.log(`  Number of morph parts must match the number of word parts...`)
 
       const select = `
-        SELECT tbl.id FROM (
+        SELECT tbl.id, tbl.morph, tbl.word FROM (
           SELECT 
             notes_enhanced.id,
             notes_enhanced.morph,    
@@ -25,7 +25,7 @@ module.exports = (connection, done) => {
         ) as tbl WHERE tbl.morphSeparators != tbl.wordSeparators      
       `
 
-      utils.deleteNotesAndWordnoteRows({ connection, select }, next)
+      utils.deleteNotesAndWordnoteRows({ connection, select, report: true }, next)
 
     },
 

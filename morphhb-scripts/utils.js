@@ -321,7 +321,9 @@ const utils = {
 
   },
 
-  deleteNotesAndWordnoteRows: ({ connection, select }, done) => {
+  deleteNotesAndWordnoteRows: ({ connection, select, report }, done) => {
+
+    const outputInfo = {}
 
     connection.query(select, (err, result) => {
       if(err) throw err
@@ -331,7 +333,36 @@ const utils = {
       result.forEach(row => {
         updates.push(`DELETE FROM notes_enhanced WHERE id=${row.id}`)
         updates.push(`DELETE FROM wordnote_enhanced WHERE noteId=${row.id}`)
+
+        if(report) {
+          const accentlessWord = utils.makeAccentless(row.word)
+          if(!outputInfo[accentlessWord]) {
+            outputInfo[accentlessWord] = {
+              accentlessWord,
+              hits: 0,
+              parsings: {},
+            }
+          }
+          if(!outputInfo[accentlessWord].parsings[row.morph]) {
+            outputInfo[accentlessWord].parsings[row.morph] = 0
+          }
+          outputInfo[accentlessWord].hits++
+          outputInfo[accentlessWord].parsings[row.morph]++
+        }
       })
+
+      if(report) {
+        const outputList = Object.values(outputInfo)
+        outputList.sort((a,b) => a.hits > b.hits ? 1 : -1)
+        outputList.forEach(outputItem => {
+          if(outputItem.hits < 5) return
+          let parsingInfo = ""
+          for(let parsing in outputItem.parsings) {
+            parsingInfo += `${parsing} (${outputItem.parsings[parsing]}) `
+          }
+          console.log(`    ${outputItem.accentlessWord} ${parsingInfo}`)
+        })
+      }
 
       utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
         if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got deleted. Just ${numRowsUpdated}/${updates.length}.`)
