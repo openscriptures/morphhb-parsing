@@ -588,9 +588,17 @@ module.exports = (connection, done) => {
         "7716",
         "2691 a",
         "5518 a",
+
+        // below have been added per Joel's instruction
+        "1354",
+        "8415",
+        "5869 a",
+        "590",
+        "5999",
+
         // if פנים is both, change all the entries in auto_parse
       ]
-
+      
       // get all nouns with a gender, with their lemma
       const select = `
         SELECT 
