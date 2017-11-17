@@ -522,6 +522,21 @@ const superAutoParseForms = {
   "בְּנִ/י": "HNcmsc/Sp1cs",
   "לְ/ךָ": "HR/Sp2ms",
 
+  // מַעְלָ/ה is always D/Sd (per Joel via Slack)
+  "מַעְלָ/ה": "HD/Sd",
+  "וָ/מַעְלָ/ה": "HC/D/Sd",
+  "וּ/לְ/מַעְלָ/ה": "HC/R/D/Sd",
+  "וּ/מִ/לְ/מַעְלָ/ה": "HC/R/R/D/Sd",
+  "לְ/מַעְלָ/ה": "HR/D/Sd",
+  "מִ/לְ/מַעְלָ/ה": "HR/R/D/Sd",
+
+  // טֶרֶם  is always an adverb (per Joel via Slack)
+  "טֶרֶם": "HD",
+  "בְּ/טֶרֶם": "HR/D",
+  "הֲ/טֶרֶם": "HTd/D",
+  "וְ/טֶרֶם": "HC/D",
+  "וּ/בְ/טֶרֶם": "HC/R/D",
+
   "לָ/מֶה": "HTi",
   "לָ/כֵן": "HR/D",
   "מַדּוּעַ": "HTi",
