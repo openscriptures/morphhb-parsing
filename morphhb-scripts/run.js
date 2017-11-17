@@ -10,7 +10,6 @@ const guessParse = require('./scripts/guess_parse')
 const autoParse = require('./scripts/auto_parse')
 const check = require('./scripts/check')
 const validate = require('./scripts/validate')
-const verifiedReport = require('./scripts/verified_report')
 const utils = require('./utils')
 
 const connection = mysql.createConnection({
@@ -109,7 +108,6 @@ connection.connect(function(err) {
               guessParse,
               validate,
               flag,
-              verifiedReport,
               () => {
 
                 const statuses = [ 'none', 'conflict', 'single', 'confirmed', 'verified', 'error' ]
