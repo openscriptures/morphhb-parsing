@@ -192,7 +192,7 @@ const utils = {
       .replace(/[שׁשׂ]/g, 'ש')  // make shin/sin ambiguous
   ),
 
-  runReplaceOnMorph: ({ connection, table, regex, replace, doVerified=false, col='morph', quiet=false, next }) => {
+  runReplaceOnMorph: ({ connection, table, regex, replace, doVerified=false, extraCondition=false, col='morph', quiet=false, next }) => {
 
     let select = `SELECT * FROM ${table}_enhanced WHERE ${col} REGEXP '${regex.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'`
 
@@ -202,6 +202,10 @@ const utils = {
       } else if(table == 'words') {
         select += ` AND status!='verified'`
       }
+    }
+
+    if(extraCondition) {
+      select += ` AND (${extraCondition})`
     }
 
     const updatesByMorph = {}

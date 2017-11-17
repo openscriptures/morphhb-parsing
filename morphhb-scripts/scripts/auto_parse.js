@@ -394,6 +394,42 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
+      console.log(`  טוֹב parsed HNcmsa should be HAamsa (2896 a)...`)
+
+      const lemma = '2896 .'
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'words',
+        regex: /^(H(?:[^\/]*\/)*)Nc(msa)/,
+        replace: '$1Aa$2',
+        doVerified: true,
+        extraCondition: `lemma REGEXP '^[^0-9]*${lemma}$'`,
+        next,
+      })
+
+    },
+    
+    (x, next) => {
+
+      console.log(`  מים is plural, not dual (4325)...`)
+      
+      const lemma = '4325'
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'words',
+        regex: /^(H(?:[^\/]*\/)*Ncm)d/,
+        replace: '$1p',
+        doVerified: true,
+        extraCondition: `lemma REGEXP '^[^0-9]*${lemma}$'`,
+        next,
+      })
+
+    },
+    
+    (x, next) => {
+
       console.log(`Done with auto-parse script.`)
       done()
 
