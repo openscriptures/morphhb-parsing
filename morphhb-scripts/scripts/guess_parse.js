@@ -84,9 +84,9 @@ module.exports = (connection, done) => {
           const noSimpleAutoParse = mainMorph && outliers.length > 0 && outliers.some(outlier => {
             return [
               [/^(HC\/V[^\/])[pq]([^\/][^\/][^\/])/, '$1-$2'],
-              [/^(H(?:[^\/]*\/)*V[^\/])[ij]([23][^\/][^\/])/, '$1-$2'],
-              [/^(H(?:[^\ /]*\/)*(?:N[^\/]|A[^\/]))[fm]/, '$1b'],
-              [/^(H(?:[^\ /]*\/)*V[^\/][iw])(?:3fs|2ms)/, '$1-'],
+              // [/^(H(?:[^\/]*\/)*V[^\/])[ij]([23][^\/][^\/])/, '$1-$2'],
+              // [/^(H(?:[^\ /]*\/)*(?:N[^\/]|A[^\/]))[fm]/, '$1b'],
+              // [/^(H(?:[^\ /]*\/)*V[^\/][iw])(?:3fs|2ms)/, '$1-'],
             ].some(replaceCheck => (
               mainMorph.replace(replaceCheck[0], replaceCheck[1]) == outlier.morph.replace(replaceCheck[0], replaceCheck[1])
             ))
