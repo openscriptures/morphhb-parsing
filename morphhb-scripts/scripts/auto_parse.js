@@ -557,6 +557,8 @@ const superAutoParseForms = {
   "לַ/מְנַצֵּחַ": "HRd/Vprmsa",
   "בְּנִ/י": "HNcmsc/Sp1cs",
   "לְ/ךָ": "HR/Sp2ms",
+  "יִשְׁמְעֵאלִים": "HNgmpa",
+  "וְ/יִשְׁמְעֵאלִים": "HC/Ngmpa",
 
   // מַעְלָ/ה is always D/Sd (per Joel via Slack)
   "מַעְלָ/ה": "HD/Sd",
