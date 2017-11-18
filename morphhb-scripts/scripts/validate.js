@@ -195,6 +195,14 @@ const autoValidateMap = {
   "שְׁמֹנִים": "HAcbpa",
   "וּ/בֵינֵי/כֶם": "HC/R/Sp2mp",
   "לְ/נֶגְדִּ/י": "HR/R/Sp1cs",
+  "מְאֹד": "HD",
+  "עֶשְׂרֵה": "HAcfsa",
+  "שֶׁבַע": "HAcfsa",
+  "שְׁלֹשָׁה": "HAcmsa",
+  "עֲשָׂרָה": "HAcmsa",
+  "מִגְרָשֶׁ/הָ": "HNcmpc/Sd",
+  "שָׁלֹשׁ": "HAcfsa",
+  "לא": "HTn",
   
   // etcbc has these as both. if we decide not to parse them as both, add them here
   // "הַ/בָּקָר": "HTd/Ncmsa",
