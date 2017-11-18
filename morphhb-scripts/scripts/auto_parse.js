@@ -525,6 +525,7 @@ const autoParseForms = {
   "הָ/רִאשׁוֹן": "HTd/Aomsa",
   "וַ/אֲשֶׁר": "HC/Tr",
   "לָא": "HTn",
+  "לא": "HTn",
   "לוֹא": "HTn",
   "אֵי": "HTi",
   "מָחָר": "HNcmsa",
@@ -538,6 +539,18 @@ const autoParseForms = {
   "יַעַן": "HC",
   "בְנ/וֹ": "HNcmsc/Sp3ms",
   "בְּ/עֵינֵי": "HR/Ncfdc",
+  "שָׁלֹשׁ": "HAcfsa",
+  "שֶׁבַע": "HAcfsa",
+  "שְׁלֹשָׁה": "HAcmsa",
+  "עֶשְׂרֵה": "HAcfsa",
+  "אֱלֹהֵי/כֶם": "HNcmpc/Sp2mp",
+  "שִׁבְעָה": "HAcmsa",
+  "שְׁמֶ/ךָ": "HNcmsc/Sp2ms",
+  "עֲשָׂרָה": "HAcmsa",
+  "חֲמִשָּׁה": "HAcmsa",
+  "מְאֹד": "HD",
+  "יֶשׁ": "HTa",
+  "מֵ/אַחֲרָי/ו": "HR/Ncmpc/Sp3ms",
   
   "לְ/פָנֵי/נוּ": "HR/Ncmpc/Sp1cp",
   "מִ/לְּ/פָנֵ/נוּ": "HR/R/Ncmpc/Sp1cp",
@@ -545,6 +558,9 @@ const autoParseForms = {
   "פָּנֵי/נוּ": "HNcmpc/Sp1cp",
   "פָּנַיִ/ךְ": "HNcmpc/Sp2fs",
   "פָנֵי/מוֹ": "HNcmpc/Sp3ms",
+
+  "אָמֵן": "HD",
+  
 }
 
 const superAutoParseForms = {
@@ -578,7 +594,6 @@ const superAutoParseForms = {
   "לָ/מֶה": "HTi",
   "לָ/כֵן": "HR/D",
   "מַדּוּעַ": "HTi",
-  "אָמֵן": "HD",
   "שְׁאוֹל": "HNp",
   "אַשְׁרֵי": "HNcmpa",
   "שִׁלְשׁוֹם": "HNcmsa",
@@ -652,7 +667,7 @@ const superAutoParseForms = {
   "פְּנֵי/כֶם": "HNcmpc/Sp2mp",
   "פָּנִים": "HNcmpa",
   "פָּנֶי/הָ": "HNcmpc/Sp3fs",
-  "פָּנֶי/ךָ": "HNcmpc/Sp3ms",
+  "פָּנֶי/ךָ": "HNcmpc/Sp2ms",
   "פָּנַ/י": "HNcmpc/Sp1cs",
   "פָּנָ/י": "HNcmpc/Sp1cs",
   "פָּנָ/יַ": "HNcmpc/Sp1cs",
