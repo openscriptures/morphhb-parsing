@@ -395,10 +395,10 @@ const utils = {
     ) return "match" 
     
     
-    // if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
-    //   etcbcMorph = etcbcMorph
-    //     .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
-    // }
+    if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
+    }
 
     if(row.lemma.match(/(^|\/)6440$/)) {
       etcbcMorph = etcbcMorph
@@ -417,7 +417,7 @@ const utils = {
     morph = morph
       .replace(/^(A(?:[^\/]*\/)*)Td/, '$1')  // definite article for Aramaic not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*)Ao/, '$1Aa')  // ordinal numbers not indicated in etcbc
-      // .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
+      .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*)Ng([^\/][^\/][^\/])/, '$1Aa$2')  // gentilic nouns not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*V[^\/])q/, '$1p')  // etcbc doesn't use WeQatal verb stem
 
@@ -432,23 +432,7 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*N[^\/])[mf]/, '$1b')  // ignore gender when we mark it both (since these have been pre-decided)
     }
 
-    if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this HNcbsa
-    if(row.accentlessword.match(/נֶגְדּ/)) return "unknown" // etcbc marks this HNcmsa
-    if(row.accentlessword.match(/בְּעַד/)) return "unknown" // etcbc marks this HNcbsc
-    if(row.accentlessword.match(/נֶגֶד/)) return "unknown" // etcbc marks this HNcmsc
-    if(row.accentlessword.match(/(אַחֲרֵי|אַחֲרֶי)/)) return "unknown" // etcbc marks this HNcmpc/a
-    if(row.accentlessword.match(/תַּחַת/)) return "unknown" // etcbc marks this HNcmsc
-    if(row.accentlessword.match(/מְאֹד/)) return "unknown" // etcbc marks this HNcmsa
-    if(row.accentlessword.match(/מַיִם/)) return "unknown" // etcbc marks this HNcmpa (i.e. not dual)
-    if(row.accentlessword.match(/(בֵּין|וּ\/בֵ)/)) return "unknown" // etcbc marks this HNcmsc
-    if(row.accentlessword.match(/סָבִיב/)) return "unknown" // etcbc marks this HNcbsa
-    if(row.accentlessword.match(/עוֹד/)) return "unknown" // etcbc marks this HNcmsa
-    if(row.accentlessword.match(/אֲדֹנָ\/י/)) return "unknown" // etcbc marks this HNp
-    if(row.accentlessword.match(/(הִנֵּה|הִנֵּה)/)) return "unknown" // etcbc marks this HTj
-    if(row.accentlessword.match(/(לָ\/מָה|לָ\/מָּה)/)) return "unknown" // etcbc marks this as single unit
-    if(row.accentlessword.match(/(אַיִן|אֵין)/)) return "unknown" // etcbc marks this as a noun
-
-// down to 17x
+    if(row.accentlessword.match(/(הִנֵּה|וְ\/הִנֵּה)/)) return "unknown" // etcbc marks this HTj
 
     if(skipAddl) {
       if(row.accentlessword.match(/כֵּן/)) return "unknown"
