@@ -55,6 +55,7 @@ const autoParseMap = {
   "אַל": "HTn",
   "בַּל": "HTn",
   "בִּלְתִּי": "HC",
+  "לְ/בִלְתִּי": "HR/C",
   "פֹּה": "HD",
   "כֹּה": "HD",
   "אַי": "HD",
@@ -98,6 +99,8 @@ const autoParseMap = {
   "חֲמִשָּׁה": "HAcmsa",
   "יֶשׁ": "HTa",
   "אָמֵן": "HD",
+  "כְּתוּבִים": "HVqsmpa",
+  "שָׁפָן": "HNcmsa",
 }
 
 // Mapping for auto-parsing, even verified forms.
@@ -357,6 +360,7 @@ const autoParseAndValidateMap = {
   "הַ/מִּדְבָּרָ/ה": "HTd/Ncmsa/Sd",
   "וְ/הַ/כְּנַעֲנִי": "HC/Td/Ngmsa",
   "שְׁנָיִם": "HAcmda",
+  "וּ/שְׁנָיִם": "HC/Acmda",
   "כְּ/אַחַד": "HR/Acmsc",
   "וּ/שְׁלֹשׁ": "HC/Acfsc",
   "בִּי": "HTe",
@@ -416,6 +420,8 @@ const autoParseAndValidateMap = {
   "שְׁאוֹל": "HNp",
   "אַשְׁרֵי": "HNcmpa",
   "שִׁלְשׁוֹם": "HNcmsa",
+  "הַ/יְּהוּדִים": "HTd/Ngmpa",
+  "נַפְשָׁ/ם": "HNcfsc/Sp3mp",
   
   // etcbc has these as both. if we decide not to parse them as both, add them here
   // "הַ/בָּקָר": "HTd/Ncmsa",
@@ -438,6 +444,7 @@ const autoParseAndValidateMap = {
   // "יַחַד": "HD",
   // "אָכֵן": "HD",
   // "סְבִיבוֹת": "HD",
+  // "מִ/סָּבִיב": "HR/D",
   // "תָמִיד": "HD",
   // "אֲבָל": "HD",
   // "אֵצֶל": "HR",

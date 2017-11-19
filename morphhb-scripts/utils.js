@@ -434,6 +434,7 @@ const utils = {
 
     if(row.accentlessword.match(/(הִנֵּה|וְ\/הִנֵּה)/)) return "unknown" // etcbc marks this HTj
     if(row.accentlessword.match(/יֶשׁ/)) return "unknown" // etcbc marks this differently than us
+    if(row.accentlessword.match(/יֵשׁ/)) return "unknown" // etcbc marks this differently than us
 
     if(skipAddl) {
       if(row.accentlessword.match(/כֵּן/)) return "unknown"
