@@ -51,8 +51,7 @@ module.exports = (connection, done) => {
 
           const compareResult = utils.compareWithETCBC({ row })
 
-          if(compareResult == "unknown") return
-          if(compareResult == "match") return
+          if(compareResult != "no match") return
 
           updates.push(`UPDATE notes_enhanced SET etcbcnomatch=1 WHERE id=${row.id}`)
 

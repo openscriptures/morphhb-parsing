@@ -1,3 +1,5 @@
+const { suffixParsingMap, autoParseAndValidateMap } = require('./mappings')
+
 const utils = {
 
   runInSeries: (funcs, connection) => {
@@ -383,11 +385,20 @@ const utils = {
     let etcbcMorph = row.etcbcMorph
 
     if(morph == etcbcMorph) return "match"
+    
+    if(autoParseAndValidateMap[row.accentlessword] == morph) return "match"
+    if(autoParseAndValidateMap[row.accentlessword] != null) return "no match"
 
-    if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
-      etcbcMorph = etcbcMorph
-        .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
-    }
+    if(
+      morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
+      && morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
+    ) return "match" 
+    
+    
+    // if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
+    //   etcbcMorph = etcbcMorph
+    //     .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
+    // }
 
     if(row.lemma.match(/(^|\/)6440$/)) {
       etcbcMorph = etcbcMorph
@@ -406,7 +417,7 @@ const utils = {
     morph = morph
       .replace(/^(A(?:[^\/]*\/)*)Td/, '$1')  // definite article for Aramaic not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*)Ao/, '$1Aa')  // ordinal numbers not indicated in etcbc
-      .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
+      // .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*)Ng([^\/][^\/][^\/])/, '$1Aa$2')  // gentilic nouns not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*V[^\/])q/, '$1p')  // etcbc doesn't use WeQatal verb stem
 
@@ -444,7 +455,7 @@ const utils = {
       if(row.accentlessword.match(/אַף/)) return "unknown"
     }
 
-    return morph == etcbcMorph ? "match" : "no match"
+    return morph == etcbcMorph ? "unverified match" : "no match"
     
   },
 
