@@ -60,7 +60,7 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HNp" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HNp", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
@@ -92,11 +92,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HC/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HC/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HC/Np according to their BDB entry.`)
           next()
         })
             
@@ -124,11 +124,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HR/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HR/Np according to their BDB entry.`)
           next()
         })
             
@@ -156,11 +156,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HR/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HR/Np according to their BDB entry.`)
           next()
         })
             
@@ -188,11 +188,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HR/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HR/Np according to their BDB entry.`)
           next()
         })
             
@@ -220,11 +220,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HR/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HR/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HR/Np according to their BDB entry.`)
           next()
         })
             
@@ -252,11 +252,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HTd/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HTd/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HTd/Np according to their BDB entry.`)
           next()
         })
             
@@ -284,11 +284,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HC/R/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HC/R/Np according to their BDB entry.`)
           next()
         })
             
@@ -316,11 +316,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HC/R/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HC/R/Np according to their BDB entry.`)
           next()
         })
             
@@ -348,11 +348,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HC/R/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HC/R/Np according to their BDB entry.`)
           next()
         })
             
@@ -380,11 +380,11 @@ module.exports = (connection, done) => {
         if(err) throw err
 
         const updates = result.map(row => `
-          UPDATE words_enhanced SET morph="HC/R/Np" WHERE id=${row.id}
+          UPDATE words_enhanced SET morph="HC/R/Np", status='single', noguess=1 WHERE id=${row.id}
         `)
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
-          console.log(`  ${numRowsUpdated} words were auto-parsed to HNp according to their BDB entry.`)
+          console.log(`  ${numRowsUpdated} words were auto-parsed to HC/R/Np according to their BDB entry.`)
           next()
         })
             
