@@ -16,7 +16,7 @@ module.exports = (connection, done) => {
       DISTINCT accentlessword, lemma
       FROM words_enhanced
       WHERE
-        (morph IS NULL OR noguess IS NOT NULL)
+        (morph IS NULL OR noguess IS NOT NULL OR status="conflict")
         AND NOT ${utils.whereAramaic}
       `
   connection.query(selectWordsWithoutMorph, (err, result) => {
