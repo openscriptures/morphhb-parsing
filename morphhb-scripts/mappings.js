@@ -13,6 +13,7 @@ const suffixParsingMap = {
   "ו": "/Sp3ms",
   "הוּ": "/Sp3ms",
   "מוֹ": "/Sp3ms",
+  "נוֹ": "/Sp3ms",
   "הּ": "/Sp3fs",
   "הָ": "/Sp3fs",
   "הָ": "/Sp3fs",
