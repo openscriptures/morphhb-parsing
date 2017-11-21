@@ -101,6 +101,7 @@ connection.connect(function(err) {
           if(err) throw err
 
           fs.readFile(`${importDir}/${bookURIsByBookId[bookId]}`, 'utf-8', (err, xml) => {
+            console.log(`====================================================================================`)
             console.log(`  Began ${bookURIsByBookId[bookId]}...`)
 
             if(err) { 
@@ -139,12 +140,17 @@ connection.connect(function(err) {
               })
 
               // format newlines like the morphhb files
-              newXml = newXml
+              newXml = `${newXml}\n`
                 .replace(/(>)\n *(<seg type="x-sof-pasuq">׃<\/seg>)/g, "$1$2")
-                .replace(/(<\/w>)\n *(<seg type="x-maqqef">־<\/seg>)\n *(<w )/g, "$1$2$3")
+                .replace(/(<\/w>|<\/note>)\n *(<seg type="x-maqqef">־<\/seg>)\n *(<w )/g, "$1$2$3")
                 .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*">[^<]*<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5")
+                .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*"\/>)\n *(<\/note>)/g, "$1$2$3$4$5")
                 .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*">)\n *([^\n]*)\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5$6$7")
-
+                .replace(/(<\/w>\n *<note type="[^"]*">)\n *(<rdg type="[^"]*">)\n *([^\n]*)\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5")
+                .replace(/(<\/w>)\n *(<seg type="x-maqqef">־<\/seg>)\n *(<note type="[^"]*">)\n *(<rdg type="[^"]*">)\n *([^\n]*)\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5$6$7")
+                .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*">)\n *([^\n]*)(?:\n *([^\n]*))\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5 $6$7$8")
+                .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*">)\n *([^\n]*)(?:\n *([^\n]*))(?:\n *([^\n]*))\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5 $6$7$8$9")
+                
               fs.writeFile(`${exportDir}/${bookURIsByBookId[bookId]}`, newXml, function(err) {
                   if(err) {
                       return console.log(err);
