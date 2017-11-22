@@ -419,6 +419,7 @@ const autoParseAndValidateMap = {
   "מַדּוּעַ": "HTi",
   "שְׁאוֹל": "HNp",
   "אַשְׁרֵי": "HNcmpa",
+  "וְ/אַשְׁרֵי": "HC/Ncmpa",
   "שִׁלְשׁוֹם": "HNcmsa",
   "הַ/יְּהוּדִים": "HTd/Ngmpa",
   "נַפְשָׁ/ם": "HNcfsc/Sp3mp",
