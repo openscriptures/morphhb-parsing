@@ -77,7 +77,6 @@ const autoParseMap = {
   "מֵ/אֵת": "HR/R",
   "בְּ/תוֹךְ": "HR/Ncmsc",
   "בַּ/מִּדְבָּר": "HRd/Ncmsa",
-  "שָׁמַיִם": "HNcmpa",
   "שְׁנֵי/הֶם": "HAcmpc/Sp3mp",
   "הָ/רִאשׁוֹן": "HTd/Aomsa",
   "וַ/אֲשֶׁר": "HC/Tr",
@@ -423,7 +422,15 @@ const autoParseAndValidateMap = {
   "שִׁלְשׁוֹם": "HNcmsa",
   "הַ/יְּהוּדִים": "HTd/Ngmpa",
   "נַפְשָׁ/ם": "HNcfsc/Sp3mp",
-  
+  "עִמָּדִ/י": "HR/Sp1cs",
+  "שָׁמַיִם": "HNcmpa",
+  "בַ/שָּׁמַיִם": "HRd/Ncmda",
+  "בַּ/שָּׁמָיִם": "HRd/Ncmpa",
+  "בַ/שָּׁמָיִם": "HRd/Ncmpa",
+  "לַ/שָּׁמַיִם": "HRd/Ncmpa",
+  "הַ/שָּׁמָיְמָ/ה": "HTd/Ncmpa/Sd",
+  "הַ/שָּׁמַיְמָ/ה": "HTd/Ncmpa/Sd",
+
   // etcbc has these as both. if we decide not to parse them as both, add them here
   // "הַ/בָּקָר": "HTd/Ncmsa",
   // "בָּקָר": "HNcmsa",
@@ -449,12 +456,13 @@ const autoParseAndValidateMap = {
   // "תָמִיד": "HD",
   // "אֲבָל": "HD",
   // "אֵצֶל": "HR",
-  // "הַ/הוּא": "HTd/Pdxms",
+
+  // do not auto parse these
+  // "הַ/הוּא": "HTd/Pdxms", (also can be HTd/Pp3ms)
   // "הַ/הִוא": "HTd/Pdxfs",
   // "הַ/הִיא": "HTd/Pdxfs",
   // "הָ/הֵם": "HTd/Pdxcp",
   // "הָ/הֵמָּה": "HTd/Pdxcp",
-  // "עִמָּדִ/י": "HR/Sp1cs",
 }
 
 module.exports = {
