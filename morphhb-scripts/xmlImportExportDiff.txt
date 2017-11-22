@@ -21,32 +21,12 @@
 >           <seg type="x-paseq">׀</seg>
 ====================================================================================
   Began Lev.xml...
-{ _: 'גָּח֜ן',
-  '$': { lemma: '1512', n: '1.1.1.1' },
-  '#name': 'w',
-  '$$': [ { _: 'וֹ', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'וֹ', '$': [Object] } ] }
     Wrote Lev.xml.
 ====================================================================================
   Began Num.xml...
-{ _: 'מִשְׁפָּטָ֖/',
-  '$': { lemma: '4941', n: '0.0' },
-  '#name': 'w',
-  '$$': [ { _: 'ן', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'ן', '$': [Object] } ] }
     Wrote Num.xml.
 ====================================================================================
   Began Deut.xml...
-{ _: 'שְׁמַ֖',
-  '$': { lemma: '8085', n: '1.0' },
-  '#name': 'w',
-  '$$': [ { _: 'ע', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'ע', '$': [Object] } ] }
-{ _: 'אֶחָֽ',
-  '$': { lemma: '259', n: '0' },
-  '#name': 'w',
-  '$$': [ { _: 'ד', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'ד', '$': [Object] } ] }
     Wrote Deut.xml.
 2675,2676c2675
 <           <w lemma="l" n="0.0.0">לְ/ךָ֛</w>
@@ -197,11 +177,6 @@
 >           <w lemma="3772">אכרות</w><note type="variant"><catchWord>אכרות</catchWord><rdg type="x-qere"><w lemma="3772">אֶֽכְרָת</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/3772">לְ/ךָ֥</w>
 ====================================================================================
   Began Judg.xml...
-{ _: 'מְשֶּׁ֜ה',
-  '$': { lemma: '4519', n: '0.1.1.0' },
-  '#name': 'w',
-  '$$': [ { _: 'נַ', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'נַ', '$': [Object] } ] }
     Wrote Judg.xml.
 7478,7479c7478
 <           <w lemma="2896 a">טוב</w>
@@ -317,11 +292,6 @@
 >           <w lemma="1121 a">בני</w><note type="variant"><catchWord>בני</catchWord><rdg type="x-qere"><w lemma="1121 a">בֶן</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2011" n="1">הִנֹּ֑ם</w>
 ====================================================================================
   Began Isa.xml...
-{ _: 'אֹ֖רֶ',
-  '$': { lemma: '766', n: '0.0' },
-  '#name': 'w',
-  '$$': [ { _: 'ן', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'ן', '$': [Object] } ] }
     Wrote Isa.xml.
 926,927c926
 <           <w lemma="m/l">מ/ל/כם</w>
@@ -363,11 +333,6 @@
 >           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="413">אֶל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2436" n="0">חֵיקָֽ/ם</w><seg type="x-sof-pasuq">׃</seg>
 ====================================================================================
   Began Jer.xml...
-{ _: 'וּ/נְבֽוּשַׁזְבָּ',
-  '$': { lemma: 'c/5021' },
-  '#name': 'w',
-  '$$': [ { _: 'ן֙', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'ן֙', '$': [Object] } ] }
     Wrote Jer.xml.
 1202,1203c1202
 <           <w lemma="7121">תקראו</w><note type="variant"><catchWord>תקראו</catchWord><rdg type="x-qere"><w lemma="7121">תִּקְרְאִי</w></rdg></note>
@@ -520,11 +485,6 @@
     Wrote Mal.xml.
 ====================================================================================
   Began Ps.xml...
-{ _: 'מִ/יָּ֑ר',
-  '$': { lemma: 'm/3293 a', n: '1' },
-  '#name': 'w',
-  '$$': [ { _: 'עַ', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'עַ', '$': [Object] } ] }
     Wrote Ps.xml.
 1300,1301c1300
 <           <w lemma="2489">חלכאים</w>
@@ -566,11 +526,6 @@
 < 
 ====================================================================================
   Began Prov.xml...
-{ _: 'וְ֝/נִרְגָּ֗',
-  '$': { lemma: 'c/5372', n: '0.0' },
-  '#name': 'w',
-  '$$': [ { _: 'ן', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'ן', '$': [Object] } ] }
     Wrote Prov.xml.
 3538c3538
 < 		  <w lemma="1800" n="1.0">דָּ֭ל</w>
@@ -618,16 +573,6 @@
 >           <w lemma="c/8055">ו/ישמח</w><note type="variant"><catchWord>ו/ישמח</catchWord><rdg type="x-qere"><w lemma="8055">יִשְׂמַח</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="b/8055" n="0">בּֽ/וֹ</w><seg type="x-sof-pasuq">׃</seg>
 ====================================================================================
   Began Job.xml...
-{ _: 'רְשָׁים',
-  '$': { lemma: '7563' },
-  '#name': 'w',
-  '$$': [ { _: 'עִ֣', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'עִ֣', '$': [Object] } ] }
-{ _: 'מֵ/רְשָׁים',
-  '$': { lemma: 'm/7563' },
-  '#name': 'w',
-  '$$': [ { _: 'עִ֣', '$': [Object], '#name': 'seg' } ],
-  seg: [ { _: 'עִ֣', '$': [Object] } ] }
     Wrote Job.xml.
 1547,1548c1547
 <           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="5921 a">עֲלֵי</w></rdg></note>
