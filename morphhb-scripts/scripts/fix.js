@@ -558,9 +558,7 @@ module.exports = (connection, done) => {
 
       const bothGenderLemmas = [
         "1516",
-        // "1581",  גמל - not both
         "1588",
-        // "1677",  דוב - not both
         "2474",
         "5688",
         "7676",
@@ -568,7 +566,6 @@ module.exports = (connection, done) => {
         "8593",
         "216",
         "226",
-        // "376",  איש - should not be both!
         "727",
         "776",
         "784",
@@ -584,7 +581,6 @@ module.exports = (connection, done) => {
         "6629",
         "6833",
         "7307",
-        // "7585",  שאול - a proper noun
         "7716",
         "2691 a",
         "5518 a",
@@ -613,7 +609,6 @@ module.exports = (connection, done) => {
         "8346",
         "8084",
 
-        // if פנים is both, change all the entries in auto_parse
       ]
       
       // get all nouns with a gender, with their lemma

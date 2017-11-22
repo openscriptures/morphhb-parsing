@@ -36,7 +36,19 @@ We will mark the following nouns as gender 'both'
   קָצָה  - H7098
   שֵׁן  - H8128
   תַּנְחוּם  - H8575
-  
+
+We will mark the following cardinal adjectives as gender 'both'
+  H7657
+  H7970
+  H3967
+  H8673
+  H505
+  H705
+  H6242
+  H2572
+  H8346
+  H8084
+
 We will NOT mark the following nouns as gender 'both'
   גָּמָל  - H1581
   אִישׁ  - H376
