@@ -1,4 +1,4 @@
-Definite 'both' gender nouns
+We will mark the following nouns as gender 'both'
   גַּיְא  - H1516
   גַּן  - H1588
   חַלּוֹן  - H2474
@@ -26,41 +26,38 @@ Definite 'both' gender nouns
   שֶׂה  - H7716
   חָצֵר  - H2691a
   סִיר  - H5518a
+  גַב  - H1354
+  תְּהוֹם  - H8415
+  עַיִן  - H5869a
+  אֳנִי  - H590
+  עָמָל  - H5999
+  קָצֶה  - H7097a,
+  קָצֶה  - H7097b,
+  קָצָה  - H7098
+  שֵׁן  - H8128
+  תַּנְחוּם  - H8575
+  
+We will NOT mark the following nouns as gender 'both'
+  גָּמָל  - H1581
+  אִישׁ  - H376
+  דֹּב  - H1677
+  אֲבָנָה  - H71
+  אֶדֶר  - H145
+  אַמָּה  - H521
+  אַפֶּדֶן  - H643
+  גְּדוּד  - H1417
+  גְּדוּדָה  - H1418
+  דַּעַת  - H1847
+  זְמוֹרָה  - H2156
+  מִסָּה  - H4530
+  מָעֹט  - H4593
+  נוּר  - H5135
+  רֵעַ  - H7452
+  תְּלָתִין  - H8533
 
-
-Should they be marked 'both' gender?  
-
-  'both' in all three
-    גָּמָל  - H1581
-    אִישׁ  - H376
-    דֹּב  - H1677
-
-  'both' in bdb and and at least once in uhb
-    גַב  - H1354
-    תְּהוֹם  - H8415
-    עַיִן  - H5869a
-
-  'both' in bdb and at least once in etcbc
-    אֳנִי  - H590
-    עָמָל  - H5999
+Yet to be determined:
 
   'both' in bdb only
-    אֲבָנָה  - H71
-    אֶדֶר  - H145
-    אַמָּה  - H521
-    אַפֶּדֶן  - H643
-    גְּדוּד  - H1417
-    גְּדוּדָה  - H1418
-    דַּעַת  - H1847
-    זְמוֹרָה  - H2156
-    מִסָּה  - H4530
-    מָעֹט  - H4593
-    נוּר  - H5135
-    קָצָה  - H7098
-    רֵעַ  - H7452
-    שֵׁן  - H8128
-    תְּלָתִין  - H8533
-    תַּנְחוּם  - H8575
     גָּאַל  - H1350b
     דִּכְרוֹן  - H1799a
     דִּכְרוֹן  - H1799b
