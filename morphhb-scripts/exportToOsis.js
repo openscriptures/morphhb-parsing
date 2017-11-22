@@ -148,7 +148,7 @@ connection.connect(function(err) {
                       return true
                     }
                   })
-                  console.log(obj)
+                  // console.log(obj)
                 } else if(obj["$$"]) {
                   newObj["group"] = obj["$$"].map(child => convertObj(child))
                 } else if(obj["_"]) {
