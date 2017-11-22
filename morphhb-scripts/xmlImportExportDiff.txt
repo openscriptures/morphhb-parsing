@@ -1,0 +1,753 @@
+====================================================================================
+  Began Gen.xml...
+    Wrote Gen.xml.
+11498,11499c11498
+<           <w lemma="b/1409">ב/גד</w>
+<           <note type="variant"><catchWord>ב/גד</catchWord><rdg type="x-qere"><w lemma="935">בָּ֣א</w> <w lemma="1409" n="1">גָ֑ד</w></rdg></note>
+---
+>           <w lemma="b/1409">ב/גד</w><note type="variant"><catchWord>ב/גד</catchWord><rdg type="x-qere"><w lemma="935">בָּ֣א</w> <w lemma="1409" n="1">גָ֑ד</w></rdg></note>
+====================================================================================
+  Began Exod.xml...
+    Wrote Exod.xml.
+1072,1073c1072
+<           <w lemma="m/2088">מ/זה</w>
+<           <note type="variant"><catchWord>מ/זה</catchWord><rdg type="x-qere"><w lemma="4100">מַה</w><seg type="x-maqqef">־</seg><w lemma="2088">זֶּ֣ה</w></rdg></note>
+---
+>           <w lemma="m/2088">מ/זה</w><note type="variant"><catchWord>מ/זה</catchWord><rdg type="x-qere"><w lemma="4100">מַה</w><seg type="x-maqqef">־</seg><w lemma="2088">זֶּ֣ה</w></rdg></note>
+13916c13915,13916
+<           <w lemma="c/571" n="0">וֶ/אֱמֶֽת</w><seg type="x-paseq">׀</seg>
+---
+>           <w lemma="c/571" n="0">וֶ/אֱמֶֽת</w>
+>           <seg type="x-paseq">׀</seg>
+====================================================================================
+  Began Lev.xml...
+{ _: 'גָּח֜ן',
+  '$': { lemma: '1512', n: '1.1.1.1' },
+  '#name': 'w',
+  '$$': [ { _: 'וֹ', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'וֹ', '$': [Object] } ] }
+    Wrote Lev.xml.
+====================================================================================
+  Began Num.xml...
+{ _: 'מִשְׁפָּטָ֖/',
+  '$': { lemma: '4941', n: '0.0' },
+  '#name': 'w',
+  '$$': [ { _: 'ן', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'ן', '$': [Object] } ] }
+    Wrote Num.xml.
+====================================================================================
+  Began Deut.xml...
+{ _: 'שְׁמַ֖',
+  '$': { lemma: '8085', n: '1.0' },
+  '#name': 'w',
+  '$$': [ { _: 'ע', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'ע', '$': [Object] } ] }
+{ _: 'אֶחָֽ',
+  '$': { lemma: '259', n: '0' },
+  '#name': 'w',
+  '$$': [ { _: 'ד', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'ד', '$': [Object] } ] }
+    Wrote Deut.xml.
+2675,2676c2675
+<           <w lemma="l" n="0.0.0">לְ/ךָ֛</w>
+<           <note type="alternative"><catchWord>לֹא־יִהְיֶ֥ה לְ/ךָ֛</catchWord><rdg type="x-accent">לֹ֣א יִהְיֶה־לְ/ךָ֩</rdg></note>
+---
+>           <w lemma="l" n="0.0.0">לְ/ךָ֛</w><note type="alternative"><catchWord>לֹא־יִהְיֶ֥ה לְ/ךָ֛</catchWord><rdg type="x-accent">לֹ֣א יִהְיֶה־לְ/ךָ֩</rdg></note>
+2683,2684c2682
+<           <w lemma="l">לְ/ךָ֥</w>
+<           <note type="alternative"><catchWord>לֹֽא־תַעֲשֶׂ֥ה לְ/ךָ֥</catchWord><rdg type="x-accent">לֹ֣א תַעֲשֶׂה־לְ/ךָ֣</rdg></note>
+---
+>           <w lemma="l">לְ/ךָ֥</w><note type="alternative"><catchWord>לֹֽא־תַעֲשֶׂ֥ה לְ/ךָ֥</catchWord><rdg type="x-accent">לֹ֣א תַעֲשֶׂה־לְ/ךָ֣</rdg></note>
+2746c2744
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+2809c2807
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+3555,3557c3553,3555
+< 		  <note n="P">We read the punctuation in L differently from BHQ. </note>
+< 		  <note n="p">We read punctuation in L differently from BHS. </note>
+< 		  <note n="v">We read one or more vowels in L differently from BHS. </note>
+---
+>           <note n="P">We read the punctuation in L differently from BHQ. </note>
+>           <note n="p">We read punctuation in L differently from BHS. </note>
+>           <note n="v">We read one or more vowels in L differently from BHS. </note>
+3898c3896
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+3900,3901c3898,3899
+< 		  <note n="p">We read punctuation in L differently from BHS. </note>
+< 		  <w lemma="d/4478 a" n="1.1.0">הַ/מָּן֙</w>
+---
+>           <note n="p">We read punctuation in L differently from BHS. </note>
+>           <w lemma="d/4478 a" n="1.1.0">הַ/מָּן֙</w>
+4525c4523
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+4527c4525
+< 		  <note n="p">We read punctuation in L differently from BHS. </note>
+---
+>           <note n="p">We read punctuation in L differently from BHS. </note>
+4679c4677
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+4682c4680
+< 		  <note n="v">We read one or more vowels in L differently from BHS. </note>
+---
+>           <note n="v">We read one or more vowels in L differently from BHS. </note>
+4782,4783c4780,4781
+< 		  <note n="C">We read one or more accents in L differently from BHQ. </note>
+< 		  <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+---
+>           <note n="C">We read one or more accents in L differently from BHQ. </note>
+>           <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+4919c4917
+< 		  <note n="U">We agree with both BHS 1997 and BHQ on an unexpected reading. </note>
+---
+>           <note n="U">We agree with both BHS 1997 and BHQ on an unexpected reading. </note>
+5002c5000
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+5004c5002
+< 		  <note n="p">We read punctuation in L differently from BHS. </note>
+---
+>           <note n="p">We read punctuation in L differently from BHS. </note>
+7150,7151c7148,7149
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+< 		  <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+>           <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+8002c8000
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+8650c8648
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+8652c8650
+< 		  <note n="p">We read punctuation in L differently from BHS. </note>
+---
+>           <note n="p">We read punctuation in L differently from BHS. </note>
+9063c9061
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+9065c9063
+< 		  <note n="v">We read one or more vowels in L differently from BHS. </note>
+---
+>           <note n="v">We read one or more vowels in L differently from BHS. </note>
+9360c9358
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+9362c9360
+< 		  <note n="v">We read one or more vowels in L differently from BHS. </note>
+---
+>           <note n="v">We read one or more vowels in L differently from BHS. </note>
+9416c9414
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+9527,9528c9525,9526
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+< 		  <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+>           <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+9586c9584
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+10222c10220
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+10457c10455
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+11695c11693
+< 		  <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+---
+>           <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+11697c11695
+< 		  <note n="p">We read punctuation in L differently from BHS. </note>
+---
+>           <note n="p">We read punctuation in L differently from BHS. </note>
+14346,14347c14344
+<           <w lemma="799">אשדת</w>
+<           <note type="variant"><catchWord>אשדת</catchWord><rdg type="x-qere"><w lemma="784">אֵ֥שׁ</w><w lemma="1881" n="0.0">דָּ֖ת</w></rdg></note>
+---
+>           <w lemma="799">אשדת</w><note type="variant"><catchWord>אשדת</catchWord><rdg type="x-qere"><w lemma="784">אֵ֥שׁ</w> <w lemma="1881" n="0.0">דָּ֖ת</w></rdg></note>
+====================================================================================
+  Began Josh.xml...
+    Wrote Josh.xml.
+3372,3373c3372
+<           <w lemma="3772">אכרות</w><note type="variant"><catchWord>אכרות</catchWord><rdg type="x-qere"><w lemma="3772">אֶֽכְרָת</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/3772">לְ/ךָ֥</w>
+---
+>           <w lemma="3772">אכרות</w><note type="variant"><catchWord>אכרות</catchWord><rdg type="x-qere"><w lemma="3772">אֶֽכְרָת</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/3772">לְ/ךָ֥</w>
+====================================================================================
+  Began Judg.xml...
+{ _: 'מְשֶּׁ֜ה',
+  '$': { lemma: '4519', n: '0.1.1.0' },
+  '#name': 'w',
+  '$$': [ { _: 'נַ', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'נַ', '$': [Object] } ] }
+    Wrote Judg.xml.
+7478,7479c7478
+<           <w lemma="2896 a">טוב</w>
+<           <note type="variant"><catchWord>כי טוב</catchWord><rdg type="x-qere"><w lemma="k/2896 a">כְּ/ט֣וֹב</w></rdg></note>
+---
+>           <w lemma="2896 a">טוב</w><note type="variant"><catchWord>כי טוב</catchWord><rdg type="x-qere"><w lemma="k/2896 a">כְּ/ט֣וֹב</w></rdg></note>
+====================================================================================
+  Began 1Sam.xml...
+    Wrote 1Sam.xml.
+2924,2925c2924
+<           <w lemma="m/1121 a">מ/בן</w><seg type="x-maqqef">־</seg><w lemma="3225">ימין</w>
+<           <note type="variant"><catchWord>מ/בן־ימין</catchWord><rdg type="x-qere"><w lemma="m/1144" n="1.0.1">מִ/בִּנְיָמִ֗ין</w></rdg></note>
+---
+>           <w lemma="m/1121 a">מ/בן</w><seg type="x-maqqef">־</seg><w lemma="3225">ימין</w><note type="variant"><catchWord>מ/בן־ימין</catchWord><rdg type="x-qere"><w lemma="m/1144" n="1.0.1">מִ/בִּנְיָמִ֗ין</w></rdg></note>
+5410,5411c5409
+<           <w lemma="c/6213 a">ו/יעש</w>
+<           <note type="variant"><catchWord>ו/יעש</catchWord><rdg type="x-qere"><w lemma="c/5860 b">וַ/יַּ֤עַט</w></rdg></note>         
+---
+>           <w lemma="c/6213 a">ו/יעש</w><note type="variant"><catchWord>ו/יעש</catchWord><rdg type="x-qere"><w lemma="c/5860 b">וַ/יַּ֤עַט</w></rdg></note>
+7713,7714c7711
+<           <w lemma="5771">עון</w>
+<           <note type="variant"><catchWord>עון</catchWord><rdg type="x-qere"><w lemma="5770">עוֹיֵ֣ן</w></rdg></note>         
+---
+>           <w lemma="5771">עון</w><note type="variant"><catchWord>עון</catchWord><rdg type="x-qere"><w lemma="5770">עוֹיֵ֣ן</w></rdg></note>
+8469,8470c8466
+<           <w lemma="l">ל/ו</w><seg type="x-maqqef">־</seg><w lemma="6213 a">עשה</w>
+<           <note type="variant"><catchWord>ל/ו־עשה</catchWord><rdg type="x-qere"><w lemma="3808">לֹֽא</w><seg type="x-maqqef">־</seg><w lemma="6213 a">יַעֲשֶׂ֨ה</w></rdg></note>
+---
+>           <w lemma="l">ל/ו</w><seg type="x-maqqef">־</seg><w lemma="6213 a">עשה</w><note type="variant"><catchWord>ל/ו־עשה</catchWord><rdg type="x-qere"><w lemma="3808">לֹֽא</w><seg type="x-maqqef">־</seg><w lemma="6213 a">יַעֲשֶׂ֨ה</w></rdg></note>
+8822,8823c8818
+<           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="413">אֶל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="d/3899" n="0.0">הַ/לֶּ֖חֶם</w>
+---
+>           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="413">אֶל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="d/3899" n="0.0">הַ/לֶּ֖חֶם</w>
+9674,9675c9669
+<           <w lemma="l/7592">ל/שאול</w><note type="variant"><catchWord>ל/שאול</catchWord><rdg type="x-qere"><w lemma="l/7592">לִ/שְׁאָל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/7592">ל֥/וֹ</w>
+---
+>           <w lemma="l/7592">ל/שאול</w><note type="variant"><catchWord>ל/שאול</catchWord><rdg type="x-qere"><w lemma="l/7592">לִ/שְׁאָל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/7592">ל֥/וֹ</w>
+10433,10434c10427
+<           <w lemma="4480 a">מן</w><seg type="x-maqqef">־</seg><w lemma="d/4631">ה/מערה</w>
+<           <note type="variant"><catchWord>מן־ה/מערה</catchWord><rdg type="x-qere"><w lemma="m/d/4631" n="1.1">מֵֽ/הַ/מְּעָרָ֔ה</w></rdg></note>
+---
+>           <w lemma="4480 a">מן</w><seg type="x-maqqef">־</seg><w lemma="d/4631">ה/מערה</w><note type="variant"><catchWord>מן־ה/מערה</catchWord><rdg type="x-qere"><w lemma="m/d/4631" n="1.1">מֵֽ/הַ/מְּעָרָ֔ה</w></rdg></note>
+12248,12249c12241
+<           <w lemma="7080">קסומי</w><note type="variant"><catchWord>קסומי</catchWord><rdg type="x-qere"><w lemma="7080">קָֽסֳמִי</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="7080">נָ֥א</w>
+---
+>           <w lemma="7080">קסומי</w><note type="variant"><catchWord>קסומי</catchWord><rdg type="x-qere"><w lemma="7080">קָֽסֳמִי</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="7080">נָ֥א</w>
+====================================================================================
+  Began 2Sam.xml...
+    Wrote 2Sam.xml.
+5529,5530c5529
+<           <w lemma="7760 a">שום</w><note type="variant"><catchWord>שום</catchWord><rdg type="x-qere"><w lemma="7760 a">שִׂים</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/376" n="0.0.0">לְ/אִישִׁ֛/י</w>
+---
+>           <w lemma="7760 a">שום</w><note type="variant"><catchWord>שום</catchWord><rdg type="x-qere"><w lemma="7760 a">שִׂים</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/376" n="0.0.0">לְ/אִישִׁ֛/י</w>
+7836,7837c7835
+<           <w lemma="3588 c">כִּֽי</w><seg type="x-maqqef">־</seg><w lemma="5921 b">על</w>
+<           <note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="5921 b">עַל</w><seg type="x-maqqef">־</seg><w lemma="3651 b">כֵּ֥ן</w></rdg></note>
+---
+>           <w lemma="3588 c">כִּֽי</w><seg type="x-maqqef">־</seg><w lemma="5921 b">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="5921 b">עַל</w><seg type="x-maqqef">־</seg><w lemma="3651 b">כֵּ֥ן</w></rdg></note>
+9407,9408c9405
+<           <w lemma="5414">ינתן</w><note type="variant"><catchWord>ינתן</catchWord><rdg type="x-qere"><w lemma="5414">יֻתַּן</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l" n="1.2.0.0">לָ֜/נוּ</w>
+---
+>           <w lemma="5414">ינתן</w><note type="variant"><catchWord>ינתן</catchWord><rdg type="x-qere"><w lemma="5414">יֻתַּן</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l" n="1.2.0.0">לָ֜/נוּ</w>
+9538,9539c9535
+<           <w lemma="d/6430">ה/פלשתים</w>
+<           <note type="variant"><catchWord>שם ה/פלשתים</catchWord><rdg type="x-qere"><w lemma="8033" n="0.1.0">שָׁ֨מָּ/ה֙</w><w lemma="6430" n="0.1">פְּלִשְׁתִּ֔ים</w></rdg></note>
+---
+>           <w lemma="d/6430">ה/פלשתים</w><note type="variant"><catchWord>שם ה/פלשתים</catchWord><rdg type="x-qere"><w lemma="8033" n="0.1.0">שָׁ֨מָּ/ה֙</w> <w lemma="6430" n="0.1">פְּלִשְׁתִּ֔ים</w></rdg></note>
+====================================================================================
+  Began 1Kgs.xml...
+    Wrote 1Kgs.xml.
+9941,9942c9941
+<           <w lemma="5414">תתן</w><note type="variant"><catchWord>תתן</catchWord><rdg type="x-qere"><w lemma="5414">תֵּת</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="3068" n="0.0.0">יְהוָ֛ה</w>
+---
+>           <w lemma="5414">תתן</w><note type="variant"><catchWord>תתן</catchWord><rdg type="x-qere"><w lemma="5414">תֵּת</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="3068" n="0.0.0">יְהוָ֛ה</w>
+9953,9954c9952
+<           <w lemma="1931">הוא</w><seg type="x-maqqef">־</seg><w lemma="c/1931">ו/היא</w>
+<           <note type="variant"><catchWord>הוא־ו/היא</catchWord><rdg type="x-qere"><w lemma="1931">הִֽיא</w><seg type="x-maqqef">־</seg><w lemma="c/1931" n="0.0.0">וָ/ה֛וּא</w></rdg></note>
+---
+>           <w lemma="1931">הוא</w><seg type="x-maqqef">־</seg><w lemma="c/1931">ו/היא</w><note type="variant"><catchWord>הוא־ו/היא</catchWord><rdg type="x-qere"><w lemma="1931">הִֽיא</w><seg type="x-maqqef">־</seg><w lemma="c/1931" n="0.0.0">וָ/ה֛וּא</w></rdg></note>
+====================================================================================
+  Began 2Kgs.xml...
+    Wrote 2Kgs.xml.
+2251,2252c2251
+<           <w lemma="5545">יִסְלַח</w><seg type="x-maqqef">־</seg><w lemma="4994">נא</w>
+<           <note type="variant"><catchWord>נא</catchWord><rdg type="x-qere"/></note>
+---
+>           <w lemma="5545">יִסְלַח</w><seg type="x-maqqef">־</seg><w lemma="4994">נא</w><note type="variant"><catchWord>נא</catchWord><rdg type="x-qere"/></note>
+7483,7484c7482
+<           <w lemma="c/853">ו/את</w><note type="variant"><catchWord>ו/את</catchWord><rdg type="x-qere"><w lemma="853">אֶת</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="d/3595" n="1.2">הַ/כִּיֹּ֔ר</w>
+---
+>           <w lemma="c/853">ו/את</w><note type="variant"><catchWord>ו/את</catchWord><rdg type="x-qere"><w lemma="853">אֶת</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="d/3595" n="1.2">הַ/כִּיֹּ֔ר</w>
+7777c7775
+< 		  <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+---
+>           <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+8692,8693c8690
+<           <w lemma="853">אֶת</w><seg type="x-maqqef">־</seg><w lemma="7890">שיני/הם</w>
+<           <note type="variant"><catchWord>שיני/הם</catchWord><rdg type="x-qere"><w lemma="4325">מימֵ֥י</w> <w lemma="7272" n="0.0">רַגְלֵי/הֶ֖ם</w></rdg></note>
+---
+>           <w lemma="853">אֶת</w><seg type="x-maqqef">־</seg><w lemma="7890">שיני/הם</w><note type="variant"><catchWord>שיני/הם</catchWord><rdg type="x-qere"><w lemma="4325">מימֵ֥י</w> <w lemma="7272" n="0.0">רַגְלֵי/הֶ֖ם</w></rdg></note>
+10762,10764c10759
+<           <w lemma="1121 a">בני</w><note type="variant"><catchWord>בני</catchWord><rdg type="x-qere"><w lemma="1121 a">בֶן</w></rdg></note>
+< <seg type="x-maqqef">־</seg>
+<           <w lemma="2011" n="1">הִנֹּ֑ם</w>
+---
+>           <w lemma="1121 a">בני</w><note type="variant"><catchWord>בני</catchWord><rdg type="x-qere"><w lemma="1121 a">בֶן</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2011" n="1">הִנֹּ֑ם</w>
+====================================================================================
+  Began Isa.xml...
+{ _: 'אֹ֖רֶ',
+  '$': { lemma: '766', n: '0.0' },
+  '#name': 'w',
+  '$$': [ { _: 'ן', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'ן', '$': [Object] } ] }
+    Wrote Isa.xml.
+926,927c926
+<           <w lemma="m/l">מ/ל/כם</w>
+<           <note type="variant"><catchWord>מ/ל/כם</catchWord><rdg type="x-qere"><w lemma="4100">מַה</w><seg type="x-maqqef">־</seg><w lemma="l" n="1.1.0">לָּ/כֶם֙</w></rdg></note>
+---
+>           <w lemma="m/l">מ/ל/כם</w><note type="variant"><catchWord>מ/ל/כם</catchWord><rdg type="x-qere"><w lemma="4100">מַה</w><seg type="x-maqqef">־</seg><w lemma="l" n="1.1.0">לָּ/כֶם֙</w></rdg></note>
+3158,3160c3157
+<           <w lemma="1004 b">בית</w><note type="variant"><catchWord>בית</catchWord><rdg type="x-qere"><w lemma="1323">בַּת</w></rdg></note>
+< <seg type="x-maqqef">־</seg>
+<           <w lemma="1323" n="0.1">צִיּ֔וֹן</w>
+---
+>           <w lemma="1004 b">בית</w><note type="variant"><catchWord>בית</catchWord><rdg type="x-qere"><w lemma="1323">בַּת</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="1323" n="0.1">צִיּ֔וֹן</w>
+6760,6761c6757
+<           <w lemma="5704">עַד</w><seg type="x-maqqef">־</seg><w lemma="5674 a">יעבור</w><note type="variant"><catchWord>יעבור</catchWord><rdg type="x-qere"><w lemma="5674 a">יַעֲבָר</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="2195" n="0">זָֽעַם</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="5704">עַד</w><seg type="x-maqqef">־</seg><w lemma="5674 a">יעבור</w><note type="variant"><catchWord>יעבור</catchWord><rdg type="x-qere"><w lemma="5674 a">יַעֲבָר</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2195" n="0">זָֽעַם</w><seg type="x-sof-pasuq">׃</seg>
+9520,9521c9516
+<           <w lemma="853">אֶת</w><seg type="x-maqqef">־</seg><w lemma="7890">שיני/הם</w>
+<           <note type="variant"><catchWord>שיני/הם</catchWord><rdg type="x-qere"><w lemma="4325">מֵימֵ֥י</w> <w lemma="7272" n="0.0">רַגְלֵי/הֶ֖ם</w></rdg></note>
+---
+>           <w lemma="853">אֶת</w><seg type="x-maqqef">־</seg><w lemma="7890">שיני/הם</w><note type="variant"><catchWord>שיני/הם</catchWord><rdg type="x-qere"><w lemma="4325">מֵימֵ֥י</w> <w lemma="7272" n="0.0">רַגְלֵי/הֶ֖ם</w></rdg></note>
+12516,12517c12511
+<           <w lemma="854">את/י</w>
+<           <note type="variant"><catchWord>מי את/י</catchWord><rdg type="x-qere"><w lemma="m/854" n="0">מֵ/אִתִּֽ/י</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="854">את/י</w><note type="variant"><catchWord>מי את/י</catchWord><rdg type="x-qere"><w lemma="m/854" n="0">מֵ/אִתִּֽ/י</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+14632,14635c14626
+<           <w lemma="4100">מי</w><seg type="x-maqqef">־</seg><w lemma="l">ל/י</w>
+<           <note type="variant"><catchWord>מי־ל/י</catchWord><rdg type="x-qere"><w lemma="4100">מַה</w><seg type="x-maqqef">־</seg><w lemma="l">לִּ/י</w></rdg></note>
+<           <seg type="x-maqqef">־</seg>
+<           <w lemma="6311" n="1.1.0">פֹה֙</w>
+---
+>           <w lemma="4100">מי</w><seg type="x-maqqef">־</seg><w lemma="l">ל/י</w><note type="variant"><catchWord>מי־ל/י</catchWord><rdg type="x-qere"><w lemma="4100">מַה</w><seg type="x-maqqef">־</seg><w lemma="l">לִּ/י</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="6311" n="1.1.0">פֹה֙</w>
+17588,17589c17579
+<           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="413">אֶל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="2436" n="0">חֵיקָֽ/ם</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="413">אֶל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2436" n="0">חֵיקָֽ/ם</w><seg type="x-sof-pasuq">׃</seg>
+====================================================================================
+  Began Jer.xml...
+{ _: 'וּ/נְבֽוּשַׁזְבָּ',
+  '$': { lemma: 'c/5021' },
+  '#name': 'w',
+  '$$': [ { _: 'ן֙', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'ן֙', '$': [Object] } ] }
+    Wrote Jer.xml.
+1202,1203c1202
+<           <w lemma="7121">תקראו</w><note type="variant"><catchWord>תקראו</catchWord><rdg type="x-qere"><w lemma="7121">תִּקְרְאִי</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/7121" n="0.1">לִ֔/י</w>
+---
+>           <w lemma="7121">תקראו</w><note type="variant"><catchWord>תקראו</catchWord><rdg type="x-qere"><w lemma="7121">תִּקְרְאִי</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/7121" n="0.1">לִ֔/י</w>
+6812,6813c6811
+<           <w lemma="c/2009">ו/הנ/הו</w>
+<           <note type="variant"><catchWord>ו/הנ/הו</catchWord><rdg type="x-qere"><w lemma="c/2009">וְ/הִנֵּה</w><seg type="x-maqqef">־</seg><w lemma="1931" n="0.0.0">ה֛וּא</w></rdg></note>
+---
+>           <w lemma="c/2009">ו/הנ/הו</w><note type="variant"><catchWord>ו/הנ/הו</catchWord><rdg type="x-qere"><w lemma="c/2009">וְ/הִנֵּה</w><seg type="x-maqqef">־</seg><w lemma="1931" n="0.0.0">ה֛וּא</w></rdg></note>
+13211,13212c13209
+<           <w lemma="l/3605">ל/כול</w><note type="variant"><catchWord>ל/כול</catchWord><rdg type="x-qere"><w lemma="l/3605">לְ/כָל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="5771" n="0.1.0">עֲוֺנֽוֹתֵי/הֶם֙</w>
+---
+>           <w lemma="l/3605">ל/כול</w><note type="variant"><catchWord>ל/כול</catchWord><rdg type="x-qere"><w lemma="l/3605">לְ/כָל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="5771" n="0.1.0">עֲוֺנֽוֹתֵי/הֶם֙</w>
+15472,15473c15469
+<           <w lemma="853">את</w>
+<           <note type="variant"><catchWord>את</catchWord><rdg type="x-qere"/></note>
+---
+>           <w lemma="853">את</w><note type="variant"><catchWord>את</catchWord><rdg type="x-qere"/></note>
+15888,15889c15884
+<           <w lemma="518 a">אם</w>
+<           <note type="variant"><catchWord>אם</catchWord><rdg type="x-qere"/></note>
+---
+>           <w lemma="518 a">אם</w><note type="variant"><catchWord>אם</catchWord><rdg type="x-qere"/></note>
+20394,20395c20389
+<           <w lemma="1869">ידרך</w>
+<           <note type="variant"><catchWord>ידרך</catchWord><rdg type="x-qere"/></note>
+---
+>           <w lemma="1869">ידרך</w><note type="variant"><catchWord>ידרך</catchWord><rdg type="x-qere"/></note>
+21422,21423c21416
+<           <w lemma="b/1004 b">ב/בית</w><note type="variant"><catchWord>ב/בית</catchWord><rdg type="x-qere"><w lemma="1004 b">בֵֽית</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="d/6486" n="0.0">הַ/פְּקֻדֹּ֖ת</w>
+---
+>           <w lemma="b/1004 b">ב/בית</w><note type="variant"><catchWord>ב/בית</catchWord><rdg type="x-qere"><w lemma="1004 b">בֵֽית</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="d/6486" n="0.0">הַ/פְּקֻדֹּ֖ת</w>
+====================================================================================
+  Began Ezek.xml...
+    Wrote Ezek.xml.
+83c83
+< 		  <w lemma="6605 a" n="0.1.0" morph="HVNp3cp">נִפְתְּחוּ֙</w>
+---
+>           <w lemma="6605 a" n="0.1.0" morph="HVNp3cp">נִפְתְּחוּ֙</w>
+2303,2304c2303
+<           <w lemma="m/1992">מ/הם</w>
+<           <note type="variant"><catchWord>מ/הם</catchWord><rdg type="x-qere"><w lemma="4100">מָ֣ה</w><w lemma="1992">הֵ֣ם</w></rdg></note>
+---
+>           <w lemma="m/1992">מ/הם</w><note type="variant"><catchWord>מ/הם</catchWord><rdg type="x-qere"><w lemma="4100">מָ֣ה</w> <w lemma="1992">הֵ֣ם</w></rdg></note>
+2614,2615c2613
+<           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="408">אַל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="2347">תָּחֹ֥ס</w>
+---
+>           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="408">אַל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2347">תָּחֹ֥ס</w>
+2721,2722c2719
+<           <w lemma="k/834 d">כ/אשר</w>
+<           <note type="variant"><catchWord>כ/אשר</catchWord><rdg type="x-qere"><w lemma="k/3605" n="0.0">כְּ/כֹ֖ל</w><w lemma="834 a">אֲשֶׁ֥ר</w></rdg></note>
+---
+>           <w lemma="k/834 d">כ/אשר</w><note type="variant"><catchWord>כ/אשר</catchWord><rdg type="x-qere"><w lemma="k/3605" n="0.0">כְּ/כֹ֖ל</w> <w lemma="834 a">אֲשֶׁ֥ר</w></rdg></note>
+7763,7764c7760
+<           <w lemma="k/7080">כ/קסום</w><note type="variant"><catchWord>כ/קסום</catchWord><rdg type="x-qere"><w lemma="k/7080">כִּ/קְסָם</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="7723" n="1.1.0">שָׁוְא֙</w>
+---
+>           <w lemma="k/7080">כ/קסום</w><note type="variant"><catchWord>כ/קסום</catchWord><rdg type="x-qere"><w lemma="k/7080">כִּ/קְסָם</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="7723" n="1.1.0">שָׁוְא֙</w>
+9030,9031c9026
+<           <w lemma="3789">כתוב</w><note type="variant"><catchWord>כתוב</catchWord><rdg type="x-qere"><w lemma="3789">כְּתָב</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/3789" n="1.1.0">לְ/ךָ֙</w>
+---
+>           <w lemma="3789">כתוב</w><note type="variant"><catchWord>כתוב</catchWord><rdg type="x-qere"><w lemma="3789">כְּתָב</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/3789" n="1.1.0">לְ/ךָ֙</w>
+13737,13738c13732
+<           <w lemma="3782">תכשלי</w><note type="variant"><catchWord>תכשלי</catchWord><rdg type="x-qere"><w lemma="7921 a">תְשַׁכְּלִי</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="5750" n="1">ע֑וֹד</w>
+---
+>           <w lemma="3782">תכשלי</w><note type="variant"><catchWord>תכשלי</catchWord><rdg type="x-qere"><w lemma="7921 a">תְשַׁכְּלִי</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="5750" n="1">ע֑וֹד</w>
+14438,14439c14432
+<           <w lemma="1961">יהיה</w><note type="variant"><catchWord>יהיה</catchWord><rdg type="x-qere"><w lemma="1961">יִֽהְיוּ</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="1961" n="0.1.0">עוֹד֙</w>
+---
+>           <w lemma="1961">יהיה</w><note type="variant"><catchWord>יהיה</catchWord><rdg type="x-qere"><w lemma="1961">יִֽהְיוּ</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="1961" n="0.1.0">עוֹד֙</w>
+16677,16678c16670
+<           <w lemma="3957">לשכות</w>
+<           <note type="variant"><catchWord>ו/מ/תחת/ה לשכות</catchWord><rdg type="x-qere"><w lemma="c/m/8478" n="1.0">וּ/מִ/תַּ֖חַת</w><w lemma="d/3957">הַ/לְּשָׁכ֣וֹת</w></rdg></note>
+---
+>           <w lemma="3957">לשכות</w><note type="variant"><catchWord>ו/מ/תחת/ה לשכות</catchWord><rdg type="x-qere"><w lemma="c/m/8478" n="1.0">וּ/מִ/תַּ֖חַת</w> <w lemma="d/3957">הַ/לְּשָׁכ֣וֹת</w></rdg></note>
+19180,19181c19172
+<           <w lemma="2568">חמש</w>
+<           <note type="variant"><catchWord>חמש</catchWord><rdg type="x-qere"/></note>
+---
+>           <w lemma="2568">חמש</w><note type="variant"><catchWord>חמש</catchWord><rdg type="x-qere"/></note>
+====================================================================================
+  Began Hos.xml...
+    Wrote Hos.xml.
+1558,1559c1558
+<           <w lemma="3789">אכתוב</w><note type="variant"><catchWord>אכתוב</catchWord><rdg type="x-qere"><w lemma="3789">אֶ֨כְתָּב</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/3789" n="1.1">ל֔/וֹ</w>
+---
+>           <w lemma="3789">אכתוב</w><note type="variant"><catchWord>אכתוב</catchWord><rdg type="x-qere"><w lemma="3789">אֶ֨כְתָּב</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/3789" n="1.1">ל֔/וֹ</w>
+1807,1808c1806
+<           <w lemma="1097">בלי</w><note type="variant"><catchWord>בלי</catchWord><rdg type="x-qere"><w lemma="1077">בַֽל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="6213 a" n="1">יַעֲשׂ֑וּ/ן</w>
+---
+>           <w lemma="1097">בלי</w><note type="variant"><catchWord>בלי</catchWord><rdg type="x-qere"><w lemma="1077">בַֽל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="6213 a" n="1">יַעֲשׂ֑וּ/ן</w>
+====================================================================================
+  Began Joel.xml...
+    Wrote Joel.xml.
+====================================================================================
+  Began Amos.xml...
+    Wrote Amos.xml.
+1802,1803c1802
+<           <w lemma="6035">ענוי</w><note type="variant"><catchWord>ענוי</catchWord><rdg type="x-qere"><w lemma="6041">עֲנִיֵּי</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="776" n="0">אָֽרֶץ</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="6035">ענוי</w><note type="variant"><catchWord>ענוי</catchWord><rdg type="x-qere"><w lemma="6041">עֲנִיֵּי</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="776" n="0">אָֽרֶץ</w><seg type="x-sof-pasuq">׃</seg>
+====================================================================================
+  Began Obad.xml...
+    Wrote Obad.xml.
+====================================================================================
+  Began Jonah.xml...
+    Wrote Jonah.xml.
+====================================================================================
+  Began Mic.xml...
+    Wrote Mic.xml.
+====================================================================================
+  Began Nah.xml...
+    Wrote Nah.xml.
+100,101c100
+<           <w lemma="c/1419 a">ו/גדול</w><note type="variant"><catchWord>ו/גדול</catchWord><rdg type="x-qere"><w lemma="c/1419 a">וּ/גְדָל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="3581 b" n="1.1">כֹּ֔חַ</w>
+---
+>           <w lemma="c/1419 a">ו/גדול</w><note type="variant"><catchWord>ו/גדול</catchWord><rdg type="x-qere"><w lemma="c/1419 a">וּ/גְדָל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="3581 b" n="1.1">כֹּ֔חַ</w>
+266,268c265
+<           <w lemma="l/5674 a">ל/עבור</w><note type="variant"><catchWord>ל/עבור</catchWord><rdg type="x-qere"><w lemma="l/5674 a">לַֽ/עֲבָר</w></rdg></note>
+< <seg type="x-maqqef">־</seg>
+<           <w lemma="b">בָּ֥/ךְ</w>
+---
+>           <w lemma="l/5674 a">ל/עבור</w><note type="variant"><catchWord>ל/עבור</catchWord><rdg type="x-qere"><w lemma="l/5674 a">לַֽ/עֲבָר</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="b">בָּ֥/ךְ</w>
+====================================================================================
+  Began Hab.xml...
+    Wrote Hab.xml.
+====================================================================================
+  Began Zeph.xml...
+    Wrote Zeph.xml.
+====================================================================================
+  Began Hag.xml...
+    Wrote Hag.xml.
+====================================================================================
+  Began Zech.xml...
+    Wrote Zech.xml.
+====================================================================================
+  Began Mal.xml...
+    Wrote Mal.xml.
+====================================================================================
+  Began Ps.xml...
+{ _: 'מִ/יָּ֑ר',
+  '$': { lemma: 'm/3293 a', n: '1' },
+  '#name': 'w',
+  '$$': [ { _: 'עַ', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'עַ', '$': [Object] } ] }
+    Wrote Ps.xml.
+1300,1301c1300
+<           <w lemma="2489">חלכאים</w>
+<           <note type="variant"><catchWord>חלכאים</catchWord><rdg type="x-qere"><w lemma="2426">חֵ֣יל</w> <w lemma="3512 b" n="0">כָּאִֽים</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="2489">חלכאים</w><note type="variant"><catchWord>חלכאים</catchWord><rdg type="x-qere"><w lemma="2426">חֵ֣יל</w> <w lemma="3512 b" n="0">כָּאִֽים</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+4149,4150c4148
+<           <w lemma="m/3381">מ/יורדי</w><note type="variant"><catchWord>מ/יורדי</catchWord><rdg type="x-qere"><w lemma="m/3381">מִ/יָּֽרְדִ/י</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="953 a" n="0">בֽוֹר</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="m/3381">מ/יורדי</w><note type="variant"><catchWord>מ/יורדי</catchWord><rdg type="x-qere"><w lemma="m/3381">מִ/יָּֽרְדִ/י</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="953 a" n="0">בֽוֹר</w><seg type="x-sof-pasuq">׃</seg>
+5992,5993c5990
+<           <w lemma="7291">רדופ/י</w><note type="variant"><catchWord>רדופ/י</catchWord><rdg type="x-qere"><w lemma="7291">רָֽדְפִ/י</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="2896 a" n="0">טֽוֹב</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="7291">רדופ/י</w><note type="variant"><catchWord>רדופ/י</catchWord><rdg type="x-qere"><w lemma="7291">רָֽדְפִ/י</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2896 a" n="0">טֽוֹב</w><seg type="x-sof-pasuq">׃</seg>
+8681,8682c8678
+<           <w lemma="3451">ישימות</w>
+<           <note type="variant"><catchWord>ישימות</catchWord><rdg type="x-qere"><w lemma="5377">יַשִּׁ֤י</w><w lemma="4194" n="1.0.0">מָ֨וֶת</w><seg type="x-paseq">׀</seg></rdg></note>
+---
+>           <w lemma="3451">ישימות</w><note type="variant"><catchWord>ישימות</catchWord><rdg type="x-qere"><w lemma="5377">יַשִּׁ֤י</w> <w lemma="4194" n="1.0.0">מָ֨וֶת</w><seg type="x-paseq">׀</seg></rdg></note>
+14948,14949c14944
+<           <w lemma="8104">אשמור</w><note type="variant"><catchWord>אשמור</catchWord><rdg type="x-qere"><w lemma="8104">אֶשְׁמָר</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l">ל֣/וֹ</w>
+---
+>           <w lemma="8104">אשמור</w><note type="variant"><catchWord>אשמור</catchWord><rdg type="x-qere"><w lemma="8104">אֶשְׁמָר</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l">ל֣/וֹ</w>
+17550,17551c17545
+<           <w lemma="854">אֶת</w><seg type="x-maqqef">־</seg><w lemma="1697">דברו/ו</w>
+<           <note type="variant"><catchWord>דברו/ו</catchWord><rdg type="x-qere"><w lemma="1697" n="0">דְּבָרֽ/וֹ</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="854">אֶת</w><seg type="x-maqqef">־</seg><w lemma="1697">דברו/ו</w><note type="variant"><catchWord>דברו/ו</catchWord><rdg type="x-qere"><w lemma="1697" n="0">דְּבָרֽ/וֹ</w></rdg></note><seg type="x-sof-pasuq">׃</seg>
+18258d18251
+< 
+18270d18262
+< 
+18291d18282
+< 
+18404d18394
+< 
+====================================================================================
+  Began Prov.xml...
+{ _: 'וְ֝/נִרְגָּ֗',
+  '$': { lemma: 'c/5372', n: '0.0' },
+  '#name': 'w',
+  '$$': [ { _: 'ן', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'ן', '$': [Object] } ] }
+    Wrote Prov.xml.
+3538c3538
+< 		  <w lemma="1800" n="1.0">דָּ֭ל</w>
+---
+>           <w lemma="1800" n="1.0">דָּ֭ל</w>
+4400,4401c4400
+<           <w lemma="c/7119">ו/קר</w><note type="variant"><catchWord>ו/קר</catchWord><rdg type="x-qere"><w lemma="3368">יְקַר</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="7307" n="0.0">ר֝֗וּחַ</w>
+---
+>           <w lemma="c/7119">ו/קר</w><note type="variant"><catchWord>ו/קר</catchWord><rdg type="x-qere"><w lemma="3368">יְקַר</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="7307" n="0.0">ר֝֗וּחַ</w>
+4554,4555c4553
+<           <w lemma="935">יבא</w><note type="variant"><catchWord>יבא</catchWord><rdg type="x-qere"><w lemma="c/935">וּ/בָֽא</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="7453" n="0.0">רֵ֝עֵ֗/הוּ</w>
+---
+>           <w lemma="935">יבא</w><note type="variant"><catchWord>יבא</catchWord><rdg type="x-qere"><w lemma="c/935">וּ/בָֽא</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="7453" n="0.0">רֵ֝עֵ֗/הוּ</w>
+4685,4686c4683
+<           <w lemma="3808">לא</w><note type="variant"><catchWord>לא</catchWord><rdg type="x-qere"><w lemma="l">ל/וֹ</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="1992" n="0">הֵֽמָּה</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="3808">לא</w><note type="variant"><catchWord>לא</catchWord><rdg type="x-qere"><w lemma="l">ל/וֹ</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="1992" n="0">הֵֽמָּה</w><seg type="x-sof-pasuq">׃</seg>
+4789,4790c4786
+<           <w lemma="1632">גרל</w><note type="variant"><catchWord>גרל</catchWord><rdg type="x-qere"><w lemma="1419 a">גְּֽדָל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="2534" n="1.0">חֵ֭מָה</w>
+---
+>           <w lemma="1632">גרל</w><note type="variant"><catchWord>גרל</catchWord><rdg type="x-qere"><w lemma="1419 a">גְּֽדָל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2534" n="1.0">חֵ֭מָה</w>
+5487,5488c5483
+<           <w lemma="7114 b">יקצור</w><note type="variant"><catchWord>יקצור</catchWord><rdg type="x-qere"><w lemma="7114 b">יִקְצָר</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="205" n="1">אָ֑וֶן</w>
+---
+>           <w lemma="7114 b">יקצור</w><note type="variant"><catchWord>יקצור</catchWord><rdg type="x-qere"><w lemma="7114 b">יִקְצָר</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="205" n="1">אָ֑וֶן</w>
+5512,5513c5507
+<           <w lemma="2889">טהור</w><note type="variant"><catchWord>טהור</catchWord><rdg type="x-qere"><w lemma="2889">טְהָר</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="3820 a" n="1">לֵ֑ב</w>
+---
+>           <w lemma="2889">טהור</w><note type="variant"><catchWord>טהור</catchWord><rdg type="x-qere"><w lemma="2889">טְהָר</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="3820 a" n="1">לֵ֑ב</w>
+5544,5545c5538
+<           <w lemma="5307">יפול</w><note type="variant"><catchWord>יפול</catchWord><rdg type="x-qere"><w lemma="5307">יִפָּל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="8033" n="0">שָֽׁם</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="5307">יפול</w><note type="variant"><catchWord>יפול</catchWord><rdg type="x-qere"><w lemma="5307">יִפָּל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="8033" n="0">שָֽׁם</w><seg type="x-sof-pasuq">׃</seg>
+5879,5880c5872
+<           <w lemma="c/8055">ו/ישמח</w><note type="variant"><catchWord>ו/ישמח</catchWord><rdg type="x-qere"><w lemma="8055">יִשְׂמַח</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="b/8055" n="0">בּֽ/וֹ</w><seg type="x-sof-pasuq">׃</seg>
+---
+>           <w lemma="c/8055">ו/ישמח</w><note type="variant"><catchWord>ו/ישמח</catchWord><rdg type="x-qere"><w lemma="8055">יִשְׂמַח</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="b/8055" n="0">בּֽ/וֹ</w><seg type="x-sof-pasuq">׃</seg>
+====================================================================================
+  Began Job.xml...
+{ _: 'רְשָׁים',
+  '$': { lemma: '7563' },
+  '#name': 'w',
+  '$$': [ { _: 'עִ֣', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'עִ֣', '$': [Object] } ] }
+{ _: 'מֵ/רְשָׁים',
+  '$': { lemma: 'm/7563' },
+  '#name': 'w',
+  '$$': [ { _: 'עִ֣', '$': [Object], '#name': 'seg' } ],
+  seg: [ { _: 'עִ֣', '$': [Object] } ] }
+    Wrote Job.xml.
+1547,1548c1547
+<           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="5921 a">עֲלֵי</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="776" n="1">אָ֑רֶץ</w>
+---
+>           <w lemma="5921 a">על</w><note type="variant"><catchWord>על</catchWord><rdg type="x-qere"><w lemma="5921 a">עֲלֵי</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="776" n="1">אָ֑רֶץ</w>
+2153,2154c2152
+<           <w lemma="1119">במו</w><note type="variant"><catchWord>במו</catchWord><rdg type="x-qere"><w lemma="b/4325">בְ/מֵי</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="7950" n="1">שָׁ֑לֶג</w>
+---
+>           <w lemma="1119">במו</w><note type="variant"><catchWord>במו</catchWord><rdg type="x-qere"><w lemma="b/4325">בְ/מֵי</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="7950" n="1">שָׁ֑לֶג</w>
+8306,8307c8304
+<           <w lemma="d/5591 b">ה/סערה</w>
+<           <note type="variant"><catchWord>מנ ה/סערה</catchWord><rdg type="x-qere"><w lemma="4480 a">מִ֥ן</w><seg type="x-paseq">׀</seg><w lemma="d/5591 b" n="1">הַ/סְּעָרָ֗ה</w></rdg></note>
+---
+>           <w lemma="d/5591 b">ה/סערה</w><note type="variant"><catchWord>מנ ה/סערה</catchWord><rdg type="x-qere"><w lemma="4480 a">מִ֥ן</w> <seg type="x-paseq">׀</seg><w lemma="d/5591 b" n="1">הַ/סְּעָרָ֗ה</w></rdg></note>
+8400,8401c8397
+<           <w lemma="7837">שחר</w>
+<           <note type="variant"><catchWord>ידעתה שחר</catchWord><rdg type="x-qere"><w lemma="3045">יִדַּ֖עְתָּה</w><w lemma="d/7837">הַ/שַּׁ֣חַר</w></rdg></note>
+---
+>           <w lemma="7837">שחר</w><note type="variant"><catchWord>ידעתה שחר</catchWord><rdg type="x-qere"><w lemma="3045">יִדַּ֖עְתָּה</w> <w lemma="d/7837">הַ/שַּׁ֣חַר</w></rdg></note>
+8934,8935c8930
+<           <w lemma="5591 b">סערה</w>
+<           <note type="variant"><catchWord>מנ סערה</catchWord><rdg type="x-qere"><w lemma="4480 a">מִ֥ן</w><seg type="x-paseq">׀</seg><w lemma="5591 b" n="1">סְעָרָ֗ה</w></rdg></note>
+---
+>           <w lemma="5591 b">סערה</w><note type="variant"><catchWord>מנ סערה</catchWord><rdg type="x-qere"><w lemma="4480 a">מִ֥ן</w> <seg type="x-paseq">׀</seg><w lemma="5591 b" n="1">סְעָרָ֗ה</w></rdg></note>
+9186,9187c9181
+<           <w lemma="3808">לא</w><note type="variant"><catchWord>לא</catchWord><rdg type="x-qere"><w lemma="l">לֽ/וֹ</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="2790 b">אַחֲרִ֥ישׁ</w>
+---
+>           <w lemma="3808">לא</w><note type="variant"><catchWord>לא</catchWord><rdg type="x-qere"><w lemma="l">לֽ/וֹ</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="2790 b">אַחֲרִ֥ישׁ</w>
+====================================================================================
+  Began Song.xml...
+    Wrote Song.xml.
+====================================================================================
+  Began Ruth.xml...
+    Wrote Ruth.xml.
+967,968c967
+<           <w lemma="518 a">אם</w>
+<           <note type="variant"><catchWord>אם</catchWord><rdg type="x-qere"/></note>
+---
+>           <w lemma="518 a">אם</w><note type="variant"><catchWord>אם</catchWord><rdg type="x-qere"/></note>
+1167,1168c1166
+<           <w lemma="l/1350 a" morph="HR/Vqc">ל/גאול</w><note type="variant"><catchWord>ל/גאול</catchWord><rdg type="x-qere"><w lemma="l/1350 a" morph="HR/Vqc">לִ/גְאָל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l" n="1.1" morph="HR/Sp1cs">לִ֔/י</w>
+---
+>           <w lemma="l/1350 a" morph="HR/Vqc">ל/גאול</w><note type="variant"><catchWord>ל/גאול</catchWord><rdg type="x-qere"><w lemma="l/1350 a" morph="HR/Vqc">לִ/גְאָל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l" n="1.1" morph="HR/Sp1cs">לִ֔/י</w>
+====================================================================================
+  Began Lam.xml...
+    Wrote Lam.xml.
+1438,1439c1438
+<           <w lemma="3283">ענים</w>
+<           <note type="variant"><catchWord>כי ענים</catchWord><rdg type="x-qere"><w lemma="k/3283" n="0.0">כַּ/יְעֵנִ֖ים</w></rdg></note>
+---
+>           <w lemma="3283">ענים</w><note type="variant"><catchWord>כי ענים</catchWord><rdg type="x-qere"><w lemma="k/3283" n="0.0">כַּ/יְעֵנִ֖ים</w></rdg></note>
+====================================================================================
+  Began Eccl.xml...
+    Wrote Eccl.xml.
+====================================================================================
+  Began Esth.xml...
+    Wrote Esth.xml.
+====================================================================================
+  Began Dan.xml...
+    Wrote Dan.xml.
+2229,2230c2229
+<           <w lemma="607">אנתה</w><note type="variant"><catchWord>אנתה</catchWord><rdg type="x-qere"><w lemma="607">אַנְתְּ</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="1932">ה֣וּא</w>
+---
+>           <w lemma="607">אנתה</w><note type="variant"><catchWord>אנתה</catchWord><rdg type="x-qere"><w lemma="607">אַנְתְּ</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="1932">ה֣וּא</w>
+2815,2816c2814
+<           <w lemma="607">אנתה</w><note type="variant"><catchWord>אנתה</catchWord><rdg type="x-qere"><w lemma="607">אַנְתְּ</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="1932">ה֤וּא</w>
+---
+>           <w lemma="607">אנתה</w><note type="variant"><catchWord>אנתה</catchWord><rdg type="x-qere"><w lemma="607">אַנְתְּ</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="1932">ה֤וּא</w>
+====================================================================================
+  Began Ezra.xml...
+    Wrote Ezra.xml.
+====================================================================================
+  Began Neh.xml...
+    Wrote Neh.xml.
+500,501c500
+<           <w lemma="834 a">אֲשֶׁר</w><seg type="x-maqqef">־</seg><w lemma="d/6555">ה/מפרוצים</w>
+<           <note type="variant"><catchWord>ה/מפרוצים</catchWord><rdg type="x-qere"><w lemma="1992" n="0.0">הֵ֣ם</w><seg type="x-paseq">׀</seg><w lemma="6555" n="0.1">פְּרוּצִ֔ים</w></rdg></note>
+---
+>           <w lemma="834 a">אֲשֶׁר</w><seg type="x-maqqef">־</seg><w lemma="d/6555">ה/מפרוצים</w><note type="variant"><catchWord>ה/מפרוצים</catchWord><rdg type="x-qere"><w lemma="1992" n="0.0">הֵ֣ם</w> <seg type="x-paseq">׀</seg><w lemma="6555" n="0.1">פְּרוּצִ֔ים</w></rdg></note>
+====================================================================================
+  Began 1Chr.xml...
+    Wrote 1Chr.xml.
+3971,3973c3971
+<           <w lemma="1121 a">בֶן</w><seg type="x-maqqef">־</seg><w lemma="1144">בני/מן</w><note type="variant"><catchWord>בני/מן</catchWord><rdg type="x-qere"><w lemma="1137" n="0.1">בָּנִ֔י</w> <w lemma="4480 a">מִן</w></rdg></note>
+<           <seg type="x-maqqef">־</seg>
+<           <w lemma="1121 a">בְּנֵי</w><seg type="x-maqqef">־</seg><w lemma="6557" n="0.0">פֶ֖רֶץ</w>
+---
+>           <w lemma="1121 a">בֶן</w><seg type="x-maqqef">־</seg><w lemma="1144">בני/מן</w><note type="variant"><catchWord>בני/מן</catchWord><rdg type="x-qere"><w lemma="1137" n="0.1">בָּנִ֔י</w> <w lemma="4480 a">מִן</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="1121 a">בְּנֵי</w><seg type="x-maqqef">־</seg><w lemma="6557" n="0.0">פֶ֖רֶץ</w>
+4920,4921c4918
+<           <w lemma="c/3808">ו/לא</w><note type="variant"><catchWord>ו/לא</catchWord><rdg type="x-qere"><w lemma="c/l">וְ/ל/וֹ</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="8034" n="0.0">שֵׁ֖ם</w>
+---
+>           <w lemma="c/3808">ו/לא</w><note type="variant"><catchWord>ו/לא</catchWord><rdg type="x-qere"><w lemma="c/l">וְ/ל/וֹ</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="8034" n="0.0">שֵׁ֖ם</w>
+7574,7575c7571
+<           <w lemma="l/7592">ל/שאול</w><note type="variant"><catchWord>ל/שאול</catchWord><rdg type="x-qere"><w lemma="l/7592">לִ/שְׁאָל</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="l/7592">ל֨/וֹ</w>
+---
+>           <w lemma="l/7592">ל/שאול</w><note type="variant"><catchWord>ל/שאול</catchWord><rdg type="x-qere"><w lemma="l/7592">לִ/שְׁאָל</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="l/7592">ל֨/וֹ</w>
+10569,10570c10565
+<           <w lemma="l/1145">ל/בנימיני</w>
+<           <note type="variant"><catchWord>ל/בנימיני</catchWord><rdg type="x-qere"><w lemma="l/1121 a" n="1.0">לַ/בֵּ֣ן</w><seg type="x-paseq">׀</seg><w lemma="3227" n="1">יְמִינִ֑י</w></rdg></note>
+---
+>           <w lemma="l/1145">ל/בנימיני</w><note type="variant"><catchWord>ל/בנימיני</catchWord><rdg type="x-qere"><w lemma="l/1121 a" n="1.0">לַ/בֵּ֣ן</w> <seg type="x-paseq">׀</seg><w lemma="3227" n="1">יְמִינִ֑י</w></rdg></note>
+====================================================================================
+  Began 2Chr.xml...
+    Wrote 2Chr.xml.
+3961,3962c3961
+<           <w lemma="1121 a">בן</w><note type="variant"><catchWord>בן</catchWord><rdg type="x-qere"><w lemma="1323">בַּת</w></rdg></note>
+< <seg type="x-maqqef">־</seg><w lemma="3406" n="1.0">יְרִימ֖וֹת</w>
+---
+>           <w lemma="1121 a">בן</w><note type="variant"><catchWord>בן</catchWord><rdg type="x-qere"><w lemma="1323">בַּת</w></rdg></note><seg type="x-maqqef">־</seg><w lemma="3406" n="1.0">יְרִימ֖וֹת</w>
+12169,12170c12168
+<           <w lemma="1004 b">בתי/הם</w>
+<           <note type="variant"><catchWord>ב/הר בתי/הם</catchWord><rdg type="x-qere"><w lemma="b/2719" n="0.0">בְּ/חַרְבֹתֵי/הֶ֖ם</w></rdg></note>
+---
+>           <w lemma="1004 b">בתי/הם</w><note type="variant"><catchWord>ב/הר בתי/הם</catchWord><rdg type="x-qere"><w lemma="b/2719" n="0.0">בְּ/חַרְבֹתֵי/הֶ֖ם</w></rdg></note>
+

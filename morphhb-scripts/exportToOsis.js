@@ -118,7 +118,38 @@ connection.connect(function(err) {
                 if(obj["$"]) {
                   newObj["@"] = obj["$"]
                 }
-                if(obj["$$"]) {
+                if(obj["$$"] && obj["_"]) {
+
+                  const complexWordBreakupMap = {
+                    "גָּח֜ן": ["גָּח֜", "ן"],
+                    "מִשְׁפָּטָ֖/": ["מִשְׁפָּטָ֖/", ""],
+                    "שְׁמַ֖": ["שְׁמַ֖", ""],
+                    "אֶחָֽ": ["אֶחָֽ", ""],
+                    "מְשֶּׁ֜ה": ["מְ", "שֶּׁ֜ה"],
+                    "אֹ֖רֶ": ["אֹ֖רֶ", ""],
+                    "וּ/נְבֽוּשַׁזְבָּ": ["וּ/נְבֽוּשַׁזְבָּ", ""],
+                    "מִ/יָּ֑ר": ["מִ/יָּ֑", "ר"],
+                    "וְ֝/נִרְגָּ֗": ["וְ֝/נִרְגָּ֗", ""],
+                    "רְשָׁים": ["רְשָׁ", "ים"],
+                    "מֵ/רְשָׁים": ["מֵ/רְשָׁ", "ים"],
+                  }
+
+                  Object.keys(complexWordBreakupMap).some(word => {
+                    if(obj["_"] == word) {
+                      newObj["group"] = [
+                        complexWordBreakupMap[word][0],
+                        {
+                          "=": obj["$$"][0]["#name"],
+                          "@": obj["$$"][0]["$"],
+                          "#": obj["$$"][0]["_"],
+                        },
+                        complexWordBreakupMap[word][1],
+                      ]
+                      return true
+                    }
+                  })
+                  console.log(obj)
+                } else if(obj["$$"]) {
                   newObj["group"] = obj["$$"].map(child => convertObj(child))
                 } else if(obj["_"]) {
                   newObj["#"] = obj["_"]
@@ -150,6 +181,7 @@ connection.connect(function(err) {
                 .replace(/(<\/w>)\n *(<seg type="x-maqqef">־<\/seg>)\n *(<note type="[^"]*">)\n *(<rdg type="[^"]*">)\n *([^\n]*)\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5$6$7")
                 .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*">)\n *([^\n]*)(?:\n *([^\n]*))\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5 $6$7$8")
                 .replace(/(<\/w>)\n *(<note type="[^"]*">)\n *(<catchWord>[^<]*<\/catchWord>)\n *(<rdg type="[^"]*">)\n *([^\n]*)(?:\n *([^\n]*))(?:\n *([^\n]*))\n *(<\/rdg>)\n *(<\/note>)/g, "$1$2$3$4$5 $6$7$8$9")
+                .replace(/(<w [^>]*>)\n *<group>([^<]*)<\/group>\n *(<seg [^>]*>)([^<]*)(<\/seg>)\n *<group>([^<]*)<\/group>\n *(<\/w>)/g, "$1$2$3$4$5$6$7")
                 
               fs.writeFile(`${exportDir}/${bookURIsByBookId[bookId]}`, newXml, function(err) {
                   if(err) {
