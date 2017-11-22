@@ -438,6 +438,14 @@ const autoParseAndValidateMap = {
   "לָ/הֶם": "HR/Sp3mp",
   "לָ/הֶן": "HR/Sp3fp",
   "מֵ/הֶם": "HR/Sp3mp",
+  "פַּרְעֹה": "HNp",
+  "פַרְעֹה": "HNp",
+  "בְּ/פַרְעֹה": "HR/Np",
+  "וּ/פַרְעֹה": "HC/Np",
+  "כְּ/פַרְעֹה": "HR/Np",
+  "לְ/פַרְעֹה": "HR/Np",
+  "מִ/פַּרְעֹה": "HR/Np",
+  "מִ/פַּרְעֹה": "HR/Np",
 
   // etcbc has these as both. if we decide not to parse them as both, add them here
   // "הַ/בָּקָר": "HTd/Ncmsa",
@@ -456,7 +464,6 @@ const autoParseAndValidateMap = {
   // "הַ/לֶּחֶם": "HTd/Ncmsa",
   
   // waiting for slack answer on these
-  // "פַרְעֹה": "HNp",
   // "יַחַד": "HD",
   // "אָכֵן": "HD",
   // "סְבִיבוֹת": "HD",
