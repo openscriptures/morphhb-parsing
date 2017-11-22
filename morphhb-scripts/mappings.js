@@ -430,6 +430,14 @@ const autoParseAndValidateMap = {
   "לַ/שָּׁמַיִם": "HRd/Ncmpa",
   "הַ/שָּׁמָיְמָ/ה": "HTd/Ncmpa/Sd",
   "הַ/שָּׁמַיְמָ/ה": "HTd/Ncmpa/Sd",
+  "וְ/כָ/הֵם": "HC/R/Pp3mp",
+  "כָ/הֵם": "HR/Pp3mp",
+  "כָּ/הֵם": "HR/Pp3mp",
+  "וְ/לָ/הֶם": "HC/R/Sp3mp",
+  "וּ/מֵ/הֶם": "HC/R/Sp3mp",
+  "לָ/הֶם": "HR/Sp3mp",
+  "לָ/הֶן": "HR/Sp3fp",
+  "מֵ/הֶם": "HR/Sp3mp",
 
   // etcbc has these as both. if we decide not to parse them as both, add them here
   // "הַ/בָּקָר": "HTd/Ncmsa",
@@ -457,7 +465,7 @@ const autoParseAndValidateMap = {
   // "אֲבָל": "HD",
   // "אֵצֶל": "HR",
 
-  // do not auto parse these
+  // concluded we should not auto parse these (slack discussion with Joel)
   // "הַ/הוּא": "HTd/Pdxms", (also can be HTd/Pp3ms)
   // "הַ/הִוא": "HTd/Pdxfs",
   // "הַ/הִיא": "HTd/Pdxfs",
