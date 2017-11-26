@@ -109,7 +109,7 @@ connection.connect(function(err) {
               process.exit()
             }
 
-            parser.parseString(xml, function (err, result) {
+            parser.parseString(xml, function (err, jsonObj) {
 
               const convertObj = obj => {
                 const newObj = {
@@ -158,9 +158,66 @@ connection.connect(function(err) {
                 return newObj
               }
                       
-              result.osis = convertObj(result.osis)
+              jsonObj.osis = convertObj(jsonObj.osis)
 
-              let newXml = js2xmlparser.parse('osis', result.osis, {
+              // put in the new data
+
+              let resultIndex = 0
+
+              const updateWord = jsonWord => {
+                let wordText = jsonWord['#'] || ''
+                ;(jsonWord.group || []).forEach(wordPart => {
+                  wordText += wordPart['#'] || wordPart
+                })
+                if(result[resultIndex].word !== wordText) {
+                  console.log(`UNEXPECTED WORD: ${JSON.stringify(result[resultIndex])} VS ${JSON.stringify(jsonWord)}`)
+                  // process.exit()
+                }
+                if(result[resultIndex].lemma !== jsonWord['@'].lemma) {
+                  console.log(`UNEXPECTED LEMMA: ${JSON.stringify(result[resultIndex])} VS ${JSON.stringify(jsonWord)}`)
+                  // process.exit()
+                }
+                resultIndex++
+              }
+
+              jsonObj.osis.group[0].group[1].group.forEach(chapter => {
+                if(chapter['='] != 'chapter') {
+                  console.log(`UNEXPECTED TAG: ${JSON.stringify(chapter)}`)
+                  process.exit()
+                }
+                chapter.group.forEach(verse => {
+                  if(verse['='] != 'verse') {
+                    console.log(`UNEXPECTED TAG: ${JSON.stringify(verse)}`)
+                    process.exit()
+                  }
+                  verse.group.forEach(wordOrSomethingElse => {
+                    if(wordOrSomethingElse['='] == 'w') {
+                      updateWord(wordOrSomethingElse)
+                    } else if(wordOrSomethingElse['='] == 'seg') {
+
+                    } else if(wordOrSomethingElse['='] == 'note') {
+                      if(wordOrSomethingElse['@'] && wordOrSomethingElse['@'].type == 'variant') {
+                        wordOrSomethingElse.group.some(noteChild => {
+                          if(noteChild['='] == 'rdg') {
+                            ;(noteChild.group || []).forEach(qereOrSomethingElse => {
+                              if(qereOrSomethingElse['='] == 'w') {
+                                updateWord(qereOrSomethingElse)
+                              }
+                            })
+                          }
+                        })
+                      }
+                    } else {
+                      console.log(`UNEXPECTED TAG: ${JSON.stringify(wordOrSomethingElse)}`)
+                      process.exit()
+                    }
+
+                  })
+                })
+              })
+
+
+              let newXml = js2xmlparser.parse('osis', jsonObj.osis, {
                 declaration: {
                   encoding: "utf-8",
                 },
@@ -190,7 +247,7 @@ connection.connect(function(err) {
         
                   console.log(`    Wrote ${bookURIsByBookId[bookId]}.`)
 
-                  shell.exec(`diff ${importDir}/${bookURIsByBookId[bookId]} ${exportDir}/${bookURIsByBookId[bookId]}`)
+                  // shell.exec(`diff ${importDir}/${bookURIsByBookId[bookId]} ${exportDir}/${bookURIsByBookId[bookId]}`)
 
                   bookId++ && exportBook()
               })
