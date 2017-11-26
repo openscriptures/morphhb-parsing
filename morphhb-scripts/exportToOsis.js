@@ -163,6 +163,7 @@ connection.connect(function(err) {
               // put in the new data
 
               let resultIndex = 0
+              let unverifieds = 0
 
               const updateWord = jsonWord => {
                 let wordText = jsonWord['#'] || ''
@@ -175,8 +176,17 @@ connection.connect(function(err) {
                 }
                 if(result[resultIndex].lemma !== jsonWord['@'].lemma) {
                   console.log(`UNEXPECTED LEMMA: ${JSON.stringify(result[resultIndex])} VS ${JSON.stringify(jsonWord)}`)
+                  jsonWord['@'].lemma = result[resultIndex].lemma
                   // process.exit()
                 }
+
+                if(result[resultIndex].status == 'verified') {
+                  jsonWord['@'].morph = result[resultIndex].morph
+                } else {
+                  delete jsonWord['@'].morph
+                  unverifieds++
+                }
+
                 resultIndex++
               }
 
@@ -215,6 +225,12 @@ connection.connect(function(err) {
                   })
                 })
               })
+
+              if(unverifieds) {
+                console.log(`    ${unverifieds} unverified words.`)
+              } else {
+                console.log(`    COMPLETE!`)
+              }
 
 
               let newXml = js2xmlparser.parse('osis', jsonObj.osis, {
