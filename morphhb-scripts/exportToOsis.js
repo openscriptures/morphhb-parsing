@@ -204,7 +204,9 @@ connection.connect(function(err) {
                     if(wordOrSomethingElse['='] == 'w') {
                       updateWord(wordOrSomethingElse)
                     } else if(wordOrSomethingElse['='] == 'seg') {
-
+                      if(![result[resultIndex-1].append, 'פ', 'ס', '׆'].includes(wordOrSomethingElse['#'].trim())) {
+                        console.log(`UNEXPECTED SEG: ${JSON.stringify(wordOrSomethingElse)}`)
+                      }
                     } else if(wordOrSomethingElse['='] == 'note') {
                       if(wordOrSomethingElse['@'] && wordOrSomethingElse['@'].type == 'variant') {
                         wordOrSomethingElse.group.some(noteChild => {
