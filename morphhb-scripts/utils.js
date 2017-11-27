@@ -236,7 +236,7 @@ const utils = {
 
   },
 
-  removeNoteOnMatch: ({ connection, regex, except, next }) => {
+  removeNoteOnMatch: ({ connection, regex, except, addlWhere, next }) => {
 
     let select = `
       SELECT notes_enhanced.*, words_enhanced.word, words_enhanced.bookId, words_enhanced.chapter, words_enhanced.verse
@@ -249,6 +249,12 @@ const utils = {
     if(except) {
       select += `
         AND notes_enhanced.morph NOT REGEXP '${except.toString().replace(/^\/|\/[a-z]*$/g, '').replace(/\(\?:/g, '(')}'
+      `
+    }
+
+    if(addlWhere) {
+      select += `
+        AND (${addlWhere})
       `
     }
 

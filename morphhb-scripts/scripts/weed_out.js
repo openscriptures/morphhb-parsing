@@ -299,6 +299,19 @@ module.exports = (connection, done) => {
 
     },
 
+    (x, next) => {
+      
+      console.log(`  אַחַר cannot be an adjective...`)
+      
+      utils.removeNoteOnMatch({
+        connection,
+        regex: /^H([^\/]*\/)*A/,
+        addlWhere: `words_enhanced.lemma LIKE '310 a' OR words_enhanced.lemma LIKE '%/310 a'`,
+        next,
+      })
+
+    },
+
     () => {
       console.log(`Done with weed-out script.`)
       done()
