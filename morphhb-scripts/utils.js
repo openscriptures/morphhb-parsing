@@ -426,6 +426,8 @@ const utils = {
       .replace(/^(H(?:[^\/]*\/)*[^\/]+)\/S[^\/]+$/, '$1')  // suffixes not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*)Ng([^\/][^\/][^\/])/, '$1Aa$2')  // gentilic nouns not indicated in etcbc
       .replace(/^(H(?:[^\/]*\/)*V[^\/])q/, '$1p')  // etcbc doesn't use WeQatal verb stem
+      .replace(/^(H(?:[^\/]*\/)*V[^\/])h/, '$1i')  // etcbc doesn't indicate cohortatives
+      .replace(/^(H(?:[^\/]*\/)*V[^\/])j/, '$1i')  // etcbc doesn't indicate jussives
 
 
     if(etcbcMorph.match(/^(H(?:[^\/]*\/)*N[^\/])b/)) {
