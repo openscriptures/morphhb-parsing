@@ -447,6 +447,10 @@ const utils = {
     if(skipAddl) {
       if(row.accentlessword.match(/כֵּן/)) return "unknown"
       if(row.accentlessword.match(/אַף/)) return "unknown"
+      if(row.accentlessword.match(/שֹׁכְנִי/)) return "unknown"
+      if(row.accentlessword.match(/שִׁבְתּ\/וֹ/)) return "unknown"
+      if(row.accentlessword.match(/לְ\/בִלְתִּי/)) return "unknown"
+      if(row.accentlessword.match(/^[א-ת]*$/)) return "unknown"   // etcbc is not trustworthy for words subject to a qere swap
     }
 
     return morph == etcbcMorph ? "unverified match" : "no match"

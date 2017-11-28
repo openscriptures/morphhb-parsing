@@ -596,6 +596,7 @@ module.exports = (connection, done) => {
         "7098",
         "8128",
         "8575",
+        "5439",
 
         // these are cardinal adjectives that likewise should always be both
         "7657",
