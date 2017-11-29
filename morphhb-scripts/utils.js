@@ -390,6 +390,11 @@ const utils = {
     let morph = row.morph
     let etcbcMorph = row.etcbcMorph
 
+    if(row.lemma.match(/(^|\/)1368$/)) {
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*)Nc/, '$1Aa')  // etcbc marks גבור as a noun
+    }
+
     if(morph == etcbcMorph) return "match"
     
     if(autoParseAndValidateMap[row.accentlessword] == morph) return "match"

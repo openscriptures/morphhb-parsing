@@ -469,6 +469,10 @@ const autoParseAndValidateMap = {
   "אַחֲרֶי/ךָ": "HR/Sp2ms",
   "וּ/מֵ/אֵת": "HC/R/To",
   "וְ/אַחֲרָי/ו֙": "HC/R/Sp3ms",
+  "הַ/גִּבֹּרִים": "HTd/Aampa",
+  "כְּ/גִבּוֹרִים": "HR/Aampa",
+  "גִּבֹּרִים": "HAampa",
+  "גִבּוֹרֶי/ךָ": "HAampc/Sp2ms",
 
   // etcbc has these as both. if we decide not to parse them as both, add them here
   // "הַ/בָּקָר": "HTd/Ncmsa",
