@@ -111,6 +111,7 @@ connection.connect(function(err) {
               LEFT JOIN words ON (words.id=wordnote.wordId)
             WHERE
               words.bookId=${bookId}
+              members.id!=416
             ORDER BY
               members.role DESC
           `
