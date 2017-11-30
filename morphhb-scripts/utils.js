@@ -293,7 +293,7 @@ const utils = {
     const notesTable = enhancedTables ? 'notes_enhanced' : 'notes'
     const wordnoteTable = enhancedTables ? 'wordnote_enhanced' : 'wordnote'
 
-    console.log(`\nDeleting rows from ${notesTable} and ${wordnoteTable} that were created by the script...`)
+    console.log(`\nDeleting unverified rows from ${notesTable} and ${wordnoteTable} that were created by the script...`)
     
     // rename the notes table to notes_rowsBeingDeleted
     // rename the wordnote table to wordnote_rowsBeingDeleted
@@ -312,12 +312,12 @@ const utils = {
       // drop old tables
       const statementSet2 = `
         INSERT ${notesTable}
-          SELECT * FROM ${notesTable}_rowsBeingDeleted WHERE memberId!=416;
+          SELECT * FROM ${notesTable}_rowsBeingDeleted WHERE memberId!=416 OR verification=1;
         INSERT ${wordnoteTable}
           SELECT ${wordnoteTable}_rowsBeingDeleted.*
             FROM ${wordnoteTable}_rowsBeingDeleted
               LEFT JOIN ${notesTable}_rowsBeingDeleted ON (${notesTable}_rowsBeingDeleted.id = ${wordnoteTable}_rowsBeingDeleted.noteId)
-            WHERE ${notesTable}_rowsBeingDeleted.memberId!=416;
+            WHERE ${notesTable}_rowsBeingDeleted.memberId!=416 OR ${notesTable}_rowsBeingDeleted.verification=1;
         DROP TABLE IF EXISTS ${notesTable}_rowsBeingDeleted; 
         DROP TABLE IF EXISTS ${wordnoteTable}_rowsBeingDeleted; 
       `
