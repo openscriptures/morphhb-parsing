@@ -275,8 +275,8 @@ connection.connect(function(err) {
                     })
 
                     const roleMap = {
-                      Administrator: 'edt',
-                      Editor: 'edt',
+                      Administrator: 'ctb',
+                      Editor: 'ctb',  // edt
                       Contributor: 'ctb',
                     }
 
