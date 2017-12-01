@@ -1,4 +1,5 @@
 const utils = require('../utils')
+const { bothGenderLemmas } = require('../mappings')
 
 module.exports = (connection, done) => {
 
@@ -556,68 +557,6 @@ module.exports = (connection, done) => {
 
       console.log(`  Make all both gender nouns to be parsed as both in every instance...`)
 
-      const bothGenderLemmas = [
-        "1516",
-        "1588",
-        "2474",
-        "5688",
-        "7676",
-        "8121",
-        "8593",
-        "216",
-        "226",
-        "727",
-        "776",
-        "784",
-        "1612",
-        "1870",
-        "2206",
-        "3027",
-        "3956",
-        "4043",
-        "4264",
-        "5645",
-        "6256",
-        "6629",
-        "6833",
-        "7307",
-        "7716",
-        "2691 a",
-        "5518 a",
-
-        // below have been added per Joel's instruction
-        "1354",
-        "8415",
-        "5869 a",
-        "590",
-        "5999",
-        "7097 a",
-        "7097 b",
-        "7098",
-        "8128",
-        "8575",
-        "5439",
-        "1861 a",
-        "1861 b",
-        "3833 a",
-        "3833 c",
-        "8302 b",
-        "734",
-
-        // these are cardinal adjectives that likewise should always be both
-        "7657",
-        "7970",
-        "3967",
-        "8673",
-        "505",
-        "705",
-        "6242",
-        "2572",
-        "8346",
-        "8084",
-
-      ]
-      
       // get all nouns with a gender, with their lemma
       const select = `
         SELECT 

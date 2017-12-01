@@ -1,4 +1,4 @@
-const { suffixParsingMap, autoParseAndValidateMap } = require('./mappings')
+const { suffixParsingMap, autoParseAndValidateMap, bothGenderLemmas } = require('./mappings')
 
 const utils = {
 
@@ -393,6 +393,11 @@ const utils = {
     if(row.lemma.match(/(^|\/)1368$/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*)Nc/, '$1Aa')  // etcbc marks גבור as a noun
+    }
+
+    if(bothGenderLemmas.includes(row.lemma.replace(/^[^0-9]*/, ''))) {
+      etcbcMorph = etcbcMorph
+        .replace(/^(H(?:[^\/]*\/)*Nc)[mf]/, '$1b')  // force etcbc to mark these as both
     }
 
     if(morph == etcbcMorph) return "match"
