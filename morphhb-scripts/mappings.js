@@ -473,7 +473,8 @@ const autoParseAndValidateMap = {
   "כְּ/גִבּוֹרִים": "HR/Aampa",
   "גִּבֹּרִים": "HAampa",
   "גִבּוֹרֶי/ךָ": "HAampc/Sp2ms",
-  "צְבָאוֹת": "HNcfpa",
+  "הַ/צְּבָאוֹת": "HTd/Ncbpa",
+  "צְבָאוֹת": "HNcbpa",
 
   // concluded we should not auto parse these (slack discussions with Joel)
   // "הַ/הוּא": "HTd/Pdxms", (also can be HTd/Pp3ms)
