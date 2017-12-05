@@ -609,6 +609,45 @@ module.exports = (connection, done) => {
 
     },
 
+    (x, next) => {
+
+      console.log(`  Add article to the end of the morph of Aramaic words ending in /א and missing a word part in the indicated morph...`)
+
+      const select = `
+        SELECT tbl.id, tbl.morph, tbl.morphSeparators, tbl.wordSeparators FROM (
+          SELECT 
+            notes_enhanced.id,
+            notes_enhanced.morph,    
+            words_enhanced.accentlessword,    
+            (LENGTH(notes_enhanced.morph) - LENGTH( REPLACE ( notes_enhanced.morph, "/", "") ) ) as morphSeparators,
+            (LENGTH(words_enhanced.accentlessword) - LENGTH( REPLACE ( words_enhanced.accentlessword, "/", "") ) ) as wordSeparators
+          FROM notes_enhanced
+            LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
+            LEFT JOIN words_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+        ) as tbl WHERE tbl.morphSeparators != tbl.wordSeparators AND tbl.morph LIKE "A%" AND tbl.accentlessword LIKE "%/א"
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = []
+
+        result.forEach(row => {
+          if(parseInt(row.morphSeparators) + 1 == parseInt(row.wordSeparators)) {
+            updates.push(`UPDATE notes_enhanced SET morph="${row.morph + "/Td"}" WHERE id="${row.id}"`)
+          }
+        })
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          if(numRowsUpdated != updates.length) throw new Error(`-----------> ERROR: Not everything got updated. Just ${numRowsUpdated}/${updates.length}.`)
+          console.log(`    - ${numRowsUpdated} words updated.`)
+          next()
+        })
+
+      })
+
+    },
+
     () => {
       console.log(`Done with fix script.`)
       done()
