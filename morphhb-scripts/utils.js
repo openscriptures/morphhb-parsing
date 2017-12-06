@@ -409,8 +409,9 @@ const utils = {
       morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
       && morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
     ) return "match" 
-    
-    
+
+    if(morph.replace(/^(A(?:[^\/]*\/)*[^\/]+d)\/Td$/, '$1') == etcbcMorph) return "match"
+
     if(morph.match(/^(H(?:[^\/]*\/)*[^\/]+)\/Sp[123][mfc][sp]/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
