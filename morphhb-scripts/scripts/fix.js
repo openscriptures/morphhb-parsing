@@ -235,7 +235,7 @@ module.exports = (connection, done) => {
         table: 'notes',
         regex: /\/+$/,
         replace: '',
-        doVerified: true,
+        // doVerified: true,
         next,
       })
 
@@ -455,7 +455,7 @@ module.exports = (connection, done) => {
         table: 'notes',
         regex: /\/\/+/g,
         replace: '/',
-        doVerified: true,
+        // doVerified: true,
         next,
       })
 

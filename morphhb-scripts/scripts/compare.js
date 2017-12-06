@@ -20,7 +20,7 @@ module.exports = (connection, done) => {
                   FROM words_enhanced
                     LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
                     LEFT JOIN notes_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id)
-                  ORDER BY words_enhanced.id, notes_enhanced.etcbcnomatch, notes_enhanced.noteDate DESC`
+                  ORDER BY words_enhanced.id, notes_enhanced.verification DESC, notes_enhanced.noteDate DESC`
 
   connection.query(select, (err, result) => {
     if(err) throw err
