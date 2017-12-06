@@ -45,7 +45,9 @@ module.exports = (connection, done) => {
           } else if(row.status == "confirmed") {
             newStatus = "single"
           } else if(row.status == "verified") {
-            newStatus = "confirmed"
+            if(!row.morph.match(/^A/)) {
+              newStatus = "confirmed"
+            }
             if(!mismatchedVerifieds[row.accentlessword]) {
               mismatchedVerifieds[row.accentlessword] = {
                 accentlessword: row.accentlessword,
@@ -67,6 +69,7 @@ module.exports = (connection, done) => {
         mismatchedVerifieds.sort((a,b) => (a.num > b.num ? 1 : -1))
         mismatchedVerifieds.forEach(mismatchedWord => {
           console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x was verified but didn't match)`)
+          // console.log(`    ${mismatchedWord.accentlessword} ${mismatchedWord.morph} ${mismatchedWord.etcbcMorph} (${mismatchedWord.num}x is verified but doesn't match)`)
         })
 
         utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
