@@ -491,6 +491,23 @@ const autoParseAndValidateMap = {
   "לְ/טוֹבָה": "HR/Aafsa",
   "לַ/טּוֹבָה": "HRd/Aafsa",
   "מִ/טּוֹבָה": "HR/Aafsa",
+  
+  "הִנְ/נִי": "HTm/Sp1cs",
+  "הִנְּ/ךָ": "HTm/Sp2ms",
+  "הִנֵּ/נִי": "HTm/Sp1cs",
+  "הִנֵּה": "HTm",
+  "הִנֵּנִ/י": "HTm/Sp1cs",
+  "הִנֶּ/נּוּ": "HTm/Sp1cp",
+  "הִנֶּה": "HTm",
+  "הִנֶּנִּ/י": "HTm/Sp1cs",
+  "הִנָּ/ךְ": "HTm/Sp2fs",
+  "הִנָּ/ם": "HTm/Sp3mp",
+  "ו/הנ/הו": "HC/Tm/Sp3ms",
+  "וְ/הְנֵּה": "HC/Tm",
+  "וְ/הִנּ/וֹ": "HC/Tm/Sp3ms",
+  "וְ/הִנְּ/כֶם": "HC/Tm/Sp2mp",
+  "וְ/הִנֵּה": "HC/Tm",
+  "וְ/הִנָּ/ם": "HC/Tm/Sp3mp",
 
   // concluded we should not auto parse these (slack discussions with Joel)
   // "הַ/הוּא": "HTd/Pdxms", (also can be HTd/Pp3ms)
