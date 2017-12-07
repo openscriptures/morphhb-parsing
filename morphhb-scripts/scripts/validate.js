@@ -17,9 +17,8 @@ module.exports = (connection, done) => {
           words_enhanced.*, etcbc_enhanced.morph as etcbcMorph
         FROM words_enhanced
           LEFT JOIN etcbc_enhanced ON (etcbc_enhanced.id = words_enhanced.id)
-        WHERE 
-          words_enhanced.morph IS NOT NULL
-          AND etcbc_enhanced.morph IS NOT NULL
+        ORDER BY 
+          words_enhanced.id
       `
 
       connection.query(statement, (err, result) => {
@@ -30,6 +29,8 @@ module.exports = (connection, done) => {
                 
         result.forEach((row, rowIndex) => {
 
+          if(!row.morph || !row.etcbcMorph) return
+
           const compareResult = utils.compareWithETCBC({ row, skipAddl: true })
 
           if(compareResult == "unknown") return
@@ -39,7 +40,10 @@ module.exports = (connection, done) => {
           if(compareResult == "match") {
             newStatus = "verified"
           } else if(compareResult == "unverified match") {
-            if(row.morph.match(/^H(?:[^\/]*\/)*V[^\/][hj]/) && rowIndex > 0 && result[rowIndex-1].lemma.match(/(?:^|\/)(?:4994|408)$/)) {
+            if(row.morph.replace(/^(H(?:[^\/]*\/)*V[^\/])[hj]/, '$1i') == row.etcbcMorph && (
+              (result[rowIndex-1] || "").lemma.match(/(?:^|\/)(?:4994|408)$/)
+              || (result[rowIndex+1] || "").lemma.match(/(?:^|\/)(?:4994)$/)
+            )) {
               newStatus = "verified"
             } else {
               newStatus = row.status == "verified" ? "verified" : "confirmed"

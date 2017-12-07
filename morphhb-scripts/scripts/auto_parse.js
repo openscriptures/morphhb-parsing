@@ -431,6 +431,64 @@ module.exports = (connection, done) => {
     
     (x, next) => {
 
+      console.log(`  Words marked imperatives but proceeded by אל or נא should be corrected to jussives or cohortatives...`)
+      
+      const select = `
+        SELECT w1.*
+        FROM words_enhanced as w1
+          LEFT JOIN words_enhanced as w2 ON (w1.id = w2.id + 1 AND w1.number = w2.number + 1)
+        WHERE w2.lemma REGEXP "(^|\/)(4994|408)$" AND w1.morph REGEXP "^H([^\/]*\/)*V[^\/]i";
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="${
+            row.morph.replace(/^(H(?:[^\/]*\/)*V[^\/])i([23])/, '$1j$2').replace(/^(H(?:[^\/]*\/)*V[^\/])i1/, '$1c1')
+          }" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`    - ${numRowsUpdated} words updated.`)
+          next()
+        })
+            
+      })
+      
+    },
+    
+    (x, next) => {
+
+      console.log(`  Words marked imperatives but followed by נא should be corrected to jussives or cohortatives...`)
+      
+      const select = `
+        SELECT w1.*
+        FROM words_enhanced as w1
+          LEFT JOIN words_enhanced as w2 ON (w1.id = w2.id - 1 AND w1.number = w2.number - 1)
+        WHERE w2.lemma REGEXP "(^|\/)(4994)$" AND w1.morph REGEXP "^H([^\/]*\/)*V[^\/]i";
+      `
+
+      connection.query(select, (err, result) => {
+        if(err) throw err
+
+        const updates = result.map(row => `
+          UPDATE words_enhanced SET morph="${
+            row.morph.replace(/^(H(?:[^\/]*\/)*V[^\/])i([23])/, '$1j$2').replace(/^(H(?:[^\/]*\/)*V[^\/])i1/, '$1c1')
+          }" WHERE id=${row.id}
+        `)
+
+        utils.doUpdatesInChunks(connection, { updates }, numRowsUpdated => {
+          console.log(`    - ${numRowsUpdated} words updated.`)
+          next()
+        })
+            
+      })
+      
+    },
+    
+    (x, next) => {
+
       console.log(`Done with auto-parse script.`)
       done()
 
