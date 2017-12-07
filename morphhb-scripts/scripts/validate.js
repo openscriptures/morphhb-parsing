@@ -28,7 +28,7 @@ module.exports = (connection, done) => {
         const updates = []
         let mismatchedVerifieds = {}
                 
-        result.forEach(row => {
+        result.forEach((row, rowIndex) => {
 
           const compareResult = utils.compareWithETCBC({ row, skipAddl: true })
 
@@ -39,7 +39,11 @@ module.exports = (connection, done) => {
           if(compareResult == "match") {
             newStatus = "verified"
           } else if(compareResult == "unverified match") {
-            newStatus = row.status == "verified" ? "verified" : "confirmed"
+            if(row.morph.match(/^H(?:[^\/]*\/)*V[^\/][hj]/) && rowIndex > 0 && result[rowIndex-1].lemma.match(/(?:^|\/)(?:4994|408)$/)) {
+              newStatus = "verified"
+            } else {
+              newStatus = row.status == "verified" ? "verified" : "confirmed"
+            }
           } else if(row.status == "single") {
             newStatus = "conflict"
           } else if(row.status == "confirmed") {
