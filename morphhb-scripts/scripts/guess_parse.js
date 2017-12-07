@@ -77,14 +77,14 @@ module.exports = (connection, done) => {
 
           // Look for situations where simple auto-parsing is not possible
           // - conj + perfect vs sequential perfect
-          // - 2nd/3rd jussive vs 2nd/3rd imperfect
+          // - jussives/cohortatives vs imperfects
           // - both vs masc vs fem
           // - imperfect 3fs vs 3ms  "HVqi3fs", (81%) -- but HVqi2ms
           // - absolute vs construct
           const noSimpleAutoParse = mainMorph && outliers.length > 0 && outliers.some(outlier => {
             return [
               [/^(HC\/V[^\/])[pq]([^\/][^\/][^\/])/, '$1-$2'],
-              // [/^(H(?:[^\/]*\/)*V[^\/])[ij]([23][^\/][^\/])/, '$1-$2'],
+              [/^(H(?:[^\/]*\/)*V[^\/])[ijc]([^\/][^\/][^\/])/, '$1-$2'],
               // [/^(H(?:[^\ /]*\/)*(?:N[^\/]|A[^\/]))[fm]/, '$1b'],
               // [/^(H(?:[^\ /]*\/)*V[^\/][iw])(?:3fs|2ms)/, '$1-'],
             ].some(replaceCheck => (
