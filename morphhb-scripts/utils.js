@@ -400,15 +400,17 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*Nc)[mf]/, '$1b')  // force etcbc to mark these as both
     }
 
-    if(morph == etcbcMorph) return "match"
-    
     if(autoParseAndValidateMap[row.accentlessword] == morph) return "match"
     if(autoParseAndValidateMap[row.accentlessword] != null) return "no match"
 
-    if(
-      morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
-      && morph.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
-    ) return "match" 
+    const morphNoCohJus = morph.replace(/^(H(?:[^\/]*\/)*V[^\/])[jh]/, '$1i')
+    if(morphNoCohJus == etcbcMorph || (
+      morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
+      && morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
+    )) {
+      // because the etcbc does not indicate jussives and cohortatives, we cannot auto-verify them (or imperfects)
+      return morphNoCohJus.match(/^H(?:[^\/]*\/)*V[^\/]i/) ? "imperfect match" : "match" 
+    }
 
     if(morph.replace(/^(A(?:[^\/]*\/)*[^\/]+d)\/Td$/, '$1') == etcbcMorph) return "match"
 

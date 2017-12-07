@@ -14,9 +14,11 @@ module.exports = (connection, done) => {
 
       const statement = `
         SELECT
-          words_enhanced.*, etcbc_enhanced.morph as etcbcMorph
+          words_enhanced.*, etcbc_enhanced.morph as etcbcMorph, notes_enhanced.id as humanNotesId
         FROM words_enhanced
           LEFT JOIN etcbc_enhanced ON (etcbc_enhanced.id = words_enhanced.id)
+          LEFT JOIN wordnote_enhanced ON (wordnote_enhanced.wordId = words_enhanced.id)
+          LEFT JOIN notes_enhanced ON (wordnote_enhanced.noteId = notes_enhanced.id AND words_enhanced.morph = notes_enhanced.morph AND notes_enhanced.memberId != 416)
         ORDER BY 
           words_enhanced.id
       `
@@ -26,28 +28,44 @@ module.exports = (connection, done) => {
         
         const updates = []
         let mismatchedVerifieds = {}
-                
+        
+        let humanCreatedThisMorph = false
+
         result.forEach((row, rowIndex) => {
 
           if(!row.morph || !row.etcbcMorph) return
 
+          humanCreatedThisMorph = humanCreatedThisMorph || !!row.humanNotesId
+          if(result[rowIndex+1] && result[rowIndex+1].id == row.id) return
+
           const compareResult = utils.compareWithETCBC({ row, skipAddl: true })
 
-          if(compareResult == "unknown") return
+          if(compareResult == "unknown") {
+            humanCreatedThisMorph = false
+            return
+          }
 
           let newStatus = row.status
 
           if(compareResult == "match") {
             newStatus = "verified"
-          } else if(compareResult == "unverified match") {
-            if(row.morph.replace(/^(H(?:[^\/]*\/)*V[^\/])[hj]/, '$1i') == row.etcbcMorph && (
+          } else if(compareResult == "imperfect match") {
+            if(row.status == "verified") {
+              newStatus = "verified"
+            } else if(row.morph.match(/^H(?:[^\/]*\/)*V[^\/][hj]/) && (
               (result[rowIndex-1] || "").lemma.match(/(?:^|\/)(?:4994|408)$/)
               || (result[rowIndex+1] || "").lemma.match(/(?:^|\/)(?:4994)$/)
             )) {
+              // verify words that can be discerned as jussives/cohortatives from the context
+              newStatus = "verified"
+            } else if(humanCreatedThisMorph) {
+              // verify those which were parsed by humans
               newStatus = "verified"
             } else {
-              newStatus = row.status == "verified" ? "verified" : "confirmed"
+              newStatus = "confirmed"
             }
+          } else if(compareResult == "unverified match") {
+            newStatus = row.status == "verified" ? "verified" : "confirmed"
           } else if(row.status == "single") {
             newStatus = "conflict"
           } else if(row.status == "confirmed") {
@@ -68,6 +86,8 @@ module.exports = (connection, done) => {
             updates.push(`UPDATE words_enhanced SET status="${newStatus}" WHERE id=${row.id}`)
           }
           
+          humanCreatedThisMorph = false
+
         })
 
         mismatchedVerifieds = Object.values(mismatchedVerifieds)
