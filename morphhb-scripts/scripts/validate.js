@@ -64,6 +64,15 @@ module.exports = (connection, done) => {
             } else {
               newStatus = "confirmed"
             }
+          } else if(compareResult == "vav-perfect match") {
+            if(row.status == "verified") {
+              newStatus = "verified"
+            } else if(humanCreatedThisMorph) {
+              // verify those which were parsed by humans
+              newStatus = "verified"
+            } else {
+              newStatus = "confirmed"
+            }
           } else if(compareResult == "unverified match") {
             newStatus = row.status == "verified" ? "verified" : "confirmed"
           } else if(row.status == "single") {
