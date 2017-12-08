@@ -58,6 +58,11 @@ module.exports = (connection, done) => {
             )) {
               // verify words that can be discerned as jussives/cohortatives from the context
               newStatus = "verified"
+            } else if(row.morph.match(/^H(?:[^\/]*\/)*V[^\/]i/) && (
+              (result[rowIndex-1] || "").lemma.match(/(?:^|\/)(?:3808|1077)$/)
+            )) {
+              // verify words that can be discerned as imperfects from the context
+              newStatus = "verified"
             } else if(humanCreatedThisMorph) {
               // verify those which were parsed by humans
               newStatus = "verified"
