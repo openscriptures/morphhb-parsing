@@ -191,6 +191,7 @@ connection.connect(function(err) {
                   })
                   if(result[resultIndex].word !== wordText) {
                     console.log(`UNEXPECTED WORD: ${JSON.stringify(result[resultIndex])} VS ${JSON.stringify(jsonWord)}`)
+                    jsonWord['#'] = result[resultIndex].word
                     // process.exit()
                   }
                   if(result[resultIndex].lemma !== jsonWord['@'].lemma) {
