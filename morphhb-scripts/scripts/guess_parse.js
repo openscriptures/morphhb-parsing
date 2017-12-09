@@ -55,7 +55,7 @@ module.exports = (connection, done) => {
           const autoParseWhere = `WHERE
             accentlessword="${rowWithoutMorph.accentlessword}"
             AND lemma="${rowWithoutMorph.lemma}"
-            AND (status IN ('none', 'conflict') OR noguess IS NOT NULL)
+            AND (status IN ('none', 'conflict') OR (noguess IS NOT NULL AND status!='verified'))
             AND NOT ${utils.whereAramaic}
           `
 

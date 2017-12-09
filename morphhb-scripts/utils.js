@@ -388,7 +388,7 @@ const utils = {
   compareWithETCBC: ({ row, skipAddl=false }) => {
 
     let morph = row.morph
-    let etcbcMorph = row.etcbcMorph
+    let etcbcMorph = row.etcbcMorph || ""
 
     if(row.lemma.match(/(^|\/)1368$/)) {
       etcbcMorph = etcbcMorph

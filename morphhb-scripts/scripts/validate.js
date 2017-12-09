@@ -33,7 +33,7 @@ module.exports = (connection, done) => {
 
         result.forEach((row, rowIndex) => {
 
-          if(!row.morph || !row.etcbcMorph) return
+          if(!row.morph) return
 
           humanCreatedThisMorph = humanCreatedThisMorph || !!row.humanNotesId
           if(result[rowIndex+1] && result[rowIndex+1].id == row.id) return
@@ -89,7 +89,7 @@ module.exports = (connection, done) => {
               mismatchedVerifieds[row.accentlessword] = {
                 accentlessword: row.accentlessword,
                 morph: row.morph,
-                etcbcMorph: row.etcbcMorph,
+                etcbcMorph: row.etcbcMorph || "",
                 num: 0,
               }
             }
