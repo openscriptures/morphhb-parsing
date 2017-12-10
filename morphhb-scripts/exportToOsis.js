@@ -258,7 +258,7 @@ connection.connect(function(err) {
                   group: [
                     {
                       '=': 'date',
-                      '#': '2013.12.11',
+                      '#': today,
                     },
                     {
                       '=': 'p',
