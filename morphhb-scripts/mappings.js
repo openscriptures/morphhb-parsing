@@ -523,6 +523,7 @@ const autoParseAndValidateMap = {
   "לְ/טוֹבָה": "HR/Aafsa",
   "לַ/טּוֹבָה": "HRd/Aafsa",
   "מִ/טּוֹבָה": "HR/Aafsa",
+  "בַּ/עֲצָמַ/י": "HR/Ncfpc/Sp1cs",
   
   "הִנְ/נִי": "HTm/Sp1cs",
   "הִנְּ/ךָ": "HTm/Sp2ms",
