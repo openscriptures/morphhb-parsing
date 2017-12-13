@@ -51,7 +51,7 @@ const autoParseMap = {
   "לְ/כָל": "HR/Ncmsc",
   "יַעַן": "HC",
   "בְנ/וֹ": "HNcmsc/Sp3ms",
-  "בְּ/עֵינֵי": "HR/Ncfdc",
+  "בְּ/עֵינֵי": "HR/Ncbdc",
   "אֱלֹהֵי/כֶם": "HNcmpc/Sp2mp",
   "שִׁבְעָה": "HAcmsa",
   "שְׁמֶ/ךָ": "HNcmsc/Sp2ms",
