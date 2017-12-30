@@ -66,6 +66,9 @@ We will mark the following nouns as gender 'both'
   תּוֹר  - H8449
   חֶבֶל  - H2256a
   גֹּרֶן  - H1637
+  מָעוֹן  - H4583
+  מְעוֹנָה  - H4585
+  מְעוֹנֹתַי  - H4587
 
 We will mark the following cardinal adjectives as gender 'both'
   H7657

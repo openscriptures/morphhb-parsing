@@ -966,6 +966,9 @@ const bothGenderLemmas = [
   "8449",
   "2256 a",
   "1637",
+  "4583",
+  "4585",
+  "4587",
 
   // these are cardinal adjectives that likewise should always be both
   "7657",
