@@ -250,22 +250,24 @@ connection.connect(function(err) {
 
                 // add in / update headers
 
-                jsonObj.osis.group[0].group[0].group.unshift({
-                  '=': 'revisionDesc',
-                  '@': {
-                    resp: 'dt',
-                  },
-                  group: [
-                    {
-                      '=': 'date',
-                      '#': today,
+                if(jsonObj.osis.group[0].group[0].group[0].group[1]['#'] == "Release of full morphology (incomplete pre-release)") {
+                  jsonObj.osis.group[0].group[0].group[0] = {
+                    '=': 'revisionDesc',
+                    '@': {
+                      resp: 'dt',
                     },
-                    {
-                      '=': 'p',
-                      '#': 'Release of full morphology' + (unverifieds ? ' (incomplete pre-release)' : ''),
-                    },
-                  ],
-                })
+                    group: [
+                      {
+                        '=': 'date',
+                        '#': today,
+                      },
+                      {
+                        '=': 'p',
+                        '#': 'Release of full morphology' + (unverifieds ? ' (incomplete pre-release)' : ''),
+                      },
+                    ],
+                  }
+                }
 
                 jsonObj.osis.group[0].group[0].group.some(headerTag => {
                   if(headerTag['@'] && headerTag['@'].osisWork == 'OSHM') {
@@ -282,9 +284,19 @@ connection.connect(function(err) {
                       Contributor: 'ctb',
                     }
 
+                    // remove contributors (I'll add in an updated version next)
+                    headerTag.group = headerTag.group.filter(tag => tag['='] != 'contributor')
+
+                    let insertIndex = 0
+                    headerTag.group.forEach((tag, index) => {
+                      if(tag['='] == 'title') {
+                        insertIndex = index + 1
+                      }
+                    })
+
                     contributorsResult.forEach(contributorRow => {
                       if(contributorRow.firstName || contributorRow.lastName) {
-                        headerTag.group.push({
+                        headerTag.group.splice(insertIndex++, 0, {
                           '=': 'contributor',
                           '@': {
                             role: roleMap[contributorRow.role],
