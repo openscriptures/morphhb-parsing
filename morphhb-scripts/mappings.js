@@ -592,6 +592,14 @@ const autoParseAndValidateMap = {
   "אוֹיִבְ/ךָ": "HVqrmsc/Sp2ms",
   "אויבי/ך": "HVqrmpc/Sp2ms",
 
+  "אֱוִלִים": "HAampa",
+  "וֶ/אֱוִילִים": "HC/Aampa",
+  "אֱוִיל": "HAamsa",
+  "אֱוִילִים": "HAampa",
+  "וֶ/אֱוִיל": "HC/Aamsa",
+  "לֶ/אֱוִיל": "HR/Aamsa",
+  "הָ/אֱוִיל": "HTd/Aamsa",
+
   // numbers
   "אֲחָדִים": "HAcmpa",
   "אֶחָד": "HAcmsa",
