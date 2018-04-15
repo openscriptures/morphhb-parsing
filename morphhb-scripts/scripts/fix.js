@@ -555,6 +555,21 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
+      console.log(`  Niphal/pual/hophal active participles will be corrected to be passive participles...`)
+      
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*V[NPHOMKQLD])r/,
+        replace: '$1s',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+
       console.log(`  Make all both gender nouns to be parsed as both in every instance...`)
 
       // get all nouns with a gender, with their lemma
