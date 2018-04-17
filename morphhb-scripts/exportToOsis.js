@@ -228,6 +228,16 @@ connection.connect(function(err) {
                           console.log(`UNEXPECTED SEG: ${JSON.stringify(wordOrSomethingElse)}`)
                         }
                       } else if(wordOrSomethingElse['='] == 'note') {
+                        /*
+                        There is a problem here in that something like
+                          <note type="exegesis">WLC has this word divided as <rdg>ארעא</rdg>.</note>
+                        gets turned into 
+                          <note type="exegesis"/>
+                        The issue lies in the fact that the note tag and text and tag content.
+                        Because of this, wordOrSomethingElse does not have the information.
+                        I did not see a quick fix and so will manually fix the places with this
+                        exegesis tag for now.
+                        */
                         if(wordOrSomethingElse['@'] && wordOrSomethingElse['@'].type == 'variant') {
                           wordOrSomethingElse.group.some(noteChild => {
                             if(noteChild['='] == 'rdg') {
