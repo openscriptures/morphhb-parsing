@@ -555,12 +555,12 @@ module.exports = (connection, done) => {
 
     (x, next) => {
 
-      console.log(`  Niphal/pual/hophal active participles will be corrected to be passive participles...`)
+      console.log(`  Pual/hophal/etc active participles will be corrected to be passive participles...`)
       
       utils.runReplaceOnMorph({
         connection,
         table: 'notes',
-        regex: /^(H(?:[^\/]*\/)*V[NPHOMKQLD])r/,
+        regex: /^(H(?:[^\/]*\/)*V[PHOMKQLD])r/,
         replace: '$1s',
         doVerified: true,
         next,
