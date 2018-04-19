@@ -400,6 +400,9 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*Nc)[mf]/, '$1b')  // force etcbc to mark these as both
     }
 
+    etcbcMorph = etcbcMorph
+      .replace(/^(H(?:[^\/]*\/)*V[PHOMKQLD])r/, '$1s')  // force etcbc to mark these as passive participles
+
     if(autoParseAndValidateMap[row.accentlessword] == morph) return "match"
     if(autoParseAndValidateMap[row.accentlessword] != null) return "no match"
 
