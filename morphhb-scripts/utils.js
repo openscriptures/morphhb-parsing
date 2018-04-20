@@ -424,6 +424,9 @@ const utils = {
         .replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')  // etcbc does not mark words with a pronominal suffix as construct
     }
 
+    etcbcMorph = etcbcMorph
+      .replace(/^(H(?:[^\/]*\/)*VN)r/, '$1s')  // force etcbc to mark these as passive participles (but leave them unverified)
+    
     if(row.lemma.match(/(^|\/)6440$/)) {
       etcbcMorph = etcbcMorph
         .replace(/^(H(?:[^\/]*\/)*Nc)m([^\/][^\/])/, '$1b$2')  // etcbc marks פנים as masc
