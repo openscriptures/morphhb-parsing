@@ -173,7 +173,7 @@ const autoParseAndValidateMap = {
   "מִ/מַּעַל": "HR/D",
   "מִ/מָּעַל": "HR/D",
   "מָּעְלָ/ה": "HD/Sd",
-  
+
   // טֶרֶם  is always an adverb (per Joel via Slack)
   "טֶרֶם": "HD",
   "בְּ/טֶרֶם": "HR/D",
@@ -1027,6 +1027,7 @@ const bothGenderLemmas = [
   "4930",
   "4548",
   "3895",
+  "8568",
 
   // these are cardinal adjectives that likewise should always be both
   "7657",

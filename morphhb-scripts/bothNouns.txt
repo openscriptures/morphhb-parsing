@@ -74,6 +74,7 @@ We will mark the following nouns as gender 'both'
   מַשְׂמְרָה - H4930
   מַסְמֵר - H4548
   לְחִי - H3895
+  תַּנָּה - H8568
 
 We will mark the following cardinal adjectives as gender 'both'
   H7657
