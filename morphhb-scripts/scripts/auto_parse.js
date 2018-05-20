@@ -428,6 +428,38 @@ module.exports = (connection, done) => {
       })
 
     },
+
+    (x, next) => {
+
+      console.log(`  Words with a ה but parsed Rd should be correct to be Td...`)
+      
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'words',
+        regex: /^HRd/,
+        replace: 'HTd',
+        doVerified: false,
+        extraCondition: `accentlessword REGEXP '^ה'`,
+        next,
+      })
+
+    },
+    
+    (x, next) => {
+
+      console.log(`  Words with a conjunction + ה but parsed C/Rd should be correct to be C/Td...`)
+      
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'words',
+        regex: /^HC\/Rd/,
+        replace: 'HC/Td',
+        doVerified: false,
+        extraCondition: `accentlessword REGEXP '^[^/]*/ה'`,
+        next,
+      })
+
+    },
     
     (x, next) => {
 
