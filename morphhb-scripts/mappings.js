@@ -1,4 +1,4 @@
-const suffixParsingMap = {
+const constructSuffixParsingMap = {
   "י": "/Sp1cs",
   "נִי": "/Sp1cs",
   "נִּי": "/Sp1cs",
@@ -21,7 +21,10 @@ const suffixParsingMap = {
   "ם": "/Sp3mp",
   "הֶם": "/Sp3mp",
   "הֶן": "/Sp3fp",
-  "ה": "/Sh",
+}
+
+const suffixParsingMap = {
+  "ה": "/Sd",
   "ן": "/Sn",
 }
 
@@ -444,7 +447,7 @@ const autoParseAndValidateMap = {
   "שֶׁבַע": "HAcfsa",
   "שְׁלֹשָׁה": "HAcmsa",
   "עֲשָׂרָה": "HAcmsa",
-  "מִגְרָשֶׁ/הָ": "HNcmpc/Sd",
+  "מִגְרָשֶׁ/הָ": "HNcmpc/Sp3fs",
   "שָׁלֹשׁ": "HAcfsa",
   "לא": "HTn",
   "מֵאוֹת": "HAcbpa",
@@ -1045,6 +1048,7 @@ const bothGenderLemmas = [
 
 module.exports = {
   suffixParsingMap,
+  constructSuffixParsingMap,
   autoParseMap,
   autoParseAndValidateMap,
   bothGenderLemmas,

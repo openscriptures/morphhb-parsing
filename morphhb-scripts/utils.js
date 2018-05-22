@@ -1,4 +1,4 @@
-const { suffixParsingMap, autoParseAndValidateMap, bothGenderLemmas } = require('./mappings')
+const { suffixParsingMap, constructSuffixParsingMap, autoParseAndValidateMap, bothGenderLemmas } = require('./mappings')
 
 const utils = {
 
@@ -407,10 +407,17 @@ const utils = {
     if(autoParseAndValidateMap[row.accentlessword] != null) return "no match"
 
     const morphNoCohJus = morph.replace(/^(H(?:[^\/]*\/)*V[^\/])[jh]/, '$1i').replace(/^(HC\/V[^\/])q/, '$1p')
-    if(morphNoCohJus == etcbcMorph || (
-      morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
-      && morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
-    )) {
+    if(
+      morphNoCohJus == etcbcMorph
+      || (
+        morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph
+        && morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == suffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
+      )
+      || (
+        morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$1') == etcbcMorph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/][^\/][^\/]|A[^\/][^\/][^\/]|V[^\/][rs][^\/][^\/]))a/, '$1c')
+        && morphNoCohJus.replace(/^(H(?:[^\/]*\/)*[^\/]+)(\/S[^\/]+)$/, '$2') == constructSuffixParsingMap[row.accentlessword.replace(/^.*\/([^\/]+)$/, '$1')]
+      )
+    ) {
       // because the etcbc does not indicate jussives and cohortatives, we cannot auto-verify them (or imperfects)
       if(morphNoCohJus.match(/^H(?:[^\/]*\/)*V[^\/]i/)) return "imperfect match"
       if(morphNoCohJus.match(/^HC\/V[^\/]p/)) return "vav-perfect match"
