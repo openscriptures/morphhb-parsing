@@ -180,7 +180,7 @@ connection.connect(function(err) {
                       const statementSet = `
                         ALTER TABLE words_enhanced DROP COLUMN accentlessword;
                         ALTER TABLE words_enhanced DROP COLUMN noguess;
-                        RENAME TABLE words TO words_${new Date().toString().replace(/[ :+\(\)]/g, '_')};
+                        RENAME TABLE words TO words_${new Date().toString().replace(/[ :+\(\)-]/g, '_')};
                         RENAME TABLE words_enhanced TO words;
                         RENAME TABLE words_enhanced_copy TO words_enhanced;
                       `
