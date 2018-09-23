@@ -76,6 +76,7 @@ We will mark the following nouns as gender 'both'
   לְחִי - H3895
   תַּנָּה - H8568
   רִבּוֹ - H7239
+  מִגְדָּל - H4026
 
 We will mark the following cardinal adjectives as gender 'both'
   H7657
