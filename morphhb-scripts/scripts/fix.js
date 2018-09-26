@@ -58,6 +58,21 @@ module.exports = (connection, done) => {
 
     (x, next) => {
       
+      console.log(`  A R/Tp parsing (particle > definite article with inseparable preposition) will be change to Rd (preposition > definite article)...`)
+
+      utils.runReplaceOnMorph({
+        connection,
+        table: 'notes',
+        regex: /^(H(?:[^\/]*\/)*)R\/Tp\//,
+        replace: '$1Rd/',
+        doVerified: true,
+        next,
+      })
+
+    },
+
+    (x, next) => {
+      
       console.log(`  A Tp parsing (particle > definite article with inseparable preposition) will be change to Rd (preposition > definite article)...`)
 
       utils.runReplaceOnMorph({
