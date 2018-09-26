@@ -21,6 +21,7 @@ const constructSuffixParsingMap = {
   "ם": "/Sp3mp",
   "הֶם": "/Sp3mp",
   "הֶן": "/Sp3fp",
+  "מוֹ": "/Sp3mp",
 }
 
 const suffixParsingMap = {
