@@ -618,6 +618,8 @@ const autoParseAndValidateMap = {
   "לְ/עָמֵל": "HR/Aamsa",
   "עָמֵל": "HAamsa",
 
+  "לָ/מוֹ": "HR/Sp3mp",
+
   // numbers
   "אֲחָדִים": "HAcmpa",
   "אֶחָד": "HAcmsa",
