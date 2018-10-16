@@ -6,9 +6,11 @@ const constructSuffixParsingMap = {
   "נּוּ": "/Sp1cp",
   "ךָ": "/Sp2ms",
   "כָּה": "/Sp2ms",
+  "כָה": "/Sp2ms",
   "ךְ": "/Sp2fs",
   "כֶם": "/Sp2mp",
   "כֶן": "/Sp2fp",
+  "כֶנָה": "/Sp2fp",
   "וֹ": "/Sp3ms",
   "ו": "/Sp3ms",
   "הוּ": "/Sp3ms",
@@ -21,6 +23,7 @@ const constructSuffixParsingMap = {
   "ם": "/Sp3mp",
   "הֶם": "/Sp3mp",
   "הֶן": "/Sp3fp",
+  "הֵן": "/Sp3fp",
   "מוֹ": "/Sp3mp",
 }
 
