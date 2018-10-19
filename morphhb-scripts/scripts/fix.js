@@ -611,7 +611,7 @@ module.exports = (connection, done) => {
         result.forEach(row => {
           const nakedLemma = row.lemma.split('/').pop()
           const shouldBeParsedBoth = bothGenderLemmas.includes(nakedLemma)
-          const isParsedBoth = !!row.morph.match(/^H([^\/]*\/)*(?:N[^\/]|Ac)b/)
+          const isParsedBoth = !!row.morph.match(/^H([^\/]*\/)*(?:N[^\/])b/)
 
           if(shouldBeParsedBoth && !isParsedBoth) {
             updates.push(`UPDATE notes_enhanced SET morph="${row.morph.replace(/^(H(?:[^\/]*\/)*(?:N[^\/]|Ac))[mf](.*)$/, '$1b$2')}" WHERE id="${row.id}"`)
