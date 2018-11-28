@@ -56,7 +56,6 @@ const autoParseMap = {
   "כָל": "HNcmsc",
   "וְ/עַד": "HC/R",
   "לְ/כָל": "HR/Ncmsc",
-  "יַעַן": "HC",
   "בְנ/וֹ": "HNcmsc/Sp3ms",
   "בְּ/עֵינֵי": "HR/Ncbdc",
   "אֱלֹהֵי/כֶם": "HNcmpc/Sp2mp",
@@ -145,6 +144,7 @@ const autoParseAndValidateMap = {
   "וּֽ/בַל": "HC/Tn",
   "וְ/אָנוּ": "HC/D",
   "וְ/כֹֽה": "HC/D",
+  "יַעַן": "HC",
 
   // Demonstrative pronouns
   "זֶה": "HPdxms",
