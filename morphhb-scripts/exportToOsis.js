@@ -26,7 +26,8 @@ connection.connect(function(err) {
 
   const bookURIsByBookId = {}
   const importDir = '../../morphhb/wlc'
-  const exportDir = "./morphhb"
+  const exportDir = '../../morphhb/wlc'
+  // const exportDir = "./morphhb"
 
   utils.runInSeries([
     
@@ -110,7 +111,7 @@ connection.connect(function(err) {
               LEFT JOIN wordnote ON (notes.id=wordnote.noteId)
               LEFT JOIN words ON (words.id=wordnote.wordId)
             WHERE
-              words.bookId=${bookId}
+              words.bookId IS NOT NULL
               AND members.id!=416
             ORDER BY
               members.role DESC
