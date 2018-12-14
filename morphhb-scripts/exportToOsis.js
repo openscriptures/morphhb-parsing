@@ -114,7 +114,8 @@ connection.connect(function(err) {
               words.bookId IS NOT NULL
               AND members.id!=416
             ORDER BY
-              members.role DESC
+              members.role DESC,
+              members.firstName
           `
         
           connection.query(contributorsStatement, (err, contributorsResult) => {
