@@ -115,7 +115,8 @@ connection.connect(function(err) {
               AND members.id!=416
             ORDER BY
               members.role DESC,
-              members.firstName
+              members.firstName,
+              members.lastName
           `
         
           connection.query(contributorsStatement, (err, contributorsResult) => {
