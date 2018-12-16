@@ -29,6 +29,8 @@ connection.connect(function(err) {
   const exportDir = '../../morphhb/wlc'
   // const exportDir = "./morphhb"
 
+  let uids
+
   utils.runInSeries([
     
     // (x, next) => {
@@ -84,6 +86,18 @@ connection.connect(function(err) {
 
     (x, next) => {
 
+      connection.query(`SELECT uid FROM uids ORDER BY id LIMIT 22000`, (err, result) => {
+        if(err) throw err
+
+        uids = result.map(row => row.uid)
+        
+        next()
+      })
+
+    },
+
+    (x, next) => {
+
       const parser = new xml2js.Parser({
         explicitChildren: true,
         preserveChildrenOrder: true,
@@ -130,6 +144,10 @@ connection.connect(function(err) {
                 console.log(err)
                 process.exit()
               }
+
+              const kjvBookId = utils.getKJVBibleBookIdByAbbr(bookURIsByBookId[bookId].replace(/\..*$/, ''))
+
+              let uidsIndex = 0
 
               parser.parseString(xml, function (err, jsonObj) {
 
@@ -201,6 +219,10 @@ connection.connect(function(err) {
                     console.log(`UNEXPECTED LEMMA: ${JSON.stringify(result[resultIndex])} VS ${JSON.stringify(jsonWord)}`)
                     jsonWord['@'].lemma = result[resultIndex].lemma
                     // process.exit()
+                  }
+
+                  if(!jsonWord['@'].id) {
+                    // jsonWord['@'].id = `${`0${kjvBookId}`.substr(-2)}${uids[uidsIndex++]}`
                   }
 
                   if(result[resultIndex].status == 'verified') {

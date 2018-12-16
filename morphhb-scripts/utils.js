@@ -578,6 +578,52 @@ const utils = {
 
   },
   
+  getKJVBibleBookIdByAbbr: (abbr) => {
+    
+    return {
+      "Gen": "1",
+      "Exod": "2",
+      "Lev": "3",
+      "Num": "4",
+      "Deut": "5",
+      "Josh": "6",
+      "Judg": "7",
+      "Ruth": "8",
+      "1Sam": "9",
+      "2Sam": "10",
+      "1Kgs": "11",
+      "2Kgs": "12",
+      "1Chr": "13",
+      "2Chr": "14",
+      "Ezra": "15",
+      "Neh": "16",
+      "Esth": "17",
+      "Job": "18",
+      "Ps": "19",
+      "Prov": "20",
+      "Eccl": "21",
+      "Song": "22",
+      "Isa": "23",
+      "Jer": "24",
+      "Lam": "25",
+      "Ezek": "26",
+      "Dan": "27",
+      "Hos": "28",
+      "Joel": "29",
+      "Amos": "30",
+      "Obad": "31",
+      "Jonah": "32",
+      "Mic": "33",
+      "Nah": "34",
+      "Hab": "35",
+      "Zeph": "36",
+      "Hag": "37",
+      "Zech": "38",
+      "Mal": "39",
+    }[abbr]
+    
+  },
+
   // ARAMAIC PASSAGES:
     // Genesis 31:47 – translation of a Hebrew placename, Jegar-Sahadutha Strong's #H3026
     // Jeremiah 10:11 – a single sentence denouncing idolatry occurs in the middle of a Hebrew text.
