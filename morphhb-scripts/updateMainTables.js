@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+process.exit()
+
 const mysql = require('mysql')
 
 const utils = require('./utils')

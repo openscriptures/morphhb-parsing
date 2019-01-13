@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+process.exit();
+
 const mysql = require('mysql')
 const xml2js = require('xml2js')
 const js2xmlparser = require("js2xmlparser")
@@ -222,7 +224,7 @@ connection.connect(function(err) {
                   }
 
                   if(!jsonWord['@'].id) {
-                    // jsonWord['@'].id = `${`0${kjvBookId}`.substr(-2)}${uids[uidsIndex++]}`
+                    jsonWord['@'].id = `${`0${kjvBookId}`.substr(-2)}${uids[uidsIndex++]}`
                   }
 
                   if(result[resultIndex].status == 'verified') {
