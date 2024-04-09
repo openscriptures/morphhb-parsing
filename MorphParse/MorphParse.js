@@ -12,12 +12,19 @@ var MorphParse = function()
      * @param {string} code A morph code
      * @returns (string} The morphology
      */
-    this.Parse = function(code)
+    this.Parse = function(code1)
     {
-		language = code.charAt(0);
-		code = code.substr(1);
+		language = code1.charAt(0);
+		code = code1.substr(1);
         var parts = code.split('/');
         var morph = parseCode(parts[0]);
+		if (!morph) {		// Not starting with language character H/A
+			code = code1;
+			parts = code.split('/');
+			morph = parseCode(parts[0]);
+			if (!morph)
+				return 'Unknown part of speech in ' + code
+		}
         for (var i = 1; i < parts.length; i++) {
             morph += ', ' + parseCode(parts[i]);
         }
@@ -52,7 +59,7 @@ var MorphParse = function()
                     morph += ' ' + parseVerb(code);
                     break;
                 default:
-                    morph += ' Unknown part of speech in ' + code;
+                    return false;
             }
         }
         return morph;
